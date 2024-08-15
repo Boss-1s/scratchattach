@@ -3,17 +3,34 @@ name: run scratchattach script
 on:
   workflow_dispatch:
     inputs:
-      script:
-        description: "Script to run"
+      py_version:
+        description: "Python Version"
         required: true
-        type: string
-        default: "message_viewer.py"
+        type: choice
+        options:
+          - "3.8"
+          - "3.10"
+          - "3.10.3"
+          - "3.11"
+          - "3.11.3"
+          - "3.12"
+          - "3.12.4"
+          - "3.12.5"
+        default: "3.11.3"
+      scratchattach:
+        description: "Reinstall and update scratchattach?"
+        type: boolean
+        required: true
+        default: true
   schedule:
     - cron: "*/300 * * * *"
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        script: ["message_viewer.py", "user_checker.py"]
     steps:
 
       - name: checkout repo content
@@ -22,13 +39,14 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.11.3' # install the python version needed
+          python-version: '${{ inputs.py_version }}' # install the python version needed
           
       - name: install python packages
+        if: "${{ inputs.scratchattach }}"
         run: |
           pip install -U scratchattach
-          python -m pip install --upgrade pip
+          python3 -m pip install --upgrade pip
           
       - name: execute py script # run message_viewer.py
         run: |
-          python3 ${{ inputs.script }}
+          python3 ${{ matrix.script }}
