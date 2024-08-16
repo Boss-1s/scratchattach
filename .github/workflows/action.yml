@@ -40,12 +40,13 @@ jobs:
         script: ["message_viewer.py", "scratch_chat.py"]
     steps:
       - name: checkout repo content
-        uses: actions/checkout@v2 # checkout the repository content to github runner
+        uses: actions/checkout@v4 # checkout the repository content to github runner
 
       - name: setup python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '${{ inputs.py_version }}' # install the python version needed
+          cache: "pip"
           
       - name: install python packages
         if: "${{ inputs.scratchattach }}"
