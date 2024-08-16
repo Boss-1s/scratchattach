@@ -26,7 +26,7 @@ def on_request(request):
     "Runs when request is recieved."
     print("Received request", request.name, "Requester:", request.requester, "Request arguments:",
           request.arguments, "Timestamp:", request.timestamp, "Request ID:", request.id)
-    os.system(f"echo Received request {request.name}, Requester: {request.requester}, Request arguments:",
-          f"{request.arguments}, Timestamp: {request.timestamp}, Request ID: {request.id}")
+    os.system(f"echo Received request {request.name}, Requester: {request.requester}, Request arguments:"
+          + f"{request.arguments}, Timestamp: {request.timestamp}, Request ID: {request.id}")
 
 client.run() #make sure this is ALWAYS at the bottom of your Python file
