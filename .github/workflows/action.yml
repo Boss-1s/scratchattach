@@ -18,7 +18,12 @@ on:
           - "3.12.5"
         default: "3.11.3"
       scratchattach:
-        description: "Reinstall and update scratchattach?"
+        description: "Reinstall packages (scratchattach, ect.)?"
+        type: boolean
+        required: true
+        default: true
+      pip:
+        description: "Update pip?"
         type: boolean
         required: true
         default: true
@@ -46,16 +51,16 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '${{ inputs.py_version }}' # install the python version needed
-
-      - name: install requirements.txt
-        run: |
-          pip freeze > requirements.txt
-          pip install -r reqiurements.txt
+          cache: "pip"
           
-      - name: install and update scratchattach
+      - name: install packages from reqirements.txt
         if: "${{ inputs.scratchattach }}"
         run: |
-          pip install -U scratchattach
+          pip install -r requirements.txt
+
+      - name: update pip
+        if: "${{ inputs.pip }}"
+        run: |
           python3 -m pip install --upgrade pip
           
       - name: execute all py scripts # run message_viewer.py
