@@ -1,4 +1,4 @@
-name: run scratchattach script
+name: Run scratchattach script
 
 on:
   workflow_dispatch:
@@ -28,7 +28,11 @@ on:
         required: true
         default: false
   schedule:
-    - cron: "*/300 * * * *"
+    - cron: "*/360 * * * *"
+  workflow_run:
+    workflows: ["Run scratchattach script"]
+    types: ["completed"]
+    branches: ["main"]
 
 jobs:
   build:
@@ -39,7 +43,6 @@ jobs:
       matrix:
         script: ["message_viewer.py", "user_checker.py"]
     steps:
-
       - name: checkout repo content
         uses: actions/checkout@v2 # checkout the repository content to github runner
 
