@@ -22,6 +22,11 @@ on:
         type: boolean
         required: true
         default: true
+      run:
+        description: "Run user_checker.py?"
+        type: boolean
+        required: true
+        default: false
   schedule:
     - cron: "*/300 * * * *"
 
@@ -47,6 +52,12 @@ jobs:
           pip install -U scratchattach
           python3 -m pip install --upgrade pip
           
-      - name: execute py script # run message_viewer.py
+      - name: execute all py scripts # run message_viewer.py
+        if: "${{ inputs.run }}"
         run: |
           python3 ${{ matrix.script }}
+
+      - name: execute message viewer only
+        if: "${{ !inputs.run }}"
+        run: |
+          python3 message_viewer.py
