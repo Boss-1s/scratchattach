@@ -45,19 +45,19 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v4
         with:
-          python-version: '${{ inputs.py_version }}' # install the python version needed
+          python-version: '${{ inputs.py_version || 3.11.3}}' # install the python version needed
           
       - name: install scratchattach
         run: |
           pip install -U scratchattach
 
       - name: update pip
-        if: "${{ inputs.pip }}"
+        if: "${{ inputs.pip || true}}"
         run: |
           python3 -m pip install --upgrade pip
           
       - name: execute all py scripts # run message_viewer.py
-        if: "${{ inputs.run }}"
+        if: "${{ inputs.run || false}}"
         run: |
           python3 ${{ matrix.script }}
 
