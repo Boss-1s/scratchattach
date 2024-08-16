@@ -47,8 +47,12 @@ jobs:
         with:
           python-version: '${{ inputs.py_version }}' # install the python version needed
           cache: "pip"
+
+      - name: install requirements.txt
+        run: |
+          pip install -r reqiurements.txt
           
-      - name: install python packages
+      - name: install and update scratchattach
         if: "${{ inputs.scratchattach }}"
         run: |
           pip install -U scratchattach
