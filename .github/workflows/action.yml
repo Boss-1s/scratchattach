@@ -17,6 +17,15 @@ on:
           - "3.12.4"
           - "3.12.5"
         default: "3.11.3"
+      runner:
+        description: "Run on which OS?"
+        type: choice
+        required: true
+        options:
+          - "macos"
+          - "ubuntu"
+          - "windows"
+        default: "ubuntu"
       pip:
         description: "Update pip?"
         type: boolean
@@ -28,10 +37,7 @@ on:
         required: true
         default: false
   schedule:
-    - cron: "00 00 * * *"
-    - cron: "00 06 * * *"
-    - cron: "00 12 * * *"
-    - cron: "00 18 * * *"
+    - cron: "00 00,06,12,18 * * *"
 
 jobs:
   build:
@@ -43,10 +49,10 @@ jobs:
         script: ["message_viewer.py", "scratch_chat.py"]
     steps:
       - name: checkout repo content
-        uses: actions/checkout@v4 # checkout the repository content to github runner
+        uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
 
       - name: setup python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v5.1.1
         with:
           python-version: "${{ github.events.inputs.py_version == '' && github.events.inputs.py_versions || '3.11.3' }}" # install the python version needed
           
