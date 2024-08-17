@@ -52,7 +52,7 @@ jobs:
           pip install -U scratchattach
 
       - name: update pip
-        if: '${{ inputs.pip == "" && true || false }}'
+        if: '${{ github.events.inputs.pip == "" && true || github.events.inputs.py_version }}'
         run: |
           python3 -m pip install --upgrade pip
           
