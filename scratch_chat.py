@@ -1,6 +1,7 @@
 """Module importing scratchattach to use for the projrct"""
 import os
 import scratchattach as scratch3
+from scratchattach import Encoding
 
 session = scratch3.login("Boss_1sALT", "han2nppQJi^w.p:")
 conn = session.connect_cloud("1051418168") #replace with your project id
