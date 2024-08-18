@@ -11,14 +11,17 @@ client = scratch3.CloudRequests(conn)
 def user_check(argument1):
     "Main client request"
     print(f"User existence requested for {argument1}")
-    os.system(f"User existence requested for {argument1}")
+    os.system(f"echo User existence requested for {argument1}")
     user = scratch3.get_user(argument1)
     return user
 
+@client.request(thread=True)
 def new_scratcher_detect(argument1):
     "Secondary client request"
     print(f"Checking if {argument1} is a new scratcher")
-    #...
+    os.system(f"echo Checking if {argument1} is a new scratcher")
+    user = session.connect_user(argument1)
+    return user.is_new_scratcher()
 
 @client.event
 def on_ready():
