@@ -21,7 +21,8 @@ def new_scratcher_detect(argument1):
     print(f"Checking if {argument1} is a new scratcher")
     os.system(f"echo Checking if {argument1} is a new scratcher")
     user = session.connect_user(argument1)
-    return user.is_new_scratcher()
+    answer = encode(user.is_new_scratcher())
+    return answer
 
 @client.event
 def on_ready():
