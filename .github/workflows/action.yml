@@ -32,10 +32,13 @@ on:
         required: true
         default: true
       run:
-        description: "Run scratch_chat.py?"
-        type: boolean
+        description: "Run which file?"
+        type: choice
         required: true
-        default: false
+        options:
+          - "message_viewer.py"
+          - "scratch_chat.py"
+        default: "message_viewer.py"
   schedule:
     - cron: "00 00,06,12,18 * * *"
 
@@ -45,8 +48,6 @@ jobs:
     continue-on-error: true
     strategy:
       fail-fast: false
-      matrix:
-        script: ["message_viewer.py", "scratch_chat.py"]
     steps:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
@@ -64,13 +65,7 @@ jobs:
         if: "${{ github.events.inputs.pip == '' && true || github.events.inputs.py_version }}"
         run: |
           python3 -m pip install --upgrade pip
-          
-      - name: execute all py scripts # run message_viewer.py
-        if: "${{ inputs.run }}"
-        run: |
-          python3 ${{ matrix.script }}
 
-      - name: execute message viewer only
-        if: "${{ !inputs.run }} && strategy.job_index === 0"
+      - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
         run: |
-          python3 message_viewer.py
+          python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
