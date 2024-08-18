@@ -15,6 +15,11 @@ def user_check(argument1):
     user = scratch3.get_user(argument1)
     return user
 
+def new_scratcher_detect(argument1):
+    "Secondary client request"
+    print(f"Checking if {argument1} is a new scratcher")
+    #...
+
 @client.event
 def on_ready():
     "Runs when client is ready."
