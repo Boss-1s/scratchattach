@@ -99,6 +99,7 @@ jobs:
     continue-on-error: true
     strategy:
       fail-fast: false
+    if: ${{ success() }}
     needs: run1
     steps:
       - name: checkout repo content
@@ -141,6 +142,7 @@ jobs:
     continue-on-error: true
     strategy:
       fail-fast: false
+    if: ${{ success() }}
     needs: [run1, run2]
     steps:
       - name: checkout repo content
@@ -182,6 +184,7 @@ jobs:
     continue-on-error: true
     strategy:
       fail-fast: false
+    if: ${{ success() }}
     needs: [run1, run2, run3]
     steps:
       - name: checkout repo content
@@ -223,6 +226,7 @@ jobs:
     continue-on-error: true
     strategy:
       fail-fast: false
+    if: ${{ success() }}
     needs: [run1, run2, run3, run4]
     steps:
       - name: checkout repo content
