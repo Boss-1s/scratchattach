@@ -59,13 +59,7 @@ jobs:
           python-version: "${{ github.events.inputs.py_version == '' && github.events.inputs.py_versions || '3.11.3' }}" # install the python version needed
           
       - name: install scratchattach
-        run: |
-          pip install -U scratchattach
-
-      - name: update pip
-        if: "${{ github.events.inputs.pip == '' && true || github.events.inputs.py_version }}"
-        run: |
-          python3 -m pip install --upgrade pip
+        uses: bossOfCode/install-scratchattach@v1.0
 
       - name: Generate UUID for cache
         id: uuid
@@ -132,6 +126,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
+      - name: reinstall scratchattach
+        uses: bossOfCode/install-scratchattach@v1.0
+
       - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
         run: |
           python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
@@ -174,6 +171,9 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
+        
+      - name: reinstall scratchattach
+        uses: bossOfCode/install-scratchattach@v1.0
 
       - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
         run: |
@@ -217,6 +217,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-pip-
 
+      - name: reinstall scratchattach
+        uses: bossOfCode/install-scratchattach@v1.0
+
       - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
         run: |
           python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
@@ -258,6 +261,9 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
+
+      - name: reinstall scratchattach
+        uses: bossOfCode/install-scratchattach@v1.0
 
       - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
         run: |
