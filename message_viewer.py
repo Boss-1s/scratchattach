@@ -36,7 +36,7 @@ def on_ready():
 def on_request(request, time):
     "Runs when request is recieved."
     print("Received request", request.name, "Requester:", request.requester, "Request arguments:",
-          request.arguments, "Timestamp:", request.timestamp, "Request ID:", request.id)
+          request.arguments, "Timestamp:", time.time(request.timestamp), "Request ID:", request.id)
     os.system(f"echo Received request {request.name}, Requester: {request.requester}, Request arguments:"
           + f"{request.arguments}, Timestamp: {time.time(request.timestamp)}, Request ID: {request.id}")
 
