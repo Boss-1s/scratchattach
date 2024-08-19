@@ -49,8 +49,6 @@ jobs:
     continue-on-error: true
     strategy:
       fail-fast: false
-    concurrency:
-      group: one
     steps:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
@@ -101,8 +99,7 @@ jobs:
     continue-on-error: true
     strategy:
       fail-fast: false
-    concurrency:
-      group: two
+    needs: run1
     steps:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
@@ -144,8 +141,7 @@ jobs:
     continue-on-error: true
     strategy:
       fail-fast: false
-    concurrency:
-      group: three
+    needs: [run1, run2]
     steps:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
@@ -186,8 +182,7 @@ jobs:
     continue-on-error: true
     strategy:
       fail-fast: false
-    concurrency:
-      group: four
+    needs: [run1, run2, run3]
     steps:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
@@ -228,8 +223,7 @@ jobs:
     continue-on-error: true
     strategy:
       fail-fast: false
-    concurrency:
-      group: five
+    needs: [run1, run2, run3, run4]
     steps:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
