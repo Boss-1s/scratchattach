@@ -44,6 +44,7 @@ on:
 
 jobs:
   run1:
+    name: 'Run 1'
     runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
     continue-on-error: true
     strategy:
@@ -87,3 +88,166 @@ jobs:
       - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
         run: |
           python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+
+  run2:
+    name: 'Run 2'
+    runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
+
+      - name: 'Restore cache: Linux Runner'
+        if: startsWith(runner.os, 'Linux')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: 'Restore cache: Mac Runner'
+        if: startsWith(runner.os, 'macOS')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~/Library/Caches/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: 'Restore cache: Windows Runner'
+        if: startsWith(runner.os, 'windows')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~\AppData\Local\pip\Cache
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+        run: |
+          python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+
+  run3:
+    name: 'Run 3'
+    runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
+
+      - name: 'Restore cache: Linux Runner'
+        if: startsWith(runner.os, 'Linux')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: 'Restore cache: Mac Runner'
+        if: startsWith(runner.os, 'macOS')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~/Library/Caches/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: 'Restore cache: Windows Runner'
+        if: startsWith(runner.os, 'windows')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~\AppData\Local\pip\Cache
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+        run: |
+          python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+  run4:
+    name: 'Run 4'
+    runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
+
+      - name: 'Restore cache: Linux Runner'
+        if: startsWith(runner.os, 'Linux')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: 'Restore cache: Mac Runner'
+        if: startsWith(runner.os, 'macOS')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~/Library/Caches/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: 'Restore cache: Windows Runner'
+        if: startsWith(runner.os, 'windows')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~\AppData\Local\pip\Cache
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+        run: |
+          python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+  run5:
+    name: 'Run 5'
+    runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
+
+      - name: 'Restore cache: Linux Runner'
+        if: startsWith(runner.os, 'Linux')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: 'Restore cache: Mac Runner'
+        if: startsWith(runner.os, 'macOS')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~/Library/Caches/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: 'Restore cache: Windows Runner'
+        if: startsWith(runner.os, 'windows')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~\AppData\Local\pip\Cache
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+        run: |
+          python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+          
