@@ -66,10 +66,6 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
 
-      - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
-        run: |
-          python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
-
       - uses: actions/cache/save@v4.0.2
         if: startsWith(runner.os, 'Linux')
         with:
@@ -87,3 +83,7 @@ jobs:
         with:
           path: ~\AppData\Local\pip\Cache
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+
+      - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+        run: |
+          python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
