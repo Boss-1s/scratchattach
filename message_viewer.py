@@ -1,5 +1,6 @@
 """Module importing scratchattach to use for the projrct"""
 import os
+import time
 import scratchattach as scratch3
 from scratchattach import Encoding
 
@@ -32,11 +33,11 @@ def on_ready():
     os.system("echo Request handler is running")
 
 @client.event
-def on_request(request):
+def on_request(request, time):
     "Runs when request is recieved."
     print("Received request", request.name, "Requester:", request.requester, "Request arguments:",
           request.arguments, "Timestamp:", request.timestamp, "Request ID:", request.id)
     os.system(f"echo Received request {request.name}, Requester: {request.requester}, Request arguments:"
-          + f"{request.arguments}, Timestamp: {request.timestamp}, Request ID: {request.id}")
+          + f"{request.arguments}, Timestamp: {time.time(request.timestamp)}, Request ID: {request.id}")
 
 client.run() #make sure this is ALWAYS at the bottom of your Python file
