@@ -33,7 +33,7 @@ def on_ready():
     os.system("echo Request handler is running")
 
 @client.event
-def on_request(request, time):
+def on_request(request):
     "Runs when request is recieved."
     print("Received request", request.name, "Requester:", request.requester, "Request arguments:",
           request.arguments, "Timestamp:", time.time(request.timestamp), "Request ID:", request.id)
