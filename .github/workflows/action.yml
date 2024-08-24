@@ -40,7 +40,7 @@ on:
           - "scratch_chat.py"
         default: "message_viewer.py"
   schedule:
-    - cron: "0 */30 * * *"
+    - cron: "00 */30 * * *"
 
 jobs:
   run1:
@@ -53,7 +53,7 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
         with:
-          refs: v1.2
+          ref: v1.2
 
       - name: setup python
         uses: actions/setup-python@v5.1.1
@@ -71,19 +71,19 @@ jobs:
         if: startsWith(runner.os, 'Linux')
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ steps.uuid.outputs.uuid }}
 
       - uses: actions/cache/save@v4.0.2
         if: startsWith(runner.os, 'macOS')
         with:
           path: ~/Library/Caches/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ steps.uuid.outputs.uuid }}
 
       - uses: actions/cache/save@v4.0.2
         if: startsWith(runner.os, 'Windows')
         with:
           path: ~\AppData\Local\pip\Cache
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ steps.uuid.outputs.uuid }}
 
       - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
         run: |
@@ -101,14 +101,14 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
         with:
-          refs: v1.2
+          ref: v1.2
 
       - name: 'Restore cache: Linux Runner'
         if: startsWith(runner.os, 'Linux')
         uses: actions/cache/restore@v4.0.2
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
@@ -117,7 +117,7 @@ jobs:
         uses: actions/cache/restore@v4.0.2
         with:
           path: ~/Library/Caches/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
@@ -126,7 +126,7 @@ jobs:
         uses: actions/cache/restore@v4.0.2
         with:
           path: ~\AppData\Local\pip\Cache
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
@@ -149,14 +149,14 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
         with:
-          refs: v1.2
+          ref: v1.2
 
       - name: 'Restore cache: Linux Runner'
         if: startsWith(runner.os, 'Linux')
         uses: actions/cache/restore@v4.0.2
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
@@ -165,7 +165,7 @@ jobs:
         uses: actions/cache/restore@v4.0.2
         with:
           path: ~/Library/Caches/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
@@ -174,7 +174,7 @@ jobs:
         uses: actions/cache/restore@v4.0.2
         with:
           path: ~\AppData\Local\pip\Cache
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
         
@@ -196,14 +196,14 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
         with:
-          refs: v1.2
+          ref: v1.2
 
       - name: 'Restore cache: Linux Runner'
         if: startsWith(runner.os, 'Linux')
         uses: actions/cache/restore@v4.0.2
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
@@ -212,7 +212,7 @@ jobs:
         uses: actions/cache/restore@v4.0.2
         with:
           path: ~/Library/Caches/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
@@ -221,7 +221,7 @@ jobs:
         uses: actions/cache/restore@v4.0.2
         with:
           path: ~\AppData\Local\pip\Cache
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
@@ -243,14 +243,14 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
         with:
-          refs: v1.2
+          ref: v1.2
 
       - name: 'Restore cache: Linux Runner'
         if: startsWith(runner.os, 'Linux')
         uses: actions/cache/restore@v4.0.2
         with:
           path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
@@ -259,7 +259,7 @@ jobs:
         uses: actions/cache/restore@v4.0.2
         with:
           path: ~/Library/Caches/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
@@ -268,7 +268,7 @@ jobs:
         uses: actions/cache/restore@v4.0.2
         with:
           path: ~\AppData\Local\pip\Cache
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.output.uuid }}
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
           restore-keys: |
             ${{ runner.os }}-pip-
 
