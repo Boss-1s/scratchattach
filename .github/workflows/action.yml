@@ -282,3 +282,50 @@ jobs:
         run: |
           python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
           
+  run6:
+    name: 'Run 6'
+    runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+    if: ${{ success() }}
+    needs: [run1, run2, run3, run4, run5]
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
+        with:
+          ref: v1.4.2
+
+      - name: 'Restore cache: Linux Runner'
+        if: startsWith(runner.os, 'Linux')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: 'Restore cache: Mac Runner'
+        if: startsWith(runner.os, 'macOS')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~/Library/Caches/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: 'Restore cache: Windows Runner'
+        if: startsWith(runner.os, 'windows')
+        uses: actions/cache/restore@v4.0.2
+        with:
+          path: ~\AppData\Local\pip\Cache
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ github.events.jobs.run1.steps.uuid.outputs.uuid }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: reinstall scratchattach
+        uses: bossOfCode/install-scratchattach@v1.0.3
+
+      - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+        run: |
+          python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
