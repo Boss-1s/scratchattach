@@ -83,6 +83,9 @@ jobs:
           path: ~\AppData\Local\pip\Cache
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}-${{ steps.uuid.outputs.uuid }}
 
+      - name: recheckout repo content
+        uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
+        
       - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
         run: |
           ls
