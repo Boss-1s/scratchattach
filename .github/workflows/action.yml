@@ -52,8 +52,6 @@ jobs:
     steps:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
-        with:
-          ref: main
           
       - name: setup python
         uses: actions/setup-python@v5.2.0
@@ -136,6 +134,7 @@ jobs:
 
       - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
         run: |
+          ls
           python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
 
   run3:
