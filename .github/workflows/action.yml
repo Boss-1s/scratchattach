@@ -52,7 +52,9 @@ jobs:
     steps:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
-          
+        with:
+          ref: v1.4.3
+
       - name: setup python
         uses: actions/setup-python@v5.2.0
         with:
@@ -85,10 +87,11 @@ jobs:
 
       - name: recheckout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
-        
+        with:
+          ref: v1.4.3
+
       - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
         run: |
-          ls
           python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
 
   run2:
@@ -103,7 +106,7 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
         with:
-          ref: v1.4.2
+          ref: v1.4.3
 
       - name: 'Restore cache: Linux Runner'
         if: startsWith(runner.os, 'Linux')
@@ -137,7 +140,6 @@ jobs:
 
       - name: execute ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
         run: |
-          ls
           python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
 
   run3:
@@ -152,7 +154,7 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
         with:
-          ref: v1.4.2
+          ref: v1.4.3
 
       - name: 'Restore cache: Linux Runner'
         if: startsWith(runner.os, 'Linux')
@@ -199,7 +201,7 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
         with:
-          ref: v1.4.2
+          ref: v1.4.3
 
       - name: 'Restore cache: Linux Runner'
         if: startsWith(runner.os, 'Linux')
@@ -246,7 +248,7 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
         with:
-          ref: v1.4.2
+          ref: v1.4.3
 
       - name: 'Restore cache: Linux Runner'
         if: startsWith(runner.os, 'Linux')
@@ -294,7 +296,7 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v4.1.7 # checkout the repository content to github runner
         with:
-          ref: v1.4.2
+          ref: v1.4.3
 
       - name: 'Restore cache: Linux Runner'
         if: startsWith(runner.os, 'Linux')
