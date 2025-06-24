@@ -3,7 +3,9 @@ import os
 import scratchattach as scratch3
 from scratchattach import Encoding
 
-session = scratch3.login("Boss_1sALT", "han2nppQJi^w.p:")
+passwrd = os.environ.get('PASS')
+
+session = scratch3.login("Boss_1sALT", passwrd)
 conn = session.connect_cloud("1054907254") #replace with your project id
 
 client = scratch3.CloudRequests(conn)
