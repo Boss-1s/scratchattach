@@ -6,11 +6,10 @@ from scratchattach import Encoding
 passwrd = os.environ.get('PASS')
 
 session = scratch3.login("Boss_1sALT", passwrd)
-conn = session.connect_cloud("1054907254") #replace with your project id
+cloud = session.connect_cloud("1054907254") #replace with your project id
+client = cloud.requests()
 
-client = scratch3.CloudRequests(conn)
-
-@client.request(thread=True)
+@client.request
 def message_ping(argument1):
     "Main client request"
     print(f"Message Count requested for {argument1}")
@@ -18,7 +17,7 @@ def message_ping(argument1):
     user = scratch3.get_user(argument1)
     return user.message_count()
 
-@client.request(thread=True)
+@client.request
 def new_scratcher_detect(argument1):
     "Secondary client request"
     print(f"Checking if {argument1} is a new scratcher")
@@ -41,4 +40,4 @@ def on_request(request):
     os.system(f"echo Received request {request.name}, Requester: {request.requester}, Request arguments:"
           + f"{request.arguments}, Timestamp: {request.timestamp}, Request ID: {request.id}")
 
-client.run() #make sure this is ALWAYS at the bottom of your Python file
+client.start(thread=True) #make sure this is ALWAYS at the bottom of your Python file
