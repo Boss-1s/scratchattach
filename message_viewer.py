@@ -1,7 +1,12 @@
 """Module importing scratchattach to use for the projrct"""
 import os
+import sys
+import time
 import scratchattach as scratch3
 from scratchattach import Encoding
+
+start_time = time.time()
+end_time = start_time + (6 * 60 * 60)
 
 passwrd = os.environ.get('PASS')
 
@@ -39,5 +44,9 @@ def on_request(request):
           request.arguments, "Timestamp:", request.timestamp, "Request ID:", request.id)
     os.system(f"echo Received request {request.name}, Requester: {request.requester}, Request arguments:"
           + f"{request.arguments}, Timestamp: {request.timestamp}, Request ID: {request.id}")
+
+if time.time() >= end_time:
+    print("6 hours reached. Stopping script.")
+    sys.exit(0)
 
 client.start(thread=True) #make sure this is ALWAYS at the bottom of your Python file
