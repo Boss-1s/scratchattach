@@ -40,9 +40,9 @@ def on_ready():
 @client.event
 def on_request(request):
     "Runs when request is recieved."
-    print("Received request", request.name, "Requester:", request.requester, "Request arguments:",
+    print("Received request:\nRequester:", request.requester, "Request arguments:",
           request.arguments, "Timestamp:", request.timestamp, "Request ID:", request.id)
-    os.system(f"echo Received request {request.name}, Requester: {request.requester}, Request arguments:"
+    os.system(f"echo Received request:\nRequester: {request.requester}, Request arguments:"
           + f"{request.arguments}, Timestamp: {request.timestamp}, Request ID: {request.id}")
 
 if time.time() >= end_time:
