@@ -2,11 +2,14 @@
 import os
 import sys
 import time
+import warnings
 import scratchattach as scratch3
 from scratchattach import Encoding
 
+warnings.filterwarnings('ignore', category=scratchattach.LoginDataWarning)
+
 start_time = time.time()
-end_time = start_time + (6 * 60 * 60)
+end_time = start_time + (5.99 * 60 * 660)
 
 passwrd = os.environ.get('PASS')
 
@@ -46,7 +49,7 @@ def on_request(request):
           + f"{request.arguments}, Timestamp: {request.timestamp}, Request ID: {request.id}")
 
 if time.time() >= end_time:
-    print("6 hours reached. Stopping script.")
+    print("5.99 hours reached. Stopping script.")
     sys.exit(0)
 
 client.start(thread=True) #make sure this is ALWAYS at the bottom of your Python file
