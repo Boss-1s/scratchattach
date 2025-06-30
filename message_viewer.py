@@ -8,9 +8,6 @@ from scratchattach import Encoding
 
 warnings.filterwarnings('ignore', category=scratchattach.LoginDataWarning)
 
-start_time = time.time()
-end_time = start_time + (5.99 * 60 * 660)
-
 passwrd = os.environ.get('PASS')
 
 session = scratch3.login("Boss_1sALT", passwrd)
@@ -47,9 +44,5 @@ def on_request(request):
           request.arguments, "Timestamp:", request.timestamp, "Request ID:", request.id)
     os.system(f"echo Received request:\nRequester: {request.requester}, Request arguments:"
           + f"{request.arguments}, Timestamp: {request.timestamp}, Request ID: {request.id}")
-
-if time.time() >= end_time:
-    print("5.99 hours reached. Stopping script.")
-    sys.exit(0)
 
 client.start(thread=True) #make sure this is ALWAYS at the bottom of your Python file
