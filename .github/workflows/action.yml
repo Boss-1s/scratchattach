@@ -94,7 +94,7 @@ jobs:
         env:
           PASS: ${{ secrets.SCRATCH_PASS }}
         run: |
-          timeout 355m python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+          timeout 355m python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }} || { [[ $? -eq 124 ]] && exit 0; }
 
   run2:
     name: 'Run 2'
@@ -144,7 +144,7 @@ jobs:
         env:
           PASS: ${{ secrets.SCRATCH_PASS }}
         run: |
-          timeout 355m python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+          timeout 355m python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }} || { [[ $? -eq 124 ]] && exit 0; }
 
   run3:
     name: 'Run 3'
@@ -194,7 +194,7 @@ jobs:
         env:
           PASS: ${{ secrets.SCRATCH_PASS }}
         run: |
-          timeout 355m python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+          timeout 355m python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }} || { [[ $? -eq 124 ]] && exit 0; }
   run4:
     name: 'Run 4'
     runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
@@ -243,7 +243,7 @@ jobs:
         env:
           PASS: ${{ secrets.SCRATCH_PASS }}
         run: |
-          timeout 355m python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+          timeout 355m python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }} || { [[ $? -eq 124 ]] && exit 0; }
   run5:
     name: 'Run 5'
     runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
@@ -292,7 +292,7 @@ jobs:
         env:
           PASS: ${{ secrets.SCRATCH_PASS }}
         run: |
-          timeout 355m python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+          timeout 355m python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }} || { [[ $? -eq 124 ]] && exit 0; }
           
   run6:
     name: 'Run 6'
@@ -342,4 +342,4 @@ jobs:
         env:
           PASS: ${{ secrets.SCRATCH_PASS }}
         run: |
-          timeout 355m python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }}
+          timeout 355m python3 ${{ github.events.inputs.run == '' && 'message_viewer.py' || github.events.inputs.run }} || { [[ $? -eq 124 ]] && exit 0; }
