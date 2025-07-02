@@ -38,11 +38,14 @@ def on_ready():
     os.system("echo Request handler is running")
 
 @client.event
+def on_error(request, e):
+    "Runs when client runs into error"
+    print("Request: ", request.name, request.requester, request.arguments, request.timestamp, request.id)
+    print("Error that occured: ", e)
+
+@client.event
 def on_request(request):
-    "Runs when request is recieved."
-    print("Received request:\nRequester:", request.requester, "Request arguments:",
-          request.arguments, "Timestamp:", request.timestamp, "Request ID:", request.id)
-    os.system(f"echo Received request:\nRequester: {request.requester}, Request arguments:"
-          + f"{request.arguments}, Timestamp: {request.timestamp}, Request ID: {request.id}")
+    "Runs when client receives request"
+    print("Received request", request.name, request.requester, request.arguments, request.timestamp, request.id)
 
 client.start(thread=True) #make sure this is ALWAYS at the bottom of your Python file
