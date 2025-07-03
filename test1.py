@@ -1,6 +1,6 @@
 import scratchattach as scratch3
 
-session = scratch3.login("Boss_1sALT", "han2nppQJi^w.p:")
+session = scratch3.login("Boss_1sALT", "")
 
 user = session.get_linked_user()
 
