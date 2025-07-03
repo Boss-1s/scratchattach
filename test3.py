@@ -1,6 +1,6 @@
 import scratchattach as scratch3
 
-session = scratch3.login("Boss_1sALT", "han2nppQJi^w.p:") 
+session = scratch3.login("Boss_1sALT", "") 
 conn = session.connect_cloud("992921739") #replace with your project id
 
 client = scratch3.CloudRequests(conn)
