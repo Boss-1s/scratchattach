@@ -6,7 +6,7 @@ import warnings
 import scratchattach as scratch3
 from scratchattach import Encoding
 
-warnings.filterwarnings('ignore', category=scratchattach.LoginDataWarning)
+warnings.filterwarnings('ignore', category=scratch3.LoginDataWarning)
 
 passwrd = os.environ.get('PASS')
 
