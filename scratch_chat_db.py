@@ -12,7 +12,9 @@ cloud = session.connect_cloud("1051418168") #<- v2.0 dev project id, not the rea
 #db
 storage = cloud.storage()
 
-db1 = db("chat", json_file_path="scratchattach/scratch_chat/chat_db.json", save_interval=5)
+os.system("cd scratch_chat")
+
+db1 = db("chat", json_file_path="chat_db.json", save_interval=5)
 #db2 = db("history", json_file_path="https://github.com/bossofcode/scratchattach/scratch_chat/chat_history_db.json", save_interval=5)
 
 storage.add_database(db1)
