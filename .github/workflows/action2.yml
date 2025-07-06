@@ -66,6 +66,7 @@ jobs:
         env:
           PASS: ${{ secrets.SCRATCH_PASS }}
         run: |
+          ls
           timeout 359m python3 scratch_chat_db.py || { [[ $? -eq 124 ]] && exit 0; }
   runrequest:
     name: 'Run Request Handler'
