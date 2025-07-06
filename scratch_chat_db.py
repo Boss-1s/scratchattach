@@ -12,10 +12,18 @@ cloud = session.connect_cloud("1051418168") #<- v2.0 dev project id, not the rea
 #db
 storage = cloud.storage()
 
-db1 = db("chat", json_file_path="https://github.com/bossofcode/scratchattach/scratch_chat/chat_db.json", save_interval=5)
-db2 = db("history", json_file_path="https://github.com/bossofcode/scratchattach/scratch_chat/chat_history_db.json", save_interval=5)
+db1 = db("chat", json_file_path="scratchattach/scratch_chat/chat_db.json", save_interval=5)
+#db2 = db("history", json_file_path="https://github.com/bossofcode/scratchattach/scratch_chat/chat_history_db.json", save_interval=5)
 
 storage.add_database(db1)
 storage.add_database(db2)
+
+@db.event
+def on_save():
+    print("The data was saved")
+
+@db.event
+def on_set(key, value):
+    print("Key", key, "was set to value", value)
 
 storage.start()
