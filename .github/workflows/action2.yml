@@ -35,8 +35,8 @@ on:
 #    - cron: "00 */6 * * *"
 
 jobs:
-  run1:
-    name: 'Run 1'
+  rundb:
+    name: 'Run Database Handler'
     runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
     continue-on-error: true
     strategy:
@@ -62,8 +62,40 @@ jobs:
 #          ref: v1.4.4a
           ref: scratch_chat_dev
 
-      - name: execute message_viewer.py
+      - name: execute scratch_chat.py
         env:
           PASS: ${{ secrets.SCRATCH_PASS }}
         run: |
-          timeout 359m python3 scratch_chat.py || { [[ $? -eq 124 ]] && exit 0; }
+          timeout 359m python3 scratch_chat_db.py || { [[ $? -eq 124 ]] && exit 0; }
+  runrequest:
+    name: 'Run Request Handler'
+    runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
+    continue-on-error: true
+    strategy:
+      fail-fast: false
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v4.2.2 # checkout the repository content to github runner
+        with:
+#          ref: v1.4.4a
+          ref: scratch_chat_dev
+
+      - name: setup python
+        uses: actions/setup-python@v5.6.0
+        with:
+          python-version: "${{ github.events.inputs.py_version == '' && '3.12.5' || github.events.inputs.py_versions }}" # install the python version needed
+          
+      - name: install scratchattach
+        uses: bossOfCode/install-scratchattach@v1.0.3
+
+      - name: recheckout repo content
+        uses: actions/checkout@v4.2.2 # checkout the repository content to github runner
+        with:
+#          ref: v1.4.4a
+          ref: scratch_chat_dev
+
+      - name: execute scratch_chat.py
+        env:
+          PASS: ${{ secrets.SCRATCH_PASS }}
+        run: |
+          timeout 359m python3 scratch_chat_requests.py || { [[ $? -eq 124 ]] && exit 0; }
