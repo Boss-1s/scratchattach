@@ -10,8 +10,6 @@ session = scratch3.login("Boss_1sALT", passwrd)
 cloud = session.connect_cloud("1051418168") #<- v2.0 dev project id, not the real one!
 
 #requests
-client = cloud.requests()
-
 client = cloud.requests(used_cloud_vars=["1", "2"])
 
 @client.request
