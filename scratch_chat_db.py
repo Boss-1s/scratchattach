@@ -34,9 +34,9 @@ def keys(argument1):
 def delete(argument1, argument2):
    storage.delete({argument1}, {argument2})
 
-@storage.request(name="ping",priority=1)
-def ping():
-    return "pong"
+@storage.request(name="db_ping",response_priority=1)
+def db_ping():
+    return "db pong"
     print("Database handler pinged")
 
 @db.event
