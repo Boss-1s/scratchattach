@@ -12,6 +12,11 @@ cloud = session.connect_cloud("1051418168") #<- v2.0 dev project id, not the rea
 #requests
 client = cloud.requests(used_cloud_vars=["1", "2"])
 
+@client.request(priority=1)
+def ping():
+    return pong
+    print("Request Handler Pinged")
+
 @client.request
 def user_check(argument1):
     "Checks if recipient of message exists"
