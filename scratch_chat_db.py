@@ -18,32 +18,32 @@ db2 = db("history", json_file_path="chat_history_db.json", save_interval=5)
 storage.add_database(db1)
 storage.add_database(db2)
 
-@storage.request(name="set")
+@storage.request
 def set(argument1, argument2):
    storage.set({argument1}, {argument2}, {argument2})
 
-@storage.request(name="get")
+@storage.request
 def get(agrument1, argument2):
    storage.get({argument1}, {argument2})
 
-@storage.request(name="keys")
+@storage.request
 def keys(argument1):
    storage.keys({argmuent1})
 
-@storage.request(name="delete")
+@storage.request
 def delete(argument1, argument2):
    storage.delete({argument1}, {argument2})
 
-@storage.request(name="db_ping",response_priority=1)
-def db_ping():
-    return "db pong"
+@storage.request(response_priority=1)
+def ping():
+    return "pong"
     print("Database handler pinged")
 
-@db.event
+@db.event(name="on_save")
 def on_save():
     print("The data was saved")
 
-@db.event
+@db.event(name="on_set")
 def on_set(key, value):
     print("Key", key, "was set to value", value)
 
