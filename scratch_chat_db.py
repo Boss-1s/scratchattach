@@ -39,11 +39,11 @@ def ping():
     return "pong"
     print("Database handler pinged")
 
-@db.event(name="on_save")
+@db.event(event_function="on_save")
 def on_save():
     print("The data was saved")
 
-@db.event(name="on_set")
+@db.event(event_function="on_set")
 def on_set(key, value):
     print("Key", key, "was set to value", value)
 
