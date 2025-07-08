@@ -69,8 +69,11 @@ jobs:
         env:
           PASS: ${{ secrets.SCRATCH_PASS }}
         run: |
-          ls
-          timeout 359m python3 scratch_chat_db.py || { [[ $? -eq 124 ]] && exit 0; }
+          git config user.name 'bossOfCode [via Actions]'
+          timeout 358m python3 scratch_chat_db.py || { [[ $? -eq 124 ]] && exit 0; }
+          git add .
+          git commit -am "[BOT] Update file from workflow"
+          git push origin scratch_chat_dev
   runrequest:
     name: 'Run Request Handler'
     runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
