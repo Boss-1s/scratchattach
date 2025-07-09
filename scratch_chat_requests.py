@@ -51,6 +51,6 @@ def on_ready():
 @client.event
 def on_request(request):
     "Runs when request is recieved."
-    print("Received request", request.name, request.requester, request.arguments, request.timestamp, request.request_id)
+    print("Received request", request.__name__, request.requester, request.arguments, request.timestamp, request.request_id)
 
 client.start(thread=True) #make sure this is ALWAYS at the bottom of your Python file
