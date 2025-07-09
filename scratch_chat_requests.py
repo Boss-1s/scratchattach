@@ -41,7 +41,7 @@ def new_scratcher_detect(argument1):
     except Exception as e:
         print(f'{argument1} may not use this project, per "new_scratcher" status rules...(See below for details):')
         print(f"ERR HTTP 403: FORBIDDEN\nRequested for:{argument1}\nStatus: REJECTED\nReason: {e}")
-        return "403 Error: user is a new scratcher - Check Python console for more details
+        return "403 Error: user is a new scratcher - Check Python console for more details"
 
 @client.request(response_priority=100)
 def set(argument1, argument2):
