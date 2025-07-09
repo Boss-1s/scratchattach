@@ -67,7 +67,7 @@ jobs:
           PASS: ${{ secrets.SCRATCH_PASS }}
         run: |
           git config --global user.name 'bossOfCode [via Actions]'
-          git config --global user.email 'bossOfCode[auto]@users.noreply.github.com
+          git config --global user.email 'bossOfCode[auto]@users.noreply.github.com'
           timeout 358m python3 scratch_chat_db.py || { [[ $? -eq 124 ]] && exit 0; }
           git add .
           git commit -m "[BOT] Update file from workflow"
