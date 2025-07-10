@@ -10,7 +10,7 @@ session = scratch3.login("Boss_1sALT", passwrd)
 cloud = session.connect_cloud("1051418168") #<- v2.0 dev project id, not the real one!
 
 #requests
-client = cloud.requests(used_cloud_vars=["1", "2"])
+client = cloud.requests(used_cloud_vars=["1", "2"],respond_order="priority")
 
 @client.request(response_priority=1)
 def ping1():
@@ -80,6 +80,6 @@ def on_ready():
 @client.event
 def on_request(request):
     "Runs when request is recieved."
-    print("Received request", request.__name__, request.requester, request.arguments, request.timestamp, request.request_id)
+    print("Received request", request.request_name, request.request_requester, request.request_arguments, request.request_timestamp, request.request_id)
 
 client.start(thread=True) #make sure this is ALWAYS at the bottom of your Python file
