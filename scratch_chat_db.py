@@ -23,38 +23,23 @@ def ping2():
     return "pong"
     print("Database handler pinged")
 
-@storage.request
-def set(argument1, argument2):
-   storage.set(argument1, argument2, argument2)
-
-@storage.request
-def get(agrument1, argument2):
-   storage.get(argument1, argument2)
-
-@storage.request
-def keys(argument1):
-   storage.keys(argmuent1)
-
-def delete(argument1, argument2):
-   storage.delete(argument1, argument2)
-
 @storage.request(name="delete")
 def delete_request(db_name, key):
     del storage.get_database(db_name).data[key]
 
-@db1.event(event_function="on_save")
+@db1.event
 def on_save():
     print("Data was saved to db chat")
 
-@db1.event(event_function="on_set")
+@db1.event
 def on_set(key, value):
     print("Key", key, "was set to value", value, "in db chat")
 
-@db2.event(event_function="on_save")
+@db2.event
 def on_save():
     print("Data was saved to db history")
 
-@db2.event(event_function="on_set")
+@db2.event
 def on_set(key, value):
     print("Key", key, "was set to value", value, "in db history")
 
