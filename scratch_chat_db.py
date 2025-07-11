@@ -7,8 +7,7 @@ from scratchattach import Database as db
 passwrd = os.environ.get('PASS') #'PASS' is env secret in the repo, not on this device
 
 session = scratch3.login("Boss_1sALT", passwrd)
-#cloud = session.connect_cloud("895107188") #<- this is the real project
-cloud = session.connect_cloud("1051418168") #<- v2.0 dev project id, not the real one!
+cloud = session.connect_cloud("895107188") #<- this is the real project
 
 #db
 storage = cloud.storage(used_cloud_vars=["3","4"])
