@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git pull
+
 # Capture the output of git status --porcelain
 GIT_STATUS_OUTPUT=$(git status --porcelain)
 
