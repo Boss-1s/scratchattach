@@ -74,9 +74,7 @@ jobs:
           timeout 358m python3 scratch_chat_db.py || { [[ $? -eq 124 ]] && exit 0; }
       - name: push changes to scratch_chat_dev #main
         run: |
-          git add .
-          git commit -m "[BOT] Update file from workflow"
-          git push origin scratch_chat_dev #main
+          bash push.sh
   runrequest:
     name: 'Run Request Handler'
     runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
