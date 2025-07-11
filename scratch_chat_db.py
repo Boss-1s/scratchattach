@@ -1,5 +1,6 @@
 """Module importing scratchattach to use for the project"""
 import os
+import json
 import scratchattach as scratch3
 from scratchattach import Database as db
 
@@ -28,8 +29,16 @@ def delete_request(db_name, key):
     del storage.get_database(db_name).data[key]
 
 @storage.request(name="delete_all")
-def delete_request(db_name):
-    del storage.get_database(db_name)
+def delete_all(db_name):
+    # write an empty dictionary to the file
+    if db_name == "chat":
+        with open("chat_db.json", "w") as f:
+            json.dump({}, f)
+    elif db_name == "history":
+        with open("chat_history_db.json", "w") as f:
+            json.dump({}, f)
+    print(f"All data deleted from database {db_name}.")
+    return ""
 
 @db1.event
 def on_save():
