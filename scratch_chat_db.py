@@ -27,6 +27,10 @@ def ping2():
 def delete_request(db_name, key):
     del storage.get_database(db_name).data[key]
 
+@storage.request(name="delete_all")
+def delete_request(db_name):
+    del storage.get_database(db_name)
+
 @db1.event
 def on_save():
     print("Data was saved to db chat")
