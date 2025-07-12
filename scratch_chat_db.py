@@ -1,8 +1,11 @@
 """Module importing scratchattach to use for the project"""
 import os
 import json
+import warnings
 import scratchattach as scratch3
 from scratchattach import Database as db
+
+warnings.filterwarnings('ignore', category=scratch3.LoginDataWarning)
 
 passwrd = os.environ.get('PASS') #'PASS' is env secret in the repo, not on this device
 
