@@ -1,6 +1,6 @@
 #!/bin/bash
 
-git pull
+git pull origin scratch_chat_dev #main
 
 # Capture the output of git status --porcelain
 GIT_STATUS_OUTPUT=$(git status --porcelain)
