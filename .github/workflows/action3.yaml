@@ -1,0 +1,64 @@
+name: Monthly Branch Merge
+
+on:
+  schedule:
+    # Run at 00:00 UTC on the first day of every month
+    - cron: '0 0 1 * *'
+
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  create_and_merge_pr1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create Pull Request
+        id: create_pr
+        run: |
+          gh pr create \
+            --base main \
+            --head scratch_chat_drv \
+            --title "Monthly Merge: scratch_chat_dev into main" \
+            --body "This pull request merges the latest changes from the 'scratch_chat_dev' branch into 'main' as part of the monthly synchronization process." \
+            --label "automerge"  # Optional: add a label for easier filtering if using auto-merge action
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable Auto-merge for the Pull Request
+        if: success() && steps.create_pr.outputs.pr_url  # Only run if PR was created successfully
+        run: |
+          gh pr merge ${{ steps.create_pr.outputs.pr_url }} --auto --admin # --admin bypasses merge queue, use with caution if needed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  create_and_merge_pr2:
+    needs: create_and_merge_pr1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create Pull Request
+        id: create_pr
+        run: |
+          gh pr create \
+            --base scratch_chat_dev \
+            --head main \
+            --title "Monthly Merge: scratch_chat_dev pull from main" \
+            --body "This pull request merges the latest changes from the 'main' branch into 'scratch_chat_dev' as part of the monthly synchronization process." \
+            --label "automerge"  # Optional: add a label for easier filtering if using auto-merge action
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Enable Auto-merge for the Pull Request
+        if: success() && steps.create_pr.outputs.pr_url  # Only run if PR was created successfully
+        run: |
+          gh pr merge ${{ steps.create_pr.outputs.pr_url }} --auto --admin # --admin bypasses merge queue, use with caution if needed
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
