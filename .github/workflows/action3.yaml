@@ -30,11 +30,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+        with:
+          ref: scratch_chat_dev
+
 
       - name: Merge
         run: |
           git checkout scratch_chat_dev 
-          git pull origin scratch_chat_deb
+          git pull origin scratch_chat_dev
           git merge main
           git push -u origin scratch_chat_dev
         env:
