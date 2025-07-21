@@ -18,7 +18,9 @@ jobs:
       - name: Merge
         run: |
           git checkout main 
-          git pull origin main
+          git pull origin main 
+          git fetch --all 
+          git status 
           git merge scratch_chat_dev
           git push -u origin main
         env:
@@ -38,6 +40,8 @@ jobs:
         run: |
           git checkout scratch_chat_dev 
           git pull origin scratch_chat_dev
+          git fetch --all 
+          git status 
           git merge main
           git push -u origin scratch_chat_dev
         env:
