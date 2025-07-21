@@ -31,7 +31,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Enable Auto-merge for the Pull Request
-        if: success() && steps.create_pr.outputs.pr_url  # Only run if PR was created successfully
+        if: success()  # Only run if PR was created successfully
         run: |
           gh pr merge ${{ steps.create_pr.outputs.pr_url }} --auto --admin # --admin bypasses merge queue, use with caution if needed
         env:
@@ -57,7 +57,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Enable Auto-merge for the Pull Request
-        if: success() && steps.create_pr.outputs.pr_url  # Only run if PR was created successfully
+        if: success()  # Only run if PR was created successfully
         run: |
           gh pr merge ${{ steps.create_pr.outputs.pr_url }} --auto --admin # --admin bypasses merge queue, use with caution if needed
         env:
