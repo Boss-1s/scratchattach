@@ -34,7 +34,10 @@ jobs:
       - name: Enable Auto-merge for the Pull Request
         if: success()  # Only run if PR was created successfully
         run: |
-          gh pr merge ${{ steps.create_pr.outputs.pr_url }} --auto # --admin bypasses merge queue, use with caution if needed
+          git checkout main 
+          git pull origin main
+          git merge scratch_chat_dev
+          git push -u origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -60,6 +63,9 @@ jobs:
       - name: Enable Auto-merge for the Pull Request
         if: success()  # Only run if PR was created successfully
         run: |
-          gh pr merge ${{ steps.create_pr.outputs.pr_url }} --auto # --admin bypasses merge queue, use with caution if needed
+          git checkout main 
+          git pull origin main
+          git merge scratch_chat_dev
+          git push -u origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
