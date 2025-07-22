@@ -40,7 +40,7 @@ def on_ready():
 @client.event
 def on_error(request, e):
     "Runs when client runs into error"
-    print("Request: ", request.name, request.requester, request.arguments, request.timestamp, request.request_id)
+    print("Request: ", request.request.name, request.requester, request.arguments, request.timestamp, request.request_id)
     print("Error that occured: ", e)
 
 @client.event
