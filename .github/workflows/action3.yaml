@@ -23,8 +23,8 @@ jobs:
           git pull origin scratch_chat_dev
           git fetch --all 
           git status
-          git commit --allow-empty -m "Create common ancestor commit"
-          git merge origin/scratch_chat_dev
+          #git commit --allow-empty -m "Create common ancestor commit"
+          git merge origin/scratch_chat_dev --allow-unrelated-histories
           git push -u origin main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -47,8 +47,8 @@ jobs:
           git pull origin main
           git fetch --all 
           git status
-          git commit --allow-empty -m "Create common ancestor commit"
-          git merge orgin/main
+          #git commit --allow-empty -m "Create common ancestor commit"
+          git merge orgin/main --allow-unrelated-histories
           git push -u origin scratch_chat_dev
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
