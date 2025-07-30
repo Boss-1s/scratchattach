@@ -46,6 +46,6 @@ def on_error(request, e):
 @client.event
 def on_request(request):
     "Runs when client receives request"
-    print("Received request", request.request.name, request.requester, request.arguments, request.timestamp, request.request_id
-
+    print("Received request", request.request.name, request.requester, request.arguments, request.timestamp, request.request_id)
+    
 client.start(thread=True) #make sure this is ALWAYS at the bottom of your Python file
