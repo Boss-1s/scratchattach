@@ -12,11 +12,15 @@ passwrd = os.environ.get('PASS') #'PASS' is env secret in the repo, not on this 
 session = scratch3.login("Boss_1sALT", passwrd)
 cloud = session.connect_cloud("895107188") #<- this is the real project
 
+def print2(str):
+    print(str)
+    os.system(str)
+
 #db
 storage = cloud.storage(used_cloud_vars=["3","4"])
 
-db1 = db("chat", json_file_path="chat_db.json", save_interval=60)
-db2 = db("history", json_file_path="chat_history_db.json", save_interval=60)
+db1 = db("chat", json_file_path="chat_db.json", save_interval=5)
+db2 = db("history", json_file_path="chat_history_db.json", save_interval=5)
 
 storage.add_database(db1)
 storage.add_database(db2)
@@ -24,7 +28,7 @@ storage.add_database(db2)
 @storage.request(response_priority=1)
 def ping2():
     return "pong"
-    print("Database handler pinged")
+    print2("Database handler pinged")
 
 @storage.request(name="delete")
 def delete_request(db_name, key):
@@ -32,30 +36,34 @@ def delete_request(db_name, key):
 
 @storage.request(name="delete_all")
 def delete_all(db_name):
-    # write an empty dictionary to the file
-    if db_name == "chat":
-        with open("chat_db.json", "w") as f:
-            json.dump({}, f)
-    elif db_name == "history":
-        with open("chat_history_db.json", "w") as f:
-            json.dump({}, f)
-    print(f"All data deleted from database {db_name}.")
-    return ""
+    try:
+        # write an empty dictionary to the file
+        if db_name == "chat":
+            with open("chat_db.json", "w") as f:
+                json.dump({}, f)
+        elif db_name == "history":
+            with open("chat_history_db.json", "w") as f:
+                json.dump({}, f)
+        print2(f"All data deleted from database {db_name}.")
+        return "go delete"
+    except Exception as e:
+        print2(f"Encountered exception {e}, data may have not been deleted")
+        return "no-go delete"
 
 @db1.event
 def on_save():
-    print("Data was saved to db chat")
+    print2("Data was saved to db chat")
 
 @db1.event
 def on_set(key, value):
-    print("Key", key, "was set to value", value, "in db chat")
+    print2(f"Key {key} was set to value {value} in db chat")
 
 @db2.event
 def on_save():
-    print("Data was saved to db history")
+    print2("Data was saved to db history")
 
 @db2.event
 def on_set(key, value):
-    print("Key", key, "was set to value", value, "in db history")
+    print2(f"Key {key} was set to value {value} in db history")
 
 storage.start()
