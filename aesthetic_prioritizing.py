@@ -11,7 +11,7 @@ usnm = "Boss_1s"
 session = sa.login(usnm, pswd)
 
 # Get the user object for your account
-user = session.get_user(usnm)
+user = session.connect_user(usnm)
 
 max_atmp = 5
 atmp = 0
