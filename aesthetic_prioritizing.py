@@ -28,7 +28,7 @@ def prioritize(attempt: int, maxAttempts: int):
             project = session.connect_project(project_id)
            
             # Check if the project is already favorited by you
-            if project in user.favorites:
+            if project in user.favorites():
                 # Unfavorite the project
                 project.unfavorite()
                 print(f"Unfavorited project {project_id}")
