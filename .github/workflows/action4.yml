@@ -1,0 +1,67 @@
+name: Run scratchattach script - aesthetic_prioritize.py
+
+permissions:
+  contents: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      py_version:
+        description: "Python Version"
+        required: true
+        type: choice
+        options:
+          - "3.8"
+          - "3.10"
+          - "3.10.3"
+          - "3.11"
+          - "3.11.3"
+          - "3.12"
+          - "3.12.4"
+          - "3.12.5"
+        default: "3.12.5"
+      runner:
+        description: "Run on which OS?"
+        type: choice
+        required: true
+        options:
+          - "macos"
+          - "ubuntu"
+          - "windows"
+        default: "ubuntu"
+      pip:
+        description: "Attepmt to update pip?"
+        type: boolean
+        required: true
+        default: true
+  schedule:
+    - cron: "00 */3 * * *"
+
+jobs:
+  rundb:
+    name: 'Run Prioritzing Handler'
+    runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
+    continue-on-error: true
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v4 # checkout the repository content to github runner
+        with:
+          ref: main
+
+      - name: setup python
+        uses: actions/setup-python@v5.6.0
+        with:
+          python-version: "${{ github.events.inputs.py_version == '' && '3.12.5' || github.events.inputs.py_versions }}" # install the python version needed
+          
+      - name: install scratchattach
+        uses: bossOfCode/install-scratchattach@v1.0.3
+
+      - name: recheckout repo content
+        uses: actions/checkout@v4 # checkout the repository content to github runner
+        with:
+          ref: main
+
+      - name: execute scratch_chat.py
+        env:
+          PASS: ${{ secrets.SCRATCH_PASS }}
+        run: aesthetic_prioritize.py
