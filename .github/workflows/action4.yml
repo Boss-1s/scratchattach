@@ -65,3 +65,10 @@ jobs:
         env:
           PASS: ${{ secrets.SCRATCH_PASS }}
         run: python3 aesthetic_prioritize.py
+
+      - name: GitHub Action Logs
+        uses: pawanbahuguna/action-logs@v2.0.0
+        env:
+          GH_TOKEN: ${{ secrets.TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          ONLY_24: false
