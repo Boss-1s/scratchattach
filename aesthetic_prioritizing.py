@@ -55,7 +55,7 @@ def prioritize(attempt: int, maxAttempts: int):
                 project.unfavorite()
                 print(f"Unfavorited project {project_id}")
                
-                time.sleep(5)
+                time.sleep(7)
                
                 print(f"Favorited project {project_id} to move it to the top")
             else:
@@ -64,7 +64,8 @@ def prioritize(attempt: int, maxAttempts: int):
             # Favorite the project again to move it to the top
             project.favorite()
 
-            time.sleep(3)          
+            time.sleep(4)
+            
     except ValueError as e:
         print(e)
         sys.exit(1)
