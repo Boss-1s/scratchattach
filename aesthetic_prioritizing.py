@@ -6,7 +6,7 @@ import scratchattach as sa
 pswd = os.environ.get("PASS") #'PASS' is an env secret in the workflow, not on this device
 usnm = "Boss_1s"
 session = sa.login(usnm, pswd)# Log in to your Scratch account
-user = session.get_user(usnm)# Get the user object for your account
+user = session.connect_user(usnm)# Get the user object for your account
 
 class ProjectNotFound(Exception):
     """Custom exception raised when a project is not found."""
