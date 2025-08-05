@@ -38,6 +38,7 @@ atmp = 0
 project_ids_to_prioritize = [1193158560, 1193158559, 1193158558, 1193158567, 1193158568]  # Replace with actual project IDs
 
 def prioritize(attempt: int, maxAttempts: int):
+    global atmp
     favorites()
     try:
         print(f"Prioritizing: Attempt {attempt + 1}")
@@ -70,13 +71,11 @@ def prioritize(attempt: int, maxAttempts: int):
 
     except ProjectNotFound as e:
         print(f"{e}. Retrying script")
-        global atmp
         atmp=atmp+1
         prioritize(atmp, max_atmp)
        
     except Exception as e:
         print(f"Process failed, retying. Error: {e}")
-        global atmp
         atmp=atmp+1
         prioritize(atmp, max_atmp)
 
