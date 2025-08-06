@@ -47,10 +47,10 @@ def prioritize(attempt: int, maxAttempts: int):
         if attempt >= maxAttempts:
             raise ValueError("Process failed, and the maximum attempt value has been reached. Exiting.")
         #debug
-        print(f"\033[35m{project_ids_to_prioritize}")
-        print(f"\033[35m{fav_project_ids[:len(project_ids_to_prioritize)]}")
-        resetColor()
-        if project_ids_to_prioritize == fav_project_ids[:len(project_ids_to_prioritize)]:
+        #print(f"\033[35m{project_ids_to_prioritize}")
+        #print(f"\033[35m{fav_project_ids[:len(project_ids_to_prioritize)]}")
+        #resetColor()
+        if project_ids_to_prioritize[::-1] == fav_project_ids[:len(project_ids_to_prioritize)]:
             print("Projects already on top. No prioritizing needed.")
             return
             
