@@ -31,14 +31,8 @@ def favorites():
     for project in favorited_projects:
         fav_project_ids.append(project.id)
 
-def color_text(str, textColor, defaultColor = "\033[0m"):
-    if textColor[0] != "\\" or defaultColor[0] != "\\":
-        raise TypeError("clor must be an ASNI escape code.")
-        
-    print(f"{textColor}{str}{defaultColor}")
-        
-    
-
+def resetColor():
+    print("\033[0m")
 
 max_atmp = 5
 atmp = 0
@@ -53,8 +47,9 @@ def prioritize(attempt: int, maxAttempts: int):
         if attempt >= maxAttempts:
             raise ValueError("Process failed, and the maximum attempt value has been reached. Exiting.")
         #debug
-        color_text("\033[35m",project_ids_to_prioritize)
-        color_text("\033[35m",fav_project_ids[:len(project_ids_to_prioritize)])
+        print("\033[35m"+project_ids_to_prioritize)
+        print("\033[35m"+fav_project_ids[:len(project_ids_to_prioritize)])
+        resetColor()
         if project_ids_to_prioritize == fav_project_ids[:len(project_ids_to_prioritize)]:
             print("Projects already on top. No prioritizing needed.")
             return
