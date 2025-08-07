@@ -1,6 +1,6 @@
 import os
 import time
-import warning
+import warnings
 import time
 import scratchattach as sa
 
