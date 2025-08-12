@@ -4,5 +4,5 @@
 [![Dependabot Updates](https://github.com/bossOfCode/scratchattach/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/bossOfCode/scratchattach/actions/workflows/dependabot/dependabot-updates) 
 [![CodeQL](https://github.com/bossOfCode/scratchattach/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/bossOfCode/scratchattach/actions/workflows/github-code-scanning/codeql)
 
-Current Version: 1.5 <br>
-07/11/2025
+Current Version: 1.6 <br>
+08/11/2025
