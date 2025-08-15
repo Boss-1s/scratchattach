@@ -1,7 +1,7 @@
 import os, json, uuid, warnings, logging
 from typing import Dict, Any, Optional, Type, List
 
-logging.basicConfig(level=logging.WARNING)
+logging.basicConfig(level=logging.INFO)
 logging.captureWarnings(True)
 
 __all__ = ["Storage", "Storage.Delete", "Storage.Load"]
@@ -326,7 +326,7 @@ class Storage:
         __all__ = ["propkey", "propval", "key"]
 
         @classmethod
-        def propkey(cls, file_path: str, top_lv_key: str | uuid.UUID, oldpropkey: str, newpropkey: str) -> None:
+        def propkey(cls, file_path: str, top_lv_key: str | uuid.UUID, oldpropkey: str, newpropkey: str, new: bool=True) -> None:
             """Edits the name of subkey within a key within a JSON file. The value of that subkey does not change."""
             try:
                 with open(file_path, "r") as f:
@@ -350,22 +350,30 @@ class Storage:
             items: Dict[str, Any] = {}
             #allkeys: List[str] = []
             #allvalues: List[Any] = []
-            for propkey, propval in subsection.values.items():
-                if propkey == oldpropkey:
-                    items[newpropkey] = propval
-                    #allkeys.append(newpropkey)
-                    #allvalues.append(propval)
-                else:
+            if oldpropkey in subsection:
+                for propkey, propval in subsection.values.items():
+                    if propkey == oldpropkey:
+                        items[newpropkey] = propval
+                        #allkeys.append(newpropkey)
+                        #allvalues.append(propval)
+                    else:
+                        items[propkey] = propval
+                        #allkeys.append(propkey)
+                        #allvalues.append(propval)
+            elif new:
+                print(f"Subkey {oldpropkey} was not found. Creating a new subkey under the name {newpropkey} with value '' (override this with new=False, will raise exception)")
+                for propkey, propval in subsection.values.items():
                     items[propkey] = propval
-                    #allkeys.append(propkey)
-                    #allvalues.append(propval)
+                items[newpropkey] = ''
+            else:
+                raise _KeyNotFoundError(file_path, oldpropkey)
 
             to_dump: Dict[str, Dict[str, Any]] = {
                 top_lv_key: items
             }
 
             Storage._Storage__store(file_path, to_dump)
-            print("Sucessfully renamed {oldpropkey} to {newpropkey}.")
+            print(f"Sucessfully renamed {oldpropkey} to {newpropkey}.")
 
         @classmethod
         def propval(cls, file_path: str, top_lv_key: str | uuid.UUID, propkey: str, newval: str) -> None:
