@@ -1,6 +1,7 @@
 import os, json, uuid, warnings, logging
 from typing import Dict, Any, Optional, Type, List
 
+logging.basicConfig(level=logging.INFO)
 logging.captureWarnings(True)
 
 __all__ = ["Storage", "Storage.Delete", "Storage.Load"]
@@ -22,15 +23,15 @@ class Storage:
     Usage:
     Storage(key: str, kwargs1: Any, kwargs2: Any...) -> Create an instance of the Storage class to store
     |
-    | __all__(\ = not public)
+    | __all__(\\ = not public)
     |  
     | Storage.__init__()
     |
-    | Storage._encode(***)(\)
-    | Storage._decode(***)(\)
-    | Storage._to_dict(***)(\)
-    | Storage._from_dict(***)(\)
-    | Storage.__store(***)(\)
+    | Storage._encode(***)(\\)
+    | Storage._decode(***)(\\)
+    | Storage._to_dict(***)(\\)
+    | Storage._from_dict(***)(\\)
+    | Storage.__store(***)(\\)
     |
     | Storage.store(file_path: str) -> Stores created instance into a JSON file
     |
@@ -39,6 +40,11 @@ class Storage:
     |  --> Storage.Load.by_index(file_path: str, index: int, raw: bool) -> same as above, but load by index, not key.
     |  --> Storage.Load.keys(file_path: str) -> returns the key of a file only.
     |  --> Storage.Load.values(file_path: str, key: str|uuid.UUID, keys: bool, raw: bool) -> returns the values of a key. Can return keys if keys=True
+    |
+    | Storage.Edit
+    |  --> Storage.Edit.propkey(file_path: str, top_lv_key: str | uuid.UUID, oldpropkey: str, newpropkey: str) -> Edits the name of a subkey within a key within a JSON file.
+    |  --> Storage.Edit.propval(file_path: str, top_lv_key: str | uuid.UUID, propkey: str, newval: str) -> Edits the value of a subkey within a key within a JSON file.
+    |  --> Storage.Edit.key(file_path: str, oldkey: str | uuid.UUID, newkey: str | uuid.UUID)
     | 
     | Storage.Delete
     |  --> Storage.Delete.by_propkey(file_path: str, top_level_key: str | uuid.UUID, property_key: str) -> deletes a subkey-value pair within a key
@@ -53,7 +59,7 @@ class Storage:
     values: Dict[str, Any]
 
     #Define public and private methods/classes
-    __all__ = ["store", "Load", "Delete", "__str__"]
+    __all__ = ["store", "Load", "Edit", "Delete", "__str__"]
     
     def __init__(self, key: str, **kwargs: Any) -> None:
         """initiate instance paramaters"""
@@ -67,7 +73,7 @@ class Storage:
         if not isinstance(string, str):
             string = str(string)
 
-        char="""`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrsedxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
+        char="""`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
         i=0
         output=''
         while i < len(string):
@@ -93,7 +99,7 @@ class Storage:
 
         to_decode=str(string)
         
-        char="""`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrsedxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
+        char="""`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
         i=0
         output=''
         while i < len(to_decode):
@@ -316,6 +322,126 @@ class Storage:
                     #print(f"DEBUG: {val}")
             return items
 
+    class Edit:
+        __all__ = ["propkey", "propval", "key"]
+
+        @classmethod
+        def propkey(cls, file_path: str, top_lv_key: str | uuid.UUID, oldpropkey: str, newpropkey: str) -> None:
+            """Edits the name of subkey within a key within a JSON file. The value of that subkey does not change."""
+            try:
+                with open(file_path, "r") as f:
+                    loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
+            except FileNotFoundError:
+                print(f"Failed to load file '{file_path}': does not exist.")
+                return None
+            except json.JSONDecodeError:
+                print(f"Failed to load file '{file_path}': contains invalid JSON.")
+                return None
+
+            if top_lv_key in loaded_data:
+                try:
+                   subsection: Dict[str, Dict[str, Any]] = Storage._from_dict({top_lv_key: loaded_data[top_lv_key]}) 
+                except ValueError as e:
+                    print(f"Error reconstructing object for key '{top_level_key}': {e}")
+                    return None
+            else:
+                raise _KeyNotFoundError(file_path, top_lv_key)
+
+            items: Dict[str, Any] = {}
+            #allkeys: List[str] = []
+            #allvalues: List[Any] = []
+            for propkey, propval in subsection.values.items():
+                if propkey == oldpropkey:
+                    items[newpropkey] = propval
+                    #allkeys.append(newpropkey)
+                    #allvalues.append(propval)
+                else:
+                    items[propkey] = propval
+                    #allkeys.append(propkey)
+                    #allvalues.append(propval)
+
+            to_dump: Dict[str, Dict[str, Any]] = {
+                top_lv_key: items
+            }
+
+            Storage._Storage__store(file_path, to_dump)
+            print("Sucessfully renamed {oldpropkey} to {newpropkey}.")
+
+        @classmethod
+        def propval(cls, file_path: str, top_lv_key: str | uuid.UUID, propkey: str, newval: str) -> None:
+            """Edits the value of a subkey within a key within a JSON file. The subkey of that value does not change."""
+            try:
+                with open(file_path, "r") as f:
+                    loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
+            except FileNotFoundError:
+                print(f"Failed to load file '{file_path}': does not exist.")
+                return None
+            except json.JSONDecodeError:
+                print(f"Failed to load file '{file_path}': contains invalid JSON.")
+                return None
+
+            if top_lv_key in loaded_data:
+                try:
+                   subsection: Dict[str, Dict[str, Any]] = Storage._from_dict({top_lv_key: loaded_data[top_lv_key]}) 
+                except ValueError as e:
+                    print(f"Error reconstructing object for key '{top_lv_key}': {e}")
+                    return None
+            else:
+                raise _KeyNotFoundError(file_path, top_lv_key)
+
+            items: Dict[str, Any] = {}
+            #allkeys: List[str] = []
+            #allvalues: List[Any] = []
+            for propkey1, propval in subsection.values.items():
+                if propkey == propkey1:
+                    oldval = propval
+                    items[propkey] = newval
+                    #allkeys.append(propkey)
+                    #allvalues.append(newval)
+                else:
+                    items[propkey1] = propval
+                    #allkeys.append(propkey1)
+                    #allvalues.append(propval)
+
+            to_dump: Dict[str, Dict[str, Any]] = {
+                top_lv_key: items
+            }
+
+            Storage._Storage__store(file_path, to_dump)
+            print(f"Sucessfully changed value {oldval} to {newval} under key {top_lv_key}.{propkey}.")
+
+        @classmethod
+        def key(cls, file_path: str, oldkey: str | uuid.UUID, newkey: str | uuid.UUID) -> None:
+            """Deletes a key-multivalue pair and its values within a JSON file. Does NOT create a new instance of Storage, you will have to regrab the values to see the changes."""
+            try:
+                with open(file_path, "r") as f:
+                    loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
+            except FileNotFoundError:
+                print(f"Failed to load file '{file_path}': does not exist.")
+                return None
+            except json.JSONDecodeError:
+                print(f"Failed to load file '{file_path}': contains invalid JSON.")
+                return None
+
+            #print(f"DEBUG: {loaded_data.keys()}")
+            #print(f"DEBUG: {loaded_data.values()}")
+            #print(f"DEBUG: {loaded_data}")
+
+            if oldkey in loaded_data:
+                loaded_data = {
+                    newkey if key == oldkey else key: value
+                    for key, value in loaded_data.items()
+                }
+                print(f"DEBUG: New dictionary: {loaded_data}")
+                try:
+                    with open(file_path, "w") as f:
+                        json.dump(loaded_data, f)
+                        print(f"Successfully changed key '{oldkey}' to '{newkey}'.")
+                except IOError as e:
+                    print(f"Error writing to file '{file_path}' after deletion: {e}")
+            else:
+                raise _KeyNotFoundError(file_path, oldkey)
+    
     class Delete:
         __all__ = ["by_propkey", "by_key", "all"]
       
@@ -342,13 +468,13 @@ class Storage:
                 raise _KeyNotFoundError(file_path, top_level_key)
             
             items: Dict[str, Any] = {}
-            allkeys: List[str] = []
-            allvalues: List[Any] = []
+            #allkeys: List[str] = []
+            #allvalues: List[Any] = []
             for propkey, propval in subsection.values.items():
                 if propkey != property_key:
                     items[propkey] = propval
-                    allkeys.append(propkey)
-                    allvalues.append(propval)
+                    #allkeys.append(propkey)
+                    #allvalues.append(propval)
 
             #print(f"DEBUG: {items}")
             #print(type(items))
@@ -396,13 +522,13 @@ class Storage:
         @staticmethod
         def all(file_path: str, warn: bool=True) -> None:
             if warn:
-                warnings.warn(f"""You are about to delete ALL of the data inside the file {file_path}. 
-                This is an irreversible action! If you are COMPLETELY CERTAIN about deleting all the data, run Storage.Delete.all(file_path, warn=False).""", UserWarning)
-                return None
+                warnings.warn(f"You are about to delete ALL of the data inside the file {file_path}. "+ 
+                              "This is an irreversible action! If you are COMPLETELY CERTAIN about deleting all the data, "+
+                              "run Storage.Delete.all(file_path, warn=False).", UserWarning)
             else:
                 with open(file_path, "w") as f:
                     json.dump({}, f)
-                    print("Deleted all data sucessfully.")
+                    print(f"Deleted all data from {file_path} sucessfully.")
                     return None
 
     def __str__(self) -> str:
@@ -416,3 +542,4 @@ class Storage:
 # Allow importing all Storage.InnerClass()
 Delete = Storage.Delete
 Load = Storage.Load
+Edit = Storage.Edit
