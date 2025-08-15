@@ -1,5 +1,6 @@
 """Module importing scratchattach to use for the project"""
 import os
+from key_multivalue_storage import Storage as s
 import warnings
 import scratchattach as scratch3
 from scratchattach import Encoding
