@@ -1,0 +1,261 @@
+﻿2025-08-30T01:20:54.6492221Z Current runner version: '2.328.0'
+2025-08-30T01:20:54.6517163Z ##[group]Runner Image Provisioner
+2025-08-30T01:20:54.6518273Z Hosted Compute Agent
+2025-08-30T01:20:54.6518804Z Version: 20250829.383
+2025-08-30T01:20:54.6519404Z Commit: 27cb235aab5b0e52e153a26cd86b4742e89dac5d
+2025-08-30T01:20:54.6520105Z Build Date: 2025-08-29T13:48:48Z
+2025-08-30T01:20:54.6520720Z ##[endgroup]
+2025-08-30T01:20:54.6521281Z ##[group]Operating System
+2025-08-30T01:20:54.6521829Z Ubuntu
+2025-08-30T01:20:54.6522305Z 24.04.3
+2025-08-30T01:20:54.6522748Z LTS
+2025-08-30T01:20:54.6523198Z ##[endgroup]
+2025-08-30T01:20:54.6523732Z ##[group]Runner Image
+2025-08-30T01:20:54.6524302Z Image: ubuntu-24.04
+2025-08-30T01:20:54.6524860Z Version: 20250824.1.0
+2025-08-30T01:20:54.6525880Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250824.1/images/ubuntu/Ubuntu2404-Readme.md
+2025-08-30T01:20:54.6527339Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250824.1
+2025-08-30T01:20:54.6528506Z ##[endgroup]
+2025-08-30T01:20:54.6530896Z ##[group]GITHUB_TOKEN Permissions
+2025-08-30T01:20:54.6532934Z Actions: write
+2025-08-30T01:20:54.6533450Z Attestations: write
+2025-08-30T01:20:54.6534036Z Checks: write
+2025-08-30T01:20:54.6534573Z Contents: write
+2025-08-30T01:20:54.6535038Z Deployments: write
+2025-08-30T01:20:54.6535581Z Discussions: write
+2025-08-30T01:20:54.6536056Z Issues: write
+2025-08-30T01:20:54.6536526Z Metadata: read
+2025-08-30T01:20:54.6537040Z Models: read
+2025-08-30T01:20:54.6537677Z Packages: write
+2025-08-30T01:20:54.6538234Z Pages: write
+2025-08-30T01:20:54.6538678Z PullRequests: write
+2025-08-30T01:20:54.6539277Z RepositoryProjects: write
+2025-08-30T01:20:54.6539833Z SecurityEvents: write
+2025-08-30T01:20:54.6540400Z Statuses: write
+2025-08-30T01:20:54.6541013Z ##[endgroup]
+2025-08-30T01:20:54.6543375Z Secret source: Actions
+2025-08-30T01:20:54.6544332Z Prepare workflow directory
+2025-08-30T01:20:54.6864926Z Prepare all required actions
+2025-08-30T01:20:54.6902648Z Getting action download info
+2025-08-30T01:20:55.1450491Z Download action repository 'actions/checkout@v4.2.1' (SHA:eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871)
+2025-08-30T01:20:55.2346603Z Download action repository 'pawanbahuguna/action-logs@v2.0.0' (SHA:2fb2206c1749d6d09b8799a05519c08ee503660d)
+2025-08-30T01:20:55.8973763Z Complete job name: Download GH action logs
+2025-08-30T01:20:55.9514181Z ##[group]Build container for action use: '/home/runner/work/_actions/pawanbahuguna/action-logs/v2.0.0/Dockerfile'.
+2025-08-30T01:20:55.9566518Z ##[command]/usr/bin/docker build -t 7d96aa:c0fffa340c9748c1b4c7dbb56a8e0b47 -f "/home/runner/work/_actions/pawanbahuguna/action-logs/v2.0.0/Dockerfile" "/home/runner/work/_actions/pawanbahuguna/action-logs/v2.0.0"
+2025-08-30T01:20:56.4601757Z #0 building with "default" instance using docker driver
+2025-08-30T01:20:56.4605760Z 
+2025-08-30T01:20:56.4606444Z #1 [internal] load build definition from Dockerfile
+2025-08-30T01:20:56.4608270Z #1 transferring dockerfile: 347B done
+2025-08-30T01:20:56.4609464Z #1 DONE 0.0s
+2025-08-30T01:20:56.4609952Z 
+2025-08-30T01:20:56.4610532Z #2 [internal] load metadata for docker.io/library/alpine:latest
+2025-08-30T01:20:56.6933658Z #2 ...
+2025-08-30T01:20:56.6934128Z 
+2025-08-30T01:20:56.6934672Z #3 [auth] library/alpine:pull token for registry-1.docker.io
+2025-08-30T01:20:56.6935814Z #3 DONE 0.0s
+2025-08-30T01:20:56.8436129Z 
+2025-08-30T01:20:57.4320178Z #2 [internal] load metadata for docker.io/library/alpine:latest
+2025-08-30T01:20:57.4320742Z #2 DONE 1.1s
+2025-08-30T01:20:57.5509781Z 
+2025-08-30T01:20:57.5510110Z #4 [internal] load .dockerignore
+2025-08-30T01:20:57.5510656Z #4 transferring context: 2B done
+2025-08-30T01:20:57.5511188Z #4 DONE 0.0s
+2025-08-30T01:20:57.5511387Z 
+2025-08-30T01:20:57.5511480Z #5 [internal] load build context
+2025-08-30T01:20:57.5511772Z #5 transferring context: 2.53kB done
+2025-08-30T01:20:57.5512055Z #5 DONE 0.0s
+2025-08-30T01:20:57.5512216Z 
+2025-08-30T01:20:57.5512577Z #6 [1/4] FROM docker.io/library/alpine:latest@sha256:4bcff63911fcb4448bd4fdacec207030997caf25e9bea4045fa6c8c44de311d1
+2025-08-30T01:20:57.5513839Z #6 resolve docker.io/library/alpine:latest@sha256:4bcff63911fcb4448bd4fdacec207030997caf25e9bea4045fa6c8c44de311d1 done
+2025-08-30T01:20:57.5514615Z #6 sha256:4bcff63911fcb4448bd4fdacec207030997caf25e9bea4045fa6c8c44de311d1 9.22kB / 9.22kB done
+2025-08-30T01:20:57.5515307Z #6 sha256:eafc1edb577d2e9b458664a15f23ea1c370214193226069eb22921169fc7e43f 1.02kB / 1.02kB done
+2025-08-30T01:20:57.5515999Z #6 sha256:9234e8fb04c47cfe0f49931e4ac7eb76fa904e33b7f8576aec0501c085f02516 581B / 581B done
+2025-08-30T01:20:57.5516672Z #6 sha256:9824c27679d3b27c5e1cb00a73adb6f4f8d556994111c12db3c5d61a0c843df8 0B / 3.80MB 0.1s
+2025-08-30T01:20:57.6760840Z #6 sha256:9824c27679d3b27c5e1cb00a73adb6f4f8d556994111c12db3c5d61a0c843df8 3.80MB / 3.80MB 0.1s done
+2025-08-30T01:20:57.6762400Z #6 extracting sha256:9824c27679d3b27c5e1cb00a73adb6f4f8d556994111c12db3c5d61a0c843df8 0.1s done
+2025-08-30T01:20:57.8292799Z #6 DONE 0.3s
+2025-08-30T01:20:57.8293168Z 
+2025-08-30T01:20:57.8293463Z #7 [2/4] RUN apk update && apk add --no-cache curl jq
+2025-08-30T01:20:57.8294176Z #7 0.127 fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+2025-08-30T01:20:58.0540149Z #7 0.202 fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+2025-08-30T01:20:58.2170342Z #7 0.515 v3.22.1-326-ge10f1967b2c [https://dl-cdn.alpinelinux.org/alpine/v3.22/main]
+2025-08-30T01:20:58.2172650Z #7 0.515 v3.22.1-327-g9450e0d108e [https://dl-cdn.alpinelinux.org/alpine/v3.22/community]
+2025-08-30T01:20:58.2173344Z #7 0.515 OK: 26322 distinct packages available
+2025-08-30T01:20:58.3535578Z #7 0.584 fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+2025-08-30T01:20:58.3536595Z #7 0.652 fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+2025-08-30T01:20:58.6449802Z #7 0.943 (1/11) Installing brotli-libs (1.1.0-r2)
+2025-08-30T01:20:58.8073725Z #7 0.955 (2/11) Installing c-ares (1.34.5-r0)
+2025-08-30T01:20:58.8077684Z #7 0.959 (3/11) Installing libunistring (1.3-r0)
+2025-08-30T01:20:58.8078240Z #7 0.971 (4/11) Installing libidn2 (2.3.7-r0)
+2025-08-30T01:20:58.8078885Z #7 0.975 (5/11) Installing nghttp2-libs (1.65.0-r0)
+2025-08-30T01:20:58.8079391Z #7 0.978 (6/11) Installing libpsl (0.21.5-r3)
+2025-08-30T01:20:58.8080262Z #7 0.980 (7/11) Installing zstd-libs (1.5.7-r0)
+2025-08-30T01:20:58.8080817Z #7 0.987 (8/11) Installing libcurl (8.14.1-r1)
+2025-08-30T01:20:58.8081304Z #7 0.995 (9/11) Installing curl (8.14.1-r1)
+2025-08-30T01:20:58.8081795Z #7 1.001 (10/11) Installing oniguruma (6.9.10-r0)
+2025-08-30T01:20:58.8082270Z #7 1.006 (11/11) Installing jq (1.8.0-r0)
+2025-08-30T01:20:58.8082735Z #7 1.011 Executing busybox-1.37.0-r18.trigger
+2025-08-30T01:20:58.8083165Z #7 1.017 OK: 13 MiB in 27 packages
+2025-08-30T01:20:58.8083538Z #7 DONE 1.1s
+2025-08-30T01:20:58.9405698Z 
+2025-08-30T01:20:58.9406207Z #8 [3/4] COPY entrypoint.sh /entrypoint.sh
+2025-08-30T01:20:58.9407065Z #8 DONE 0.0s
+2025-08-30T01:20:58.9407422Z 
+2025-08-30T01:20:58.9407761Z #9 [4/4] RUN chmod +x /entrypoint.sh
+2025-08-30T01:20:58.9408155Z #9 DONE 0.1s
+2025-08-30T01:20:59.0364007Z 
+2025-08-30T01:20:59.0364379Z #10 exporting to image
+2025-08-30T01:20:59.0364834Z #10 exporting layers 0.1s done
+2025-08-30T01:20:59.0365665Z #10 writing image sha256:4abfac716ee4106ffa409e6de6d30eddbffd6540d3411489f36115c8b8f50228 done
+2025-08-30T01:20:59.0366469Z #10 naming to docker.io/library/7d96aa:c0fffa340c9748c1b4c7dbb56a8e0b47 done
+2025-08-30T01:20:59.0367033Z #10 DONE 0.1s
+2025-08-30T01:20:59.0429547Z ##[endgroup]
+2025-08-30T01:20:59.0680349Z ##[group]Run actions/checkout@v4.2.1
+2025-08-30T01:20:59.0680932Z with:
+2025-08-30T01:20:59.0681138Z   repository: Boss-1s/scratchattach
+2025-08-30T01:20:59.0681504Z   token: ***
+2025-08-30T01:20:59.0681689Z   ssh-strict: true
+2025-08-30T01:20:59.0681869Z   ssh-user: git
+2025-08-30T01:20:59.0682054Z   persist-credentials: true
+2025-08-30T01:20:59.0682260Z   clean: true
+2025-08-30T01:20:59.0682444Z   sparse-checkout-cone-mode: true
+2025-08-30T01:20:59.0682901Z   fetch-depth: 1
+2025-08-30T01:20:59.0683076Z   fetch-tags: false
+2025-08-30T01:20:59.0683251Z   show-progress: true
+2025-08-30T01:20:59.0683434Z   lfs: false
+2025-08-30T01:20:59.0683590Z   submodules: false
+2025-08-30T01:20:59.0683774Z   set-safe-directory: true
+2025-08-30T01:20:59.0684203Z ##[endgroup]
+2025-08-30T01:20:59.1727815Z Syncing repository: Boss-1s/scratchattach
+2025-08-30T01:20:59.1729099Z ##[group]Getting Git version info
+2025-08-30T01:20:59.1729538Z Working directory is '/home/runner/work/scratchattach/scratchattach'
+2025-08-30T01:20:59.1730078Z [command]/usr/bin/git version
+2025-08-30T01:20:59.1743002Z git version 2.51.0
+2025-08-30T01:20:59.1768952Z ##[endgroup]
+2025-08-30T01:20:59.1782747Z Temporarily overriding HOME='/home/runner/work/_temp/6673fe12-7146-412a-b896-58796508d58a' before making global git config changes
+2025-08-30T01:20:59.1783570Z Adding repository directory to the temporary git global config as a safe directory
+2025-08-30T01:20:59.1788318Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-08-30T01:20:59.1823655Z Deleting the contents of '/home/runner/work/scratchattach/scratchattach'
+2025-08-30T01:20:59.1827114Z ##[group]Initializing the repository
+2025-08-30T01:20:59.1831379Z [command]/usr/bin/git init /home/runner/work/scratchattach/scratchattach
+2025-08-30T01:20:59.1899536Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-08-30T01:20:59.1900493Z hint: is subject to change. To configure the initial branch name to use in all
+2025-08-30T01:20:59.1901315Z hint: of your new repositories, which will suppress this warning, call:
+2025-08-30T01:20:59.1901916Z hint:
+2025-08-30T01:20:59.1902312Z hint: 	git config --global init.defaultBranch <name>
+2025-08-30T01:20:59.1902788Z hint:
+2025-08-30T01:20:59.1903247Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-08-30T01:20:59.1904028Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-08-30T01:20:59.1904500Z hint:
+2025-08-30T01:20:59.1904684Z hint: 	git branch -m <name>
+2025-08-30T01:20:59.1904897Z hint:
+2025-08-30T01:20:59.1905196Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-08-30T01:20:59.1905726Z Initialized empty Git repository in /home/runner/work/scratchattach/scratchattach/.git/
+2025-08-30T01:20:59.1913817Z [command]/usr/bin/git remote add origin https://github.com/Boss-1s/scratchattach
+2025-08-30T01:20:59.1943563Z ##[endgroup]
+2025-08-30T01:20:59.1943982Z ##[group]Disabling automatic garbage collection
+2025-08-30T01:20:59.1948326Z [command]/usr/bin/git config --local gc.auto 0
+2025-08-30T01:20:59.1975367Z ##[endgroup]
+2025-08-30T01:20:59.1975800Z ##[group]Setting up auth
+2025-08-30T01:20:59.1982472Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-08-30T01:20:59.2011644Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-08-30T01:20:59.2275906Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-08-30T01:20:59.2305534Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-08-30T01:20:59.2521920Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-08-30T01:20:59.2556435Z ##[endgroup]
+2025-08-30T01:20:59.2557010Z ##[group]Fetching the repository
+2025-08-30T01:20:59.2564896Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +c66e4166dcc80385fde61cb3118223aef70c8a5b:refs/remotes/origin/main
+2025-08-30T01:20:59.6625345Z From https://github.com/Boss-1s/scratchattach
+2025-08-30T01:20:59.6628948Z  * [new ref]         c66e4166dcc80385fde61cb3118223aef70c8a5b -> origin/main
+2025-08-30T01:20:59.6656823Z ##[endgroup]
+2025-08-30T01:20:59.6657417Z ##[group]Determining the checkout info
+2025-08-30T01:20:59.6659747Z ##[endgroup]
+2025-08-30T01:20:59.6664917Z [command]/usr/bin/git sparse-checkout disable
+2025-08-30T01:20:59.6706812Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-08-30T01:20:59.6734527Z ##[group]Checking out the ref
+2025-08-30T01:20:59.6739916Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-08-30T01:20:59.6798862Z Switched to a new branch 'main'
+2025-08-30T01:20:59.6801597Z branch 'main' set up to track 'origin/main'.
+2025-08-30T01:20:59.6807055Z ##[endgroup]
+2025-08-30T01:20:59.6842912Z [command]/usr/bin/git log -1 --format=%H
+2025-08-30T01:20:59.6865188Z c66e4166dcc80385fde61cb3118223aef70c8a5b
+2025-08-30T01:20:59.7040037Z ##[group]Run pawanbahuguna/action-logs@v2.0.0
+2025-08-30T01:20:59.7040336Z env:
+2025-08-30T01:20:59.7040907Z   GH_TOKEN: ***
+2025-08-30T01:20:59.7041107Z   GH_REPO: Boss-1s/scratchattach
+2025-08-30T01:20:59.7041327Z   LOGS_DIR: .logs/
+2025-08-30T01:20:59.7041495Z ##[endgroup]
+2025-08-30T01:20:59.7124886Z ##[command]/usr/bin/docker run --name d96aac0fffa340c9748c1b4c7dbb56a8e0b47_ea21c7 --label 7d96aa --workdir /github/workspace --rm -e "GH_TOKEN" -e "GH_REPO" -e "LOGS_DIR" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_RESULTS_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/scratchattach/scratchattach":"/github/workspace" 7d96aa:c0fffa340c9748c1b4c7dbb56a8e0b47
+2025-08-30T01:20:59.8774300Z Will only process 24hrs logs before or equal to 2025-08-29T01:20:59Z
+2025-08-30T01:20:59.8775193Z Searching Workflow Runs
+2025-08-30T01:21:02.5260339Z Fetching Job IDs
+2025-08-30T01:21:16.6202501Z Writing logs for job 49226258253
+2025-08-30T01:21:16.8680058Z Writing logs for job 49226254316
+2025-08-30T01:21:17.1222782Z Writing logs for job 49226254321
+2025-08-30T01:21:17.4296482Z Writing logs for job 49226254243
+2025-08-30T01:21:18.0345970Z Writing logs for job 49226222731
+2025-08-30T01:21:18.6697675Z Writing logs for job 49226222652
+2025-08-30T01:21:19.5132861Z Writing logs for job 49226222653
+2025-08-30T01:21:20.3607672Z Writing logs for job 49226211688
+2025-08-30T01:21:20.9616938Z Writing logs for job 49226210896
+2025-08-30T01:21:21.7092447Z Writing logs for job 49226210897
+2025-08-30T01:21:22.5342813Z Writing logs for job 49226116990
+2025-08-30T01:21:22.7802980Z Writing logs for job 49225526411
+2025-08-30T01:21:23.4385697Z Writing logs for job 49217401477
+2025-08-30T01:21:24.1514495Z Writing logs for job 49216530219
+2025-08-30T01:21:24.9052636Z Writing logs for job 49216530278
+2025-08-30T01:21:25.7771313Z Writing logs for job 49216529437
+2025-08-30T01:21:26.4002371Z Writing logs for job 49216516664
+2025-08-30T01:21:27.0312348Z Writing logs for job 49216516446
+2025-08-30T01:21:27.7851476Z Writing logs for job 49216516449
+2025-08-30T01:21:28.5266731Z Writing logs for job 49216409257
+2025-08-30T01:21:29.3709580Z Writing logs for job 49216409268
+2025-08-30T01:21:30.1797684Z Writing logs for job 49216409216
+2025-08-30T01:21:30.8124226Z Writing logs for job 49216372203
+2025-08-30T01:21:31.4263363Z Writing logs for job 49216368903
+2025-08-30T01:21:32.2245658Z Writing logs for job 49216368906
+2025-08-30T01:21:32.9997029Z Writing logs for job 49216334364
+2025-08-30T01:21:33.7991458Z Writing logs for job 49216332825
+2025-08-30T01:21:34.6752926Z Writing logs for job 49216332827
+2025-08-30T01:21:35.5187349Z Writing logs for job 49216315590
+2025-08-30T01:21:36.1357225Z Writing logs for job 49216314325
+2025-08-30T01:21:36.9079252Z Writing logs for job 49216314326
+2025-08-30T01:21:37.6694341Z Writing logs for job 49216292899
+2025-08-30T01:21:38.4303708Z Writing logs for job 49216292904
+2025-08-30T01:21:39.1845061Z Writing logs for job 49216292890
+2025-08-30T01:21:39.8224643Z Writing logs for job 49210734316
+2025-08-30T01:21:40.4425432Z Writing logs for job 49209721058
+2025-08-30T01:21:41.1813355Z Writing logs for job 49209093072
+2025-08-30T01:21:41.8448767Z Writing logs for job 49207857822
+2025-08-30T01:21:42.0951903Z Writing logs for job 49207451837
+2025-08-30T01:21:44.7286555Z Writing logs for job 49204380904
+2025-08-30T01:21:45.3993079Z Writing logs for job 49204365795
+2025-08-30T01:21:46.0306684Z Writing logs for job 49199676457
+2025-08-30T01:21:46.8481847Z Writing logs for job 49199676468
+2025-08-30T01:21:47.6584078Z Writing logs for job 49195155986
+2025-08-30T01:21:48.3936907Z Writing logs for job 49185533310
+2025-08-30T01:21:49.0536549Z Writing logs for job 49183352978
+2025-08-30T01:21:49.6641702Z Writing logs for job 49182507466
+2025-08-30T01:21:50.3134410Z Writing logs for job 49170234695
+2025-08-30T01:21:50.9840745Z Writing logs for job 49163140580
+2025-08-30T01:21:51.6102710Z Writing logs for job 49161671171
+2025-08-30T01:21:52.2682820Z Writing logs for job 49161195755
+2025-08-30T01:21:52.8932760Z Writing logs for job 49160088959
+2025-08-30T01:21:53.5779397Z Writing logs for job 49159694350
+2025-08-30T01:21:54.2127787Z Writing logs for job 49153120254
+2025-08-30T01:21:54.8794575Z Logs Downloaded and saved!
+2025-08-30T01:21:54.8794860Z Starting cleanup
+2025-08-30T01:21:54.8801413Z cleanup Completed!!
+2025-08-30T01:21:54.9583403Z Post job cleanup.
+2025-08-30T01:21:55.0519616Z [command]/usr/bin/git version
+2025-08-30T01:21:55.0558037Z git version 2.51.0
+2025-08-30T01:21:55.0602171Z Temporarily overriding HOME='/home/runner/work/_temp/d8eed6ec-ceff-4090-bab1-baa98e921d90' before making global git config changes
+2025-08-30T01:21:55.0603437Z Adding repository directory to the temporary git global config as a safe directory
+2025-08-30T01:21:55.0608869Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-08-30T01:21:55.0645518Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-08-30T01:21:55.0678412Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-08-30T01:21:55.0988933Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-08-30T01:21:55.0989847Z http.https://github.com/.extraheader
+2025-08-30T01:21:55.0991166Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-08-30T01:21:55.0993313Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-08-30T01:21:55.1316422Z Cleaning up orphan processes

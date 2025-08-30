@@ -1,0 +1,43 @@
+name: Download Logs
+
+on:
+  workflow_dispatch:
+  
+  schedule:
+    - cron:  '00 00 * * *'
+
+jobs:
+  logs-download:
+    name: Download GH action logs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4.2.1
+      - name: Download Logs
+        uses: pawanbahuguna/action-logs/@v2.0.0
+        env: 
+          GH_TOKEN: ${{ secrets.TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          LOGS_DIR: ".logs"
+      - name: Push Changes
+        run: |
+          git config --global user.name 'bossOfCode [via Actions]'
+          git config --global user.email 'bossOfCode[auto]@users.noreply.github.com'
+          
+          git pull origin main
+          
+          GIT_STATUS_OUTPUT=$(git status --porcelain)
+          
+          if [ -z "$GIT_STATUS_OUTPUT" ]; then
+            echo "Git working tree is clean (no uncommitted changes)."
+            exit 0
+          else
+            echo "Git working tree has uncommitted changes:"
+            echo "$GIT_STATUS_OUTPUT"
+            echo "These changes will be pushed to the main branch."
+          fi
+          
+          git add .
+          git commit -m "[BOT] Download Logs"
+          git push origin main
+          
