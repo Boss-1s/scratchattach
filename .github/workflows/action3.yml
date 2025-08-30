@@ -19,3 +19,22 @@ jobs:
           GH_TOKEN: ${{ secrets.TOKEN }}
           GH_REPO: ${{ github.repository }}
           LOGS_DIR: ".logs/"
+      - name: Push Changes
+        run: |
+          git pull origin main
+          
+          GIT_STATUS_OUTPUT=$(git status --porcelain)
+          
+          if [ -z "$GIT_STATUS_OUTPUT" ]; then
+            echo "Git working tree is clean (no uncommitted changes)."
+            exit 0
+          else
+            echo "Git working tree has uncommitted changes:"
+            echo "$GIT_STATUS_OUTPUT"
+            echo "These changes will be pushed to the main branch."
+          fi
+          
+          git add .
+          git commit -m "[BOT] Update file from workflow"
+          git push origin main
+          
