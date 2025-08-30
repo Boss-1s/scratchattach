@@ -18,9 +18,12 @@ jobs:
         env: 
           GH_TOKEN: ${{ secrets.TOKEN }}
           GH_REPO: ${{ github.repository }}
-          LOGS_DIR: ".logs/"
+          LOGS_DIR: ".logs"
       - name: Push Changes
         run: |
+          git config --global user.name 'bossOfCode [via Actions]'
+          git config --global user.email 'bossOfCode[auto]@users.noreply.github.com'
+          
           git pull origin main
           
           GIT_STATUS_OUTPUT=$(git status --porcelain)
