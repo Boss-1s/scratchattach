@@ -1,0 +1,19 @@
+name: Download Logs
+
+on:
+  schedule:
+    - cron:  '00 00 * * 0'
+
+jobs:
+  logs-download:
+    name: Download GH action logs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4.2.1
+      - name: Download Logs
+        uses: pawanbahuguna/action-logs/@v2.0.0
+        env: 
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          LOGS_DIR: ".logs/"
