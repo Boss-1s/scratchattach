@@ -1,0 +1,1472 @@
+﻿2025-09-01T12:02:40.0317119Z Current runner version: '2.328.0'
+2025-09-01T12:02:40.0349112Z ##[group]Runner Image Provisioner
+2025-09-01T12:02:40.0350473Z Hosted Compute Agent
+2025-09-01T12:02:40.0351555Z Version: 20250829.383
+2025-09-01T12:02:40.0352518Z Commit: 27cb235aab5b0e52e153a26cd86b4742e89dac5d
+2025-09-01T12:02:40.0353704Z Build Date: 2025-08-29T13:48:48Z
+2025-09-01T12:02:40.0354769Z ##[endgroup]
+2025-09-01T12:02:40.0355628Z ##[group]Operating System
+2025-09-01T12:02:40.0356724Z Ubuntu
+2025-09-01T12:02:40.0357571Z 24.04.3
+2025-09-01T12:02:40.0358310Z LTS
+2025-09-01T12:02:40.0359163Z ##[endgroup]
+2025-09-01T12:02:40.0359953Z ##[group]Runner Image
+2025-09-01T12:02:40.0361072Z Image: ubuntu-24.04
+2025-09-01T12:02:40.0362014Z Version: 20250824.1.0
+2025-09-01T12:02:40.0363810Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250824.1/images/ubuntu/Ubuntu2404-Readme.md
+2025-09-01T12:02:40.0366554Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250824.1
+2025-09-01T12:02:40.0368181Z ##[endgroup]
+2025-09-01T12:02:40.0370350Z ##[group]GITHUB_TOKEN Permissions
+2025-09-01T12:02:40.0373494Z Actions: read
+2025-09-01T12:02:40.0374455Z Contents: read
+2025-09-01T12:02:40.0375308Z Metadata: read
+2025-09-01T12:02:40.0376094Z Packages: read
+2025-09-01T12:02:40.0377128Z SecurityEvents: write
+2025-09-01T12:02:40.0378020Z ##[endgroup]
+2025-09-01T12:02:40.0381134Z Secret source: Actions
+2025-09-01T12:02:40.0382310Z Prepare workflow directory
+2025-09-01T12:02:40.1122193Z Prepare all required actions
+2025-09-01T12:02:40.1178552Z Getting action download info
+2025-09-01T12:02:40.3448421Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-09-01T12:02:40.4152046Z Download action repository 'github/codeql-action@v3' (SHA:3c3833e0f8c1c83d449a7478aa59c036a9165498)
+2025-09-01T12:02:45.5471840Z Complete job name: Analyze (python)
+2025-09-01T12:02:45.6039887Z ##[group]Run actions/checkout@v4
+2025-09-01T12:02:45.6040515Z with:
+2025-09-01T12:02:45.6040928Z   repository: Boss-1s/scratchattach
+2025-09-01T12:02:45.6041387Z   token: ***
+2025-09-01T12:02:45.6041611Z   ssh-strict: true
+2025-09-01T12:02:45.6041848Z   ssh-user: git
+2025-09-01T12:02:45.6042076Z   persist-credentials: true
+2025-09-01T12:02:45.6042330Z   clean: true
+2025-09-01T12:02:45.6042564Z   sparse-checkout-cone-mode: true
+2025-09-01T12:02:45.6042839Z   fetch-depth: 1
+2025-09-01T12:02:45.6043061Z   fetch-tags: false
+2025-09-01T12:02:45.6043282Z   show-progress: true
+2025-09-01T12:02:45.6043516Z   lfs: false
+2025-09-01T12:02:45.6043733Z   submodules: false
+2025-09-01T12:02:45.6043976Z   set-safe-directory: true
+2025-09-01T12:02:45.6044451Z env:
+2025-09-01T12:02:45.6044688Z   CODE_SCANNING_REF: refs/pull/50/head
+2025-09-01T12:02:45.6044987Z   CODE_SCANNING_BASE_BRANCH: main
+2025-09-01T12:02:45.6045308Z   CODE_SCANNING_IS_ANALYZING_DEFAULT_BRANCH: false
+2025-09-01T12:02:45.6045698Z   CODE_SCANNING_IS_STEADY_STATE_DEFAULT_SETUP: true
+2025-09-01T12:02:45.6051397Z   CODE_SCANNING_WORKFLOW_FILE: H4sIAAAAAAAA/6RV32/bNhB+919x8AakfZDzsD0JKFDFURJvhp1aCrqsKAiaOslcZFLlD6dql/99oEjX0hrPGZqn8Pjdx7v7Pp0F3WIM46ks8N18PFJWRD7089evUHGzsesJ7lCYCReNNXrCZIFEMyoEFxVRVhCHh6enkRQxFK2gW85GIxS7eAQwXV6mJJsmi8VscU1W6dWLibF0nP9muEiylFysksX05qVMa6qRrBUVbPMc4ywjySKZ3//pDpfpVXI3z//nC1wTKmjdfnGHAktqa/PfL2Z5mlzekyxP8vTbo1ma393GYJTF73LeL1e/X82X78nVbJ6+tK5HqR7KWj6SktedQqO/5Fo7WXy56P4F8HonPgSvHPeWGsU/T2oqKksrl/u6gyordOR0dqBSye1v2XLxKqCVFQLVa98yQINqy7XmUmj/DgBlpjuCQlqEGJPCoDDDYEPZA61wGNTIrOKmjbqWdQyPihsc7Um4sBhJEaFSUsVQ0lr7S20UNVi1+ypKyuuopNr0QRB63oMAuGC1LfAQAIhgP5F430vvFoC5d6RqYzj/BnwOt7a8LqKtLDAGIQUOLv0YYzj7MLZrK4yNampQm/HHsyOlNK3ZSHGykmdgP1SINtgEaaNgoukG2YO0BhQ2UnMjVRsorXZqhmGcs4B7u/t1NCCYCW44rfkXBL+SBune8ufO5Z/qyJOdc8HN290vAfjIzeYg2b537R37va1Hz02iBz2E++ACGxQFCtZGjLINF5VP8hOboNhxJcUWhYE3b+DMlx1tpDZYnPWJPllU3FU3HsNPcOlXRxdtQdu9u4PDS17F8HdPorBqIo3GNvFAO6mqYQDANVFH7svSMXx44QrxoyZdFjw9wcceqdkopKYbTt1Rhtu9lpkrCxolP7dQSgUKK66N6zeQ8CL216dF1oYqE3XgY1of6AlTWKBwRgrCa2QKjZ5cz/KbuwuySq9nWb6apRm5XS3/uO9LcvisjjhmaNhbVKVU2+BWv0U116c7Civ40E34xfR/bvu/m/vqyM0yy0Mf7pObdGOYSGs6wboTcebqtzEguF2uThI0Uh0nmCZkmq7y2dVsmuTpKSpGCUNleMndGjpKereaZ6eorKr1gWAo+GHH9ZTaB13SPwEAAP//ZjEj+9wIAAA=
+2025-09-01T12:02:45.6057371Z ##[endgroup]
+2025-09-01T12:02:45.7138429Z Syncing repository: Boss-1s/scratchattach
+2025-09-01T12:02:45.7139950Z ##[group]Getting Git version info
+2025-09-01T12:02:45.7140442Z Working directory is '/home/runner/work/scratchattach/scratchattach'
+2025-09-01T12:02:45.7141307Z [command]/usr/bin/git version
+2025-09-01T12:02:45.7172168Z git version 2.51.0
+2025-09-01T12:02:45.7198242Z ##[endgroup]
+2025-09-01T12:02:45.7214113Z Temporarily overriding HOME='/home/runner/work/_temp/38032871-8437-4c79-8292-4849253c3bdd' before making global git config changes
+2025-09-01T12:02:45.7215593Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-01T12:02:45.7228405Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-09-01T12:02:45.7262654Z Deleting the contents of '/home/runner/work/scratchattach/scratchattach'
+2025-09-01T12:02:45.7266394Z ##[group]Initializing the repository
+2025-09-01T12:02:45.7271252Z [command]/usr/bin/git init /home/runner/work/scratchattach/scratchattach
+2025-09-01T12:02:45.7338114Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-09-01T12:02:45.7339164Z hint: is subject to change. To configure the initial branch name to use in all
+2025-09-01T12:02:45.7340105Z hint: of your new repositories, which will suppress this warning, call:
+2025-09-01T12:02:45.7341161Z hint:
+2025-09-01T12:02:45.7341667Z hint: 	git config --global init.defaultBranch <name>
+2025-09-01T12:02:45.7342205Z hint:
+2025-09-01T12:02:45.7342712Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-09-01T12:02:45.7343541Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-09-01T12:02:45.7344534Z hint:
+2025-09-01T12:02:45.7345024Z hint: 	git branch -m <name>
+2025-09-01T12:02:45.7345532Z hint:
+2025-09-01T12:02:45.7346206Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-09-01T12:02:45.7347338Z Initialized empty Git repository in /home/runner/work/scratchattach/scratchattach/.git/
+2025-09-01T12:02:45.7355376Z [command]/usr/bin/git remote add origin https://github.com/Boss-1s/scratchattach
+2025-09-01T12:02:45.7386414Z ##[endgroup]
+2025-09-01T12:02:45.7386920Z ##[group]Disabling automatic garbage collection
+2025-09-01T12:02:45.7390536Z [command]/usr/bin/git config --local gc.auto 0
+2025-09-01T12:02:45.7418988Z ##[endgroup]
+2025-09-01T12:02:45.7419779Z ##[group]Setting up auth
+2025-09-01T12:02:45.7426660Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-01T12:02:45.7456426Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-01T12:02:45.7715077Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-01T12:02:45.7743945Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-01T12:02:45.7959467Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-09-01T12:02:45.7999936Z ##[endgroup]
+2025-09-01T12:02:45.8000975Z ##[group]Fetching the repository
+2025-09-01T12:02:45.8008986Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +e1fab84be8cbfe1364ce79d44487286ec7bf804f:refs/remotes/pull/50/head
+2025-09-01T12:02:46.0513952Z From https://github.com/Boss-1s/scratchattach
+2025-09-01T12:02:46.0517017Z  * [new ref]         e1fab84be8cbfe1364ce79d44487286ec7bf804f -> pull/50/head
+2025-09-01T12:02:46.0546898Z ##[endgroup]
+2025-09-01T12:02:46.0547703Z ##[group]Determining the checkout info
+2025-09-01T12:02:46.0550963Z ##[endgroup]
+2025-09-01T12:02:46.0556949Z [command]/usr/bin/git sparse-checkout disable
+2025-09-01T12:02:46.0596230Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-09-01T12:02:46.0626618Z ##[group]Checking out the ref
+2025-09-01T12:02:46.0628426Z [command]/usr/bin/git checkout --progress --force refs/remotes/pull/50/head
+2025-09-01T12:02:46.0922793Z Note: switching to 'refs/remotes/pull/50/head'.
+2025-09-01T12:02:46.0923357Z 
+2025-09-01T12:02:46.0923791Z You are in 'detached HEAD' state. You can look around, make experimental
+2025-09-01T12:02:46.0924630Z changes and commit them, and you can discard any commits you make in this
+2025-09-01T12:02:46.0925133Z state without impacting any branches by switching back to a branch.
+2025-09-01T12:02:46.0925410Z 
+2025-09-01T12:02:46.0925649Z If you want to create a new branch to retain commits you create, you may
+2025-09-01T12:02:46.0926119Z do so (now or later) by using -c with the switch command. Example:
+2025-09-01T12:02:46.0926387Z 
+2025-09-01T12:02:46.0926509Z   git switch -c <new-branch-name>
+2025-09-01T12:02:46.0926699Z 
+2025-09-01T12:02:46.0926814Z Or undo this operation with:
+2025-09-01T12:02:46.0926982Z 
+2025-09-01T12:02:46.0927084Z   git switch -
+2025-09-01T12:02:46.0927245Z 
+2025-09-01T12:02:46.0927471Z Turn off this advice by setting config variable advice.detachedHead to false
+2025-09-01T12:02:46.0927770Z 
+2025-09-01T12:02:46.0927950Z HEAD is now at e1fab84 Merge branch 'main' into scratch_chat_dev
+2025-09-01T12:02:46.0933176Z ##[endgroup]
+2025-09-01T12:02:46.0968525Z [command]/usr/bin/git log -1 --format=%H
+2025-09-01T12:02:46.0989939Z e1fab84be8cbfe1364ce79d44487286ec7bf804f
+2025-09-01T12:02:46.1267117Z ##[group]Run github/codeql-action/init@v3
+2025-09-01T12:02:46.1267474Z with:
+2025-09-01T12:02:46.1267689Z   languages: python
+2025-09-01T12:02:46.1267922Z   build-mode: none
+2025-09-01T12:02:46.1268147Z   dependency-caching: true
+2025-09-01T12:02:46.1268546Z   config: default-setup:
+  org:
+    model-packs: [  ]
+threat-models: [  ]
+
+2025-09-01T12:02:46.1269087Z   token: ***
+2025-09-01T12:02:46.1269537Z   matrix: {
+  "language": "python",
+  "category": "/language:python",
+  "build-mode": "none",
+  "runner": "[\"ubuntu-latest\"]"
+}
+2025-09-01T12:02:46.1270031Z   debug: false
+2025-09-01T12:02:46.1270232Z env:
+2025-09-01T12:02:46.1270445Z   CODE_SCANNING_REF: refs/pull/50/head
+2025-09-01T12:02:46.1270905Z   CODE_SCANNING_BASE_BRANCH: main
+2025-09-01T12:02:46.1271205Z   CODE_SCANNING_IS_ANALYZING_DEFAULT_BRANCH: false
+2025-09-01T12:02:46.1271542Z   CODE_SCANNING_IS_STEADY_STATE_DEFAULT_SETUP: true
+2025-09-01T12:02:46.1277103Z   CODE_SCANNING_WORKFLOW_FILE: H4sIAAAAAAAA/6RV32/bNhB+919x8AakfZDzsD0JKFDFURJvhp1aCrqsKAiaOslcZFLlD6dql/99oEjX0hrPGZqn8Pjdx7v7Pp0F3WIM46ks8N18PFJWRD7089evUHGzsesJ7lCYCReNNXrCZIFEMyoEFxVRVhCHh6enkRQxFK2gW85GIxS7eAQwXV6mJJsmi8VscU1W6dWLibF0nP9muEiylFysksX05qVMa6qRrBUVbPMc4ywjySKZ3//pDpfpVXI3z//nC1wTKmjdfnGHAktqa/PfL2Z5mlzekyxP8vTbo1ma393GYJTF73LeL1e/X82X78nVbJ6+tK5HqR7KWj6SktedQqO/5Fo7WXy56P4F8HonPgSvHPeWGsU/T2oqKksrl/u6gyordOR0dqBSye1v2XLxKqCVFQLVa98yQINqy7XmUmj/DgBlpjuCQlqEGJPCoDDDYEPZA61wGNTIrOKmjbqWdQyPihsc7Um4sBhJEaFSUsVQ0lr7S20UNVi1+ypKyuuopNr0QRB63oMAuGC1LfAQAIhgP5F430vvFoC5d6RqYzj/BnwOt7a8LqKtLDAGIQUOLv0YYzj7MLZrK4yNampQm/HHsyOlNK3ZSHGykmdgP1SINtgEaaNgoukG2YO0BhQ2UnMjVRsorXZqhmGcs4B7u/t1NCCYCW44rfkXBL+SBune8ufO5Z/qyJOdc8HN290vAfjIzeYg2b537R37va1Hz02iBz2E++ACGxQFCtZGjLINF5VP8hOboNhxJcUWhYE3b+DMlx1tpDZYnPWJPllU3FU3HsNPcOlXRxdtQdu9u4PDS17F8HdPorBqIo3GNvFAO6mqYQDANVFH7svSMXx44QrxoyZdFjw9wcceqdkopKYbTt1Rhtu9lpkrCxolP7dQSgUKK66N6zeQ8CL216dF1oYqE3XgY1of6AlTWKBwRgrCa2QKjZ5cz/KbuwuySq9nWb6apRm5XS3/uO9LcvisjjhmaNhbVKVU2+BWv0U116c7Civ40E34xfR/bvu/m/vqyM0yy0Mf7pObdGOYSGs6wboTcebqtzEguF2uThI0Uh0nmCZkmq7y2dVsmuTpKSpGCUNleMndGjpKereaZ6eorKr1gWAo+GHH9ZTaB13SPwEAAP//ZjEj+9wIAAA=
+2025-09-01T12:02:46.1283096Z ##[endgroup]
+2025-09-01T12:02:46.4077582Z Job run UUID is ff773d71-4927-49c9-8db8-d9f9846d5e0b.
+2025-09-01T12:02:47.0898551Z ##[group]Setup CodeQL tools
+2025-09-01T12:02:47.0959893Z [command]/usr/bin/tar --version
+2025-09-01T12:02:47.0989459Z tar (GNU tar) 1.35
+2025-09-01T12:02:47.0990057Z Copyright (C) 2023 Free Software Foundation, Inc.
+2025-09-01T12:02:47.0991135Z License GPLv3+: GNU GPL version 3 or later <https://gnu.org/licenses/gpl.html>.
+2025-09-01T12:02:47.0992042Z This is free software: you are free to change and redistribute it.
+2025-09-01T12:02:47.0992795Z There is NO WARRANTY, to the extent permitted by law.
+2025-09-01T12:02:47.0993287Z 
+2025-09-01T12:02:47.0993511Z Written by John Gilmore and Jay Fenlason.
+2025-09-01T12:02:47.0999360Z Found gnu tar version 1.35.
+2025-09-01T12:02:47.1596291Z Found CodeQL tools version 2.22.4 in the toolcache.
+2025-09-01T12:02:47.1597602Z Using CodeQL CLI version 2.22.4 from toolcache at /opt/hostedtoolcache/CodeQL/2.22.4/x64
+2025-09-01T12:02:51.4025881Z [command]/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/codeql version --format=json
+2025-09-01T12:02:52.0016554Z {
+2025-09-01T12:02:52.0017200Z   "productName" : "CodeQL",
+2025-09-01T12:02:52.0017670Z   "vendor" : "GitHub",
+2025-09-01T12:02:52.0018119Z   "version" : "2.22.4",
+2025-09-01T12:02:52.0018534Z   "sha" : "1a65b2f13f8c77cb6ab756d41aca42c0e6515e35",
+2025-09-01T12:02:52.0018986Z   "branches" : [
+2025-09-01T12:02:52.0019328Z     "codeql-cli-2.22.4"
+2025-09-01T12:02:52.0019669Z   ],
+2025-09-01T12:02:52.0019993Z   "copyright" : "Copyright (C) 2019-2025 GitHub, Inc.",
+2025-09-01T12:02:52.0020576Z   "unpackedLocation" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql",
+2025-09-01T12:02:52.0021443Z   "configFileLocation" : "/home/runner/.config/codeql/config",
+2025-09-01T12:02:52.0022011Z   "configFileFound" : false,
+2025-09-01T12:02:52.0022403Z   "overlayVersion" : 4,
+2025-09-01T12:02:52.0023286Z   "features" : {
+2025-09-01T12:02:52.0023712Z     "analysisSummaryV2Default" : true,
+2025-09-01T12:02:52.0024158Z     "buildModeOption" : true,
+2025-09-01T12:02:52.0024678Z     "bundleSupportsIncludeDiagnostics" : true,
+2025-09-01T12:02:52.0025207Z     "bundleSupportsIncludeLogs" : true,
+2025-09-01T12:02:52.0025810Z     "databaseInterpretResultsSupportsSarifRunProperty" : true,
+2025-09-01T12:02:52.0026414Z     "featuresInVersionResult" : true,
+2025-09-01T12:02:52.0026942Z     "indirectTracingSupportsStaticBinaries" : false,
+2025-09-01T12:02:52.0027519Z     "informsAboutUnsupportedPathFilters" : true,
+2025-09-01T12:02:52.0028029Z     "supportsPython312" : true,
+2025-09-01T12:02:52.0028437Z     "mrvaPackCreate" : true,
+2025-09-01T12:02:52.0028816Z     "threatModelOption" : true,
+2025-09-01T12:02:52.0029218Z     "traceCommandUseBuildMode" : true,
+2025-09-01T12:02:52.0029646Z     "v2ramSizing" : true,
+2025-09-01T12:02:52.0030062Z     "mrvaPackCreateMultipleQueries" : true,
+2025-09-01T12:02:52.0030522Z     "setsCodeqlRunnerEnvVar" : true,
+2025-09-01T12:02:52.0031174Z     "sarifMergeRunsFromEqualCategory" : true,
+2025-09-01T12:02:52.0031614Z     "forceOverwrite" : true,
+2025-09-01T12:02:52.0032016Z     "generateSummarySymbolMap" : true,
+2025-09-01T12:02:52.0032519Z     "pythonDefaultIsToNotExtractStdlib" : true,
+2025-09-01T12:02:52.0033037Z     "queryServerRunQueries" : true,
+2025-09-01T12:02:52.0033480Z     "queryServerTrimCacheWithMode" : true
+2025-09-01T12:02:52.0033910Z   }
+2025-09-01T12:02:52.0034186Z }
+2025-09-01T12:02:52.0176900Z ##[endgroup]
+2025-09-01T12:02:52.0177534Z ##[group]Validating workflow
+2025-09-01T12:02:52.0219769Z Detected no issues with the code scanning workflow.
+2025-09-01T12:02:52.0220576Z ##[endgroup]
+2025-09-01T12:02:52.0224403Z ##[group]Load language configuration
+2025-09-01T12:02:52.0234622Z [command]/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/codeql resolve languages --format=betterjson --extractor-options-verbosity=4 --extractor-include-aliases
+2025-09-01T12:02:53.5536388Z {
+2025-09-01T12:02:53.5537158Z   "aliases" : {
+2025-09-01T12:02:53.5538014Z     "c" : "cpp",
+2025-09-01T12:02:53.5538641Z     "c++" : "cpp",
+2025-09-01T12:02:53.5540030Z     "c-c++" : "cpp",
+2025-09-01T12:02:53.5543677Z     "c-cpp" : "cpp",
+2025-09-01T12:02:53.5544150Z     "c#" : "csharp",
+2025-09-01T12:02:53.5544501Z     "java-kotlin" : "java",
+2025-09-01T12:02:53.5545248Z     "kotlin" : "java",
+2025-09-01T12:02:53.5545653Z     "javascript-typescript" : "javascript",
+2025-09-01T12:02:53.5546126Z     "typescript" : "javascript"
+2025-09-01T12:02:53.5546494Z   },
+2025-09-01T12:02:53.5546773Z   "extractors" : {
+2025-09-01T12:02:53.5547094Z     "xml" : [
+2025-09-01T12:02:53.5547385Z       {
+2025-09-01T12:02:53.5547857Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/xml"
+2025-09-01T12:02:53.5548429Z       }
+2025-09-01T12:02:53.5548696Z     ],
+2025-09-01T12:02:53.5548970Z     "python" : [
+2025-09-01T12:02:53.5549257Z       {
+2025-09-01T12:02:53.5549745Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/python",
+2025-09-01T12:02:53.5550355Z         "extractor_options" : {
+2025-09-01T12:02:53.5550950Z           "logging" : {
+2025-09-01T12:02:53.5551324Z             "title" : "Options pertaining to logging.",
+2025-09-01T12:02:53.5551882Z             "description" : "Options pertaining to logging.",
+2025-09-01T12:02:53.5552366Z             "type" : "object",
+2025-09-01T12:02:53.5552748Z             "properties" : {
+2025-09-01T12:02:53.5553122Z               "verbosity" : {
+2025-09-01T12:02:53.5553593Z                 "title" : "Python extractor logging verbosity level.",
+2025-09-01T12:02:53.5555311Z                 "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+2025-09-01T12:02:53.5556924Z                 "type" : "string",
+2025-09-01T12:02:53.5562646Z                 "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+2025-09-01T12:02:53.5563440Z               }
+2025-09-01T12:02:53.5563714Z             }
+2025-09-01T12:02:53.5563980Z           },
+2025-09-01T12:02:53.5564296Z           "python_executable_name" : {
+2025-09-01T12:02:53.5564965Z             "title" : "Controls the name of the Python executable used by the Python extractor.",
+2025-09-01T12:02:53.5567013Z             "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+2025-09-01T12:02:53.5568212Z             "type" : "string",
+2025-09-01T12:02:53.5568459Z             "pattern" : "^(py|python|python3)$"
+2025-09-01T12:02:53.5568704Z           }
+2025-09-01T12:02:53.5568860Z         }
+2025-09-01T12:02:53.5569004Z       }
+2025-09-01T12:02:53.5569150Z     ],
+2025-09-01T12:02:53.5569306Z     "properties" : [
+2025-09-01T12:02:53.5569490Z       {
+2025-09-01T12:02:53.5569766Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/properties"
+2025-09-01T12:02:53.5570463Z       }
+2025-09-01T12:02:53.5570948Z     ],
+2025-09-01T12:02:53.5571200Z     "javascript" : [
+2025-09-01T12:02:53.5571522Z       {
+2025-09-01T12:02:53.5571940Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/javascript",
+2025-09-01T12:02:53.5572499Z         "extractor_options" : {
+2025-09-01T12:02:53.5572819Z           "trap" : {
+2025-09-01T12:02:53.5573110Z             "title" : "TRAP options",
+2025-09-01T12:02:53.5573437Z             "description" : "Options about how the extractor handles TRAP files",
+2025-09-01T12:02:53.5573765Z             "type" : "object",
+2025-09-01T12:02:53.5573965Z             "visibility" : 3,
+2025-09-01T12:02:53.5574184Z             "properties" : {
+2025-09-01T12:02:53.5574388Z               "cache" : {
+2025-09-01T12:02:53.5574773Z                 "title" : "TRAP cache options",
+2025-09-01T12:02:53.5575421Z                 "description" : "Options about how the extractor handles its TRAP cache",
+2025-09-01T12:02:53.5576048Z                 "type" : "object",
+2025-09-01T12:02:53.5576529Z                 "properties" : {
+2025-09-01T12:02:53.5576741Z                   "dir" : {
+2025-09-01T12:02:53.5576979Z                     "title" : "TRAP cache directory",
+2025-09-01T12:02:53.5577381Z                     "description" : "The directory of the TRAP cache to use",
+2025-09-01T12:02:53.5577686Z                     "type" : "string"
+2025-09-01T12:02:53.5577902Z                   },
+2025-09-01T12:02:53.5578076Z                   "bound" : {
+2025-09-01T12:02:53.5578299Z                     "title" : "TRAP cache bound",
+2025-09-01T12:02:53.5578627Z                     "description" : "A soft limit (in MB) on the size of the TRAP cache",
+2025-09-01T12:02:53.5578950Z                     "type" : "string",
+2025-09-01T12:02:53.5579185Z                     "pattern" : "[0-9]+"
+2025-09-01T12:02:53.5579400Z                   },
+2025-09-01T12:02:53.5579577Z                   "write" : {
+2025-09-01T12:02:53.5579789Z                     "title" : "TRAP cache writeable",
+2025-09-01T12:02:53.5580151Z                     "description" : "Whether to write to the TRAP cache as well as reading it",
+2025-09-01T12:02:53.5580486Z                     "type" : "string",
+2025-09-01T12:02:53.5580977Z                     "pattern" : "(true|TRUE|false|FALSE)"
+2025-09-01T12:02:53.5581491Z                   }
+2025-09-01T12:02:53.5581766Z                 }
+2025-09-01T12:02:53.5582047Z               }
+2025-09-01T12:02:53.5582324Z             }
+2025-09-01T12:02:53.5582595Z           },
+2025-09-01T12:02:53.5582877Z           "skip_types" : {
+2025-09-01T12:02:53.5583294Z             "title" : "Skip type extraction for TypeScript",
+2025-09-01T12:02:53.5584037Z             "description" : "Whether to skip the extraction of types in a TypeScript application",
+2025-09-01T12:02:53.5584428Z             "type" : "string",
+2025-09-01T12:02:53.5584638Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:53.5584859Z           }
+2025-09-01T12:02:53.5585008Z         }
+2025-09-01T12:02:53.5585165Z       }
+2025-09-01T12:02:53.5585306Z     ],
+2025-09-01T12:02:53.5585459Z     "csharp" : [
+2025-09-01T12:02:53.5585624Z       {
+2025-09-01T12:02:53.5585879Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/csharp",
+2025-09-01T12:02:53.5586216Z         "extractor_options" : {
+2025-09-01T12:02:53.5586417Z           "trap" : {
+2025-09-01T12:02:53.5586623Z             "title" : "Options pertaining to TRAP.",
+2025-09-01T12:02:53.5586902Z             "description" : "Options pertaining to TRAP.",
+2025-09-01T12:02:53.5587162Z             "type" : "object",
+2025-09-01T12:02:53.5587363Z             "properties" : {
+2025-09-01T12:02:53.5587575Z               "compression" : {
+2025-09-01T12:02:53.5587902Z                 "title" : "Controls compression for the TRAP files written by the extractor.",
+2025-09-01T12:02:53.5588741Z                 "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+2025-09-01T12:02:53.5589469Z                 "type" : "string",
+2025-09-01T12:02:53.5589700Z                 "pattern" : "^(none|gzip|brotli)$"
+2025-09-01T12:02:53.5589935Z               }
+2025-09-01T12:02:53.5590091Z             }
+2025-09-01T12:02:53.5590248Z           },
+2025-09-01T12:02:53.5590411Z           "buildless" : {
+2025-09-01T12:02:53.5590914Z             "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+2025-09-01T12:02:53.5592931Z             "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+2025-09-01T12:02:53.5595918Z             "type" : "string",
+2025-09-01T12:02:53.5596322Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:53.5596733Z           },
+2025-09-01T12:02:53.5597030Z           "logging" : {
+2025-09-01T12:02:53.5597433Z             "title" : "Options pertaining to logging.",
+2025-09-01T12:02:53.5598002Z             "description" : "Options pertaining to logging.",
+2025-09-01T12:02:53.5598285Z             "type" : "object",
+2025-09-01T12:02:53.5598497Z             "properties" : {
+2025-09-01T12:02:53.5598699Z               "verbosity" : {
+2025-09-01T12:02:53.5598939Z                 "title" : "Extractor logging verbosity level.",
+2025-09-01T12:02:53.5599810Z                 "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+2025-09-01T12:02:53.5600823Z                 "type" : "string",
+2025-09-01T12:02:53.5601352Z                 "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+2025-09-01T12:02:53.5601774Z               }
+2025-09-01T12:02:53.5601938Z             }
+2025-09-01T12:02:53.5602092Z           },
+2025-09-01T12:02:53.5602251Z           "binlog" : {
+2025-09-01T12:02:53.5602442Z             "title" : "Binlog",
+2025-09-01T12:02:53.5603053Z             "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+2025-09-01T12:02:53.5603839Z             "type" : "array"
+2025-09-01T12:02:53.5604041Z           }
+2025-09-01T12:02:53.5604195Z         }
+2025-09-01T12:02:53.5604340Z       }
+2025-09-01T12:02:53.5604487Z     ],
+2025-09-01T12:02:53.5604632Z     "rust" : [
+2025-09-01T12:02:53.5604792Z       {
+2025-09-01T12:02:53.5605043Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/rust",
+2025-09-01T12:02:53.5605385Z         "extractor_options" : {
+2025-09-01T12:02:53.5605583Z           "trap" : {
+2025-09-01T12:02:53.5605792Z             "title" : "Options pertaining to TRAP.",
+2025-09-01T12:02:53.5606082Z             "description" : "Options pertaining to TRAP.",
+2025-09-01T12:02:53.5606344Z             "type" : "object",
+2025-09-01T12:02:53.5606552Z             "properties" : {
+2025-09-01T12:02:53.5606749Z               "compression" : {
+2025-09-01T12:02:53.5607072Z                 "title" : "Controls compression for the TRAP files written by the extractor.",
+2025-09-01T12:02:53.5608009Z                 "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (the default, to write uncompressed TRAP).\n",
+2025-09-01T12:02:53.5608805Z                 "type" : "string",
+2025-09-01T12:02:53.5609036Z                 "pattern" : "^(none|gzip|zstd)$"
+2025-09-01T12:02:53.5609267Z               }
+2025-09-01T12:02:53.5609430Z             }
+2025-09-01T12:02:53.5609579Z           },
+2025-09-01T12:02:53.5609747Z           "cargo_target_dir" : {
+2025-09-01T12:02:53.5610001Z             "title" : "Directory to use for cargo output files.",
+2025-09-01T12:02:53.5611422Z             "description" : "This value is an optional path to use as `CARGO_TARGET_DIR` for the internal cargo commands the extractor uses. Pointing it to a persistent directory may reduce execution time of consecutive extractor runs. By default, a new scratch directory is used for each run.\n",
+2025-09-01T12:02:53.5613053Z             "type" : "string"
+2025-09-01T12:02:53.5613412Z           },
+2025-09-01T12:02:53.5613711Z           "cargo_target" : {
+2025-09-01T12:02:53.5614093Z             "title" : "Target architecture",
+2025-09-01T12:02:53.5615011Z             "description" : "Target architecture to use for analysis, analogous to `cargo --target`. By default the host architecture is used.\n",
+2025-09-01T12:02:53.5616218Z             "type" : "string"
+2025-09-01T12:02:53.5616579Z           },
+2025-09-01T12:02:53.5616953Z           "cargo_features" : {
+2025-09-01T12:02:53.5617357Z             "title" : "Cargo features to turn on",
+2025-09-01T12:02:53.5619028Z             "description" : "Comma-separated list of features to turn on. By default all features are enabled. If any features are specified, then only those features are enabled. The `default` feature must be explicitly specified if only default features are desired. Can be repeated.\n",
+2025-09-01T12:02:53.5620925Z             "type" : "array"
+2025-09-01T12:02:53.5621284Z           },
+2025-09-01T12:02:53.5621649Z           "cargo_cfg_overrides" : {
+2025-09-01T12:02:53.5622025Z             "title" : "Cargo cfg overrides",
+2025-09-01T12:02:53.5622511Z             "description" : "Comma-separated list of cfg settings to enable, or disable if prefixed with `-`. Can be repeated.\n",
+2025-09-01T12:02:53.5622972Z             "type" : "array"
+2025-09-01T12:02:53.5623168Z           },
+2025-09-01T12:02:53.5623334Z           "logging" : {
+2025-09-01T12:02:53.5623544Z             "title" : "Options pertaining to logging.",
+2025-09-01T12:02:53.5623847Z             "description" : "Options pertaining to logging.",
+2025-09-01T12:02:53.5624123Z             "type" : "object",
+2025-09-01T12:02:53.5624330Z             "properties" : {
+2025-09-01T12:02:53.5624525Z               "verbosity" : {
+2025-09-01T12:02:53.5624762Z                 "title" : "Extractor logging verbosity level.",
+2025-09-01T12:02:53.5625768Z                 "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+2025-09-01T12:02:53.5626577Z                 "type" : "string",
+2025-09-01T12:02:53.5627007Z                 "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+2025-09-01T12:02:53.5627449Z               },
+2025-09-01T12:02:53.5627628Z               "flamegraph" : {
+2025-09-01T12:02:53.5627914Z                 "title" : "[Experimental] File path for write flame graph log",
+2025-09-01T12:02:53.5628693Z                 "description" : "Collect flame graph data using the `tracing-flame` crate. To render a flame graph or chart, run the `inferno-flamegraph` command. See also: https://crates.io/crates/tracing-flame\n",
+2025-09-01T12:02:53.5629384Z                 "type" : "string"
+2025-09-01T12:02:53.5629581Z               }
+2025-09-01T12:02:53.5629744Z             }
+2025-09-01T12:02:53.5629899Z           },
+2025-09-01T12:02:53.5630084Z           "skip_path_resolution" : {
+2025-09-01T12:02:53.5630331Z             "title" : "Skip path resolution",
+2025-09-01T12:02:53.5631100Z             "description" : "Skip path resolution. This is experimental, while we move path resolution from the extractor to the QL library.\n",
+2025-09-01T12:02:53.5631604Z             "type" : "string",
+2025-09-01T12:02:53.5631820Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:53.5632039Z           },
+2025-09-01T12:02:53.5632225Z           "extract_dependencies_as_source" : {
+2025-09-01T12:02:53.5632501Z             "title" : "Extract dependencies as source code",
+2025-09-01T12:02:53.5632957Z             "description" : "Extract the full source code of dependencies instead of only extracting signatures.\n",
+2025-09-01T12:02:53.5633376Z             "type" : "string",
+2025-09-01T12:02:53.5633579Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:53.5633801Z           }
+2025-09-01T12:02:53.5633950Z         }
+2025-09-01T12:02:53.5634104Z       }
+2025-09-01T12:02:53.5634245Z     ],
+2025-09-01T12:02:53.5634397Z     "ruby" : [
+2025-09-01T12:02:53.5634550Z       {
+2025-09-01T12:02:53.5634806Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/ruby",
+2025-09-01T12:02:53.5635131Z         "extractor_options" : {
+2025-09-01T12:02:53.5635464Z           "trap" : {
+2025-09-01T12:02:53.5635668Z             "title" : "Options pertaining to TRAP.",
+2025-09-01T12:02:53.5635960Z             "description" : "Options pertaining to TRAP.",
+2025-09-01T12:02:53.5636222Z             "type" : "object",
+2025-09-01T12:02:53.5636421Z             "properties" : {
+2025-09-01T12:02:53.5636633Z               "compression" : {
+2025-09-01T12:02:53.5636956Z                 "title" : "Controls compression for the TRAP files written by the extractor.",
+2025-09-01T12:02:53.5637903Z                 "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+2025-09-01T12:02:53.5638714Z                 "type" : "string",
+2025-09-01T12:02:53.5638942Z                 "pattern" : "^(none|gzip|zstd)$"
+2025-09-01T12:02:53.5639176Z               }
+2025-09-01T12:02:53.5639330Z             }
+2025-09-01T12:02:53.5639492Z           }
+2025-09-01T12:02:53.5639637Z         }
+2025-09-01T12:02:53.5639782Z       }
+2025-09-01T12:02:53.5639919Z     ],
+2025-09-01T12:02:53.5640065Z     "go" : [
+2025-09-01T12:02:53.5640210Z       {
+2025-09-01T12:02:53.5640453Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/go",
+2025-09-01T12:02:53.5640939Z         "extractor_options" : {
+2025-09-01T12:02:53.5641152Z           "extract_tests" : {
+2025-09-01T12:02:53.5641441Z             "title" : "Whether to include Go test files in the CodeQL database.",
+2025-09-01T12:02:53.5642122Z             "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+2025-09-01T12:02:53.5642611Z             "type" : "string",
+2025-09-01T12:02:53.5642821Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:53.5643043Z           },
+2025-09-01T12:02:53.5643208Z           "extract_vendor_dirs" : {
+2025-09-01T12:02:53.5643534Z             "title" : "Whether to include Go vendor directories in the CodeQL database.",
+2025-09-01T12:02:53.5644158Z             "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+2025-09-01T12:02:53.5644661Z             "type" : "string",
+2025-09-01T12:02:53.5644871Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:53.5645081Z           }
+2025-09-01T12:02:53.5645229Z         }
+2025-09-01T12:02:53.5645372Z       }
+2025-09-01T12:02:53.5645519Z     ],
+2025-09-01T12:02:53.5645665Z     "cpp" : [
+2025-09-01T12:02:53.5645822Z       {
+2025-09-01T12:02:53.5646069Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/cpp",
+2025-09-01T12:02:53.5646396Z         "extractor_options" : {
+2025-09-01T12:02:53.5646596Z           "trap" : {
+2025-09-01T12:02:53.5646781Z             "title" : "TRAP options",
+2025-09-01T12:02:53.5647092Z             "description" : "Options about how the extractor handles TRAP files",
+2025-09-01T12:02:53.5647409Z             "type" : "object",
+2025-09-01T12:02:53.5647613Z             "visibility" : 3,
+2025-09-01T12:02:53.5647814Z             "properties" : {
+2025-09-01T12:02:53.5648014Z               "cache" : {
+2025-09-01T12:02:53.5648217Z                 "title" : "TRAP cache options",
+2025-09-01T12:02:53.5648562Z                 "description" : "Options about how the extractor handles its TRAP cache",
+2025-09-01T12:02:53.5648902Z                 "type" : "object",
+2025-09-01T12:02:53.5649115Z                 "properties" : {
+2025-09-01T12:02:53.5649321Z                   "dir" : {
+2025-09-01T12:02:53.5649533Z                     "title" : "TRAP cache directory",
+2025-09-01T12:02:53.5649844Z                     "description" : "The directory of the TRAP cache to use",
+2025-09-01T12:02:53.5650133Z                     "type" : "string"
+2025-09-01T12:02:53.5650345Z                   },
+2025-09-01T12:02:53.5650513Z                   "bound" : {
+2025-09-01T12:02:53.5650935Z                     "title" : "TRAP cache bound",
+2025-09-01T12:02:53.5651443Z                     "description" : "A soft limit (in MB) on the size of the TRAP cache",
+2025-09-01T12:02:53.5651761Z                     "type" : "string",
+2025-09-01T12:02:53.5651995Z                     "pattern" : "[0-9]+"
+2025-09-01T12:02:53.5652208Z                   },
+2025-09-01T12:02:53.5652380Z                   "write" : {
+2025-09-01T12:02:53.5652589Z                     "title" : "TRAP cache writeable",
+2025-09-01T12:02:53.5652950Z                     "description" : "Whether to write to the TRAP cache as well as reading it",
+2025-09-01T12:02:53.5653288Z                     "type" : "string",
+2025-09-01T12:02:53.5653535Z                     "pattern" : "(true|TRUE|false|FALSE)"
+2025-09-01T12:02:53.5653768Z                   }
+2025-09-01T12:02:53.5653926Z                 }
+2025-09-01T12:02:53.5654091Z               }
+2025-09-01T12:02:53.5654242Z             }
+2025-09-01T12:02:53.5654406Z           },
+2025-09-01T12:02:53.5654568Z           "scale_timeouts" : {
+2025-09-01T12:02:53.5654851Z             "title" : "Value to scale compiler introspection timeouts with",
+2025-09-01T12:02:53.5656114Z             "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+2025-09-01T12:02:53.5657287Z             "type" : "string",
+2025-09-01T12:02:53.5657495Z             "pattern" : "[0-9]+"
+2025-09-01T12:02:53.5657804Z           },
+2025-09-01T12:02:53.5657974Z           "log_verbosity" : {
+2025-09-01T12:02:53.5658208Z             "title" : "Verbosity of the extractor logging",
+2025-09-01T12:02:53.5658748Z             "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+2025-09-01T12:02:53.5659249Z             "type" : "string",
+2025-09-01T12:02:53.5659447Z             "pattern" : "[0-3]"
+2025-09-01T12:02:53.5659640Z           },
+2025-09-01T12:02:53.5659802Z           "frontend_options" : {
+2025-09-01T12:02:53.5660044Z             "title" : "C/C++ extractor frontend options",
+2025-09-01T12:02:53.5660473Z             "description" : "Set additional options that should be passed to the C/C++ extractor frontend.\n",
+2025-09-01T12:02:53.5661044Z             "type" : "array",
+2025-09-01T12:02:53.5661240Z             "visibility" : 3
+2025-09-01T12:02:53.5661431Z           }
+2025-09-01T12:02:53.5661577Z         }
+2025-09-01T12:02:53.5661732Z       }
+2025-09-01T12:02:53.5661880Z     ],
+2025-09-01T12:02:53.5662023Z     "yaml" : [
+2025-09-01T12:02:53.5662180Z       {
+2025-09-01T12:02:53.5662425Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/yaml"
+2025-09-01T12:02:53.5662740Z       }
+2025-09-01T12:02:53.5662879Z     ],
+2025-09-01T12:02:53.5663029Z     "html" : [
+2025-09-01T12:02:53.5663180Z       {
+2025-09-01T12:02:53.5663416Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/html"
+2025-09-01T12:02:53.5663714Z       }
+2025-09-01T12:02:53.5664020Z     ],
+2025-09-01T12:02:53.5664289Z     "swift" : [
+2025-09-01T12:02:53.5664542Z       {
+2025-09-01T12:02:53.5664886Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/swift"
+2025-09-01T12:02:53.5665304Z       }
+2025-09-01T12:02:53.5665537Z     ],
+2025-09-01T12:02:53.5665813Z     "csv" : [
+2025-09-01T12:02:53.5666043Z       {
+2025-09-01T12:02:53.5666381Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/csv"
+2025-09-01T12:02:53.5666723Z       }
+2025-09-01T12:02:53.5667022Z     ],
+2025-09-01T12:02:53.5667258Z     "actions" : [
+2025-09-01T12:02:53.5667500Z       {
+2025-09-01T12:02:53.5667916Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/actions",
+2025-09-01T12:02:53.5668313Z         "extractor_options" : {
+2025-09-01T12:02:53.5669095Z           "trap" : {
+2025-09-01T12:02:53.5669677Z             "title" : "TRAP options",
+2025-09-01T12:02:53.5670396Z             "description" : "Options about how the extractor handles TRAP files",
+2025-09-01T12:02:53.5671047Z             "type" : "object",
+2025-09-01T12:02:53.5671478Z             "visibility" : 3,
+2025-09-01T12:02:53.5671790Z             "properties" : {
+2025-09-01T12:02:53.5672052Z               "cache" : {
+2025-09-01T12:02:53.5672409Z                 "title" : "TRAP cache options",
+2025-09-01T12:02:53.5672860Z                 "description" : "Options about how the extractor handles its TRAP cache",
+2025-09-01T12:02:53.5673307Z                 "type" : "object",
+2025-09-01T12:02:53.5673623Z                 "properties" : {
+2025-09-01T12:02:53.5673947Z                   "dir" : {
+2025-09-01T12:02:53.5674222Z                     "title" : "TRAP cache directory",
+2025-09-01T12:02:53.5674660Z                     "description" : "The directory of the TRAP cache to use",
+2025-09-01T12:02:53.5675103Z                     "type" : "string"
+2025-09-01T12:02:53.5675373Z                   },
+2025-09-01T12:02:53.5675680Z                   "bound" : {
+2025-09-01T12:02:53.5675972Z                     "title" : "TRAP cache bound",
+2025-09-01T12:02:53.5676391Z                     "description" : "A soft limit (in MB) on the size of the TRAP cache",
+2025-09-01T12:02:53.5676757Z                     "type" : "string",
+2025-09-01T12:02:53.5677223Z                     "pattern" : "[0-9]+"
+2025-09-01T12:02:53.5677536Z                   },
+2025-09-01T12:02:53.5677754Z                   "write" : {
+2025-09-01T12:02:53.5678498Z                     "title" : "TRAP cache writeable",
+2025-09-01T12:02:53.5678979Z                     "description" : "Whether to write to the TRAP cache as well as reading it",
+2025-09-01T12:02:53.5679407Z                     "type" : "string",
+2025-09-01T12:02:53.5679827Z                     "pattern" : "(true|TRUE|false|FALSE)"
+2025-09-01T12:02:53.5680161Z                   }
+2025-09-01T12:02:53.5680411Z                 }
+2025-09-01T12:02:53.5680861Z               }
+2025-09-01T12:02:53.5681092Z             }
+2025-09-01T12:02:53.5702110Z           }
+2025-09-01T12:02:53.5702300Z         }
+2025-09-01T12:02:53.5702464Z       }
+2025-09-01T12:02:53.5702611Z     ],
+2025-09-01T12:02:53.5702769Z     "java" : [
+2025-09-01T12:02:53.5702932Z       {
+2025-09-01T12:02:53.5703207Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/java",
+2025-09-01T12:02:53.5703554Z         "extractor_options" : {
+2025-09-01T12:02:53.5703781Z           "exclude" : {
+2025-09-01T12:02:53.5704032Z             "title" : "A glob excluding files from analysis.",
+2025-09-01T12:02:53.5704704Z             "description" : "A glob indicating what files to exclude from the analysis. This accepts glob patterns that are supported by Java's 'getPathMatcher' implementation.\n",
+2025-09-01T12:02:53.5705309Z             "type" : "string"
+2025-09-01T12:02:53.5705499Z           },
+2025-09-01T12:02:53.5705685Z           "add_prefer_source" : {
+2025-09-01T12:02:53.5705987Z             "title" : "Whether to always prefer source files over class files.",
+2025-09-01T12:02:53.5706994Z             "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+2025-09-01T12:02:53.5707909Z             "type" : "string",
+2025-09-01T12:02:53.5708121Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:53.5708344Z           },
+2025-09-01T12:02:53.5708508Z           "buildless" : {
+2025-09-01T12:02:53.5708813Z             "title" : "Whether to use buildless (standalone) extraction (experimental).",
+2025-09-01T12:02:53.5710274Z             "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+2025-09-01T12:02:53.5712100Z             "type" : "string",
+2025-09-01T12:02:53.5712358Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:53.5712571Z           },
+2025-09-01T12:02:53.5712748Z           "buildless_dependency_dir" : {
+2025-09-01T12:02:53.5713119Z             "title" : "The path where buildless (standalone) extraction should keep dependencies.",
+2025-09-01T12:02:53.5713692Z             "description" : "If set, the buildless (standalone) extractor will store dependencies in this directory.\n",
+2025-09-01T12:02:53.5714120Z             "type" : "string"
+2025-09-01T12:02:53.5714323Z           },
+2025-09-01T12:02:53.5714503Z           "minimize_dependency_jars" : {
+2025-09-01T12:02:53.5714872Z             "title" : "Whether to rewrite and minimize downloaded JAR dependencies (experimental).",
+2025-09-01T12:02:53.5715620Z             "description" : "If 'true', JAR dependencies downloaded during extraction will be rewritten to remove unneeded data, such as method bodies. The default is 'false'.\n",
+2025-09-01T12:02:53.5716215Z             "type" : "string",
+2025-09-01T12:02:53.5716423Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:53.5716642Z           }
+2025-09-01T12:02:53.5716791Z         }
+2025-09-01T12:02:53.5716944Z       }
+2025-09-01T12:02:53.5717089Z     ]
+2025-09-01T12:02:53.5717238Z   }
+2025-09-01T12:02:53.5717381Z }
+2025-09-01T12:02:53.5806050Z Languages from configuration: python
+2025-09-01T12:02:53.5812194Z [command]/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/codeql resolve languages --format=betterjson --extractor-options-verbosity=4 --extractor-include-aliases
+2025-09-01T12:02:54.4845082Z {
+2025-09-01T12:02:54.4847260Z   "aliases" : {
+2025-09-01T12:02:54.4848485Z     "c" : "cpp",
+2025-09-01T12:02:54.4849100Z     "c++" : "cpp",
+2025-09-01T12:02:54.4854120Z     "c-c++" : "cpp",
+2025-09-01T12:02:54.4854479Z     "c-cpp" : "cpp",
+2025-09-01T12:02:54.4854790Z     "c#" : "csharp",
+2025-09-01T12:02:54.4855080Z     "java-kotlin" : "java",
+2025-09-01T12:02:54.4855429Z     "kotlin" : "java",
+2025-09-01T12:02:54.4855774Z     "javascript-typescript" : "javascript",
+2025-09-01T12:02:54.4856187Z     "typescript" : "javascript"
+2025-09-01T12:02:54.4856518Z   },
+2025-09-01T12:02:54.4856786Z   "extractors" : {
+2025-09-01T12:02:54.4857063Z     "xml" : [
+2025-09-01T12:02:54.4857332Z       {
+2025-09-01T12:02:54.4857774Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/xml"
+2025-09-01T12:02:54.4858317Z       }
+2025-09-01T12:02:54.4858565Z     ],
+2025-09-01T12:02:54.4858822Z     "python" : [
+2025-09-01T12:02:54.4859107Z       {
+2025-09-01T12:02:54.4859545Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/python",
+2025-09-01T12:02:54.4860100Z         "extractor_options" : {
+2025-09-01T12:02:54.4860442Z           "logging" : {
+2025-09-01T12:02:54.4861024Z             "title" : "Options pertaining to logging.",
+2025-09-01T12:02:54.4861532Z             "description" : "Options pertaining to logging.",
+2025-09-01T12:02:54.4862015Z             "type" : "object",
+2025-09-01T12:02:54.4862420Z             "properties" : {
+2025-09-01T12:02:54.4862783Z               "verbosity" : {
+2025-09-01T12:02:54.4863231Z                 "title" : "Python extractor logging verbosity level.",
+2025-09-01T12:02:54.4864901Z                 "description" : "Controls the level of verbosity of the CodeQL Python extractor.\nThe supported levels are (in order of increasing verbosity):\n\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+2025-09-01T12:02:54.4866543Z                 "type" : "string",
+2025-09-01T12:02:54.4867328Z                 "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+2025-09-01T12:02:54.4868617Z               }
+2025-09-01T12:02:54.4868904Z             }
+2025-09-01T12:02:54.4869166Z           },
+2025-09-01T12:02:54.4869476Z           "python_executable_name" : {
+2025-09-01T12:02:54.4870124Z             "title" : "Controls the name of the Python executable used by the Python extractor.",
+2025-09-01T12:02:54.4873716Z             "description" : "The Python extractor uses platform-dependent heuristics to determine the name of the Python executable to use. Specifying a value for this option overrides the name of the Python executable used by the extractor. Accepted values are py, python and python3. Use this setting with caution, the Python extractor requires Python 3 to run.\n",
+2025-09-01T12:02:54.4875801Z             "type" : "string",
+2025-09-01T12:02:54.4876183Z             "pattern" : "^(py|python|python3)$"
+2025-09-01T12:02:54.4876591Z           }
+2025-09-01T12:02:54.4876941Z         }
+2025-09-01T12:02:54.4877202Z       }
+2025-09-01T12:02:54.4877463Z     ],
+2025-09-01T12:02:54.4877742Z     "properties" : [
+2025-09-01T12:02:54.4878056Z       {
+2025-09-01T12:02:54.4878546Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/properties"
+2025-09-01T12:02:54.4879137Z       }
+2025-09-01T12:02:54.4879404Z     ],
+2025-09-01T12:02:54.4879672Z     "javascript" : [
+2025-09-01T12:02:54.4879980Z       {
+2025-09-01T12:02:54.4880463Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/javascript",
+2025-09-01T12:02:54.4881289Z         "extractor_options" : {
+2025-09-01T12:02:54.4881659Z           "trap" : {
+2025-09-01T12:02:54.4882017Z             "title" : "TRAP options",
+2025-09-01T12:02:54.4882828Z             "description" : "Options about how the extractor handles TRAP files",
+2025-09-01T12:02:54.4883437Z             "type" : "object",
+2025-09-01T12:02:54.4883814Z             "visibility" : 3,
+2025-09-01T12:02:54.4884188Z             "properties" : {
+2025-09-01T12:02:54.4884552Z               "cache" : {
+2025-09-01T12:02:54.4884931Z                 "title" : "TRAP cache options",
+2025-09-01T12:02:54.4885529Z                 "description" : "Options about how the extractor handles its TRAP cache",
+2025-09-01T12:02:54.4886189Z                 "type" : "object",
+2025-09-01T12:02:54.4886595Z                 "properties" : {
+2025-09-01T12:02:54.4886991Z                   "dir" : {
+2025-09-01T12:02:54.4887387Z                     "title" : "TRAP cache directory",
+2025-09-01T12:02:54.4887968Z                     "description" : "The directory of the TRAP cache to use",
+2025-09-01T12:02:54.4888507Z                     "type" : "string"
+2025-09-01T12:02:54.4888885Z                   },
+2025-09-01T12:02:54.4889217Z                   "bound" : {
+2025-09-01T12:02:54.4889601Z                     "title" : "TRAP cache bound",
+2025-09-01T12:02:54.4890200Z                     "description" : "A soft limit (in MB) on the size of the TRAP cache",
+2025-09-01T12:02:54.4890988Z                     "type" : "string",
+2025-09-01T12:02:54.4891422Z                     "pattern" : "[0-9]+"
+2025-09-01T12:02:54.4891832Z                   },
+2025-09-01T12:02:54.4892169Z                   "write" : {
+2025-09-01T12:02:54.4892543Z                     "title" : "TRAP cache writeable",
+2025-09-01T12:02:54.4893151Z                     "description" : "Whether to write to the TRAP cache as well as reading it",
+2025-09-01T12:02:54.4893766Z                     "type" : "string",
+2025-09-01T12:02:54.4894186Z                     "pattern" : "(true|TRUE|false|FALSE)"
+2025-09-01T12:02:54.4894608Z                   }
+2025-09-01T12:02:54.4894893Z                 }
+2025-09-01T12:02:54.4895180Z               }
+2025-09-01T12:02:54.4895461Z             }
+2025-09-01T12:02:54.4895731Z           },
+2025-09-01T12:02:54.4896010Z           "skip_types" : {
+2025-09-01T12:02:54.4896429Z             "title" : "Skip type extraction for TypeScript",
+2025-09-01T12:02:54.4897150Z             "description" : "Whether to skip the extraction of types in a TypeScript application",
+2025-09-01T12:02:54.4898045Z             "type" : "string",
+2025-09-01T12:02:54.4898428Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:54.4898822Z           }
+2025-09-01T12:02:54.4899070Z         }
+2025-09-01T12:02:54.4899333Z       }
+2025-09-01T12:02:54.4899583Z     ],
+2025-09-01T12:02:54.4899852Z     "csharp" : [
+2025-09-01T12:02:54.4900137Z       {
+2025-09-01T12:02:54.4900785Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/csharp",
+2025-09-01T12:02:54.4901396Z         "extractor_options" : {
+2025-09-01T12:02:54.4901772Z           "trap" : {
+2025-09-01T12:02:54.4902129Z             "title" : "Options pertaining to TRAP.",
+2025-09-01T12:02:54.4902670Z             "description" : "Options pertaining to TRAP.",
+2025-09-01T12:02:54.4903131Z             "type" : "object",
+2025-09-01T12:02:54.4903482Z             "properties" : {
+2025-09-01T12:02:54.4903844Z               "compression" : {
+2025-09-01T12:02:54.4904406Z                 "title" : "Controls compression for the TRAP files written by the extractor.",
+2025-09-01T12:02:54.4905893Z                 "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'brotli' (the default, to write brotli-compressed TRAP), 'gzip', and 'none' (to write uncompressed TRAP).\n",
+2025-09-01T12:02:54.4907153Z                 "type" : "string",
+2025-09-01T12:02:54.4907565Z                 "pattern" : "^(none|gzip|brotli)$"
+2025-09-01T12:02:54.4907978Z               }
+2025-09-01T12:02:54.4908251Z             }
+2025-09-01T12:02:54.4908518Z           },
+2025-09-01T12:02:54.4908807Z           "buildless" : {
+2025-09-01T12:02:54.4909540Z             "title" : "DEPRECATED - Whether to use buildless (standalone) extraction.",
+2025-09-01T12:02:54.4912751Z             "description" : "DEPRECATED: Use `--build-mode none` instead.\nA value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+2025-09-01T12:02:54.4915431Z             "type" : "string",
+2025-09-01T12:02:54.4915810Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:54.4916186Z           },
+2025-09-01T12:02:54.4916472Z           "logging" : {
+2025-09-01T12:02:54.4916853Z             "title" : "Options pertaining to logging.",
+2025-09-01T12:02:54.4917389Z             "description" : "Options pertaining to logging.",
+2025-09-01T12:02:54.4917884Z             "type" : "object",
+2025-09-01T12:02:54.4918240Z             "properties" : {
+2025-09-01T12:02:54.4918594Z               "verbosity" : {
+2025-09-01T12:02:54.4919006Z                 "title" : "Extractor logging verbosity level.",
+2025-09-01T12:02:54.4920497Z                 "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+2025-09-01T12:02:54.4922244Z                 "type" : "string",
+2025-09-01T12:02:54.4922991Z                 "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+2025-09-01T12:02:54.4923748Z               }
+2025-09-01T12:02:54.4924044Z             }
+2025-09-01T12:02:54.4924327Z           },
+2025-09-01T12:02:54.4924599Z           "binlog" : {
+2025-09-01T12:02:54.4924923Z             "title" : "Binlog",
+2025-09-01T12:02:54.4926005Z             "description" : "[EXPERIMENTAL] The value is a path to the MsBuild binary log file that should be extracted. This option only works when `--build-mode none` is also specified.\n",
+2025-09-01T12:02:54.4927097Z             "type" : "array"
+2025-09-01T12:02:54.4927433Z           }
+2025-09-01T12:02:54.4927690Z         }
+2025-09-01T12:02:54.4928165Z       }
+2025-09-01T12:02:54.4928411Z     ],
+2025-09-01T12:02:54.4928667Z     "rust" : [
+2025-09-01T12:02:54.4928933Z       {
+2025-09-01T12:02:54.4929367Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/rust",
+2025-09-01T12:02:54.4929950Z         "extractor_options" : {
+2025-09-01T12:02:54.4930317Z           "trap" : {
+2025-09-01T12:02:54.4930838Z             "title" : "Options pertaining to TRAP.",
+2025-09-01T12:02:54.4931345Z             "description" : "Options pertaining to TRAP.",
+2025-09-01T12:02:54.4931811Z             "type" : "object",
+2025-09-01T12:02:54.4932161Z             "properties" : {
+2025-09-01T12:02:54.4932521Z               "compression" : {
+2025-09-01T12:02:54.4933085Z                 "title" : "Controls compression for the TRAP files written by the extractor.",
+2025-09-01T12:02:54.4934594Z                 "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (the default, to write uncompressed TRAP).\n",
+2025-09-01T12:02:54.4935412Z                 "type" : "string",
+2025-09-01T12:02:54.4935645Z                 "pattern" : "^(none|gzip|zstd)$"
+2025-09-01T12:02:54.4935884Z               }
+2025-09-01T12:02:54.4936046Z             }
+2025-09-01T12:02:54.4936205Z           },
+2025-09-01T12:02:54.4936368Z           "cargo_target_dir" : {
+2025-09-01T12:02:54.4936628Z             "title" : "Directory to use for cargo output files.",
+2025-09-01T12:02:54.4937728Z             "description" : "This value is an optional path to use as `CARGO_TARGET_DIR` for the internal cargo commands the extractor uses. Pointing it to a persistent directory may reduce execution time of consecutive extractor runs. By default, a new scratch directory is used for each run.\n",
+2025-09-01T12:02:54.4938649Z             "type" : "string"
+2025-09-01T12:02:54.4938846Z           },
+2025-09-01T12:02:54.4939006Z           "cargo_target" : {
+2025-09-01T12:02:54.4939227Z             "title" : "Target architecture",
+2025-09-01T12:02:54.4939740Z             "description" : "Target architecture to use for analysis, analogous to `cargo --target`. By default the host architecture is used.\n",
+2025-09-01T12:02:54.4940249Z             "type" : "string"
+2025-09-01T12:02:54.4940439Z           },
+2025-09-01T12:02:54.4940778Z           "cargo_features" : {
+2025-09-01T12:02:54.4941054Z             "title" : "Cargo features to turn on",
+2025-09-01T12:02:54.4941996Z             "description" : "Comma-separated list of features to turn on. By default all features are enabled. If any features are specified, then only those features are enabled. The `default` feature must be explicitly specified if only default features are desired. Can be repeated.\n",
+2025-09-01T12:02:54.4942893Z             "type" : "array"
+2025-09-01T12:02:54.4943077Z           },
+2025-09-01T12:02:54.4943252Z           "cargo_cfg_overrides" : {
+2025-09-01T12:02:54.4943481Z             "title" : "Cargo cfg overrides",
+2025-09-01T12:02:54.4943951Z             "description" : "Comma-separated list of cfg settings to enable, or disable if prefixed with `-`. Can be repeated.\n",
+2025-09-01T12:02:54.4944407Z             "type" : "array"
+2025-09-01T12:02:54.4944591Z           },
+2025-09-01T12:02:54.4944753Z           "logging" : {
+2025-09-01T12:02:54.4944963Z             "title" : "Options pertaining to logging.",
+2025-09-01T12:02:54.4945263Z             "description" : "Options pertaining to logging.",
+2025-09-01T12:02:54.4945531Z             "type" : "object",
+2025-09-01T12:02:54.4945736Z             "properties" : {
+2025-09-01T12:02:54.4945931Z               "verbosity" : {
+2025-09-01T12:02:54.4946176Z                 "title" : "Extractor logging verbosity level.",
+2025-09-01T12:02:54.4947026Z                 "description" : "Controls the level of verbosity of the extractor. The supported levels are (in order of increasing verbosity):\n  - off\n  - errors\n  - warnings\n  - info or progress\n  - debug or progress+\n  - trace or progress++\n  - progress+++\n",
+2025-09-01T12:02:54.4947938Z                 "type" : "string",
+2025-09-01T12:02:54.4948366Z                 "pattern" : "^(off|errors|warnings|(info|progress)|(debug|progress\\+)|(trace|progress\\+\\+)|progress\\+\\+\\+)$"
+2025-09-01T12:02:54.4948786Z               },
+2025-09-01T12:02:54.4948962Z               "flamegraph" : {
+2025-09-01T12:02:54.4949246Z                 "title" : "[Experimental] File path for write flame graph log",
+2025-09-01T12:02:54.4950019Z                 "description" : "Collect flame graph data using the `tracing-flame` crate. To render a flame graph or chart, run the `inferno-flamegraph` command. See also: https://crates.io/crates/tracing-flame\n",
+2025-09-01T12:02:54.4950966Z                 "type" : "string"
+2025-09-01T12:02:54.4951171Z               }
+2025-09-01T12:02:54.4951335Z             }
+2025-09-01T12:02:54.4951486Z           },
+2025-09-01T12:02:54.4951659Z           "skip_path_resolution" : {
+2025-09-01T12:02:54.4951906Z             "title" : "Skip path resolution",
+2025-09-01T12:02:54.4952414Z             "description" : "Skip path resolution. This is experimental, while we move path resolution from the extractor to the QL library.\n",
+2025-09-01T12:02:54.4952908Z             "type" : "string",
+2025-09-01T12:02:54.4953113Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:54.4953334Z           },
+2025-09-01T12:02:54.4953510Z           "extract_dependencies_as_source" : {
+2025-09-01T12:02:54.4953786Z             "title" : "Extract dependencies as source code",
+2025-09-01T12:02:54.4954354Z             "description" : "Extract the full source code of dependencies instead of only extracting signatures.\n",
+2025-09-01T12:02:54.4954771Z             "type" : "string",
+2025-09-01T12:02:54.4954981Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:54.4955196Z           }
+2025-09-01T12:02:54.4955350Z         }
+2025-09-01T12:02:54.4955497Z       }
+2025-09-01T12:02:54.4955644Z     ],
+2025-09-01T12:02:54.4955791Z     "ruby" : [
+2025-09-01T12:02:54.4955954Z       {
+2025-09-01T12:02:54.4956204Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/ruby",
+2025-09-01T12:02:54.4956534Z         "extractor_options" : {
+2025-09-01T12:02:54.4956735Z           "trap" : {
+2025-09-01T12:02:54.4956939Z             "title" : "Options pertaining to TRAP.",
+2025-09-01T12:02:54.4957224Z             "description" : "Options pertaining to TRAP.",
+2025-09-01T12:02:54.4957479Z             "type" : "object",
+2025-09-01T12:02:54.4957687Z             "properties" : {
+2025-09-01T12:02:54.4957886Z               "compression" : {
+2025-09-01T12:02:54.4958215Z                 "title" : "Controls compression for the TRAP files written by the extractor.",
+2025-09-01T12:02:54.4959136Z                 "description" : "This option is only intended for use in debugging the extractor. Accepted values are 'gzip' (the default, to write gzip-compressed TRAP) 'zstd' (to write Zstandard-compressed TRAP) and 'none' (to write uncompressed TRAP).\n",
+2025-09-01T12:02:54.4959943Z                 "type" : "string",
+2025-09-01T12:02:54.4960175Z                 "pattern" : "^(none|gzip|zstd)$"
+2025-09-01T12:02:54.4960402Z               }
+2025-09-01T12:02:54.4960565Z             }
+2025-09-01T12:02:54.4960906Z           }
+2025-09-01T12:02:54.4961060Z         }
+2025-09-01T12:02:54.4961206Z       }
+2025-09-01T12:02:54.4961349Z     ],
+2025-09-01T12:02:54.4961493Z     "go" : [
+2025-09-01T12:02:54.4961647Z       {
+2025-09-01T12:02:54.4961885Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/go",
+2025-09-01T12:02:54.4962241Z         "extractor_options" : {
+2025-09-01T12:02:54.4962460Z           "extract_tests" : {
+2025-09-01T12:02:54.4962746Z             "title" : "Whether to include Go test files in the CodeQL database.",
+2025-09-01T12:02:54.4963325Z             "description" : "A value indicating whether Go test files should be included in the CodeQL database. The default is 'false'.\n",
+2025-09-01T12:02:54.4963799Z             "type" : "string",
+2025-09-01T12:02:54.4964135Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:54.4964349Z           },
+2025-09-01T12:02:54.4964521Z           "extract_vendor_dirs" : {
+2025-09-01T12:02:54.4964839Z             "title" : "Whether to include Go vendor directories in the CodeQL database.",
+2025-09-01T12:02:54.4965460Z             "description" : "A value indicating whether Go vendor directories should be included in the CodeQL database. The default is 'false'.\n",
+2025-09-01T12:02:54.4965969Z             "type" : "string",
+2025-09-01T12:02:54.4966170Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:54.4966387Z           }
+2025-09-01T12:02:54.4966535Z         }
+2025-09-01T12:02:54.4966686Z       }
+2025-09-01T12:02:54.4966824Z     ],
+2025-09-01T12:02:54.4966976Z     "cpp" : [
+2025-09-01T12:02:54.4967126Z       {
+2025-09-01T12:02:54.4967377Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/cpp",
+2025-09-01T12:02:54.4967702Z         "extractor_options" : {
+2025-09-01T12:02:54.4967904Z           "trap" : {
+2025-09-01T12:02:54.4968094Z             "title" : "TRAP options",
+2025-09-01T12:02:54.4968403Z             "description" : "Options about how the extractor handles TRAP files",
+2025-09-01T12:02:54.4968722Z             "type" : "object",
+2025-09-01T12:02:54.4968921Z             "visibility" : 3,
+2025-09-01T12:02:54.4969129Z             "properties" : {
+2025-09-01T12:02:54.4969355Z               "cache" : {
+2025-09-01T12:02:54.4969565Z                 "title" : "TRAP cache options",
+2025-09-01T12:02:54.4969905Z                 "description" : "Options about how the extractor handles its TRAP cache",
+2025-09-01T12:02:54.4970351Z                 "type" : "object",
+2025-09-01T12:02:54.4970576Z                 "properties" : {
+2025-09-01T12:02:54.4970878Z                   "dir" : {
+2025-09-01T12:02:54.4971095Z                     "title" : "TRAP cache directory",
+2025-09-01T12:02:54.4971398Z                     "description" : "The directory of the TRAP cache to use",
+2025-09-01T12:02:54.4971698Z                     "type" : "string"
+2025-09-01T12:02:54.4971903Z                   },
+2025-09-01T12:02:54.4972082Z                   "bound" : {
+2025-09-01T12:02:54.4972297Z                     "title" : "TRAP cache bound",
+2025-09-01T12:02:54.4972613Z                     "description" : "A soft limit (in MB) on the size of the TRAP cache",
+2025-09-01T12:02:54.4972931Z                     "type" : "string",
+2025-09-01T12:02:54.4973152Z                     "pattern" : "[0-9]+"
+2025-09-01T12:02:54.4973367Z                   },
+2025-09-01T12:02:54.4973534Z                   "write" : {
+2025-09-01T12:02:54.4973752Z                     "title" : "TRAP cache writeable",
+2025-09-01T12:02:54.4974103Z                     "description" : "Whether to write to the TRAP cache as well as reading it",
+2025-09-01T12:02:54.4974442Z                     "type" : "string",
+2025-09-01T12:02:54.4974685Z                     "pattern" : "(true|TRUE|false|FALSE)"
+2025-09-01T12:02:54.4974915Z                   }
+2025-09-01T12:02:54.4975085Z                 }
+2025-09-01T12:02:54.4975244Z               }
+2025-09-01T12:02:54.4975405Z             }
+2025-09-01T12:02:54.4975558Z           },
+2025-09-01T12:02:54.4975727Z           "scale_timeouts" : {
+2025-09-01T12:02:54.4975999Z             "title" : "Value to scale compiler introspection timeouts with",
+2025-09-01T12:02:54.4977274Z             "description" : "The extractor attempts to determine what compiler the source code being extracted is compiled with. To this end the extractor makes additional calls to the compiler, some of which are expected to return within a certain fixed time (either 10s or 15s). On some systems that are under high load this time might be too short, and can be scaled up using this option.\n",
+2025-09-01T12:02:54.4978449Z             "type" : "string",
+2025-09-01T12:02:54.4978658Z             "pattern" : "[0-9]+"
+2025-09-01T12:02:54.4978860Z           },
+2025-09-01T12:02:54.4979018Z           "log_verbosity" : {
+2025-09-01T12:02:54.4979378Z             "title" : "Verbosity of the extractor logging",
+2025-09-01T12:02:54.4979914Z             "description" : "Set the verbosity of the extractor logging to 'quiet' (0), 'normal' (1), 'chatty' (2), or 'noisy' (3). The default is 'normal'.\n",
+2025-09-01T12:02:54.4980399Z             "type" : "string",
+2025-09-01T12:02:54.4980759Z             "pattern" : "[0-3]"
+2025-09-01T12:02:54.4980997Z           },
+2025-09-01T12:02:54.4981170Z           "frontend_options" : {
+2025-09-01T12:02:54.4981408Z             "title" : "C/C++ extractor frontend options",
+2025-09-01T12:02:54.4981856Z             "description" : "Set additional options that should be passed to the C/C++ extractor frontend.\n",
+2025-09-01T12:02:54.4982257Z             "type" : "array",
+2025-09-01T12:02:54.4982461Z             "visibility" : 3
+2025-09-01T12:02:54.4982655Z           }
+2025-09-01T12:02:54.4982801Z         }
+2025-09-01T12:02:54.4982948Z       }
+2025-09-01T12:02:54.4983086Z     ],
+2025-09-01T12:02:54.4983232Z     "yaml" : [
+2025-09-01T12:02:54.4983392Z       {
+2025-09-01T12:02:54.4983642Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/yaml"
+2025-09-01T12:02:54.4983945Z       }
+2025-09-01T12:02:54.4984091Z     ],
+2025-09-01T12:02:54.4984235Z     "html" : [
+2025-09-01T12:02:54.4984395Z       {
+2025-09-01T12:02:54.4984631Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/html"
+2025-09-01T12:02:54.4984936Z       }
+2025-09-01T12:02:54.4985079Z     ],
+2025-09-01T12:02:54.4985222Z     "swift" : [
+2025-09-01T12:02:54.4985382Z       {
+2025-09-01T12:02:54.4985622Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/swift"
+2025-09-01T12:02:54.4986144Z       }
+2025-09-01T12:02:54.4986293Z     ],
+2025-09-01T12:02:54.4986439Z     "csv" : [
+2025-09-01T12:02:54.4986587Z       {
+2025-09-01T12:02:54.4986828Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/csv"
+2025-09-01T12:02:54.4987125Z       }
+2025-09-01T12:02:54.4987269Z     ],
+2025-09-01T12:02:54.4987418Z     "actions" : [
+2025-09-01T12:02:54.4987582Z       {
+2025-09-01T12:02:54.4987836Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/actions",
+2025-09-01T12:02:54.4988164Z         "extractor_options" : {
+2025-09-01T12:02:54.4988369Z           "trap" : {
+2025-09-01T12:02:54.4988553Z             "title" : "TRAP options",
+2025-09-01T12:02:54.4988871Z             "description" : "Options about how the extractor handles TRAP files",
+2025-09-01T12:02:54.4989186Z             "type" : "object",
+2025-09-01T12:02:54.4989392Z             "visibility" : 3,
+2025-09-01T12:02:54.4989595Z             "properties" : {
+2025-09-01T12:02:54.4989804Z               "cache" : {
+2025-09-01T12:02:54.4990012Z                 "title" : "TRAP cache options",
+2025-09-01T12:02:54.4990346Z                 "description" : "Options about how the extractor handles its TRAP cache",
+2025-09-01T12:02:54.4990867Z                 "type" : "object",
+2025-09-01T12:02:54.4991103Z                 "properties" : {
+2025-09-01T12:02:54.4991315Z                   "dir" : {
+2025-09-01T12:02:54.4991527Z                     "title" : "TRAP cache directory",
+2025-09-01T12:02:54.4991840Z                     "description" : "The directory of the TRAP cache to use",
+2025-09-01T12:02:54.4992139Z                     "type" : "string"
+2025-09-01T12:02:54.4992350Z                   },
+2025-09-01T12:02:54.4992521Z                   "bound" : {
+2025-09-01T12:02:54.4992736Z                     "title" : "TRAP cache bound",
+2025-09-01T12:02:54.4993055Z                     "description" : "A soft limit (in MB) on the size of the TRAP cache",
+2025-09-01T12:02:54.4993375Z                     "type" : "string",
+2025-09-01T12:02:54.4993610Z                     "pattern" : "[0-9]+"
+2025-09-01T12:02:54.4993823Z                   },
+2025-09-01T12:02:54.4993999Z                   "write" : {
+2025-09-01T12:02:54.4994207Z                     "title" : "TRAP cache writeable",
+2025-09-01T12:02:54.4994556Z                     "description" : "Whether to write to the TRAP cache as well as reading it",
+2025-09-01T12:02:54.4995022Z                     "type" : "string",
+2025-09-01T12:02:54.4995261Z                     "pattern" : "(true|TRUE|false|FALSE)"
+2025-09-01T12:02:54.4995496Z                   }
+2025-09-01T12:02:54.4995653Z                 }
+2025-09-01T12:02:54.4995817Z               }
+2025-09-01T12:02:54.4995970Z             }
+2025-09-01T12:02:54.4996125Z           }
+2025-09-01T12:02:54.4996268Z         }
+2025-09-01T12:02:54.4996417Z       }
+2025-09-01T12:02:54.4996555Z     ],
+2025-09-01T12:02:54.4996703Z     "java" : [
+2025-09-01T12:02:54.4996857Z       {
+2025-09-01T12:02:54.4997112Z         "extractor_root" : "/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/java",
+2025-09-01T12:02:54.4997431Z         "extractor_options" : {
+2025-09-01T12:02:54.4997638Z           "exclude" : {
+2025-09-01T12:02:54.4997858Z             "title" : "A glob excluding files from analysis.",
+2025-09-01T12:02:54.4998508Z             "description" : "A glob indicating what files to exclude from the analysis. This accepts glob patterns that are supported by Java's 'getPathMatcher' implementation.\n",
+2025-09-01T12:02:54.4999119Z             "type" : "string"
+2025-09-01T12:02:54.4999302Z           },
+2025-09-01T12:02:54.4999472Z           "add_prefer_source" : {
+2025-09-01T12:02:54.4999760Z             "title" : "Whether to always prefer source files over class files.",
+2025-09-01T12:02:54.5000979Z             "description" : "A value indicating whether source files should be preferred over class files. If set to 'true', the extraction adds '-Xprefer:source' to the javac command line. If set to 'false', the extraction uses the default javac behavior ('-Xprefer:newer'). The default is 'true'.\n",
+2025-09-01T12:02:54.5001901Z             "type" : "string",
+2025-09-01T12:02:54.5002107Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:54.5002327Z           },
+2025-09-01T12:02:54.5002487Z           "buildless" : {
+2025-09-01T12:02:54.5002781Z             "title" : "Whether to use buildless (standalone) extraction (experimental).",
+2025-09-01T12:02:54.5004243Z             "description" : "A value indicating, which type of extraction the autobuilder should perform. If 'true', then the standalone extractor will be used, otherwise tracing extraction will be performed. The default is 'false'. Note that buildless extraction will generally yield less accurate analysis results, and should only be used in cases where it is not possible to build the code (for example if it uses inaccessible dependencies).\n",
+2025-09-01T12:02:54.5005583Z             "type" : "string",
+2025-09-01T12:02:54.5005796Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:54.5006011Z           },
+2025-09-01T12:02:54.5006188Z           "buildless_dependency_dir" : {
+2025-09-01T12:02:54.5006557Z             "title" : "The path where buildless (standalone) extraction should keep dependencies.",
+2025-09-01T12:02:54.5007121Z             "description" : "If set, the buildless (standalone) extractor will store dependencies in this directory.\n",
+2025-09-01T12:02:54.5007550Z             "type" : "string"
+2025-09-01T12:02:54.5007736Z           },
+2025-09-01T12:02:54.5007913Z           "minimize_dependency_jars" : {
+2025-09-01T12:02:54.5008280Z             "title" : "Whether to rewrite and minimize downloaded JAR dependencies (experimental).",
+2025-09-01T12:02:54.5009021Z             "description" : "If 'true', JAR dependencies downloaded during extraction will be rewritten to remove unneeded data, such as method bodies. The default is 'false'.\n",
+2025-09-01T12:02:54.5009613Z             "type" : "string",
+2025-09-01T12:02:54.5009821Z             "pattern" : "^(false|true)$"
+2025-09-01T12:02:54.5010043Z           }
+2025-09-01T12:02:54.5010191Z         }
+2025-09-01T12:02:54.5010338Z       }
+2025-09-01T12:02:54.5010479Z     ]
+2025-09-01T12:02:54.5010718Z   }
+2025-09-01T12:02:54.5010860Z }
+2025-09-01T12:02:54.5167888Z python does not support TRAP caching (missing option group)
+2025-09-01T12:02:54.5168475Z Found 0 languages that support TRAP caching
+2025-09-01T12:02:54.5169211Z Using overlay database mode: none without caching.
+2025-09-01T12:02:54.5171039Z ##[endgroup]
+2025-09-01T12:02:54.5176042Z While resolving threads, found a cgroup CPUs file with 4 CPUs in /sys/fs/cgroup/cpuset.cpus.effective.
+2025-09-01T12:02:54.5183591Z Skipping download of dependency cache for python as we have no caching configuration for it.
+2025-09-01T12:02:54.5195983Z Writing augmented user configuration file to /home/runner/work/_temp/user-config.yaml
+2025-09-01T12:02:54.5197042Z ##[group]Augmented user configuration file contents
+2025-09-01T12:02:54.5210958Z default-setup:
+2025-09-01T12:02:54.5211289Z   org:
+2025-09-01T12:02:54.5211585Z     model-packs: []
+2025-09-01T12:02:54.5211923Z threat-models: []
+2025-09-01T12:02:54.5212232Z query-filters:
+2025-09-01T12:02:54.5212530Z   - exclude:
+2025-09-01T12:02:54.5212872Z       tags: exclude-from-incremental
+2025-09-01T12:02:54.5213170Z 
+2025-09-01T12:02:54.5213538Z ##[endgroup]
+2025-09-01T12:02:54.5218089Z [command]/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/codeql database init --force-overwrite --db-cluster /home/runner/work/_temp/codeql_databases --source-root=/home/runner/work/scratchattach/scratchattach --calculate-language-specific-baseline --extractor-include-aliases --sublanguage-file-coverage --language=python --codescanning-config=/home/runner/work/_temp/user-config.yaml --build-mode=none
+2025-09-01T12:02:56.6568812Z Package install location: /home/runner/.codeql/packages
+2025-09-01T12:02:56.6570285Z Nothing downloaded.
+2025-09-01T12:02:59.1083033Z Calculating baseline information in /home/runner/work/scratchattach/scratchattach
+2025-09-01T12:02:59.7782630Z Calculated baseline information for languages: python (668ms).
+2025-09-01T12:03:03.2004157Z Resolving extractor python.
+2025-09-01T12:03:03.2035465Z Successfully loaded extractor Python (python) from /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/python.
+2025-09-01T12:03:03.2644057Z Created skeleton CodeQL database at /home/runner/work/_temp/codeql_databases/python. This in-progress database is ready to be populated by an extractor.
+2025-09-01T12:03:03.4525198Z ##[group]Run github/codeql-action/start-proxy@v3
+2025-09-01T12:03:03.4525486Z with:
+2025-09-01T12:03:03.4525659Z   language: python
+2025-09-01T12:03:03.4525838Z   registry_secrets: []
+2025-09-01T12:03:03.4526141Z   token: ***
+2025-09-01T12:03:03.4526304Z env:
+2025-09-01T12:03:03.4526485Z   CODE_SCANNING_REF: refs/pull/50/head
+2025-09-01T12:03:03.4526742Z   CODE_SCANNING_BASE_BRANCH: main
+2025-09-01T12:03:03.4526994Z   CODE_SCANNING_IS_ANALYZING_DEFAULT_BRANCH: false
+2025-09-01T12:03:03.4527297Z   CODE_SCANNING_IS_STEADY_STATE_DEFAULT_SETUP: true
+2025-09-01T12:03:03.4533098Z   CODE_SCANNING_WORKFLOW_FILE: H4sIAAAAAAAA/6RV32/bNhB+919x8AakfZDzsD0JKFDFURJvhp1aCrqsKAiaOslcZFLlD6dql/99oEjX0hrPGZqn8Pjdx7v7Pp0F3WIM46ks8N18PFJWRD7089evUHGzsesJ7lCYCReNNXrCZIFEMyoEFxVRVhCHh6enkRQxFK2gW85GIxS7eAQwXV6mJJsmi8VscU1W6dWLibF0nP9muEiylFysksX05qVMa6qRrBUVbPMc4ywjySKZ3//pDpfpVXI3z//nC1wTKmjdfnGHAktqa/PfL2Z5mlzekyxP8vTbo1ma393GYJTF73LeL1e/X82X78nVbJ6+tK5HqR7KWj6SktedQqO/5Fo7WXy56P4F8HonPgSvHPeWGsU/T2oqKksrl/u6gyordOR0dqBSye1v2XLxKqCVFQLVa98yQINqy7XmUmj/DgBlpjuCQlqEGJPCoDDDYEPZA61wGNTIrOKmjbqWdQyPihsc7Um4sBhJEaFSUsVQ0lr7S20UNVi1+ypKyuuopNr0QRB63oMAuGC1LfAQAIhgP5F430vvFoC5d6RqYzj/BnwOt7a8LqKtLDAGIQUOLv0YYzj7MLZrK4yNampQm/HHsyOlNK3ZSHGykmdgP1SINtgEaaNgoukG2YO0BhQ2UnMjVRsorXZqhmGcs4B7u/t1NCCYCW44rfkXBL+SBune8ufO5Z/qyJOdc8HN290vAfjIzeYg2b537R37va1Hz02iBz2E++ACGxQFCtZGjLINF5VP8hOboNhxJcUWhYE3b+DMlx1tpDZYnPWJPllU3FU3HsNPcOlXRxdtQdu9u4PDS17F8HdPorBqIo3GNvFAO6mqYQDANVFH7svSMXx44QrxoyZdFjw9wcceqdkopKYbTt1Rhtu9lpkrCxolP7dQSgUKK66N6zeQ8CL216dF1oYqE3XgY1of6AlTWKBwRgrCa2QKjZ5cz/KbuwuySq9nWb6apRm5XS3/uO9LcvisjjhmaNhbVKVU2+BWv0U116c7Civ40E34xfR/bvu/m/vqyM0yy0Mf7pObdGOYSGs6wboTcebqtzEguF2uThI0Uh0nmCZkmq7y2dVsmuTpKSpGCUNleMndGjpKereaZ6eorKr1gWAo+GHH9ZTaB13SPwEAAP//ZjEj+9wIAAA=
+2025-09-01T12:03:03.4538770Z   CODEQL_ACTION_FEATURE_MULTI_LANGUAGE: false
+2025-09-01T12:03:03.4539037Z   CODEQL_ACTION_FEATURE_SANDWICH: false
+2025-09-01T12:03:03.4539454Z   CODEQL_ACTION_FEATURE_SARIF_COMBINE: true
+2025-09-01T12:03:03.4539721Z   CODEQL_ACTION_FEATURE_WILL_UPLOAD: true
+2025-09-01T12:03:03.4539963Z   CODEQL_ACTION_VERSION: 3.29.11
+2025-09-01T12:03:03.4540217Z   JOB_RUN_UUID: ff773d71-4927-49c9-8db8-d9f9846d5e0b
+2025-09-01T12:03:03.4540480Z   CODEQL_ACTION_INIT_HAS_RUN: true
+2025-09-01T12:03:03.4541026Z   CODEQL_ACTION_ANALYSIS_KEY: dynamic/github-code-scanning/codeql:analyze
+2025-09-01T12:03:03.4541401Z   CODEQL_WORKFLOW_STARTED_AT: 2025-09-01T12:02:46.402Z
+2025-09-01T12:03:03.4541664Z   CODEQL_RAM: 14581
+2025-09-01T12:03:03.4541843Z   CODEQL_THREADS: 4
+2025-09-01T12:03:03.4542011Z ##[endgroup]
+2025-09-01T12:03:03.6323600Z Using registry_secrets input.
+2025-09-01T12:03:03.6325288Z No credentials found, skipping proxy setup.
+2025-09-01T12:03:03.6523564Z ##[group]Run github/codeql-action/analyze@v3
+2025-09-01T12:03:03.6523833Z with:
+2025-09-01T12:03:03.6524014Z   category: /language:python
+2025-09-01T12:03:03.6524221Z   output: ../results
+2025-09-01T12:03:03.6524416Z   upload: always
+2025-09-01T12:03:03.6524589Z   add-snippets: false
+2025-09-01T12:03:03.6524779Z   skip-queries: false
+2025-09-01T12:03:03.6525035Z   checkout_path: /home/runner/work/scratchattach/scratchattach
+2025-09-01T12:03:03.6525346Z   upload-database: true
+2025-09-01T12:03:03.6525554Z   wait-for-processing: true
+2025-09-01T12:03:03.6525864Z   token: ***
+2025-09-01T12:03:03.6526303Z   matrix: {
+  "language": "python",
+  "category": "/language:python",
+  "build-mode": "none",
+  "runner": "[\"ubuntu-latest\"]"
+}
+2025-09-01T12:03:03.6526754Z   expect-error: false
+2025-09-01T12:03:03.6526942Z env:
+2025-09-01T12:03:03.6527114Z   CODE_SCANNING_REF: refs/pull/50/head
+2025-09-01T12:03:03.6527355Z   CODE_SCANNING_BASE_BRANCH: main
+2025-09-01T12:03:03.6527634Z   CODE_SCANNING_IS_ANALYZING_DEFAULT_BRANCH: false
+2025-09-01T12:03:03.6527938Z   CODE_SCANNING_IS_STEADY_STATE_DEFAULT_SETUP: true
+2025-09-01T12:03:03.6533676Z   CODE_SCANNING_WORKFLOW_FILE: H4sIAAAAAAAA/6RV32/bNhB+919x8AakfZDzsD0JKFDFURJvhp1aCrqsKAiaOslcZFLlD6dql/99oEjX0hrPGZqn8Pjdx7v7Pp0F3WIM46ks8N18PFJWRD7089evUHGzsesJ7lCYCReNNXrCZIFEMyoEFxVRVhCHh6enkRQxFK2gW85GIxS7eAQwXV6mJJsmi8VscU1W6dWLibF0nP9muEiylFysksX05qVMa6qRrBUVbPMc4ywjySKZ3//pDpfpVXI3z//nC1wTKmjdfnGHAktqa/PfL2Z5mlzekyxP8vTbo1ma393GYJTF73LeL1e/X82X78nVbJ6+tK5HqR7KWj6SktedQqO/5Fo7WXy56P4F8HonPgSvHPeWGsU/T2oqKksrl/u6gyordOR0dqBSye1v2XLxKqCVFQLVa98yQINqy7XmUmj/DgBlpjuCQlqEGJPCoDDDYEPZA61wGNTIrOKmjbqWdQyPihsc7Um4sBhJEaFSUsVQ0lr7S20UNVi1+ypKyuuopNr0QRB63oMAuGC1LfAQAIhgP5F430vvFoC5d6RqYzj/BnwOt7a8LqKtLDAGIQUOLv0YYzj7MLZrK4yNampQm/HHsyOlNK3ZSHGykmdgP1SINtgEaaNgoukG2YO0BhQ2UnMjVRsorXZqhmGcs4B7u/t1NCCYCW44rfkXBL+SBune8ufO5Z/qyJOdc8HN290vAfjIzeYg2b537R37va1Hz02iBz2E++ACGxQFCtZGjLINF5VP8hOboNhxJcUWhYE3b+DMlx1tpDZYnPWJPllU3FU3HsNPcOlXRxdtQdu9u4PDS17F8HdPorBqIo3GNvFAO6mqYQDANVFH7svSMXx44QrxoyZdFjw9wcceqdkopKYbTt1Rhtu9lpkrCxolP7dQSgUKK66N6zeQ8CL216dF1oYqE3XgY1of6AlTWKBwRgrCa2QKjZ5cz/KbuwuySq9nWb6apRm5XS3/uO9LcvisjjhmaNhbVKVU2+BWv0U116c7Civ40E34xfR/bvu/m/vqyM0yy0Mf7pObdGOYSGs6wboTcebqtzEguF2uThI0Uh0nmCZkmq7y2dVsmuTpKSpGCUNleMndGjpKereaZ6eorKr1gWAo+GHH9ZTaB13SPwEAAP//ZjEj+9wIAAA=
+2025-09-01T12:03:03.6539353Z   CODEQL_ACTION_FEATURE_MULTI_LANGUAGE: false
+2025-09-01T12:03:03.6539621Z   CODEQL_ACTION_FEATURE_SANDWICH: false
+2025-09-01T12:03:03.6539869Z   CODEQL_ACTION_FEATURE_SARIF_COMBINE: true
+2025-09-01T12:03:03.6540129Z   CODEQL_ACTION_FEATURE_WILL_UPLOAD: true
+2025-09-01T12:03:03.6540372Z   CODEQL_ACTION_VERSION: 3.29.11
+2025-09-01T12:03:03.6540819Z   JOB_RUN_UUID: ff773d71-4927-49c9-8db8-d9f9846d5e0b
+2025-09-01T12:03:03.6541103Z   CODEQL_ACTION_INIT_HAS_RUN: true
+2025-09-01T12:03:03.6541434Z   CODEQL_ACTION_ANALYSIS_KEY: dynamic/github-code-scanning/codeql:analyze
+2025-09-01T12:03:03.6541813Z   CODEQL_WORKFLOW_STARTED_AT: 2025-09-01T12:02:46.402Z
+2025-09-01T12:03:03.6542076Z   CODEQL_RAM: 14581
+2025-09-01T12:03:03.6542254Z   CODEQL_THREADS: 4
+2025-09-01T12:03:03.6542424Z   CODEQL_PROXY_HOST: 
+2025-09-01T12:03:03.6542608Z   CODEQL_PROXY_PORT: 
+2025-09-01T12:03:03.6542794Z   CODEQL_PROXY_CA_CERTIFICATE: 
+2025-09-01T12:03:03.6543177Z   CODEQL_PROXY_URLS: 
+2025-09-01T12:03:03.6543349Z ##[endgroup]
+2025-09-01T12:03:04.7722548Z While resolving threads, found a cgroup CPUs file with 4 CPUs in /sys/fs/cgroup/cpuset.cpus.effective.
+2025-09-01T12:03:04.7760774Z ##[group]Generating diff range extension pack
+2025-09-01T12:03:04.7763236Z Calculating diff ranges for main...refs/pull/50/head
+2025-09-01T12:03:05.1224484Z Successfully created diff range extension pack at /home/runner/work/_temp/pr-diff-range.
+2025-09-01T12:03:05.1225379Z ##[endgroup]
+2025-09-01T12:03:05.1310840Z ##[group]Extracting python
+2025-09-01T12:03:05.1315188Z [command]/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/codeql database trace-command --use-build-mode --working-dir /home/runner/work/scratchattach/scratchattach /home/runner/work/_temp/codeql_databases/python
+2025-09-01T12:03:05.9195534Z Running command in /home/runner/work/scratchattach/scratchattach: [/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/python/tools/autobuild.sh]
+2025-09-01T12:03:06.0966886Z [2025-09-01 12:03:06] [build-stderr] /bin/sh: 1: python2: not found
+2025-09-01T12:03:06.1265081Z [2025-09-01 12:03:06] [build-stdout] Source root appears to be the real root.
+2025-09-01T12:03:06.1266375Z [2025-09-01 12:03:06] [build-stdout] Will try to guess Python version, as it was not specified in `lgtm.yml`
+2025-09-01T12:03:06.1268339Z [2025-09-01 12:03:06] [build-stdout] Trying to guess Python version based on Trove classifiers in setup.py
+2025-09-01T12:03:06.1269929Z [2025-09-01 12:03:06] [build-stdout] Did not find setup.py (expected it to be at /home/runner/work/scratchattach/scratchattach/setup.py)
+2025-09-01T12:03:06.1272863Z [2025-09-01 12:03:06] [build-stdout] Trying to guess Python version based on travis file
+2025-09-01T12:03:06.1274771Z [2025-09-01 12:03:06] [build-stdout] Did not find any travis files (expected them at either ['/home/runner/work/scratchattach/scratchattach/.travis.yml', '/home/runner/work/scratchattach/scratchattach/travis.yml'])
+2025-09-01T12:03:06.1276658Z [2025-09-01 12:03:06] [build-stdout] Trying to guess Python version based on installed versions
+2025-09-01T12:03:06.1277952Z [2025-09-01 12:03:06] [build-stdout] Wanted to run Python 2, but it is not available. Using Python 3 instead
+2025-09-01T12:03:06.1280154Z [2025-09-01 12:03:06] [build-stdout] This script is running Python 3, but Python 2 is also available (as 'python3')
+2025-09-01T12:03:06.1281616Z [2025-09-01 12:03:06] [build-stdout] Could not guess Python version, will use default: Python 3
+2025-09-01T12:03:06.1283514Z [2025-09-01 12:03:06] [build-stdout] Calling python3 -S /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/python/tools/python_tracer.py --verbosity 3 -z all -c /home/runner/work/_temp/codeql_databases/python/working/trap_cache -R /home/runner/work/scratchattach/scratchattach
+2025-09-01T12:03:06.5278525Z [2025-09-01 12:03:06] [build-stdout] INFO: The Python extractor has recently stopped extracting the standard library by default. If you encounter problems, please let us know by submitting an issue to https://github.com/github/codeql. It is possible to re-enable extraction of the standard library by setting the environment variable CODEQL_EXTRACTOR_PYTHON_EXTRACT_STDLIB.
+2025-09-01T12:03:06.5289884Z [2025-09-01 12:03:06] [build-stdout] [INFO] Extraction will use the Python 3 standard library.
+2025-09-01T12:03:06.5298223Z [2025-09-01 12:03:06] [build-stdout] [INFO] sys_path is: ['/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/python/tools', '/usr/lib/python312.zip', '/usr/lib/python3.12', '/usr/lib/python3.12/lib-dynload']
+2025-09-01T12:03:06.5313692Z [2025-09-01 12:03:06] [build-stdout] [INFO] Python version 3.12.3
+2025-09-01T12:03:06.5314353Z [2025-09-01 12:03:06] [build-stdout] [INFO] Python extractor version 7.1.3
+2025-09-01T12:03:06.6144974Z [2025-09-01 12:03:06] [build-stdout] [INFO] [1] Extracted file /home/runner/work/scratchattach/scratchattach/test1.py in 14ms
+2025-09-01T12:03:06.6195634Z [2025-09-01 12:03:06] [build-stdout] [INFO] [2] Extracted file /home/runner/work/scratchattach/scratchattach/test2.py in 18ms
+2025-09-01T12:03:06.6327124Z [2025-09-01 12:03:06] [build-stdout] [INFO] [3] Extracted file /home/runner/work/scratchattach/scratchattach/test3.py in 23ms
+2025-09-01T12:03:06.6476079Z [2025-09-01 12:03:06] [build-stdout] [INFO] [4] Extracted file /home/runner/work/scratchattach/scratchattach/test4.py in 35ms
+2025-09-01T12:03:06.6599078Z [2025-09-01 12:03:06] [build-stdout] [INFO] [2] Extracted file /home/runner/work/scratchattach/scratchattach/message_viewer.py in 40ms
+2025-09-01T12:03:06.6667286Z [2025-09-01 12:03:06] [build-stdout] [INFO] [2] Extracted file /home/runner/work/scratchattach/scratchattach/install.py in 4ms
+2025-09-01T12:03:06.6670924Z [2025-09-01 12:03:06] [build-stdout] [INFO] [2] Extracted folder /home/runner/work/scratchattach/scratchattach/.archive in 0ms
+2025-09-01T12:03:06.6813939Z [2025-09-01 12:03:06] [build-stdout] [INFO] [1] Extracted file /home/runner/work/scratchattach/scratchattach/aesthetic_prioritizing.py in 67ms
+2025-09-01T12:03:06.6828538Z [2025-09-01 12:03:06] [build-stdout] [INFO] [1] Skipped built-in file /usr/lib/python3.12/warnings.py
+2025-09-01T12:03:06.6837871Z [2025-09-01 12:03:06] [build-stdout] [INFO] [1] Skipped built-in file /usr/lib/python3.12/os.py
+2025-09-01T12:03:06.6847561Z [2025-09-01 12:03:06] [build-stdout] [INFO] [1] Extracted module sys in 0ms
+2025-09-01T12:03:06.6915691Z [2025-09-01 12:03:06] [build-stdout] [INFO] [1] Extracted module time in 7ms
+2025-09-01T12:03:06.6936824Z [2025-09-01 12:03:06] [build-stdout] [INFO] [4] Extracted file /home/runner/work/scratchattach/scratchattach/.archive/scratch_chat_db.py in 54ms
+2025-09-01T12:03:06.6950928Z [2025-09-01 12:03:06] [build-stdout] [INFO] [1] Skipped built-in file /usr/lib/python3.12/json/__init__.py
+2025-09-01T12:03:06.6954753Z [2025-09-01 12:03:06] [build-stdout] [INFO] [1] Extracted folder /usr/lib/python3.12/json in 1ms
+2025-09-01T12:03:06.7471654Z [2025-09-01 12:03:06] [build-stdout] [INFO] [2] Extracted file /home/runner/work/scratchattach/scratchattach/scratch_chat_requests.py in 86ms
+2025-09-01T12:03:06.9421465Z [2025-09-01 12:03:06] [build-stdout] [INFO] [3] Extracted file /home/runner/work/scratchattach/scratchattach/key_multivalue_storage.py in 316ms
+2025-09-01T12:03:06.9425515Z [2025-09-01 12:03:06] [build-stdout] [INFO] [1] Skipped built-in file /usr/lib/python3.12/typing.py
+2025-09-01T12:03:06.9426548Z [2025-09-01 12:03:06] [build-stdout] [INFO] [4] Skipped built-in file /usr/lib/python3.12/uuid.py
+2025-09-01T12:03:06.9427499Z [2025-09-01 12:03:06] [build-stdout] [INFO] [4] Skipped built-in file /usr/lib/python3.12/logging/__init__.py
+2025-09-01T12:03:06.9435653Z [2025-09-01 12:03:06] [build-stdout] [INFO] [2] Extracted folder /usr/lib/python3.12/logging in 1ms
+2025-09-01T12:03:06.9983614Z [2025-09-01 12:03:06] [build-stdout] [INFO] Processed 21 modules in 0.46s
+2025-09-01T12:03:07.0406376Z ##[endgroup]
+2025-09-01T12:03:07.0413759Z ##[group]Finalizing python
+2025-09-01T12:03:07.0415760Z [command]/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/codeql database finalize --finalize-dataset --threads=4 --ram=14581 /home/runner/work/_temp/codeql_databases/python
+2025-09-01T12:03:07.8001020Z Running pre-finalize script /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/python/tools/pre-finalize.sh in /home/runner/work/scratchattach/scratchattach.
+2025-09-01T12:03:07.8779535Z Running command in /home/runner/work/scratchattach/scratchattach: [/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/python/tools/pre-finalize.sh]
+2025-09-01T12:03:08.6089599Z [2025-09-01 12:03:08] [build-stderr] Scanning for files in /home/runner/work/scratchattach/scratchattach...
+2025-09-01T12:03:08.6917039Z [2025-09-01 12:03:08] [build-stderr] /home/runner/work/_temp/codeql_databases/python: Indexing files in in /home/runner/work/scratchattach/scratchattach...
+2025-09-01T12:03:08.7243982Z [2025-09-01 12:03:08] [build-stderr] Running command in /home/runner/work/scratchattach/scratchattach: [/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/yaml/tools/index-files.sh, /home/runner/work/_temp/codeql_databases/python/working/files-to-index1476181300286178257.list]
+2025-09-01T12:03:09.3933277Z Pre-finalize script /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/python/tools/pre-finalize.sh completed in 1592 ms.
+2025-09-01T12:03:09.3966189Z Running TRAP import for CodeQL database at /home/runner/work/_temp/codeql_databases/python...
+2025-09-01T12:03:10.5145959Z Importing TRAP files
+2025-09-01T12:03:11.2844493Z Merging relations
+2025-09-01T12:03:11.6223478Z Finished writing database (relations: 149.03 KiB; string pool: 2.08 MiB).
+2025-09-01T12:03:11.6455683Z TRAP import complete (2.2s).
+2025-09-01T12:03:11.9047979Z Finished zipping source archive (16.32 KiB).
+2025-09-01T12:03:11.9276119Z ##[endgroup]
+2025-09-01T12:03:11.9281816Z ##[group]Running queries for python
+2025-09-01T12:03:11.9284522Z [command]/opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/codeql database run-queries --ram=14581 --threads=4 --expect-discarded-cache --additional-packs=/home/runner/work/_temp/pr-diff-range --extension-packs=codeql-action/pr-diff-range /home/runner/work/_temp/codeql_databases/python --intra-layer-parallelism --min-disk-free=1024 -v
+2025-09-01T12:03:12.6845794Z Writing logs to /home/runner/work/_temp/codeql_databases/python/log/database-run-queries-20250901.120312.682.log.
+2025-09-01T12:03:12.7350246Z Stringpool size measured as 2179482
+2025-09-01T12:03:13.3683284Z Writing logs to /home/runner/work/_temp/codeql_databases/python/log/execute-queries-20250901.120313.364.log.
+2025-09-01T12:03:13.6937219Z Recording pack reference codeql/python-queries at /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3.
+2025-09-01T12:03:15.8128950Z Compiling in 3 threads due to RAM limits.
+2025-09-01T12:03:16.9812846Z [1/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-116/BadTagFilter.qlx.
+2025-09-01T12:03:17.1839122Z [2/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-209/StackTraceExposure.qlx.
+2025-09-01T12:03:17.2486835Z [3/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-327/InsecureProtocol.qlx.
+2025-09-01T12:03:17.3044822Z [4/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-090/LdapInjection.qlx.
+2025-09-01T12:03:17.3545499Z [5/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-327/InsecureDefaultProtocol.qlx.
+2025-09-01T12:03:17.3839851Z [6/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-327/BrokenCryptoAlgorithm.qlx.
+2025-09-01T12:03:17.4498607Z [7/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-327/WeakSensitiveDataHashing.qlx.
+2025-09-01T12:03:17.5844662Z [8/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-074/TemplateInjection.qlx.
+2025-09-01T12:03:17.6449019Z [9/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-643/XpathInjection.qlx.
+2025-09-01T12:03:17.6673198Z [10/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CVE-2018-1281/BindToAllInterfaces.qlx.
+2025-09-01T12:03:17.6946550Z [11/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-776/XmlBomb.qlx.
+2025-09-01T12:03:17.7276305Z [12/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-352/CSRFProtectionDisabled.qlx.
+2025-09-01T12:03:17.7373130Z [13/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-295/MissingHostKeyValidation.qlx.
+2025-09-01T12:03:17.8920485Z [14/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-094/CodeInjection.qlx.
+2025-09-01T12:03:17.9131284Z [15/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-918/FullServerSideRequestForgery.qlx.
+2025-09-01T12:03:17.9693909Z [16/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-730/PolynomialReDoS.qlx.
+2025-09-01T12:03:18.0335176Z [17/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-730/ReDoS.qlx.
+2025-09-01T12:03:18.0558709Z [18/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-730/RegexInjection.qlx.
+2025-09-01T12:03:18.2473427Z [19/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-614/InsecureCookie.qlx.
+2025-09-01T12:03:18.2530983Z [20/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-502/UnsafeDeserialization.qlx.
+2025-09-01T12:03:18.2759295Z [21/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-078/CommandInjection.qlx.
+2025-09-01T12:03:18.3523439Z [22/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-326/WeakCryptoKey.qlx.
+2025-09-01T12:03:18.3988107Z [23/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-312/CleartextStorage.qlx.
+2025-09-01T12:03:18.4246076Z [24/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-312/CleartextLogging.qlx.
+2025-09-01T12:03:18.4500905Z [25/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-377/InsecureTemporaryFile.qlx.
+2025-09-01T12:03:18.4834603Z [26/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-020/IncompleteUrlSubstringSanitization.qlx.
+2025-09-01T12:03:18.4896418Z [27/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-113/HeaderInjection.qlx.
+2025-09-01T12:03:18.5635704Z [28/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-020/OverlyLargeRange.qlx.
+2025-09-01T12:03:18.6372539Z [29/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-020/CookieInjection.qlx.
+2025-09-01T12:03:18.6379066Z [30/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-020/IncompleteHostnameRegExp.qlx.
+2025-09-01T12:03:18.6420021Z [31/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-943/NoSqlInjection.qlx.
+2025-09-01T12:03:18.7714904Z [32/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-079/ReflectedXss.qlx.
+2025-09-01T12:03:18.8825686Z [33/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-022/PathInjection.qlx.
+2025-09-01T12:03:18.8875795Z [34/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-285/PamAuthorization.qlx.
+2025-09-01T12:03:18.9491293Z [35/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-215/FlaskDebug.qlx.
+2025-09-01T12:03:18.9809745Z [36/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-601/UrlRedirect.qlx.
+2025-09-01T12:03:19.0086204Z [37/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-089/SqlInjection.qlx.
+2025-09-01T12:03:19.0243426Z [38/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Diagnostics/ExtractionWarnings.qlx.
+2025-09-01T12:03:19.0360077Z [39/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Expressions/UseofInput.qlx.
+2025-09-01T12:03:19.0395447Z [40/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Diagnostics/ExtractedFiles.qlx.
+2025-09-01T12:03:19.0536473Z [41/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Summary/LinesOfCode.qlx.
+2025-09-01T12:03:19.0649153Z [42/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Summary/LinesOfUserCode.qlx.
+2025-09-01T12:03:19.0804726Z [43/43] Loaded /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-611/Xxe.qlx.
+2025-09-01T12:03:19.3722978Z Starting evaluation of codeql/python-queries/Diagnostics/ExtractedFiles.ql.
+2025-09-01T12:03:19.3724328Z Starting evaluation of codeql/python-queries/Diagnostics/ExtractionWarnings.ql.
+2025-09-01T12:03:19.3736748Z Starting evaluation of codeql/python-queries/Expressions/UseofInput.ql.
+2025-09-01T12:03:19.3738490Z Starting evaluation of codeql/python-queries/Security/CVE-2018-1281/BindToAllInterfaces.ql.
+2025-09-01T12:03:19.4051765Z Starting evaluation of codeql/python-queries/Security/CWE-020/CookieInjection.ql.
+2025-09-01T12:03:19.6995035Z [1/43 eval 303ms] Evaluation done; writing results to codeql/python-queries/Diagnostics/ExtractionWarnings.bqrs.
+2025-09-01T12:03:19.7035199Z [2/43 eval 331ms] Evaluation done; writing results to codeql/python-queries/Diagnostics/ExtractedFiles.bqrs.
+2025-09-01T12:03:20.6883766Z Starting evaluation of codeql/python-queries/Security/CWE-020/IncompleteHostnameRegExp.ql.
+2025-09-01T12:03:20.6944016Z Starting evaluation of codeql/python-queries/Security/CWE-020/IncompleteUrlSubstringSanitization.ql.
+2025-09-01T12:03:20.6992723Z Starting evaluation of codeql/python-queries/Security/CWE-020/OverlyLargeRange.ql.
+2025-09-01T12:03:20.6993998Z Starting evaluation of codeql/python-queries/Security/CWE-022/PathInjection.ql.
+2025-09-01T12:03:20.7251532Z [3/43 eval 30ms] Evaluation done; writing results to codeql/python-queries/Security/CWE-020/IncompleteUrlSubstringSanitization.bqrs.
+2025-09-01T12:03:20.7330428Z Starting evaluation of codeql/python-queries/Security/CWE-074/TemplateInjection.ql.
+2025-09-01T12:03:20.8017056Z Starting evaluation of codeql/python-queries/Security/CWE-078/CommandInjection.ql.
+2025-09-01T12:03:21.0071894Z Starting evaluation of codeql/python-queries/Security/CWE-079/ReflectedXss.ql.
+2025-09-01T12:03:21.0394307Z Starting evaluation of codeql/python-queries/Security/CWE-089/SqlInjection.ql.
+2025-09-01T12:03:21.0563536Z Starting evaluation of codeql/python-queries/Security/CWE-090/LdapInjection.ql.
+2025-09-01T12:03:21.1204864Z Starting evaluation of codeql/python-queries/Security/CWE-094/CodeInjection.ql.
+2025-09-01T12:03:21.1393335Z Starting evaluation of codeql/python-queries/Security/CWE-113/HeaderInjection.ql.
+2025-09-01T12:03:21.1754303Z Starting evaluation of codeql/python-queries/Security/CWE-116/BadTagFilter.ql.
+2025-09-01T12:03:21.1756582Z Starting evaluation of codeql/python-queries/Security/CWE-209/StackTraceExposure.ql.
+2025-09-01T12:03:21.1934601Z Starting evaluation of codeql/python-queries/Security/CWE-215/FlaskDebug.ql.
+2025-09-01T12:03:21.2001413Z Starting evaluation of codeql/python-queries/Security/CWE-285/PamAuthorization.ql.
+2025-09-01T12:03:21.2023562Z Starting evaluation of codeql/python-queries/Security/CWE-295/MissingHostKeyValidation.ql.
+2025-09-01T12:03:21.2203555Z Starting evaluation of codeql/python-queries/Security/CWE-312/CleartextLogging.ql.
+2025-09-01T12:03:21.2440213Z Starting evaluation of codeql/python-queries/Security/CWE-312/CleartextStorage.ql.
+2025-09-01T12:03:21.2974469Z Starting evaluation of codeql/python-queries/Security/CWE-326/WeakCryptoKey.ql.
+2025-09-01T12:03:21.2975798Z Starting evaluation of codeql/python-queries/Security/CWE-327/BrokenCryptoAlgorithm.ql.
+2025-09-01T12:03:21.3024680Z Starting evaluation of codeql/python-queries/Security/CWE-327/InsecureDefaultProtocol.ql.
+2025-09-01T12:03:21.3029597Z Starting evaluation of codeql/python-queries/Security/CWE-327/InsecureProtocol.ql.
+2025-09-01T12:03:21.3261868Z [4/43 eval 2s] Evaluation done; writing results to codeql/python-queries/Expressions/UseofInput.bqrs.
+2025-09-01T12:03:21.3310090Z [5/43 eval 28ms] Evaluation done; writing results to codeql/python-queries/Security/CWE-327/InsecureDefaultProtocol.bqrs.
+2025-09-01T12:03:21.3314718Z [6/43 eval 2s] Evaluation done; writing results to codeql/python-queries/Security/CVE-2018-1281/BindToAllInterfaces.bqrs.
+2025-09-01T12:03:21.3316902Z [7/43 eval 129ms] Evaluation done; writing results to codeql/python-queries/Security/CWE-295/MissingHostKeyValidation.bqrs.
+2025-09-01T12:03:21.4033701Z [8/43 eval 106ms] Evaluation done; writing results to codeql/python-queries/Security/CWE-327/BrokenCryptoAlgorithm.bqrs.
+2025-09-01T12:03:21.4137554Z Starting evaluation of codeql/python-queries/Security/CWE-327/WeakSensitiveDataHashing.ql.
+2025-09-01T12:03:21.4172830Z Starting evaluation of codeql/python-queries/Security/CWE-352/CSRFProtectionDisabled.ql.
+2025-09-01T12:03:21.4180133Z Starting evaluation of codeql/python-queries/Security/CWE-377/InsecureTemporaryFile.ql.
+2025-09-01T12:03:21.4317485Z [9/43 eval 13ms] Evaluation done; writing results to codeql/python-queries/Security/CWE-352/CSRFProtectionDisabled.bqrs.
+2025-09-01T12:03:21.6298113Z [10/43 eval 334ms] Evaluation done; writing results to codeql/python-queries/Security/CWE-326/WeakCryptoKey.bqrs.
+2025-09-01T12:03:21.6684682Z Starting evaluation of codeql/python-queries/Security/CWE-502/UnsafeDeserialization.ql.
+2025-09-01T12:03:21.6686079Z Starting evaluation of codeql/python-queries/Security/CWE-601/UrlRedirect.ql.
+2025-09-01T12:03:21.6687275Z Starting evaluation of codeql/python-queries/Security/CWE-611/Xxe.ql.
+2025-09-01T12:03:21.6902821Z [11/43 eval 276ms] Evaluation done; writing results to codeql/python-queries/Security/CWE-327/WeakSensitiveDataHashing.bqrs.
+2025-09-01T12:03:21.7582652Z Starting evaluation of codeql/python-queries/Security/CWE-614/InsecureCookie.ql.
+2025-09-01T12:03:21.7585658Z Starting evaluation of codeql/python-queries/Security/CWE-643/XpathInjection.ql.
+2025-09-01T12:03:21.7783118Z Starting evaluation of codeql/python-queries/Security/CWE-730/PolynomialReDoS.ql.
+2025-09-01T12:03:21.7901886Z Starting evaluation of codeql/python-queries/Security/CWE-730/ReDoS.ql.
+2025-09-01T12:03:21.7940575Z Starting evaluation of codeql/python-queries/Security/CWE-730/RegexInjection.ql.
+2025-09-01T12:03:21.8307125Z Starting evaluation of codeql/python-queries/Security/CWE-776/XmlBomb.ql.
+2025-09-01T12:03:21.8556858Z Starting evaluation of codeql/python-queries/Security/CWE-918/FullServerSideRequestForgery.ql.
+2025-09-01T12:03:21.8761661Z Starting evaluation of codeql/python-queries/Security/CWE-943/NoSqlInjection.ql.
+2025-09-01T12:03:21.9198923Z Starting evaluation of codeql/python-queries/Summary/LinesOfCode.ql.
+2025-09-01T12:03:21.9271612Z Starting evaluation of codeql/python-queries/Summary/LinesOfUserCode.ql.
+2025-09-01T12:03:21.9272803Z [12/43 eval 9ms] Evaluation done; writing results to codeql/python-queries/Summary/LinesOfCode.bqrs.
+2025-09-01T12:03:21.9630014Z [13/43 eval 37ms] Evaluation done; writing results to codeql/python-queries/Summary/LinesOfUserCode.bqrs.
+2025-09-01T12:03:22.3339916Z [14/43 eval 460ms] Evaluation done; writing results to codeql/python-queries/Security/CWE-943/NoSqlInjection.bqrs.
+2025-09-01T12:03:22.4185094Z [15/43 eval 657ms] Evaluation done; writing results to codeql/python-queries/Security/CWE-643/XpathInjection.bqrs.
+2025-09-01T12:03:22.4345614Z [16/43 eval 768ms] Evaluation done; writing results to codeql/python-queries/Security/CWE-601/UrlRedirect.bqrs.
+2025-09-01T12:03:22.5097186Z [17/43 eval 1.8s] Evaluation done; writing results to codeql/python-queries/Security/CWE-020/OverlyLargeRange.bqrs.
+2025-09-01T12:03:22.5152025Z [18/43 eval 1.3s] Evaluation done; writing results to codeql/python-queries/Security/CWE-116/BadTagFilter.bqrs.
+2025-09-01T12:03:22.5252966Z [19/43 eval 747ms] Evaluation done; writing results to codeql/python-queries/Security/CWE-730/PolynomialReDoS.bqrs.
+2025-09-01T12:03:22.5254244Z [20/43 eval 734ms] Evaluation done; writing results to codeql/python-queries/Security/CWE-730/ReDoS.bqrs.
+2025-09-01T12:03:22.5258686Z [21/43 eval 1.8s] Evaluation done; writing results to codeql/python-queries/Security/CWE-020/IncompleteHostnameRegExp.bqrs.
+2025-09-01T12:03:22.5507244Z [22/43 eval 1.4s] Evaluation done; writing results to codeql/python-queries/Security/CWE-094/CodeInjection.bqrs.
+2025-09-01T12:03:22.5635575Z [23/43 eval 3.2s] Evaluation done; writing results to codeql/python-queries/Security/CWE-020/CookieInjection.bqrs.
+2025-09-01T12:03:22.5805982Z [24/43 eval 1.8s] Evaluation done; writing results to codeql/python-queries/Security/CWE-074/TemplateInjection.bqrs.
+2025-09-01T12:03:22.6747602Z [25/43 eval 1s] Evaluation done; writing results to codeql/python-queries/Security/CWE-611/Xxe.bqrs.
+2025-09-01T12:03:22.6897123Z [26/43 eval 1.7s] Evaluation done; writing results to codeql/python-queries/Security/CWE-089/SqlInjection.bqrs.
+2025-09-01T12:03:22.7062883Z [27/43 eval 1.7s] Evaluation done; writing results to codeql/python-queries/Security/CWE-079/ReflectedXss.bqrs.
+2025-09-01T12:03:22.7411704Z [28/43 eval 2s] Evaluation done; writing results to codeql/python-queries/Security/CWE-022/PathInjection.bqrs.
+2025-09-01T12:03:22.7504265Z [29/43 eval 1.9s] Evaluation done; writing results to codeql/python-queries/Security/CWE-078/CommandInjection.bqrs.
+2025-09-01T12:03:22.7571573Z [30/43 eval 1.7s] Evaluation done; writing results to codeql/python-queries/Security/CWE-090/LdapInjection.bqrs.
+2025-09-01T12:03:22.7697868Z [31/43 eval 1.6s] Evaluation done; writing results to codeql/python-queries/Security/CWE-113/HeaderInjection.bqrs.
+2025-09-01T12:03:22.7828338Z [32/43 eval 1.6s] Evaluation done; writing results to codeql/python-queries/Security/CWE-209/StackTraceExposure.bqrs.
+2025-09-01T12:03:22.7877060Z [33/43 eval 1.6s] Evaluation done; writing results to codeql/python-queries/Security/CWE-215/FlaskDebug.bqrs.
+2025-09-01T12:03:22.8040194Z [34/43 eval 1.6s] Evaluation done; writing results to codeql/python-queries/Security/CWE-285/PamAuthorization.bqrs.
+2025-09-01T12:03:22.8425266Z [35/43 eval 1.6s] Evaluation done; writing results to codeql/python-queries/Security/CWE-312/CleartextStorage.bqrs.
+2025-09-01T12:03:22.8614418Z [36/43 eval 1.4s] Evaluation done; writing results to codeql/python-queries/Security/CWE-377/InsecureTemporaryFile.bqrs.
+2025-09-01T12:03:22.8793520Z [37/43 eval 1.6s] Evaluation done; writing results to codeql/python-queries/Security/CWE-327/InsecureProtocol.bqrs.
+2025-09-01T12:03:22.8947256Z [38/43 eval 1.2s] Evaluation done; writing results to codeql/python-queries/Security/CWE-502/UnsafeDeserialization.bqrs.
+2025-09-01T12:03:22.9184297Z [39/43 eval 1.1s] Evaluation done; writing results to codeql/python-queries/Security/CWE-776/XmlBomb.bqrs.
+2025-09-01T12:03:22.9578083Z [40/43 eval 1.2s] Evaluation done; writing results to codeql/python-queries/Security/CWE-730/RegexInjection.bqrs.
+2025-09-01T12:03:22.9801283Z [41/43 eval 1.1s] Evaluation done; writing results to codeql/python-queries/Security/CWE-918/FullServerSideRequestForgery.bqrs.
+2025-09-01T12:03:22.9858350Z [42/43 eval 1.2s] Evaluation done; writing results to codeql/python-queries/Security/CWE-614/InsecureCookie.bqrs.
+2025-09-01T12:03:23.0094686Z [43/43 eval 1.8s] Evaluation done; writing results to codeql/python-queries/Security/CWE-312/CleartextLogging.bqrs.
+2025-09-01T12:03:23.0095743Z Shutting down query evaluator.
+2025-09-01T12:03:23.0914408Z ##[group]Interpreting results for python
+2025-09-01T12:03:23.8498740Z Writing logs to /home/runner/work/_temp/codeql_databases/python/log/database-interpret-results-20250901.120323.846.log.
+2025-09-01T12:03:24.0011525Z Recording pack reference codeql/python-queries at /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3.
+2025-09-01T12:03:24.0409407Z Resolving extensions
+2025-09-01T12:03:25.4331486Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-116/BadTagFilter.ql...
+2025-09-01T12:03:25.4580311Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-116/BadTagFilter.bqrs.
+2025-09-01T12:03:25.4764474Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-209/StackTraceExposure.ql...
+2025-09-01T12:03:25.4874366Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-209/StackTraceExposure.bqrs.
+2025-09-01T12:03:25.4901918Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-090/LdapInjection.ql...
+2025-09-01T12:03:25.4991493Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-090/LdapInjection.bqrs.
+2025-09-01T12:03:25.5000364Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-327/InsecureProtocol.ql...
+2025-09-01T12:03:25.5118244Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-327/InsecureProtocol.bqrs.
+2025-09-01T12:03:25.5133502Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-327/WeakSensitiveDataHashing.ql...
+2025-09-01T12:03:25.5211110Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-327/WeakSensitiveDataHashing.bqrs.
+2025-09-01T12:03:25.5218913Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-327/InsecureDefaultProtocol.ql...
+2025-09-01T12:03:25.5313880Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-327/InsecureDefaultProtocol.bqrs.
+2025-09-01T12:03:25.5321410Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-327/BrokenCryptoAlgorithm.ql...
+2025-09-01T12:03:25.5413247Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-327/BrokenCryptoAlgorithm.bqrs.
+2025-09-01T12:03:25.5420027Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-074/TemplateInjection.ql...
+2025-09-01T12:03:25.5511231Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-074/TemplateInjection.bqrs.
+2025-09-01T12:03:25.5518276Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-643/XpathInjection.ql...
+2025-09-01T12:03:25.5608459Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-643/XpathInjection.bqrs.
+2025-09-01T12:03:25.5615969Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-776/XmlBomb.ql...
+2025-09-01T12:03:25.5714205Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-776/XmlBomb.bqrs.
+2025-09-01T12:03:25.5715837Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CVE-2018-1281/BindToAllInterfaces.ql...
+2025-09-01T12:03:25.5795980Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CVE-2018-1281/BindToAllInterfaces.bqrs.
+2025-09-01T12:03:25.5803827Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-352/CSRFProtectionDisabled.ql...
+2025-09-01T12:03:25.5891807Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-352/CSRFProtectionDisabled.bqrs.
+2025-09-01T12:03:25.5900277Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-295/MissingHostKeyValidation.ql...
+2025-09-01T12:03:25.5983559Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-295/MissingHostKeyValidation.bqrs.
+2025-09-01T12:03:25.6011862Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-094/CodeInjection.ql...
+2025-09-01T12:03:25.6074170Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-094/CodeInjection.bqrs.
+2025-09-01T12:03:25.6082665Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-918/FullServerSideRequestForgery.ql...
+2025-09-01T12:03:25.6164808Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-918/FullServerSideRequestForgery.bqrs.
+2025-09-01T12:03:25.6182174Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-730/PolynomialReDoS.ql...
+2025-09-01T12:03:25.6242625Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-730/PolynomialReDoS.bqrs.
+2025-09-01T12:03:25.6265592Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-730/RegexInjection.ql...
+2025-09-01T12:03:25.6334212Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-730/RegexInjection.bqrs.
+2025-09-01T12:03:25.6336003Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-730/ReDoS.ql...
+2025-09-01T12:03:25.6414469Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-730/ReDoS.bqrs.
+2025-09-01T12:03:25.6431973Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-502/UnsafeDeserialization.ql...
+2025-09-01T12:03:25.6500095Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-502/UnsafeDeserialization.bqrs.
+2025-09-01T12:03:25.6506680Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-614/InsecureCookie.ql...
+2025-09-01T12:03:25.6586582Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-614/InsecureCookie.bqrs.
+2025-09-01T12:03:25.6595226Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-078/CommandInjection.ql...
+2025-09-01T12:03:25.6680900Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-078/CommandInjection.bqrs.
+2025-09-01T12:03:25.6684479Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-312/CleartextStorage.ql...
+2025-09-01T12:03:25.6768772Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-312/CleartextStorage.bqrs.
+2025-09-01T12:03:25.6786122Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-312/CleartextLogging.ql...
+2025-09-01T12:03:25.6858091Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-312/CleartextLogging.bqrs.
+2025-09-01T12:03:25.6876226Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-326/WeakCryptoKey.ql...
+2025-09-01T12:03:25.6958500Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-326/WeakCryptoKey.bqrs.
+2025-09-01T12:03:25.6962781Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-113/HeaderInjection.ql...
+2025-09-01T12:03:25.7039228Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-113/HeaderInjection.bqrs.
+2025-09-01T12:03:25.7041497Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-377/InsecureTemporaryFile.ql...
+2025-09-01T12:03:25.7107087Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-377/InsecureTemporaryFile.bqrs.
+2025-09-01T12:03:25.7124509Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-943/NoSqlInjection.ql...
+2025-09-01T12:03:25.7189711Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-943/NoSqlInjection.bqrs.
+2025-09-01T12:03:25.7195453Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-020/IncompleteUrlSubstringSanitization.ql...
+2025-09-01T12:03:25.7278952Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-020/IncompleteUrlSubstringSanitization.bqrs.
+2025-09-01T12:03:25.7282513Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-020/OverlyLargeRange.ql...
+2025-09-01T12:03:25.7342900Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-020/OverlyLargeRange.bqrs.
+2025-09-01T12:03:25.7349019Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-020/CookieInjection.ql...
+2025-09-01T12:03:25.7424291Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-020/CookieInjection.bqrs.
+2025-09-01T12:03:25.7427284Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-020/IncompleteHostnameRegExp.ql...
+2025-09-01T12:03:25.7492807Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-020/IncompleteHostnameRegExp.bqrs.
+2025-09-01T12:03:25.7497937Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-079/ReflectedXss.ql...
+2025-09-01T12:03:25.7567054Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-079/ReflectedXss.bqrs.
+2025-09-01T12:03:25.7576981Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-022/PathInjection.ql...
+2025-09-01T12:03:25.7697191Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-022/PathInjection.bqrs.
+2025-09-01T12:03:25.7713493Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-285/PamAuthorization.ql...
+2025-09-01T12:03:25.7769022Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-285/PamAuthorization.bqrs.
+2025-09-01T12:03:25.7776746Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-601/UrlRedirect.ql...
+2025-09-01T12:03:25.7835564Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-601/UrlRedirect.bqrs.
+2025-09-01T12:03:25.7841347Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-215/FlaskDebug.ql...
+2025-09-01T12:03:25.7904419Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-215/FlaskDebug.bqrs.
+2025-09-01T12:03:25.7909381Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-089/SqlInjection.ql...
+2025-09-01T12:03:25.7977819Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-089/SqlInjection.bqrs.
+2025-09-01T12:03:25.7981162Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Security/CWE-611/Xxe.ql...
+2025-09-01T12:03:25.8044404Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-611/Xxe.bqrs.
+2025-09-01T12:03:25.8051496Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Expressions/UseofInput.ql...
+2025-09-01T12:03:25.8113946Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Expressions/UseofInput.bqrs.
+2025-09-01T12:03:25.8121877Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Diagnostics/ExtractionWarnings.ql...
+2025-09-01T12:03:25.8209630Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Diagnostics/ExtractionWarnings.bqrs.
+2025-09-01T12:03:25.8211283Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Diagnostics/ExtractedFiles.ql...
+2025-09-01T12:03:25.8247779Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Diagnostics/ExtractedFiles.bqrs.
+2025-09-01T12:03:25.8249507Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Summary/LinesOfCode.ql...
+2025-09-01T12:03:25.8305587Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Summary/LinesOfCode.bqrs.
+2025-09-01T12:03:25.8311566Z Interpreting /opt/hostedtoolcache/CodeQL/2.22.4/x64/codeql/qlpacks/codeql/python-queries/1.6.3/Summary/LinesOfUserCode.ql...
+2025-09-01T12:03:25.8381376Z  ... found results file at /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Summary/LinesOfUserCode.bqrs.
+2025-09-01T12:03:25.8954599Z Interpreted problem query "Bad HTML filtering regexp" (py/bad-tag-filter) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-116/BadTagFilter.bqrs.
+2025-09-01T12:03:25.8973645Z Interpreted pathproblem query "Information exposure through an exception" (py/stack-trace-exposure) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-209/StackTraceExposure.bqrs.
+2025-09-01T12:03:25.8979392Z Interpreted pathproblem query "LDAP query built from user-controlled sources" (py/ldap-injection) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-090/LdapInjection.bqrs.
+2025-09-01T12:03:25.8983633Z Interpreted problem query "Use of insecure SSL/TLS version" (py/insecure-protocol) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-327/InsecureProtocol.bqrs.
+2025-09-01T12:03:25.8989408Z Interpreted pathproblem query "Use of a broken or weak cryptographic hashing algorithm on sensitive data" (py/weak-sensitive-data-hashing) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-327/WeakSensitiveDataHashing.bqrs.
+2025-09-01T12:03:25.9033887Z Interpreted problem query "Default version of SSL/TLS may be insecure" (py/insecure-default-protocol) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-327/InsecureDefaultProtocol.bqrs.
+2025-09-01T12:03:25.9036847Z Interpreted problem query "Use of a broken or weak cryptographic algorithm" (py/weak-cryptographic-algorithm) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-327/BrokenCryptoAlgorithm.bqrs.
+2025-09-01T12:03:25.9039620Z Interpreted pathproblem query "Server Side Template Injection" (py/template-injection) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-074/TemplateInjection.bqrs.
+2025-09-01T12:03:25.9042548Z Interpreted pathproblem query "XPath query built from user-controlled sources" (py/xpath-injection) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-643/XpathInjection.bqrs.
+2025-09-01T12:03:25.9045371Z Interpreted pathproblem query "XML internal entity expansion" (py/xml-bomb) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-776/XmlBomb.bqrs.
+2025-09-01T12:03:25.9047953Z Interpreted problem query "Binding a socket to all network interfaces" (py/bind-socket-all-network-interfaces) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CVE-2018-1281/BindToAllInterfaces.bqrs.
+2025-09-01T12:03:25.9051241Z Interpreted problem query "CSRF protection weakened or disabled" (py/csrf-protection-disabled) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-352/CSRFProtectionDisabled.bqrs.
+2025-09-01T12:03:25.9054057Z Interpreted problem query "Accepting unknown SSH host keys when using Paramiko" (py/paramiko-missing-host-key-validation) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-295/MissingHostKeyValidation.bqrs.
+2025-09-01T12:03:25.9056649Z Interpreted pathproblem query "Code injection" (py/code-injection) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-094/CodeInjection.bqrs.
+2025-09-01T12:03:25.9059005Z Interpreted pathproblem query "Full server-side request forgery" (py/full-ssrf) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-918/FullServerSideRequestForgery.bqrs.
+2025-09-01T12:03:25.9083941Z Interpreted pathproblem query "Polynomial regular expression used on uncontrolled data" (py/polynomial-redos) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-730/PolynomialReDoS.bqrs.
+2025-09-01T12:03:25.9093407Z Interpreted pathproblem query "Regular expression injection" (py/regex-injection) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-730/RegexInjection.bqrs.
+2025-09-01T12:03:25.9112211Z Interpreted problem query "Inefficient regular expression" (py/redos) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-730/ReDoS.bqrs.
+2025-09-01T12:03:25.9114664Z Interpreted pathproblem query "Deserialization of user-controlled data" (py/unsafe-deserialization) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-502/UnsafeDeserialization.bqrs.
+2025-09-01T12:03:25.9117238Z Interpreted problem query "Failure to use secure cookies" (py/insecure-cookie) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-614/InsecureCookie.bqrs.
+2025-09-01T12:03:25.9119628Z Interpreted pathproblem query "Uncontrolled command line" (py/command-line-injection) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-078/CommandInjection.bqrs.
+2025-09-01T12:03:25.9122382Z Interpreted pathproblem query "Clear-text storage of sensitive information" (py/clear-text-storage-sensitive-data) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-312/CleartextStorage.bqrs.
+2025-09-01T12:03:25.9125179Z Interpreted pathproblem query "Clear-text logging of sensitive information" (py/clear-text-logging-sensitive-data) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-312/CleartextLogging.bqrs.
+2025-09-01T12:03:25.9127721Z Interpreted problem query "Use of weak cryptographic key" (py/weak-crypto-key) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-326/WeakCryptoKey.bqrs.
+2025-09-01T12:03:25.9130178Z Interpreted pathproblem query "HTTP Response Splitting" (py/http-response-splitting) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-113/HeaderInjection.bqrs.
+2025-09-01T12:03:25.9149604Z Interpreted problem query "Insecure temporary file" (py/insecure-temporary-file) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-377/InsecureTemporaryFile.bqrs.
+2025-09-01T12:03:25.9152264Z Interpreted pathproblem query "NoSQL Injection" (py/nosql-injection) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-943/NoSqlInjection.bqrs.
+2025-09-01T12:03:25.9154872Z Interpreted problem query "Incomplete URL substring sanitization" (py/incomplete-url-substring-sanitization) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-020/IncompleteUrlSubstringSanitization.bqrs.
+2025-09-01T12:03:25.9158089Z Interpreted problem query "Overly permissive regular expression range" (py/overly-large-range) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-020/OverlyLargeRange.bqrs.
+2025-09-01T12:03:25.9160971Z Interpreted pathproblem query "Construction of a cookie using user-supplied input" (py/cookie-injection) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-020/CookieInjection.bqrs.
+2025-09-01T12:03:25.9163773Z Interpreted problem query "Incomplete regular expression for hostnames" (py/incomplete-hostname-regexp) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-020/IncompleteHostnameRegExp.bqrs.
+2025-09-01T12:03:25.9166522Z Interpreted pathproblem query "Reflected server-side cross-site scripting" (py/reflective-xss) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-079/ReflectedXss.bqrs.
+2025-09-01T12:03:25.9169144Z Interpreted pathproblem query "Uncontrolled data used in path expression" (py/path-injection) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-022/PathInjection.bqrs.
+2025-09-01T12:03:25.9171995Z Interpreted pathproblem query "PAM authorization bypass due to incorrect usage" (py/pam-auth-bypass) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-285/PamAuthorization.bqrs.
+2025-09-01T12:03:25.9174536Z Interpreted pathproblem query "URL redirection from remote source" (py/url-redirection) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-601/UrlRedirect.bqrs.
+2025-09-01T12:03:25.9176698Z Interpreted problem query "Flask app is run in debug mode" (py/flask-debug) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-215/FlaskDebug.bqrs.
+2025-09-01T12:03:25.9179006Z Interpreted pathproblem query "SQL query built from user-controlled sources" (py/sql-injection) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-089/SqlInjection.bqrs.
+2025-09-01T12:03:25.9181399Z Interpreted pathproblem query "XML external entity expansion" (py/xxe) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Security/CWE-611/Xxe.bqrs.
+2025-09-01T12:03:25.9183536Z Interpreted problem query "'input' function used in Python 2" (py/use-of-input) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Expressions/UseofInput.bqrs.
+2025-09-01T12:03:25.9185967Z Interpreted diagnostic query "Python extraction warnings" (py/diagnostics/extraction-warnings) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Diagnostics/ExtractionWarnings.bqrs.
+2025-09-01T12:03:25.9188590Z Interpreted diagnostic query "Extracted Python files" (py/diagnostics/successfully-extracted-files) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Diagnostics/ExtractedFiles.bqrs.
+2025-09-01T12:03:25.9203698Z Interpreted metric query "Total lines of Python code in the database" (py/summary/lines-of-code) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Summary/LinesOfCode.bqrs.
+2025-09-01T12:03:25.9225199Z Interpreted metric query "Total lines of user written Python code in the database" (py/summary/lines-of-user-code) at path /home/runner/work/_temp/codeql_databases/python/results/codeql/python-queries/Summary/LinesOfUserCode.bqrs.
+2025-09-01T12:03:25.9226922Z Reading source archive /home/runner/work/_temp/codeql_databases/python/src.zip
+2025-09-01T12:03:26.0670210Z Interpreting file coverage baseline information
+2025-09-01T12:03:26.0701926Z Finished interpreting file coverage baseline information.
+2025-09-01T12:03:26.0702570Z Interpreting diagnostic messages...
+2025-09-01T12:03:26.1061437Z Found 3 raw diagnostic messages.
+2025-09-01T12:03:26.1145695Z Processed diagnostic messages (removed 0 due to limits, created 0 summary diagnostics for status page).
+2025-09-01T12:03:26.1169128Z Interpreted diagnostic messages (45ms).
+2025-09-01T12:03:26.3438473Z Exporting results to SARIF...
+2025-09-01T12:03:26.4881582Z Exported results to SARIF (144ms).
+2025-09-01T12:03:26.5208280Z ##[endgroup]
+2025-09-01T12:03:26.5209190Z CodeQL scanned 10 out of 10 Python files in this invocation. Check the status page for overall coverage information: https://github.com/Boss-1s/scratchattach/security/code-scanning/tools/CodeQL/status/
+2025-09-01T12:03:26.5210017Z 
+2025-09-01T12:03:26.5220978Z ##[group]Uploading code scanning results
+2025-09-01T12:03:26.5221631Z Processing sarif files: ["/home/runner/work/scratchattach/results/python.sarif"]
+2025-09-01T12:03:26.5249782Z Adding fingerprints to SARIF file. See https://docs.github.com/en/enterprise-cloud@latest/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#providing-data-to-track-code-scanning-alerts-across-runs for more information.
+2025-09-01T12:03:26.5365983Z Uploading results
+2025-09-01T12:03:26.7933237Z Successfully uploaded results
+2025-09-01T12:03:26.7933838Z ##[endgroup]
+2025-09-01T12:03:26.7947146Z Skipping upload of dependency cache for python as we have no caching configuration for it.
+2025-09-01T12:03:26.7948912Z ##[group]Waiting for processing to finish
+2025-09-01T12:03:26.9328000Z Analysis upload status is pending.
+2025-09-01T12:03:32.0746560Z Analysis upload status is complete.
+2025-09-01T12:03:32.0747134Z ##[endgroup]
+2025-09-01T12:03:32.2183750Z Post job cleanup.
+2025-09-01T12:03:33.2176079Z Post job cleanup.
+2025-09-01T12:03:33.5948484Z Post job cleanup.
+2025-09-01T12:03:34.5907812Z CodeQL job status was success.
+2025-09-01T12:03:34.5952807Z Sending status report for init-post step.
+2025-09-01T12:03:34.8264086Z Status report sent for init-post step.
+2025-09-01T12:03:34.9106574Z Post job cleanup.
+2025-09-01T12:03:35.0024738Z [command]/usr/bin/git version
+2025-09-01T12:03:35.0060456Z git version 2.51.0
+2025-09-01T12:03:35.0103747Z Temporarily overriding HOME='/home/runner/work/_temp/e1f0840f-68ce-40b1-a5e7-c711082edc17' before making global git config changes
+2025-09-01T12:03:35.0104989Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-01T12:03:35.0110145Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-09-01T12:03:35.0145126Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-01T12:03:35.0179724Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-01T12:03:35.0402963Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-01T12:03:35.0423235Z http.https://github.com/.extraheader
+2025-09-01T12:03:35.0435982Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-09-01T12:03:35.0467722Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-01T12:03:35.0785996Z Cleaning up orphan processes
