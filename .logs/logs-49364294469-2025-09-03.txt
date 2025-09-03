@@ -1,0 +1,331 @@
+﻿2025-09-02T01:43:20.5614389Z Current runner version: '2.328.0'
+2025-09-02T01:43:20.5640862Z ##[group]Runner Image Provisioner
+2025-09-02T01:43:20.5641846Z Hosted Compute Agent
+2025-09-02T01:43:20.5642496Z Version: 20250829.383
+2025-09-02T01:43:20.5643128Z Commit: 27cb235aab5b0e52e153a26cd86b4742e89dac5d
+2025-09-02T01:43:20.5643789Z Build Date: 2025-08-29T13:48:48Z
+2025-09-02T01:43:20.5644429Z ##[endgroup]
+2025-09-02T01:43:20.5644978Z ##[group]Operating System
+2025-09-02T01:43:20.5645548Z Ubuntu
+2025-09-02T01:43:20.5646043Z 24.04.3
+2025-09-02T01:43:20.5646641Z LTS
+2025-09-02T01:43:20.5647126Z ##[endgroup]
+2025-09-02T01:43:20.5647659Z ##[group]Runner Image
+2025-09-02T01:43:20.5648343Z Image: ubuntu-24.04
+2025-09-02T01:43:20.5648858Z Version: 20250824.1.0
+2025-09-02T01:43:20.5649809Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250824.1/images/ubuntu/Ubuntu2404-Readme.md
+2025-09-02T01:43:20.5651442Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250824.1
+2025-09-02T01:43:20.5652482Z ##[endgroup]
+2025-09-02T01:43:20.5654926Z ##[group]GITHUB_TOKEN Permissions
+2025-09-02T01:43:20.5657504Z Actions: write
+2025-09-02T01:43:20.5658196Z Attestations: write
+2025-09-02T01:43:20.5658728Z Checks: write
+2025-09-02T01:43:20.5659174Z Contents: write
+2025-09-02T01:43:20.5659814Z Deployments: write
+2025-09-02T01:43:20.5660301Z Discussions: write
+2025-09-02T01:43:20.5660800Z Issues: write
+2025-09-02T01:43:20.5661417Z Metadata: read
+2025-09-02T01:43:20.5661889Z Models: read
+2025-09-02T01:43:20.5662400Z Packages: write
+2025-09-02T01:43:20.5662975Z Pages: write
+2025-09-02T01:43:20.5663436Z PullRequests: write
+2025-09-02T01:43:20.5663959Z RepositoryProjects: write
+2025-09-02T01:43:20.5664553Z SecurityEvents: write
+2025-09-02T01:43:20.5665197Z Statuses: write
+2025-09-02T01:43:20.5665730Z ##[endgroup]
+2025-09-02T01:43:20.5668662Z Secret source: Actions
+2025-09-02T01:43:20.5669666Z Prepare workflow directory
+2025-09-02T01:43:20.6015462Z Prepare all required actions
+2025-09-02T01:43:20.6077182Z Getting action download info
+2025-09-02T01:43:21.0434164Z Download action repository 'actions/checkout@v4.2.1' (SHA:eef61447b9ff4aafe5dcd4e0bbf5d482be7e7871)
+2025-09-02T01:43:21.1419701Z Download action repository 'pawanbahuguna/action-logs@v2.0.0' (SHA:2fb2206c1749d6d09b8799a05519c08ee503660d)
+2025-09-02T01:43:21.7627653Z Complete job name: Download GH action logs
+2025-09-02T01:43:21.8219241Z ##[group]Build container for action use: '/home/runner/work/_actions/pawanbahuguna/action-logs/v2.0.0/Dockerfile'.
+2025-09-02T01:43:21.8276025Z ##[command]/usr/bin/docker build -t 6aa0da:6cc15b69c8bc4edebcc55475de26d795 -f "/home/runner/work/_actions/pawanbahuguna/action-logs/v2.0.0/Dockerfile" "/home/runner/work/_actions/pawanbahuguna/action-logs/v2.0.0"
+2025-09-02T01:43:24.7179488Z #0 building with "default" instance using docker driver
+2025-09-02T01:43:24.7179932Z 
+2025-09-02T01:43:24.7180091Z #1 [internal] load build definition from Dockerfile
+2025-09-02T01:43:24.7180489Z #1 transferring dockerfile: 347B done
+2025-09-02T01:43:24.7180950Z #1 DONE 0.0s
+2025-09-02T01:43:24.7181186Z 
+2025-09-02T01:43:24.7181493Z #2 [internal] load metadata for docker.io/library/alpine:latest
+2025-09-02T01:43:24.9756746Z #2 ...
+2025-09-02T01:43:24.9757132Z 
+2025-09-02T01:43:24.9757405Z #3 [auth] library/alpine:pull token for registry-1.docker.io
+2025-09-02T01:43:24.9757819Z #3 DONE 0.0s
+2025-09-02T01:43:25.1253649Z 
+2025-09-02T01:43:25.1254197Z #2 [internal] load metadata for docker.io/library/alpine:latest
+2025-09-02T01:43:25.6136435Z #2 DONE 1.0s
+2025-09-02T01:43:25.7403234Z 
+2025-09-02T01:43:25.7403740Z #4 [internal] load .dockerignore
+2025-09-02T01:43:25.7404433Z #4 transferring context: 2B done
+2025-09-02T01:43:25.7404952Z #4 DONE 0.0s
+2025-09-02T01:43:25.7405169Z 
+2025-09-02T01:43:25.7405340Z #5 [internal] load build context
+2025-09-02T01:43:25.7405824Z #5 transferring context: 2.53kB done
+2025-09-02T01:43:25.7406301Z #5 DONE 0.0s
+2025-09-02T01:43:25.7406773Z 
+2025-09-02T01:43:25.7407492Z #6 [1/4] FROM docker.io/library/alpine:latest@sha256:4bcff63911fcb4448bd4fdacec207030997caf25e9bea4045fa6c8c44de311d1
+2025-09-02T01:43:25.7409196Z #6 resolve docker.io/library/alpine:latest@sha256:4bcff63911fcb4448bd4fdacec207030997caf25e9bea4045fa6c8c44de311d1 done
+2025-09-02T01:43:25.7409965Z #6 sha256:4bcff63911fcb4448bd4fdacec207030997caf25e9bea4045fa6c8c44de311d1 9.22kB / 9.22kB done
+2025-09-02T01:43:25.7410639Z #6 sha256:eafc1edb577d2e9b458664a15f23ea1c370214193226069eb22921169fc7e43f 1.02kB / 1.02kB done
+2025-09-02T01:43:25.7411286Z #6 sha256:9234e8fb04c47cfe0f49931e4ac7eb76fa904e33b7f8576aec0501c085f02516 581B / 581B done
+2025-09-02T01:43:25.7411900Z #6 sha256:9824c27679d3b27c5e1cb00a73adb6f4f8d556994111c12db3c5d61a0c843df8 0B / 3.80MB 0.1s
+2025-09-02T01:43:25.9092317Z #6 sha256:9824c27679d3b27c5e1cb00a73adb6f4f8d556994111c12db3c5d61a0c843df8 3.80MB / 3.80MB 0.2s done
+2025-09-02T01:43:25.9093638Z #6 extracting sha256:9824c27679d3b27c5e1cb00a73adb6f4f8d556994111c12db3c5d61a0c843df8 0.1s done
+2025-09-02T01:43:26.0842062Z #6 DONE 0.3s
+2025-09-02T01:43:26.0842400Z 
+2025-09-02T01:43:26.0842667Z #7 [2/4] RUN apk update && apk add --no-cache curl jq
+2025-09-02T01:43:26.1018769Z #7 0.168 fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+2025-09-02T01:43:26.3305419Z #7 0.246 fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+2025-09-02T01:43:26.5343143Z #7 0.601 v3.22.1-326-ge10f1967b2c [https://dl-cdn.alpinelinux.org/alpine/v3.22/main]
+2025-09-02T01:43:26.5344020Z #7 0.601 v3.22.1-336-gbc8bda71ff2 [https://dl-cdn.alpinelinux.org/alpine/v3.22/community]
+2025-09-02T01:43:26.5344660Z #7 0.601 OK: 26322 distinct packages available
+2025-09-02T01:43:26.6844823Z #7 0.681 fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/main/x86_64/APKINDEX.tar.gz
+2025-09-02T01:43:26.6845631Z #7 0.751 fetch https://dl-cdn.alpinelinux.org/alpine/v3.22/community/x86_64/APKINDEX.tar.gz
+2025-09-02T01:43:26.9917343Z #7 1.058 (1/11) Installing brotli-libs (1.1.0-r2)
+2025-09-02T01:43:27.1750700Z #7 1.069 (2/11) Installing c-ares (1.34.5-r0)
+2025-09-02T01:43:27.1751271Z #7 1.074 (3/11) Installing libunistring (1.3-r0)
+2025-09-02T01:43:27.1751833Z #7 1.087 (4/11) Installing libidn2 (2.3.7-r0)
+2025-09-02T01:43:27.1752295Z #7 1.091 (5/11) Installing nghttp2-libs (1.65.0-r0)
+2025-09-02T01:43:27.1752776Z #7 1.094 (6/11) Installing libpsl (0.21.5-r3)
+2025-09-02T01:43:27.1753655Z #7 1.097 (7/11) Installing zstd-libs (1.5.7-r0)
+2025-09-02T01:43:27.1754154Z #7 1.105 (8/11) Installing libcurl (8.14.1-r1)
+2025-09-02T01:43:27.1754596Z #7 1.113 (9/11) Installing curl (8.14.1-r1)
+2025-09-02T01:43:27.1755064Z #7 1.117 (10/11) Installing oniguruma (6.9.10-r0)
+2025-09-02T01:43:27.1755510Z #7 1.126 (11/11) Installing jq (1.8.0-r0)
+2025-09-02T01:43:27.1755976Z #7 1.132 Executing busybox-1.37.0-r18.trigger
+2025-09-02T01:43:27.1756408Z #7 1.139 OK: 13 MiB in 27 packages
+2025-09-02T01:43:27.1756932Z #7 DONE 1.2s
+2025-09-02T01:43:27.3193282Z 
+2025-09-02T01:43:27.3194136Z #8 [3/4] COPY entrypoint.sh /entrypoint.sh
+2025-09-02T01:43:27.3194870Z #8 DONE 0.0s
+2025-09-02T01:43:27.3195223Z 
+2025-09-02T01:43:27.3195359Z #9 [4/4] RUN chmod +x /entrypoint.sh
+2025-09-02T01:43:27.3195816Z #9 DONE 0.1s
+2025-09-02T01:43:27.4716256Z 
+2025-09-02T01:43:27.4716951Z #10 exporting to image
+2025-09-02T01:43:27.4717359Z #10 exporting layers
+2025-09-02T01:43:28.0108435Z #10 exporting layers 0.7s done
+2025-09-02T01:43:28.0277701Z #10 writing image sha256:6b2465fe0c88f0210638ab2e2b9cf698bac562a93f5ad8f00aa8b6e2d749b699 done
+2025-09-02T01:43:28.0278879Z #10 naming to docker.io/library/6aa0da:6cc15b69c8bc4edebcc55475de26d795 done
+2025-09-02T01:43:28.0279462Z #10 DONE 0.7s
+2025-09-02T01:43:28.0374842Z ##[endgroup]
+2025-09-02T01:43:28.0641828Z ##[group]Run actions/checkout@v4.2.1
+2025-09-02T01:43:28.0642519Z with:
+2025-09-02T01:43:28.0642719Z   repository: Boss-1s/scratchattach
+2025-09-02T01:43:28.0643225Z   token: ***
+2025-09-02T01:43:28.0643428Z   ssh-strict: true
+2025-09-02T01:43:28.0643612Z   ssh-user: git
+2025-09-02T01:43:28.0643797Z   persist-credentials: true
+2025-09-02T01:43:28.0643999Z   clean: true
+2025-09-02T01:43:28.0644515Z   sparse-checkout-cone-mode: true
+2025-09-02T01:43:28.0644749Z   fetch-depth: 1
+2025-09-02T01:43:28.0644922Z   fetch-tags: false
+2025-09-02T01:43:28.0645111Z   show-progress: true
+2025-09-02T01:43:28.0645291Z   lfs: false
+2025-09-02T01:43:28.0645459Z   submodules: false
+2025-09-02T01:43:28.0645644Z   set-safe-directory: true
+2025-09-02T01:43:28.0646170Z ##[endgroup]
+2025-09-02T01:43:28.1763649Z Syncing repository: Boss-1s/scratchattach
+2025-09-02T01:43:28.1765022Z ##[group]Getting Git version info
+2025-09-02T01:43:28.1765486Z Working directory is '/home/runner/work/scratchattach/scratchattach'
+2025-09-02T01:43:28.1766033Z [command]/usr/bin/git version
+2025-09-02T01:43:28.1786208Z git version 2.51.0
+2025-09-02T01:43:28.1813985Z ##[endgroup]
+2025-09-02T01:43:28.1829832Z Temporarily overriding HOME='/home/runner/work/_temp/0a43d5b7-0b56-4b21-bca3-322a8783d9ae' before making global git config changes
+2025-09-02T01:43:28.1831069Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-02T01:43:28.1843877Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-09-02T01:43:28.1919115Z Deleting the contents of '/home/runner/work/scratchattach/scratchattach'
+2025-09-02T01:43:28.1922877Z ##[group]Initializing the repository
+2025-09-02T01:43:28.1927417Z [command]/usr/bin/git init /home/runner/work/scratchattach/scratchattach
+2025-09-02T01:43:28.2294521Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-09-02T01:43:28.2295293Z hint: is subject to change. To configure the initial branch name to use in all
+2025-09-02T01:43:28.2295839Z hint: of your new repositories, which will suppress this warning, call:
+2025-09-02T01:43:28.2296256Z hint:
+2025-09-02T01:43:28.2296813Z hint: 	git config --global init.defaultBranch <name>
+2025-09-02T01:43:28.2297140Z hint:
+2025-09-02T01:43:28.2297419Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-09-02T01:43:28.2297918Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-09-02T01:43:28.2298272Z hint:
+2025-09-02T01:43:28.2298456Z hint: 	git branch -m <name>
+2025-09-02T01:43:28.2298659Z hint:
+2025-09-02T01:43:28.2298960Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-09-02T01:43:28.2324336Z Initialized empty Git repository in /home/runner/work/scratchattach/scratchattach/.git/
+2025-09-02T01:43:28.2338621Z [command]/usr/bin/git remote add origin https://github.com/Boss-1s/scratchattach
+2025-09-02T01:43:28.2413415Z ##[endgroup]
+2025-09-02T01:43:28.2414153Z ##[group]Disabling automatic garbage collection
+2025-09-02T01:43:28.2421384Z [command]/usr/bin/git config --local gc.auto 0
+2025-09-02T01:43:28.2459399Z ##[endgroup]
+2025-09-02T01:43:28.2459936Z ##[group]Setting up auth
+2025-09-02T01:43:28.2467266Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-02T01:43:28.2501755Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-02T01:43:28.3722467Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-02T01:43:28.3756878Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-02T01:43:28.3992151Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-09-02T01:43:28.4031937Z ##[endgroup]
+2025-09-02T01:43:28.4032624Z ##[group]Fetching the repository
+2025-09-02T01:43:28.4041914Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +bebaa4405341f8aacaaefa4d8383532a8a714152:refs/remotes/origin/main
+2025-09-02T01:43:28.9581086Z From https://github.com/Boss-1s/scratchattach
+2025-09-02T01:43:28.9582093Z  * [new ref]         bebaa4405341f8aacaaefa4d8383532a8a714152 -> origin/main
+2025-09-02T01:43:28.9654945Z ##[endgroup]
+2025-09-02T01:43:28.9655527Z ##[group]Determining the checkout info
+2025-09-02T01:43:28.9656905Z ##[endgroup]
+2025-09-02T01:43:28.9662930Z [command]/usr/bin/git sparse-checkout disable
+2025-09-02T01:43:28.9745804Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-09-02T01:43:28.9779942Z ##[group]Checking out the ref
+2025-09-02T01:43:28.9785357Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-09-02T01:43:29.0163364Z Switched to a new branch 'main'
+2025-09-02T01:43:29.0164328Z branch 'main' set up to track 'origin/main'.
+2025-09-02T01:43:29.0174862Z ##[endgroup]
+2025-09-02T01:43:29.0218195Z [command]/usr/bin/git log -1 --format=%H
+2025-09-02T01:43:29.0242940Z bebaa4405341f8aacaaefa4d8383532a8a714152
+2025-09-02T01:43:29.0434778Z ##[group]Run pawanbahuguna/action-logs@v2.0.0
+2025-09-02T01:43:29.0435107Z env:
+2025-09-02T01:43:29.0435697Z   GH_TOKEN: ***
+2025-09-02T01:43:29.0435900Z   GH_REPO: Boss-1s/scratchattach
+2025-09-02T01:43:29.0436124Z   LOGS_DIR: .logs
+2025-09-02T01:43:29.0436291Z ##[endgroup]
+2025-09-02T01:43:29.0530322Z ##[command]/usr/bin/docker run --name aa0da6cc15b69c8bc4edebcc55475de26d795_d247db --label 6aa0da --workdir /github/workspace --rm -e "GH_TOKEN" -e "GH_REPO" -e "LOGS_DIR" -e "HOME" -e "GITHUB_JOB" -e "GITHUB_REF" -e "GITHUB_SHA" -e "GITHUB_REPOSITORY" -e "GITHUB_REPOSITORY_OWNER" -e "GITHUB_REPOSITORY_OWNER_ID" -e "GITHUB_RUN_ID" -e "GITHUB_RUN_NUMBER" -e "GITHUB_RETENTION_DAYS" -e "GITHUB_RUN_ATTEMPT" -e "GITHUB_ACTOR_ID" -e "GITHUB_ACTOR" -e "GITHUB_WORKFLOW" -e "GITHUB_HEAD_REF" -e "GITHUB_BASE_REF" -e "GITHUB_EVENT_NAME" -e "GITHUB_SERVER_URL" -e "GITHUB_API_URL" -e "GITHUB_GRAPHQL_URL" -e "GITHUB_REF_NAME" -e "GITHUB_REF_PROTECTED" -e "GITHUB_REF_TYPE" -e "GITHUB_WORKFLOW_REF" -e "GITHUB_WORKFLOW_SHA" -e "GITHUB_REPOSITORY_ID" -e "GITHUB_TRIGGERING_ACTOR" -e "GITHUB_WORKSPACE" -e "GITHUB_ACTION" -e "GITHUB_EVENT_PATH" -e "GITHUB_ACTION_REPOSITORY" -e "GITHUB_ACTION_REF" -e "GITHUB_PATH" -e "GITHUB_ENV" -e "GITHUB_STEP_SUMMARY" -e "GITHUB_STATE" -e "GITHUB_OUTPUT" -e "RUNNER_OS" -e "RUNNER_ARCH" -e "RUNNER_NAME" -e "RUNNER_ENVIRONMENT" -e "RUNNER_TOOL_CACHE" -e "RUNNER_TEMP" -e "RUNNER_WORKSPACE" -e "ACTIONS_RUNTIME_URL" -e "ACTIONS_RUNTIME_TOKEN" -e "ACTIONS_CACHE_URL" -e "ACTIONS_RESULTS_URL" -e GITHUB_ACTIONS=true -e CI=true -v "/var/run/docker.sock":"/var/run/docker.sock" -v "/home/runner/work/_temp/_github_home":"/github/home" -v "/home/runner/work/_temp/_github_workflow":"/github/workflow" -v "/home/runner/work/_temp/_runner_file_commands":"/github/file_commands" -v "/home/runner/work/scratchattach/scratchattach":"/github/workspace" 6aa0da:6cc15b69c8bc4edebcc55475de26d795
+2025-09-02T01:43:29.6731789Z Will only process 24hrs logs before or equal to 2025-09-01T01:43:29Z
+2025-09-02T01:43:29.6733316Z Searching Workflow Runs
+2025-09-02T01:43:32.4163725Z Fetching Job IDs
+2025-09-02T01:43:42.0595179Z mkdir: can't create directory '.logs': File exists
+2025-09-02T01:43:42.0602555Z Writing logs for job 49364294469
+2025-09-02T01:43:42.2929936Z Writing logs for job 49363472053
+2025-09-02T01:43:42.5312280Z Writing logs for job 49362692291
+2025-09-02T01:43:43.1410000Z Writing logs for job 49356488681
+2025-09-02T01:43:43.8384647Z Writing logs for job 49355621245
+2025-09-02T01:43:44.4928707Z Writing logs for job 49355542400
+2025-09-02T01:43:45.1701200Z Writing logs for job 49352513682
+2025-09-02T01:43:45.7982808Z Writing logs for job 49352445719
+2025-09-02T01:43:46.5003720Z Writing logs for job 49351276064
+2025-09-02T01:43:47.1364810Z Writing logs for job 49350610238
+2025-09-02T01:43:47.8090186Z Writing logs for job 49350228297
+2025-09-02T01:43:48.4806915Z Writing logs for job 49349427920
+2025-09-02T01:43:49.1112572Z Writing logs for job 49349117193
+2025-09-02T01:43:49.7542457Z Writing logs for job 49339847781
+2025-09-02T01:43:50.4440345Z Writing logs for job 49331085191
+2025-09-02T01:43:51.0528509Z Writing logs for job 49328083563
+2025-09-02T01:43:51.7497343Z Writing logs for job 49327124208
+2025-09-02T01:43:52.4193634Z Writing logs for job 49325486797
+2025-09-02T01:43:53.2278541Z Writing logs for job 49325486798
+2025-09-02T01:43:54.0214394Z Writing logs for job 49325486500
+2025-09-02T01:43:54.6638541Z Writing logs for job 49313582081
+2025-09-02T01:43:55.3198104Z Writing logs for job 49305036309
+2025-09-02T01:43:55.9606904Z Writing logs for job 49303684573
+2025-09-02T01:43:56.5738938Z Writing logs for job 49302334339
+2025-09-02T01:43:57.2429729Z Writing logs for job 49301867802
+2025-09-02T01:43:57.8874611Z Writing logs for job 49295768830
+2025-09-02T01:43:58.6168908Z Writing logs for job 49291648202
+2025-09-02T01:43:59.2654005Z Writing logs for job 49291647453
+2025-09-02T01:44:00.0849701Z Writing logs for job 49291647479
+2025-09-02T01:44:00.9364703Z Writing logs for job 49291630269
+2025-09-02T01:44:01.5834683Z Logs Downloaded and saved!
+2025-09-02T01:44:01.5835203Z Starting cleanup
+2025-09-02T01:44:01.5841629Z cleanup Completed!!
+2025-09-02T01:44:01.6647327Z ##[group]Run git config --global user.name 'bossOfCode [via Actions]'
+2025-09-02T01:44:01.6647865Z [36;1mgit config --global user.name 'bossOfCode [via Actions]'[0m
+2025-09-02T01:44:01.6648319Z [36;1mgit config --global user.email 'bossOfCode[auto]@users.noreply.github.com'[0m
+2025-09-02T01:44:01.6648693Z [36;1m[0m
+2025-09-02T01:44:01.6648870Z [36;1mgit pull origin main[0m
+2025-09-02T01:44:01.6649069Z [36;1m[0m
+2025-09-02T01:44:01.6649271Z [36;1mGIT_STATUS_OUTPUT=$(git status --porcelain)[0m
+2025-09-02T01:44:01.6649528Z [36;1m[0m
+2025-09-02T01:44:01.6649708Z [36;1mif [ -z "$GIT_STATUS_OUTPUT" ]; then[0m
+2025-09-02T01:44:01.6650036Z [36;1m  echo "Git working tree is clean (no uncommitted changes)."[0m
+2025-09-02T01:44:01.6650336Z [36;1m  exit 0[0m
+2025-09-02T01:44:01.6650499Z [36;1melse[0m
+2025-09-02T01:44:01.6650708Z [36;1m  echo "Git working tree has uncommitted changes:"[0m
+2025-09-02T01:44:01.6651009Z [36;1m  echo "$GIT_STATUS_OUTPUT"[0m
+2025-09-02T01:44:01.6651325Z [36;1m  echo "These changes will be pushed to the main branch."[0m
+2025-09-02T01:44:01.6651603Z [36;1mfi[0m
+2025-09-02T01:44:01.6651754Z [36;1m[0m
+2025-09-02T01:44:01.6651897Z [36;1mgit add .[0m
+2025-09-02T01:44:01.6652096Z [36;1mgit commit -m "[BOT] Download Logs"[0m
+2025-09-02T01:44:01.6652347Z [36;1mgit push origin main[0m
+2025-09-02T01:44:01.6869953Z shell: /usr/bin/bash -e {0}
+2025-09-02T01:44:01.6870271Z ##[endgroup]
+2025-09-02T01:44:02.0293814Z From https://github.com/Boss-1s/scratchattach
+2025-09-02T01:44:02.0294200Z  * branch            main       -> FETCH_HEAD
+2025-09-02T01:44:02.0407795Z Already up to date.
+2025-09-02T01:44:02.0552764Z Git working tree has uncommitted changes:
+2025-09-02T01:44:02.0553137Z ?? .logs/logs-49291630269-2025-09-02.txt
+2025-09-02T01:44:02.0553385Z ?? .logs/logs-49291647453-2025-09-02.txt
+2025-09-02T01:44:02.0553610Z ?? .logs/logs-49291647479-2025-09-02.txt
+2025-09-02T01:44:02.0553826Z ?? .logs/logs-49291648202-2025-09-02.txt
+2025-09-02T01:44:02.0554084Z ?? .logs/logs-49295768830-2025-09-02.txt
+2025-09-02T01:44:02.0554301Z ?? .logs/logs-49301867802-2025-09-02.txt
+2025-09-02T01:44:02.0554518Z ?? .logs/logs-49302334339-2025-09-02.txt
+2025-09-02T01:44:02.0554735Z ?? .logs/logs-49303684573-2025-09-02.txt
+2025-09-02T01:44:02.0554944Z ?? .logs/logs-49305036309-2025-09-02.txt
+2025-09-02T01:44:02.0555162Z ?? .logs/logs-49313582081-2025-09-02.txt
+2025-09-02T01:44:02.0555373Z ?? .logs/logs-49325486500-2025-09-02.txt
+2025-09-02T01:44:02.0555592Z ?? .logs/logs-49325486797-2025-09-02.txt
+2025-09-02T01:44:02.0555812Z ?? .logs/logs-49325486798-2025-09-02.txt
+2025-09-02T01:44:02.0556022Z ?? .logs/logs-49327124208-2025-09-02.txt
+2025-09-02T01:44:02.0556246Z ?? .logs/logs-49328083563-2025-09-02.txt
+2025-09-02T01:44:02.0556481Z ?? .logs/logs-49331085191-2025-09-02.txt
+2025-09-02T01:44:02.0556953Z ?? .logs/logs-49339847781-2025-09-02.txt
+2025-09-02T01:44:02.0557175Z ?? .logs/logs-49349117193-2025-09-02.txt
+2025-09-02T01:44:02.0557631Z ?? .logs/logs-49349427920-2025-09-02.txt
+2025-09-02T01:44:02.0557864Z ?? .logs/logs-49350228297-2025-09-02.txt
+2025-09-02T01:44:02.0558089Z ?? .logs/logs-49350610238-2025-09-02.txt
+2025-09-02T01:44:02.0558304Z ?? .logs/logs-49351276064-2025-09-02.txt
+2025-09-02T01:44:02.0558520Z ?? .logs/logs-49352445719-2025-09-02.txt
+2025-09-02T01:44:02.0558733Z ?? .logs/logs-49352513682-2025-09-02.txt
+2025-09-02T01:44:02.0558950Z ?? .logs/logs-49355542400-2025-09-02.txt
+2025-09-02T01:44:02.0559171Z ?? .logs/logs-49355621245-2025-09-02.txt
+2025-09-02T01:44:02.0559385Z ?? .logs/logs-49356488681-2025-09-02.txt
+2025-09-02T01:44:02.0559602Z ?? .logs/logs-49362692291-2025-09-02.txt
+2025-09-02T01:44:02.0559818Z ?? .logs/logs-49363472053-2025-09-02.txt
+2025-09-02T01:44:02.0560153Z ?? .logs/logs-49364294469-2025-09-02.txt
+2025-09-02T01:44:02.0560475Z These changes will be pushed to the main branch.
+2025-09-02T01:44:02.0880127Z [main 7805618] [BOT] Download Logs
+2025-09-02T01:44:02.0884263Z  30 files changed, 13710 insertions(+)
+2025-09-02T01:44:02.0885393Z  create mode 100644 .logs/logs-49291630269-2025-09-02.txt
+2025-09-02T01:44:02.0885988Z  create mode 100644 .logs/logs-49291647453-2025-09-02.txt
+2025-09-02T01:44:02.0886835Z  create mode 100644 .logs/logs-49291647479-2025-09-02.txt
+2025-09-02T01:44:02.0887380Z  create mode 100644 .logs/logs-49291648202-2025-09-02.txt
+2025-09-02T01:44:02.0887908Z  create mode 100644 .logs/logs-49295768830-2025-09-02.txt
+2025-09-02T01:44:02.0888424Z  create mode 100644 .logs/logs-49301867802-2025-09-02.txt
+2025-09-02T01:44:02.0888939Z  create mode 100644 .logs/logs-49302334339-2025-09-02.txt
+2025-09-02T01:44:02.0889455Z  create mode 100644 .logs/logs-49303684573-2025-09-02.txt
+2025-09-02T01:44:02.0889864Z  create mode 100644 .logs/logs-49305036309-2025-09-02.txt
+2025-09-02T01:44:02.0890195Z  create mode 100644 .logs/logs-49313582081-2025-09-02.txt
+2025-09-02T01:44:02.0890519Z  create mode 100644 .logs/logs-49325486500-2025-09-02.txt
+2025-09-02T01:44:02.0890843Z  create mode 100644 .logs/logs-49325486797-2025-09-02.txt
+2025-09-02T01:44:02.0891179Z  create mode 100644 .logs/logs-49325486798-2025-09-02.txt
+2025-09-02T01:44:02.0891493Z  create mode 100644 .logs/logs-49327124208-2025-09-02.txt
+2025-09-02T01:44:02.0891808Z  create mode 100644 .logs/logs-49328083563-2025-09-02.txt
+2025-09-02T01:44:02.0892135Z  create mode 100644 .logs/logs-49331085191-2025-09-02.txt
+2025-09-02T01:44:02.0892463Z  create mode 100644 .logs/logs-49339847781-2025-09-02.txt
+2025-09-02T01:44:02.0892794Z  create mode 100644 .logs/logs-49349117193-2025-09-02.txt
+2025-09-02T01:44:02.0893106Z  create mode 100644 .logs/logs-49349427920-2025-09-02.txt
+2025-09-02T01:44:02.0893427Z  create mode 100644 .logs/logs-49350228297-2025-09-02.txt
+2025-09-02T01:44:02.0893736Z  create mode 100644 .logs/logs-49350610238-2025-09-02.txt
+2025-09-02T01:44:02.0894040Z  create mode 100644 .logs/logs-49351276064-2025-09-02.txt
+2025-09-02T01:44:02.0894336Z  create mode 100644 .logs/logs-49352445719-2025-09-02.txt
+2025-09-02T01:44:02.0894650Z  create mode 100644 .logs/logs-49352513682-2025-09-02.txt
+2025-09-02T01:44:02.0894944Z  create mode 100644 .logs/logs-49355542400-2025-09-02.txt
+2025-09-02T01:44:02.0962568Z  create mode 100644 .logs/logs-49355621245-2025-09-02.txt
+2025-09-02T01:44:02.0963270Z  create mode 100644 .logs/logs-49356488681-2025-09-02.txt
+2025-09-02T01:44:02.0963772Z  create mode 100644 .logs/logs-49362692291-2025-09-02.txt
+2025-09-02T01:44:02.0964294Z  create mode 100644 .logs/logs-49363472053-2025-09-02.txt
+2025-09-02T01:44:02.0964803Z  create mode 100644 .logs/logs-49364294469-2025-09-02.txt
+2025-09-02T01:44:03.0025152Z To https://github.com/Boss-1s/scratchattach
+2025-09-02T01:44:03.0025706Z    bebaa44..7805618  main -> main
+2025-09-02T01:44:03.0125223Z Post job cleanup.
+2025-09-02T01:44:03.1070176Z [command]/usr/bin/git version
+2025-09-02T01:44:03.1108062Z git version 2.51.0
+2025-09-02T01:44:03.1147099Z Copying '/home/runner/.gitconfig' to '/home/runner/work/_temp/060176d6-dde0-49a2-ba7e-670c7da3d82b/.gitconfig'
+2025-09-02T01:44:03.1157480Z Temporarily overriding HOME='/home/runner/work/_temp/060176d6-dde0-49a2-ba7e-670c7da3d82b' before making global git config changes
+2025-09-02T01:44:03.1158762Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-02T01:44:03.1171706Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-09-02T01:44:03.1208357Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-02T01:44:03.1241497Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-02T01:44:03.1471202Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-02T01:44:03.1494373Z http.https://github.com/.extraheader
+2025-09-02T01:44:03.1509733Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-09-02T01:44:03.1543577Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-02T01:44:03.1882896Z Cleaning up orphan processes
