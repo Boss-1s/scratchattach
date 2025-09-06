@@ -17,9 +17,17 @@ class ProjectNotFound(Exception):
         self.item_id = item_id
         self.message = f"{message}: {item_id}"
         super().__init__(self.message)
+        
+class StudioNotFound(Exception):
+    """Custom exception raised when a studio is not found."""
+    def __init__(self, item_id, message="Studio ID of the following was not found"):
+        self.item_id = item_id
+        self.message = f"{message}: {item_id}"
+        super().__init__(self.message)
 
 
 fav_project_ids = []
+fav_studios_ids = []
 
 def favorites():
     global fav_project_ids
@@ -34,13 +42,11 @@ def favorites():
     for project in favorited_projects:
         fav_project_ids.append(project.id)
 
-def resetColor():
-    print("\033[0m")
-
 max_atmp = 5
 atmp = 0
 # List of project IDs you want to bring to the top
 project_ids_to_prioritize = [1193158560, 1193158559, 1193158558, 1193158567, 1193158568]  # Replace with actual project IDs
+studio_ids_to_prioritize = [50609129, 50609128, 50609126, 50609120]  # Replace with actual studio IDs
 
 def prioritize(attempt: int, maxAttempts: int):
     global atmp
@@ -68,7 +74,7 @@ def prioritize(attempt: int, maxAttempts: int):
                 project.unfavorite()
                 print(f"Unfavorited project {project_id}")
                
-                time.sleep(60)
+                time.sleep(45)
                
                 print(f"Favorited project {project_id} to move it to the top")
             else:
@@ -77,7 +83,7 @@ def prioritize(attempt: int, maxAttempts: int):
             # Favorite the project again to move it to the top
             project.favorite()
 
-            time.sleep(60)
+            time.sleep(45)
             
     except ValueError as e:
         print(e)
@@ -93,9 +99,67 @@ def prioritize(attempt: int, maxAttempts: int):
         atmp=atmp+1
         prioritize(atmp, max_atmp)
 
+def prioritize_studio(attempt: int, maxAttempts: int):
+    global atmp
+    try:
+        print(f"Prioritizing: Attempt {attempt + 1}")
+        if attempt >= maxAttempts:
+            raise ValueError("Process failed, and the maximum attempt value has been reached. Exiting.")
+        #debug
+        #print(f"\033[35m{project_ids_to_prioritize}")
+        #print(f"\033[35m{fav_project_ids[:len(project_ids_to_prioritize)]}")
+        #resetColor()
+            
+        for studio_id in studio_ids_to_prioritize:
+            studio = session.connect_studio(studio_id)
+            if studio is None:
+                raise StudioNotFound(studio_id)
+           
+            # Check if the project is already favorited by you
+            if studio.id in fav_studios_ids:
+                # Unfavorite the project
+                studio.unfollow()
+                print(f"Unfollowed project {studio_id}")
+               
+                time.sleep(45)
+               
+                print(f"Followed studio {studio_id} to move it to the top")
+            else:
+                print(f"Followed studio {studio_id} because it was never followed")
+           
+            # Favorite the project again to move it to the top
+            studio.follow()
+
+            time.sleep(45)
+            
+    except ValueError as e:
+        print(e)
+        sys.exit(1)
+
+    except StudioNotFound as e:
+        print(f"{e}. Retrying script")
+        atmp=atmp+1
+        prioritize_studio(atmp, max_atmp)
+       
+    except Exception as e:
+        print(f"Process failed, retying. Error: {e}")
+        atmp=atmp+1
+        prioritize_studio(atmp, max_atmp)
+
 #-----#
+
+max_atmp = 5
+atmp = 0
 
 try:
     prioritize(atmp, max_atmp)
 finally:
     print("Prioritized projects in your favorite list.")
+
+max_atmp = 5
+atmp = 0
+
+try:
+    prioritize_studio(atmp, max_atmp)
+finally:
+    print("Prioritized studios in your favorite list.")
