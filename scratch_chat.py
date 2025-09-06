@@ -10,7 +10,8 @@ warnings.filterwarnings('ignore', category=scratch3.LoginDataWarning)
 passwrd = os.environ.get('PASS') #'PASS' is env secret in the repo, not on this device
 
 session = scratch3.login("Boss_1sALT", passwrd)
-cloud = session.connect_cloud("895107188") #<- this is the real project
+#cloud = session.connect_cloud("895107188") #<- this is the real project
+cloud = session.connect_cloud("1202780939") #<- this is the test project
 
 #requests
 client = cloud.requests(used_cloud_vars=["1", "2", "3", "4", "5", "6", "7", "8", "9"],respond_order="priority")
