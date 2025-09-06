@@ -111,9 +111,9 @@ def prioritize_studio(attempt: int, maxAttempts: int):
            
             # Unfavorite the project
             studio.unfollow()
-            print(f"Unfollowed project {studio_id}")
+            print(f"Unfollowed stuido {studio_id}")
            
-            time.sleep(45)
+            time.sleep(35)
            
             print(f"Followed studio {studio_id} to move it to the top")
        
