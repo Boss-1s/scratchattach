@@ -46,7 +46,7 @@ max_atmp = 5
 atmp = 0
 # List of project IDs you want to bring to the top
 project_ids_to_prioritize = [1193158560, 1193158559, 1193158558, 1193158567, 1193158568]  # Replace with actual project IDs
-studio_ids_to_prioritize = [50609129, 50609128, 50609126, 50609120]  # Replace with actual studio IDs
+studio_ids_to_prioritize = [50609120, 50609126, 50609128, 50609129]  # Replace with actual studio IDs
 
 def prioritize(attempt: int, maxAttempts: int):
     global atmp
