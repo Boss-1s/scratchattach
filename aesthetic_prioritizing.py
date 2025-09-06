@@ -55,10 +55,7 @@ def prioritize(attempt: int, maxAttempts: int):
         print(f"Prioritizing: Attempt {attempt + 1}")
         if attempt >= maxAttempts:
             raise ValueError("Process failed, and the maximum attempt value has been reached. Exiting.")
-        #debug
-        #print(f"\033[35m{project_ids_to_prioritize}")
-        #print(f"\033[35m{fav_project_ids[:len(project_ids_to_prioritize)]}")
-        #resetColor()
+            
         if project_ids_to_prioritize[::-1] == fav_project_ids[:len(project_ids_to_prioritize)]:
             print("Projects already on top. No prioritizing needed.")
             return
@@ -105,29 +102,22 @@ def prioritize_studio(attempt: int, maxAttempts: int):
         print(f"Prioritizing: Attempt {attempt + 1}")
         if attempt >= maxAttempts:
             raise ValueError("Process failed, and the maximum attempt value has been reached. Exiting.")
-        #debug
-        #print(f"\033[35m{project_ids_to_prioritize}")
-        #print(f"\033[35m{fav_project_ids[:len(project_ids_to_prioritize)]}")
-        #resetColor()
+
             
         for studio_id in studio_ids_to_prioritize:
             studio = session.connect_studio(studio_id)
             if studio is None:
                 raise StudioNotFound(studio_id)
            
-            # Check if the project is already favorited by you
-            if studio.id in fav_studios_ids:
-                # Unfavorite the project
-                studio.unfollow()
-                print(f"Unfollowed project {studio_id}")
-               
-                time.sleep(45)
-               
-                print(f"Followed studio {studio_id} to move it to the top")
-            else:
-                print(f"Followed studio {studio_id} because it was never followed")
+            # Unfavorite the project
+            studio.unfollow()
+            print(f"Unfollowed project {studio_id}")
            
-            # Favorite the project again to move it to the top
+            time.sleep(45)
+           
+            print(f"Followed studio {studio_id} to move it to the top")
+       
+            # Favorite the studio again to move it to the top
             studio.follow()
 
             time.sleep(45)
