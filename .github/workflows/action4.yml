@@ -19,7 +19,8 @@ on:
           - "3.12"
           - "3.12.4"
           - "3.12.5"
-        default: "3.12.5"
+          - "3.13"
+        default: "3.13"
       runner:
         description: "Run on which OS?"
         type: choice
@@ -51,7 +52,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v6.0.0
         with:
-          python-version: "${{ github.events.inputs.py_version == '' && '3.12.5' || github.events.inputs.py_versions }}" # install the python version needed
+          python-version: "${{ github.events.inputs.py_version == '' && '3.13' || github.events.inputs.py_versions }}" # install the python version needed
           
       - name: install scratchattach
         uses: bossOfCode/install-scratchattach@v1.0.3
