@@ -1,7 +1,7 @@
 import os, json, uuid, warnings, logging
 from typing import Dict, Any, Optional, Type, List
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.WARNING)
 logging.captureWarnings(True)
 
 __all__ = ["Storage", "Storage.Delete", "Storage.Load"]
