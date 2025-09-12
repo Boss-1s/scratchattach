@@ -42,9 +42,6 @@ jobs:
   runranddb:
     name: 'Run Request/Database Handler'
     runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
-    continue-on-error: true
-    strategy:
-      fail-fast: false
     steps:
       - name: checkout repo content
         uses: actions/checkout@v5.0.0 # checkout the repository content to github runner
