@@ -2,6 +2,7 @@ import os
 import time
 import warnings
 import time
+import sys
 import scratchattach as sa
 
 warnings.filterwarnings('ignore', category=sa.LoginDataWarning)
