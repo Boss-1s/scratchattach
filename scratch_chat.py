@@ -77,12 +77,12 @@ def db_set_val(db, key, subkey, val):
 
 @client.request(response_priority=3)
 def db_get_keys(db):
-    print(f"{client.requester} requested keys from database '{db}'")
+    print(f"client.requester requested keys from database '{db}'")
     return s.Load.keys(db)
 
 @client.request(response_priority=3)
 def db_get_subkeys_values(db, top_lv_key, keys, raw):
-    print(f"{client.requester} requested subkeys under the top level key '{top_lv_key}' in database '{db}'")
+    print(f"client.requester requested subkeys under the top level key '{top_lv_key}' in database '{db}'")
     return s.Load.values(db, top_lv_key, keys=keys, raw=raw)
     
 @client.request(response_priority=2)    
