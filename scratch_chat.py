@@ -14,12 +14,14 @@ session = scratch3.login("Boss_1sALT", passwrd)
 cloud = session.connect_cloud("1202780939") #<- this is the test project
 
 #requests
-client = cloud.requests(used_cloud_vars=["1", "2", "3", "4", "5", "6", "7", "8", "9"],respond_order="priority")
+
+# When adding new client methods, remember to put print() before return, so that the console gets a copy of the output.
+client = cloud.requests(used_cloud_vars=["1", "2", "3", "4", "5", "6", "7", "8", "9"])
 
 @client.request(response_priority=1)
 def r_ping():
-    return 'pong'
     print("Request Handler Pinged")
+    return 'pong'
 
 @client.request(response_priority=2)
 def r_user_check(argument1):
@@ -27,8 +29,8 @@ def r_user_check(argument1):
     print(f"User existence requested for {argument1}")
     try:
         user = scratch3.get_user(argument1)
-        return user
         print("Sucessful return\nHTTP 200: SUCCESS")
+        return user
     except Exception as e:
         print(f"{argument1} does not exist, returning error in project...(See below for details):")
         print(f"ERR HTTP 404: NOT_FOUND\nRequested for:{argument1}\nStatus: FAILED\nReason: {e}")
