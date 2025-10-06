@@ -1,4 +1,8 @@
-import os, json, uuid, warnings, logging
+import os
+import json
+import uuid
+import warnings
+import logging
 from typing import Dict, Any, Optional, Type, List
 
 logging.basicConfig(level=logging.WARNING)
@@ -8,7 +12,7 @@ __all__ = ["Storage", "Storage.Delete", "Storage.Load"]
 
 class _KeyNotFoundError(Exception):
         """Custom exception raised when a key is not found."""
-        def __init__(self, file: str, mkey: str | uuid.UUID, message=f"") -> None:
+        def __init__(self, file: str, mkey: str | uuid.UUID, message="") -> None:
             self.mkey = mkey
             self.file = file
             self.message = f"The following key was not found in {file}: {mkey}" if message == "" else message
@@ -361,7 +365,8 @@ class Storage:
                         #allkeys.append(propkey)
                         #allvalues.append(propval)
             elif new:
-                print(f"Subkey {oldpropkey} was not found. Creating a new subkey under the name {newpropkey} with value '' (override this with new=False, will raise exception)")
+                print(f"Subkey {oldpropkey} was not found. Creating a new subkey under the name"+
+                      " {newpropkey} with value '' (override this with new=False, will raise exception)")
                 for propkey, propval in subsection.values.items():
                     items[propkey] = propval
                 items[newpropkey] = ''
@@ -420,7 +425,9 @@ class Storage:
 
         @classmethod
         def key(cls, file_path: str, oldkey: str | uuid.UUID, newkey: str | uuid.UUID) -> None:
-            """Deletes a key-multivalue pair and its values within a JSON file. Does NOT create a new instance of Storage, you will have to regrab the values to see the changes."""
+            """Deletes a key-multivalue pair and its values within a JSON file. 
+            Does NOT create a new instance of Storage, you will have to regrab
+            the values to see the changes."""
             try:
                 with open(file_path, "r") as f:
                     loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
@@ -500,7 +507,9 @@ class Storage:
 
         @classmethod
         def by_key(cls, file_path: str, key: str | uuid.UUID) -> None:
-            """Deletes a key-multivalue pair and its values within a JSON file. Does NOT create a new instance of Storage, you will have to regrab the values to see the changes."""
+            """Deletes a key-multivalue pair and its values within a JSON file. 
+            Does NOT create a new instance of Storage, you will have to regrab the 
+            values to see the changes."""
             try:
                 with open(file_path, "r") as f:
                     loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
@@ -542,8 +551,6 @@ class Storage:
     def __str__(self) -> str:
         """Defines how the object should be represented as a string, useful for printing the whole output in the desired format."""
         # Format the nested dictionary directly
-        values_str = ', '.join([f"{prop}: {repr(value)}" for prop, value in self.values.items()])
-        return f"{self.key}: {{{values_str}}}"
         values_str = ', '.join([f"{prop}: {repr(value)}" for prop, value in self.values.items()])
         return f"{self.key}: {{{values_str}}}"
 
