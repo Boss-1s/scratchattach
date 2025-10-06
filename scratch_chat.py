@@ -15,7 +15,7 @@ session = scratch3.login("Boss_1sALT", passwrd)
 cloud = session.connect_cloud("1202780939") #<- this is the test project
 
 def dprint(str):
-    dprint(str)
+    print(str)
     os.system(str)
     
 # When adding new client methods, remember to put dprint() before return, so that the console gets a copy of the output.
