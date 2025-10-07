@@ -1,8 +1,9 @@
 """Module importing scratchattach to use for the project"""
-import os
-import warnings
+from typing import Any, List
 from warnings import deprecated
 from key_multivalue_storage import Storage as s
+import os
+import warnings
 import scratchattach as scratch3
 from scratchattach import Encoding
 
@@ -14,7 +15,7 @@ session = scratch3.login("Boss_1sALT", passwrd)
 #cloud = session.connect_cloud("895107188") #<- this is the real project
 cloud = session.connect_cloud("1202780939") #<- this is the test project
 
-def dprint(str):
+def dprint(str) -> None:
     print(str)
     os.system("echo " + str)
     
@@ -22,13 +23,13 @@ def dprint(str):
 client = cloud.requests(used_cloud_vars=["1", "2", "3", "4", "5", "6", "7", "8", "9"])
 
 @client.request(response_priority=1)
-def r_ping():
+def r_ping() -> str:
     """Ping"""
     dprint("Request Handler Pinged")
     return 'pong'
 
 @client.request(response_priority=2)
-def r_user_check(argument1):
+def r_user_check(argument1) -> str:
     """Checks if recipient of message exists"""
     dprint(f"User existence requested for {argument1}")
     try:
@@ -42,7 +43,7 @@ def r_user_check(argument1):
 
 @client.request(response_priority=5)
 @deprecated("This method does not truly work, as new scratchers cannot actually use cloud variables.")
-def r_new_scratcher_detect(argument1):
+def r_new_scratcher_detect(argument1) -> str:
     """DEPRECATED
     Validates if user is a new scratcher, proving if they can use the program."""
     dprint(f"Checking if {argument1} is a new scratcher")
@@ -56,7 +57,7 @@ def r_new_scratcher_detect(argument1):
         return "403 Error: user is a new scratcher - Check Python console for more details"
 
 @client.request(response_priority=2)
-def db_add_subval(db, key, subkey, val, subkey2=None, val2=None, subkey3=None, val3=None):
+def db_add_subval(db, key, subkey, val, subkey2=None, val2=None, subkey3=None, val3=None) -> str:
     #max 3 subkey-value pairs at the same time
     skwargs = {}
     skwargs.update({subkey: val})
@@ -74,7 +75,7 @@ def db_add_subval(db, key, subkey, val, subkey2=None, val2=None, subkey3=None, v
     return "Success"
 
 @client.request(response_priority=2)
-def db_set_val(db, key, subkey, val):
+def db_set_val(db, key, subkey, val) -> str:
     try:
         s.Edit.propval(db, key, subkey, val)
     except Exception as e:
@@ -84,17 +85,17 @@ def db_set_val(db, key, subkey, val):
     return "Success"
 
 @client.request(response_priority=3)
-def db_get_keys(db):
+def db_get_keys(db) -> List[Any]:
     dprint(f"client.requester requested keys from database '{db}'")
     return s.Load.keys(db)
 
 @client.request(response_priority=3)
-def db_get_subkeys_values(db, top_lv_key, keys, raw):
+def db_get_subkeys_values(db, top_lv_key, keys, raw) -> List[Any]:
     dprint(f"client.requester requested subkeys under the top level key '{top_lv_key}' in database '{db}'")
     return s.Load.values(db, top_lv_key, keys=keys, raw=raw)
     
 @client.request(response_priority=2)    
-def db_delete_key(db, key):
+def db_delete_key(db, key) -> str:
     try:
         s.Delete.by_key(db, key)
     except Exception as e:
@@ -104,7 +105,7 @@ def db_delete_key(db, key):
     return "Success"
 
 @client.request(response_priority=2)
-def db_delete_all(db):
+def db_delete_all(db) -> str:
     try:
         s.Delete.all(db, warn=False)
     except Exception as e:
@@ -114,18 +115,18 @@ def db_delete_all(db):
     return "Success"
     
 @client.event
-def on_ready():
+def on_ready() -> None:
     """Runs when client is ready."""
     dprint("Request handler is running")
 
 @client.event
-def on_request(request):
+def on_request(request) -> None:
     """Runs when request is recieved."""
-    dprint(f"Received request {request.request.name},\nrequested by {request.requester},\nargs {request.arguments},\ntimestamp {request.timestamp},\nid {request.request_id}\n")
+    dprint(f"Received request {request.request.name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}\n")
 
 @client.event
-def on_unknown_request(request):
+def on_unknown_request(request) -> None:
     """Runs when unknown request is recieved."""
-    dprint(f"Received unknown request {request.request.name},\nrequester {request.requester},\nargs {request.arguments},\ntimestamp {request.timestamp},\nid {request.request_id}.\nCheck the project to make sure there are no typing and/or spelling errors.")
+    dprint(f"Received unknown request {request.request.name}, requester {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}. Check the project to make sure there are no typing and/or spelling errors.")
     
-client.start(thread=True) #make sure this is ALWAYS at the bottom of your Python file
+client.start(thread=True)
