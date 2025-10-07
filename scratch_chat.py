@@ -16,7 +16,7 @@ cloud = session.connect_cloud("1202780939") #<- this is the test project
 
 def dprint(str):
     print(str)
-    os.system(str)
+    os.system("echo", str)
     
 # When adding new client methods, remember to put dprint() before return, so that the console gets a copy of the output.
 client = cloud.requests(used_cloud_vars=["1", "2", "3", "4", "5", "6", "7", "8", "9"])
