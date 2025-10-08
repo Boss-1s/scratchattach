@@ -12,12 +12,12 @@ logging.captureWarnings(True)
 __all__ = ["Storage", "Storage.Delete", "Storage.Load", "Storage.Edit"]
 
 class _KeyNotFoundError(Exception):
-        """Custom exception raised when a key is not found."""
-        def __init__(self, file: str, mkey: str | uuid.UUID, message="") -> None:
-            self.mkey = mkey
-            self.file = file
-            self.message = f"The following key was not found in {file}: {mkey}" if message == "" else message
-            super().__init__(self.message)
+	"""Custom exception raised when a key is not found."""
+	def __init__(self, file: str, mkey: str | uuid.UUID, message="") -> None:
+		self.mkey = mkey
+		self.file = file
+		self.message = f"The following key was not found in {file}: {mkey}" if message == "" else message
+		super().__init__(self.message)
 
 class Storage:
     """
