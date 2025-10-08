@@ -4,6 +4,7 @@ import sys
 import time
 import warnings
 import scratchattach as scratch3
+from typing import deprecated
 from scratchattach import Encoding
 
 warnings.filterwarnings('ignore', category=scratch3.LoginDataWarning)
@@ -21,6 +22,7 @@ def message_ping(argument1):
     user = scratch3.get_user(argument1)
     return user.message_count()
 
+@deprecated("method deprecated because you cannot truly check if a new scratcher is a new scratcher, as they cannot use cloud vars.")
 @client.request
 def new_scratcher_detect(argument1):
     "Secondary client request"
@@ -37,12 +39,19 @@ def on_ready():
 @client.event
 def on_error(request, e):
     "Runs when client runs into error"
-    os.system("echo Request: ", request.request.name, request.requester, request.arguments, request.timestamp, request.request_id)
-    os.system("echo Error that occured: ", e)
+    os.system(f"echo Request: {request.request.name} {request.requester} {request.arguments} {request.timestamp} {request.request_id}")
+    os.system("echo Error that occured: {e}")
 
 @client.event
 def on_request(request):
     "Runs when client receives request"
-    os.system("echo Received request", request.request.name, request.requester, request.arguments, request.timestamp, request.request_id)
+    os.system(f"echo Received Request: {request.request.name} {request.requester} {request.arguments} {request.timestamp} {request.request_id}")
+
+@client.event
+def on_unknown_request(request):
+    "Runs when client receives unknown request"
+    os.system(f"echo Received unknown request: {request.request.name} {request.requester} {request.arguments} {request.timestamp} {request.request_id}\n"+
+             "echo Check the project and/or script to ensure there are no spelling errors, mistakes, etc. If the request seems suspicious, stop all backend jobs "+
+             "immediately".)
     
 client.start(thread=True) #make sure this is ALWAYS at the bottom of your Python file
