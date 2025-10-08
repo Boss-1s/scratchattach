@@ -77,7 +77,7 @@ class Storage:
 	@staticmethod
 	def _dprint(string: Any) -> None:
 		"""Double-prints by echoing in shell and using print command."""
-		_dprint(string)
+		print(string)
 		os.system(f"echo {string}")
 	
 	@staticmethod
