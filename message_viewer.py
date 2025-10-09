@@ -52,6 +52,6 @@ def on_unknown_request(request):
     "Runs when client receives unknown request"
     os.system(f"echo Received unknown request: {request.request.name} {request.requester} {request.arguments} {request.timestamp} {request.request_id}\n"+
              "echo Check the project and/or script to ensure there are no spelling errors, mistakes, etc. If the request seems suspicious, stop all backend jobs "+
-             "immediately".)
+             "immediately.")
     
 client.start(thread=True) #make sure this is ALWAYS at the bottom of your Python file
