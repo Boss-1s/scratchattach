@@ -4,7 +4,7 @@ import sys
 import time
 import warnings
 import scratchattach as scratch3
-from typing import deprecated
+from warnings import deprecated
 from scratchattach import Encoding
 
 warnings.filterwarnings('ignore', category=scratch3.LoginDataWarning)
