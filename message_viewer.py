@@ -22,8 +22,8 @@ def message_ping(argument1):
     user = scratch3.get_user(argument1)
     return user.message_count()
 
-@deprecated("method deprecated because you cannot truly check if a new scratcher is a new scratcher, as they cannot use cloud vars.")
 @client.request
+@deprecated("method deprecated because you cannot truly check if a new scratcher is a new scratcher, as they cannot use cloud vars.")
 def new_scratcher_detect(argument1):
     "Secondary client request"
     os.system(f"echo Checking if {argument1} is a new scratcher")
