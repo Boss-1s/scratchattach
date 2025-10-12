@@ -14,6 +14,7 @@ passwrd = os.environ.get('PASS')
 session = scratch3.login("Boss_1sALT", passwrd)
 cloud = session.connect_cloud("1054907254") #replace with your project id
 client = cloud.requests()
+connected: bool = False
 
 @client.request
 def message_ping(argument1):
@@ -35,6 +36,26 @@ def new_scratcher_detect(argument1):
 def on_ready():
     "Runs when client is ready."
     os.system("echo Request handler is running")
+
+@client.event
+def on_connect():
+    connected = True
+    clt = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    tsutc = time.time()
+    os.system("echo Connected.")
+    os.system(f"Local Time CDT {clt}, timestamp {tsutc}")
+
+@client.event
+def on_disconnect():
+    connected = False
+    warnings.warn("WARNING! You have been disconnected from the cloud"+
+                  ". Cloud requests may not work. If this happens repeatedly,"+
+                  " Scratch's cloud system may be down.",
+                  RuntimeWarning)
+    clt = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+    tsutc = time.time()
+    os.system(f"Local Time CDT {clt}, timestamp {tsutc}")
+
 
 @client.event
 def on_error(request, e):
