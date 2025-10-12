@@ -53,12 +53,12 @@ def prioritize(attempt: int, maxAttempts: int):
     global atmp
     favorites()
     try:
-        print(f"Prioritizing: Attempt {attempt + 1}")
+        os.system("echo " + f"Prioritizing: Attempt {attempt + 1}")
         if attempt >= maxAttempts:
             raise ValueError("Process failed, and the maximum attempt value has been reached. Exiting.")
             
         if project_ids_to_prioritize[::-1] == fav_project_ids[:len(project_ids_to_prioritize)]:
-            print("Projects already on top. No prioritizing needed.")
+            os.system("echo " + "Projects already on top. No prioritizing needed.")
             return
             
         for project_id in project_ids_to_prioritize:
@@ -70,13 +70,13 @@ def prioritize(attempt: int, maxAttempts: int):
             if project.id in fav_project_ids:
                 # Unfavorite the project
                 project.unfavorite()
-                print(f"Unfavorited project {project_id}")
+                os.system("echo " + f"Unfavorited project {project_id}")
                
                 time.sleep(45)
                
-                print(f"Favorited project {project_id} to move it to the top")
+                os.system("echo " + f"Favorited project {project_id} to move it to the top")
             else:
-                print(f"Favorited project {project_id} because it was never favorited")
+                os.system("echo " + f"Favorited project {project_id} because it was never favorited")
            
             # Favorite the project again to move it to the top
             project.favorite()
@@ -84,23 +84,23 @@ def prioritize(attempt: int, maxAttempts: int):
             time.sleep(45)
             
     except ValueError as e:
-        print(e)
+        os.system("echo " + e)
         sys.exit(1)
 
     except ProjectNotFound as e:
-        print(f"{e}. Retrying script")
+        os.system("echo " + f"{e}. Retrying script")
         atmp=atmp+1
         prioritize(atmp, max_atmp)
        
     except Exception as e:
-        print(f"Process failed, retying. Error: {e}")
+        os.system("echo " + f"Process failed, retying. Error: {e}")
         atmp=atmp+1
         prioritize(atmp, max_atmp)
 
 def prioritize_studio(attempt: int, maxAttempts: int):
     global atmp
     try:
-        print(f"Prioritizing: Attempt {attempt + 1}")
+        os.system("echo " + f"Prioritizing: Attempt {attempt + 1}")
         if attempt >= maxAttempts:
             raise ValueError("Process failed, and the maximum attempt value has been reached. Exiting.")
 
@@ -112,11 +112,11 @@ def prioritize_studio(attempt: int, maxAttempts: int):
            
             # Unfavorite the project
             studio.unfollow()
-            print(f"Unfollowed stuido {studio_id}")
+            os.system("echo " + f"Unfollowed stuido {studio_id}")
            
             time.sleep(35)
            
-            print(f"Followed studio {studio_id} to move it to the top")
+            os.system("echo " + f"Followed studio {studio_id} to move it to the top")
        
             # Favorite the studio again to move it to the top
             studio.follow()
@@ -124,16 +124,16 @@ def prioritize_studio(attempt: int, maxAttempts: int):
             time.sleep(45)
             
     except ValueError as e:
-        print(e)
+        os.system("echo " + e)
         sys.exit(1)
 
     except StudioNotFound as e:
-        print(f"{e}. Retrying script")
+        os.system("echo " + f"{e}. Retrying script")
         atmp=atmp+1
         prioritize_studio(atmp, max_atmp)
        
     except Exception as e:
-        print(f"Process failed, retying. Error: {e}")
+        os.system("echo " + f"Process failed, retying. Error: {e}")
         atmp=atmp+1
         prioritize_studio(atmp, max_atmp)
 
@@ -145,7 +145,7 @@ atmp = 0
 try:
     prioritize(atmp, max_atmp)
 finally:
-    print("Prioritized projects in your favorite list.")
+    os.system("echo " + "Prioritized projects in your favorite list.")
 
 max_atmp = 5
 atmp = 0
@@ -153,4 +153,4 @@ atmp = 0
 try:
     prioritize_studio(atmp, max_atmp)
 finally:
-    print("Prioritized studios in your favorite list.")
+    os.system("echo " + "Prioritized studios in your favorite list.")
