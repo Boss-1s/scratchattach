@@ -52,7 +52,7 @@ def on_connect():
 @client.event
 def on_disconnect():
     connected = False
-    warnings.warn("WARNING! You have been disconnected from the cloud"+
+    logging.WARNING("WARNING! You have been disconnected from the cloud"+
                   ". Cloud requests may not work. If this happens repeatedly,"+
                   " Scratch's cloud system may be down.",
                   RuntimeWarning)
