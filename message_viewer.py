@@ -3,11 +3,15 @@ import os
 import sys
 import time
 import warnings
+import logging
 import scratchattach as scratch3
 from warnings import deprecated
 from scratchattach import Encoding
 
 warnings.filterwarnings('ignore', category=scratch3.LoginDataWarning)
+
+logging.basicConfig(level=logging.WARNING)
+logging.captureWarnings(True)
 
 passwrd = os.environ.get('PASS')
 
