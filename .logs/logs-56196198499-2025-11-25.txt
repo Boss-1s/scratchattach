@@ -1,0 +1,948 @@
+﻿2025-11-24T07:22:06.6466200Z Current runner version: '2.329.0'
+2025-11-24T07:22:06.6492351Z ##[group]Runner Image Provisioner
+2025-11-24T07:22:06.6493171Z Hosted Compute Agent
+2025-11-24T07:22:06.6494131Z Version: 20251016.436
+2025-11-24T07:22:06.6494869Z Commit: 8ab8ac8bfd662a3739dab9fe09456aba92132568
+2025-11-24T07:22:06.6495597Z Build Date: 2025-10-15T20:44:12Z
+2025-11-24T07:22:06.6496628Z ##[endgroup]
+2025-11-24T07:22:06.6497374Z ##[group]Operating System
+2025-11-24T07:22:06.6497978Z Ubuntu
+2025-11-24T07:22:06.6498510Z 24.04.3
+2025-11-24T07:22:06.6498956Z LTS
+2025-11-24T07:22:06.6499427Z ##[endgroup]
+2025-11-24T07:22:06.6499887Z ##[group]Runner Image
+2025-11-24T07:22:06.6500831Z Image: ubuntu-24.04
+2025-11-24T07:22:06.6501651Z Version: 20251112.124.1
+2025-11-24T07:22:06.6503207Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251112.124/images/ubuntu/Ubuntu2404-Readme.md
+2025-11-24T07:22:06.6505795Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251112.124
+2025-11-24T07:22:06.6507874Z ##[endgroup]
+2025-11-24T07:22:06.6512200Z ##[group]GITHUB_TOKEN Permissions
+2025-11-24T07:22:06.6514457Z Actions: write
+2025-11-24T07:22:06.6515041Z ArtifactMetadata: write
+2025-11-24T07:22:06.6515623Z Attestations: write
+2025-11-24T07:22:06.6516089Z Checks: write
+2025-11-24T07:22:06.6517059Z Contents: write
+2025-11-24T07:22:06.6517598Z Deployments: write
+2025-11-24T07:22:06.6518082Z Discussions: write
+2025-11-24T07:22:06.6518677Z Issues: write
+2025-11-24T07:22:06.6519180Z Metadata: read
+2025-11-24T07:22:06.6519666Z Models: read
+2025-11-24T07:22:06.6520231Z Packages: write
+2025-11-24T07:22:06.6520707Z Pages: write
+2025-11-24T07:22:06.6521196Z PullRequests: write
+2025-11-24T07:22:06.6521813Z RepositoryProjects: write
+2025-11-24T07:22:06.6522496Z SecurityEvents: write
+2025-11-24T07:22:06.6523033Z Statuses: write
+2025-11-24T07:22:06.6523613Z ##[endgroup]
+2025-11-24T07:22:06.6526122Z Secret source: Actions
+2025-11-24T07:22:06.6527249Z Prepare workflow directory
+2025-11-24T07:22:06.6862880Z Prepare all required actions
+2025-11-24T07:22:06.6902570Z Getting action download info
+2025-11-24T07:22:07.1987551Z Download action repository 'actions/checkout@v5.0.1' (SHA:93cb6efe18208431cddfb8368fd83d5badbf9bfd)
+2025-11-24T07:22:07.8109432Z Download action repository 'actions/setup-python@v6.0.0' (SHA:e797f83bcb11b83ae66e0230d6156d7c80228e7c)
+2025-11-24T07:22:07.9493078Z Download action repository 'bossOfCode/install-scratchattach@v1.0.3' (SHA:be17a7cf1ecb5a7040eb42ef26c2e1fbe72bb25a)
+2025-11-24T07:22:08.5512732Z Complete job name: Run 1
+2025-11-24T07:22:08.6382195Z ##[group]Run actions/checkout@v5.0.1
+2025-11-24T07:22:08.6383676Z with:
+2025-11-24T07:22:08.6384422Z   ref: main
+2025-11-24T07:22:08.6385223Z   repository: Boss-1s/scratchattach
+2025-11-24T07:22:08.6387011Z   token: ***
+2025-11-24T07:22:08.6387814Z   ssh-strict: true
+2025-11-24T07:22:08.6388613Z   ssh-user: git
+2025-11-24T07:22:08.6389442Z   persist-credentials: true
+2025-11-24T07:22:08.6390340Z   clean: true
+2025-11-24T07:22:08.6391172Z   sparse-checkout-cone-mode: true
+2025-11-24T07:22:08.6392228Z   fetch-depth: 1
+2025-11-24T07:22:08.6393027Z   fetch-tags: false
+2025-11-24T07:22:08.6393848Z   show-progress: true
+2025-11-24T07:22:08.6394686Z   lfs: false
+2025-11-24T07:22:08.6395465Z   submodules: false
+2025-11-24T07:22:08.6396552Z   set-safe-directory: true
+2025-11-24T07:22:08.6397785Z ##[endgroup]
+2025-11-24T07:22:08.7430017Z Syncing repository: Boss-1s/scratchattach
+2025-11-24T07:22:08.7434544Z ##[group]Getting Git version info
+2025-11-24T07:22:08.7437646Z Working directory is '/home/runner/work/scratchattach/scratchattach'
+2025-11-24T07:22:08.7441327Z [command]/usr/bin/git version
+2025-11-24T07:22:08.7504543Z git version 2.51.2
+2025-11-24T07:22:08.7566753Z ##[endgroup]
+2025-11-24T07:22:08.7583457Z Temporarily overriding HOME='/home/runner/work/_temp/2e887206-fa86-45f0-a178-80d5e96fb9d3' before making global git config changes
+2025-11-24T07:22:08.7586698Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-24T07:22:08.7590419Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-11-24T07:22:08.7639433Z Deleting the contents of '/home/runner/work/scratchattach/scratchattach'
+2025-11-24T07:22:08.7643758Z ##[group]Initializing the repository
+2025-11-24T07:22:08.7650263Z [command]/usr/bin/git init /home/runner/work/scratchattach/scratchattach
+2025-11-24T07:22:08.7779458Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-11-24T07:22:08.7782971Z hint: is subject to change. To configure the initial branch name to use in all
+2025-11-24T07:22:08.7786157Z hint: of your new repositories, which will suppress this warning, call:
+2025-11-24T07:22:08.7788712Z hint:
+2025-11-24T07:22:08.7790375Z hint: 	git config --global init.defaultBranch <name>
+2025-11-24T07:22:08.7792446Z hint:
+2025-11-24T07:22:08.7794336Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-11-24T07:22:08.7797761Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-11-24T07:22:08.7800283Z hint:
+2025-11-24T07:22:08.7801460Z hint: 	git branch -m <name>
+2025-11-24T07:22:08.7802827Z hint:
+2025-11-24T07:22:08.7804683Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-11-24T07:22:08.7807877Z Initialized empty Git repository in /home/runner/work/scratchattach/scratchattach/.git/
+2025-11-24T07:22:08.7811376Z [command]/usr/bin/git remote add origin https://github.com/Boss-1s/scratchattach
+2025-11-24T07:22:08.7841820Z ##[endgroup]
+2025-11-24T07:22:08.7844294Z ##[group]Disabling automatic garbage collection
+2025-11-24T07:22:08.7846742Z [command]/usr/bin/git config --local gc.auto 0
+2025-11-24T07:22:08.7880242Z ##[endgroup]
+2025-11-24T07:22:08.7882610Z ##[group]Setting up auth
+2025-11-24T07:22:08.7888045Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-24T07:22:08.7926582Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-24T07:22:08.8281164Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-24T07:22:08.8314700Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-24T07:22:08.8543155Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-11-24T07:22:08.8578111Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-11-24T07:22:08.8808344Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-11-24T07:22:08.8844462Z ##[endgroup]
+2025-11-24T07:22:08.8847522Z ##[group]Fetching the repository
+2025-11-24T07:22:08.8859032Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+2025-11-24T07:22:11.1268734Z From https://github.com/Boss-1s/scratchattach
+2025-11-24T07:22:11.1270238Z  * [new branch]      main       -> origin/main
+2025-11-24T07:22:11.1304284Z ##[endgroup]
+2025-11-24T07:22:11.1305280Z ##[group]Determining the checkout info
+2025-11-24T07:22:11.1312456Z [command]/usr/bin/git branch --list --remote origin/main
+2025-11-24T07:22:11.1339553Z   origin/main
+2025-11-24T07:22:11.1345478Z ##[endgroup]
+2025-11-24T07:22:11.1351866Z [command]/usr/bin/git sparse-checkout disable
+2025-11-24T07:22:11.1398363Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-11-24T07:22:11.1426827Z ##[group]Checking out the ref
+2025-11-24T07:22:11.1431007Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-11-24T07:22:11.6170356Z Switched to a new branch 'main'
+2025-11-24T07:22:11.6173962Z branch 'main' set up to track 'origin/main'.
+2025-11-24T07:22:11.6223097Z ##[endgroup]
+2025-11-24T07:22:11.6270396Z [command]/usr/bin/git log -1 --format=%H
+2025-11-24T07:22:11.6294993Z 1178e1b956d18194ad2303aa45bbc221c6f6c243
+2025-11-24T07:22:11.6542173Z ##[group]Run actions/setup-python@v6.0.0
+2025-11-24T07:22:11.6542504Z with:
+2025-11-24T07:22:11.6542700Z   python-version: 3.13
+2025-11-24T07:22:11.6542937Z   check-latest: false
+2025-11-24T07:22:11.6543285Z   token: ***
+2025-11-24T07:22:11.6543481Z   update-environment: true
+2025-11-24T07:22:11.6543725Z   allow-prereleases: false
+2025-11-24T07:22:11.6543943Z   freethreaded: false
+2025-11-24T07:22:11.6544135Z ##[endgroup]
+2025-11-24T07:22:11.7870470Z ##[group]Installed versions
+2025-11-24T07:22:11.7986722Z (node:2089) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2025-11-24T07:22:11.7987998Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2025-11-24T07:22:11.7989027Z Successfully set up CPython (3.13.9)
+2025-11-24T07:22:11.7990446Z ##[endgroup]
+2025-11-24T07:22:11.8142772Z ##[group]Run bossOfCode/install-scratchattach@v1.0.3
+2025-11-24T07:22:11.8143145Z env:
+2025-11-24T07:22:11.8143404Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:11.8143829Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.9/x64/lib/pkgconfig
+2025-11-24T07:22:11.8144230Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:11.8144574Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:11.8144934Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:11.8145290Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.9/x64/lib
+2025-11-24T07:22:11.8145577Z ##[endgroup]
+2025-11-24T07:22:11.8232695Z ##[group]Run python3 -m pip install --upgrade pip
+2025-11-24T07:22:11.8233170Z [36;1mpython3 -m pip install --upgrade pip[0m
+2025-11-24T07:22:11.8329944Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-11-24T07:22:11.8330384Z env:
+2025-11-24T07:22:11.8330719Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:11.8331151Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.9/x64/lib/pkgconfig
+2025-11-24T07:22:11.8331569Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:11.8331947Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:11.8332397Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:11.8332788Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.9/x64/lib
+2025-11-24T07:22:11.8333117Z ##[endgroup]
+2025-11-24T07:22:14.2979868Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.13.9/x64/lib/python3.13/site-packages (25.3)
+2025-11-24T07:22:14.5607724Z ##[group]Run pip install -U scratchattach
+2025-11-24T07:22:14.5608065Z [36;1mpip install -U scratchattach[0m
+2025-11-24T07:22:14.5641835Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-11-24T07:22:14.5642174Z env:
+2025-11-24T07:22:14.5642423Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:14.5642849Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.9/x64/lib/pkgconfig
+2025-11-24T07:22:14.5643258Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:14.5643632Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:14.5644011Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:14.5644394Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.9/x64/lib
+2025-11-24T07:22:14.5644709Z ##[endgroup]
+2025-11-24T07:22:15.0931245Z Collecting scratchattach
+2025-11-24T07:22:15.1511466Z   Downloading scratchattach-2.1.13-py3-none-any.whl.metadata (5.5 kB)
+2025-11-24T07:22:15.1733080Z Collecting websocket-client (from scratchattach)
+2025-11-24T07:22:15.1762469Z   Downloading websocket_client-1.9.0-py3-none-any.whl.metadata (8.3 kB)
+2025-11-24T07:22:15.2058510Z Collecting requests (from scratchattach)
+2025-11-24T07:22:15.2107822Z   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+2025-11-24T07:22:15.2244952Z Collecting bs4 (from scratchattach)
+2025-11-24T07:22:15.2273506Z   Downloading bs4-0.0.2-py2.py3-none-any.whl.metadata (411 bytes)
+2025-11-24T07:22:15.2377826Z Collecting SimpleWebSocketServer (from scratchattach)
+2025-11-24T07:22:15.2417044Z   Downloading SimpleWebSocketServer-0.1.2.tar.gz (10 kB)
+2025-11-24T07:22:15.2514113Z   Installing build dependencies: started
+2025-11-24T07:22:16.1293756Z   Installing build dependencies: finished with status 'done'
+2025-11-24T07:22:16.1300077Z   Getting requirements to build wheel: started
+2025-11-24T07:22:16.5610349Z   Getting requirements to build wheel: finished with status 'done'
+2025-11-24T07:22:16.5622290Z   Preparing metadata (pyproject.toml): started
+2025-11-24T07:22:16.7718410Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2025-11-24T07:22:16.7913340Z Collecting typing-extensions (from scratchattach)
+2025-11-24T07:22:16.7969060Z   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+2025-11-24T07:22:16.8148192Z Collecting beautifulsoup4 (from bs4->scratchattach)
+2025-11-24T07:22:16.8173649Z   Downloading beautifulsoup4-4.14.2-py3-none-any.whl.metadata (3.8 kB)
+2025-11-24T07:22:16.8365581Z Collecting soupsieve>1.2 (from beautifulsoup4->bs4->scratchattach)
+2025-11-24T07:22:16.8392019Z   Downloading soupsieve-2.8-py3-none-any.whl.metadata (4.6 kB)
+2025-11-24T07:22:16.9309940Z Collecting charset_normalizer<4,>=2 (from requests->scratchattach)
+2025-11-24T07:22:16.9347459Z   Downloading charset_normalizer-3.4.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+2025-11-24T07:22:16.9538209Z Collecting idna<4,>=2.5 (from requests->scratchattach)
+2025-11-24T07:22:16.9565462Z   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+2025-11-24T07:22:16.9852964Z Collecting urllib3<3,>=1.21.1 (from requests->scratchattach)
+2025-11-24T07:22:16.9905699Z   Downloading urllib3-2.5.0-py3-none-any.whl.metadata (6.5 kB)
+2025-11-24T07:22:17.0208185Z Collecting certifi>=2017.4.17 (from requests->scratchattach)
+2025-11-24T07:22:17.0237199Z   Downloading certifi-2025.11.12-py3-none-any.whl.metadata (2.5 kB)
+2025-11-24T07:22:17.0399131Z Downloading scratchattach-2.1.13-py3-none-any.whl (141 kB)
+2025-11-24T07:22:17.0488655Z Downloading bs4-0.0.2-py2.py3-none-any.whl (1.2 kB)
+2025-11-24T07:22:17.0537028Z Downloading beautifulsoup4-4.14.2-py3-none-any.whl (106 kB)
+2025-11-24T07:22:17.0590321Z Downloading soupsieve-2.8-py3-none-any.whl (36 kB)
+2025-11-24T07:22:17.0641645Z Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+2025-11-24T07:22:17.0704922Z Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+2025-11-24T07:22:17.0756806Z Downloading charset_normalizer-3.4.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (153 kB)
+2025-11-24T07:22:17.0825637Z Downloading idna-3.11-py3-none-any.whl (71 kB)
+2025-11-24T07:22:17.0879104Z Downloading urllib3-2.5.0-py3-none-any.whl (129 kB)
+2025-11-24T07:22:17.0939647Z Downloading certifi-2025.11.12-py3-none-any.whl (159 kB)
+2025-11-24T07:22:17.1029394Z Downloading websocket_client-1.9.0-py3-none-any.whl (82 kB)
+2025-11-24T07:22:17.1172137Z Building wheels for collected packages: SimpleWebSocketServer
+2025-11-24T07:22:17.1181725Z   Building wheel for SimpleWebSocketServer (pyproject.toml): started
+2025-11-24T07:22:17.3602458Z   Building wheel for SimpleWebSocketServer (pyproject.toml): finished with status 'done'
+2025-11-24T07:22:17.3607801Z   Created wheel for SimpleWebSocketServer: filename=simplewebsocketserver-0.1.2-py3-none-any.whl size=9715 sha256=5d7bd1d17c9b04d5bb49a8d3ddb7639888daaa5821f68186ebbd2f4794441049
+2025-11-24T07:22:17.3609809Z   Stored in directory: /home/runner/.cache/pip/wheels/c4/5b/e8/4f2c15a82edc4923058056f6681373168be02a0c00389a6dcf
+2025-11-24T07:22:17.3628267Z Successfully built SimpleWebSocketServer
+2025-11-24T07:22:17.3814215Z Installing collected packages: SimpleWebSocketServer, websocket-client, urllib3, typing-extensions, soupsieve, idna, charset_normalizer, certifi, requests, beautifulsoup4, bs4, scratchattach
+2025-11-24T07:22:17.9990049Z 
+2025-11-24T07:22:18.0012963Z Successfully installed SimpleWebSocketServer-0.1.2 beautifulsoup4-4.14.2 bs4-0.0.2 certifi-2025.11.12 charset_normalizer-3.4.4 idna-3.11 requests-2.32.5 scratchattach-2.1.13 soupsieve-2.8 typing-extensions-4.15.0 urllib3-2.5.0 websocket-client-1.9.0
+2025-11-24T07:22:18.1024979Z ##[group]Run actions/checkout@v5.0.1
+2025-11-24T07:22:18.1025257Z with:
+2025-11-24T07:22:18.1025425Z   ref: main
+2025-11-24T07:22:18.1025615Z   repository: Boss-1s/scratchattach
+2025-11-24T07:22:18.1025968Z   token: ***
+2025-11-24T07:22:18.1026158Z   ssh-strict: true
+2025-11-24T07:22:18.1026600Z   ssh-user: git
+2025-11-24T07:22:18.1026798Z   persist-credentials: true
+2025-11-24T07:22:18.1027016Z   clean: true
+2025-11-24T07:22:18.1027207Z   sparse-checkout-cone-mode: true
+2025-11-24T07:22:18.1027443Z   fetch-depth: 1
+2025-11-24T07:22:18.1027635Z   fetch-tags: false
+2025-11-24T07:22:18.1027835Z   show-progress: true
+2025-11-24T07:22:18.1028024Z   lfs: false
+2025-11-24T07:22:18.1028190Z   submodules: false
+2025-11-24T07:22:18.1028375Z   set-safe-directory: true
+2025-11-24T07:22:18.1028573Z env:
+2025-11-24T07:22:18.1028798Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:18.1029201Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.9/x64/lib/pkgconfig
+2025-11-24T07:22:18.1029614Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:18.1029946Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:18.1030280Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:18.1030605Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.9/x64/lib
+2025-11-24T07:22:18.1030890Z ##[endgroup]
+2025-11-24T07:22:18.1826821Z Syncing repository: Boss-1s/scratchattach
+2025-11-24T07:22:18.1827677Z ##[group]Getting Git version info
+2025-11-24T07:22:18.1828282Z Working directory is '/home/runner/work/scratchattach/scratchattach'
+2025-11-24T07:22:18.1867658Z [command]/usr/bin/git version
+2025-11-24T07:22:18.1906670Z git version 2.51.2
+2025-11-24T07:22:18.1960253Z ##[endgroup]
+2025-11-24T07:22:18.1976971Z Temporarily overriding HOME='/home/runner/work/_temp/af833b26-b60f-4735-930d-a9be50e05ea1' before making global git config changes
+2025-11-24T07:22:18.1978271Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-24T07:22:18.1983141Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-11-24T07:22:18.2028651Z [command]/usr/bin/git config --local --get remote.origin.url
+2025-11-24T07:22:18.2053434Z https://github.com/Boss-1s/scratchattach
+2025-11-24T07:22:18.2069674Z ##[group]Removing previously created refs, to avoid conflicts
+2025-11-24T07:22:18.2074215Z [command]/usr/bin/git rev-parse --symbolic-full-name --verify --quiet HEAD
+2025-11-24T07:22:18.2098056Z refs/heads/main
+2025-11-24T07:22:18.2108526Z [command]/usr/bin/git checkout --detach
+2025-11-24T07:22:18.5939970Z HEAD is now at 1178e1b [BOT] Download Logs
+2025-11-24T07:22:18.5990915Z [command]/usr/bin/git branch --delete --force main
+2025-11-24T07:22:18.6020084Z Deleted branch main (was 1178e1b).
+2025-11-24T07:22:18.6057471Z ##[endgroup]
+2025-11-24T07:22:18.6061977Z [command]/usr/bin/git submodule status
+2025-11-24T07:22:18.6296052Z ##[group]Cleaning the repository
+2025-11-24T07:22:18.6302131Z [command]/usr/bin/git clean -ffdx
+2025-11-24T07:22:18.6350881Z [command]/usr/bin/git reset --hard HEAD
+2025-11-24T07:22:18.6433078Z HEAD is now at 1178e1b [BOT] Download Logs
+2025-11-24T07:22:18.6438773Z ##[endgroup]
+2025-11-24T07:22:18.6440955Z ##[group]Disabling automatic garbage collection
+2025-11-24T07:22:18.6445610Z [command]/usr/bin/git config --local gc.auto 0
+2025-11-24T07:22:18.6474744Z ##[endgroup]
+2025-11-24T07:22:18.6475155Z ##[group]Setting up auth
+2025-11-24T07:22:18.6482138Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-24T07:22:18.6512097Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-24T07:22:18.6750492Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-24T07:22:18.6775864Z http.https://github.com/.extraheader
+2025-11-24T07:22:18.6786521Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-11-24T07:22:18.6817912Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-24T07:22:18.7053956Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-11-24T07:22:18.7087528Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-11-24T07:22:18.7323792Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-11-24T07:22:18.7361055Z ##[endgroup]
+2025-11-24T07:22:18.7361692Z ##[group]Fetching the repository
+2025-11-24T07:22:18.7370779Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+2025-11-24T07:22:19.1915964Z ##[endgroup]
+2025-11-24T07:22:19.1916778Z ##[group]Determining the checkout info
+2025-11-24T07:22:19.1923269Z [command]/usr/bin/git branch --list --remote origin/main
+2025-11-24T07:22:19.1947945Z   origin/main
+2025-11-24T07:22:19.1952700Z ##[endgroup]
+2025-11-24T07:22:19.1957392Z [command]/usr/bin/git sparse-checkout disable
+2025-11-24T07:22:19.2010650Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-11-24T07:22:19.2040558Z ##[group]Checking out the ref
+2025-11-24T07:22:19.2045086Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-11-24T07:22:19.2110860Z Switched to a new branch 'main'
+2025-11-24T07:22:19.2112202Z branch 'main' set up to track 'origin/main'.
+2025-11-24T07:22:19.2122735Z ##[endgroup]
+2025-11-24T07:22:19.2163837Z [command]/usr/bin/git log -1 --format=%H
+2025-11-24T07:22:19.2189339Z 1178e1b956d18194ad2303aa45bbc221c6f6c243
+2025-11-24T07:22:19.2302842Z ##[group]Run timeout 359m python3 message_viewer.py || { [[ $? -eq 124 ]] && exit 0; }
+2025-11-24T07:22:19.2303460Z [36;1mtimeout 359m python3 message_viewer.py || { [[ $? -eq 124 ]] && exit 0; }[0m
+2025-11-24T07:22:19.2338246Z shell: /usr/bin/bash -e {0}
+2025-11-24T07:22:19.2338496Z env:
+2025-11-24T07:22:19.2338764Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:19.2339204Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.9/x64/lib/pkgconfig
+2025-11-24T07:22:19.2339655Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:19.2340034Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:19.2340421Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.9/x64
+2025-11-24T07:22:19.2340801Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.9/x64/lib
+2025-11-24T07:22:19.2341364Z   PASS: ***
+2025-11-24T07:22:19.2341561Z ##[endgroup]
+2025-11-24T07:22:20.4328609Z Thanks for giving credit for CloudRequests!
+2025-11-24T07:22:20.4335220Z Request handler is running
+2025-11-24T09:17:29.9860924Z CloudEvents: Disconnected. Reconnecting ... 1763969862.5683193
+2025-11-24T09:17:29.9861579Z CloudEvents: Reconnected. 1763969862.6685185
+2025-11-24T09:17:29.9862165Z CloudEvents: Disconnected. Reconnecting ... 1763969862.7770312
+2025-11-24T09:17:29.9862914Z CloudEvents: Reconnected. 1763969862.877219
+2025-11-24T09:17:29.9863575Z CloudEvents: Disconnected. Reconnecting ... 1763969946.339562
+2025-11-24T09:17:29.9864026Z CloudEvents: Reconnected. 1763969946.439733
+2025-11-24T09:17:29.9864432Z CloudEvents: Disconnected. Reconnecting ... 1763969946.5778592
+2025-11-24T09:17:29.9865247Z CloudEvents: Reconnected. 1763969946.6780252
+2025-11-24T09:17:29.9865655Z CloudEvents: Disconnected. Reconnecting ... 1763969946.792468
+2025-11-24T09:17:29.9866087Z CloudEvents: Reconnected. 1763969946.8926778
+2025-11-24T09:17:29.9866757Z CloudEvents: Disconnected. Reconnecting ... 1763969966.9729857
+2025-11-24T09:17:29.9867176Z CloudEvents: Reconnected. 1763969967.073187
+2025-11-24T09:17:29.9867580Z CloudEvents: Disconnected. Reconnecting ... 1763969967.176091
+2025-11-24T09:17:29.9867996Z CloudEvents: Reconnected. 1763969967.2762835
+2025-11-24T09:17:29.9868399Z CloudEvents: Disconnected. Reconnecting ... 1763969967.3824234
+2025-11-24T09:17:29.9868812Z CloudEvents: Reconnected. 1763969967.4826043
+2025-11-24T09:17:29.9869206Z CloudEvents: Disconnected. Reconnecting ... 1763969979.790247
+2025-11-24T09:17:29.9869626Z CloudEvents: Reconnected. 1763969979.8904192
+2025-11-24T09:17:29.9870027Z CloudEvents: Disconnected. Reconnecting ... 1763970002.9614038
+2025-11-24T09:17:29.9870441Z CloudEvents: Reconnected. 1763970003.0616128
+2025-11-24T09:17:29.9870844Z CloudEvents: Disconnected. Reconnecting ... 1763970003.2338574
+2025-11-24T09:17:29.9871257Z CloudEvents: Reconnected. 1763970003.3340669
+2025-11-24T09:17:29.9871648Z CloudEvents: Disconnected. Reconnecting ... 1763970012.31049
+2025-11-24T09:17:29.9872052Z CloudEvents: Reconnected. 1763970012.410724
+2025-11-24T09:17:29.9872454Z CloudEvents: Disconnected. Reconnecting ... 1763970334.061998
+2025-11-24T09:17:29.9872864Z CloudEvents: Reconnected. 1763970334.1621625
+2025-11-24T09:17:29.9873261Z CloudEvents: Disconnected. Reconnecting ... 1763970334.263131
+2025-11-24T09:17:29.9873668Z CloudEvents: Reconnected. 1763970334.3633232
+2025-11-24T09:17:29.9874066Z CloudEvents: Disconnected. Reconnecting ... 1763970384.9746137
+2025-11-24T09:17:29.9874482Z CloudEvents: Reconnected. 1763970385.0748754
+2025-11-24T09:17:29.9874889Z CloudEvents: Disconnected. Reconnecting ... 1763970442.8374076
+2025-11-24T09:17:29.9875294Z CloudEvents: Reconnected. 1763970442.9375854
+2025-11-24T09:17:29.9875701Z CloudEvents: Disconnected. Reconnecting ... 1763970710.233199
+2025-11-24T09:17:29.9876106Z CloudEvents: Reconnected. 1763970710.3334193
+2025-11-24T09:17:29.9876649Z CloudEvents: Disconnected. Reconnecting ... 1763970710.4485152
+2025-11-24T09:17:29.9877060Z CloudEvents: Reconnected. 1763970710.5487106
+2025-11-24T09:17:29.9877713Z CloudEvents: Disconnected. Reconnecting ... 1763970710.6510139
+2025-11-24T09:17:29.9878122Z CloudEvents: Reconnected. 1763970710.7511861
+2025-11-24T09:17:29.9878525Z CloudEvents: Disconnected. Reconnecting ... 1763971748.9951587
+2025-11-24T09:17:29.9878934Z CloudEvents: Reconnected. 1763971749.0953836
+2025-11-24T09:17:29.9879329Z CloudEvents: Disconnected. Reconnecting ... 1763972397.1978624
+2025-11-24T09:17:29.9879740Z CloudEvents: Reconnected. 1763972397.2980697
+2025-11-24T09:17:29.9880137Z CloudEvents: Disconnected. Reconnecting ... 1763972766.0372963
+2025-11-24T09:17:29.9880542Z CloudEvents: Reconnected. 1763972766.1374931
+2025-11-24T09:17:29.9880946Z CloudEvents: Disconnected. Reconnecting ... 1763972772.2355356
+2025-11-24T09:17:29.9881352Z CloudEvents: Reconnected. 1763972772.335698
+2025-11-24T09:17:29.9881746Z CloudEvents: Disconnected. Reconnecting ... 1763972772.4783452
+2025-11-24T09:17:29.9882162Z CloudEvents: Reconnected. 1763972772.5785666
+2025-11-24T09:17:29.9882568Z CloudEvents: Disconnected. Reconnecting ... 1763972772.7274945
+2025-11-24T09:17:29.9882975Z CloudEvents: Reconnected. 1763972772.827715
+2025-11-24T09:17:29.9883340Z CloudEvents: Disconnected. Reconnecting ... 1763972772.9243376
+2025-11-24T09:17:29.9883643Z CloudEvents: Reconnected. 1763972773.0245504
+2025-11-24T09:17:29.9883948Z CloudEvents: Disconnected. Reconnecting ... 1763972774.6532977
+2025-11-24T09:17:29.9884257Z CloudEvents: Reconnected. 1763972774.7534957
+2025-11-24T09:17:29.9884560Z CloudEvents: Disconnected. Reconnecting ... 1763972777.2023032
+2025-11-24T09:17:29.9884873Z CloudEvents: Reconnected. 1763972777.3024786
+2025-11-24T09:17:29.9885176Z CloudEvents: Disconnected. Reconnecting ... 1763972928.0497575
+2025-11-24T09:17:29.9885600Z CloudEvents: Reconnected. 1763972928.1499708
+2025-11-24T09:17:29.9885894Z CloudEvents: Disconnected. Reconnecting ... 1763972928.2590537
+2025-11-24T09:17:29.9886196Z CloudEvents: Reconnected. 1763972928.3592308
+2025-11-24T09:17:29.9886594Z CloudEvents: Disconnected. Reconnecting ... 1763972928.498374
+2025-11-24T09:17:29.9886900Z CloudEvents: Reconnected. 1763972928.598582
+2025-11-24T09:17:29.9887187Z CloudEvents: Disconnected. Reconnecting ... 1763972928.7011676
+2025-11-24T09:17:29.9887497Z CloudEvents: Reconnected. 1763972928.8013113
+2025-11-24T09:17:29.9887790Z CloudEvents: Disconnected. Reconnecting ... 1763972951.8698034
+2025-11-24T09:17:29.9888156Z CloudEvents: Reconnected. 1763972951.9700131
+2025-11-24T09:17:29.9888474Z CloudEvents: Disconnected. Reconnecting ... 1763972952.0696998
+2025-11-24T09:17:29.9888808Z CloudEvents: Reconnected. 1763972952.1699023
+2025-11-24T09:17:29.9889103Z CloudEvents: Disconnected. Reconnecting ... 1763972958.8938437
+2025-11-24T09:17:29.9889403Z CloudEvents: Reconnected. 1763972958.994026
+2025-11-24T09:17:29.9889694Z CloudEvents: Disconnected. Reconnecting ... 1763972959.097551
+2025-11-24T09:17:29.9890000Z CloudEvents: Reconnected. 1763972959.1977592
+2025-11-24T09:17:29.9890293Z CloudEvents: Disconnected. Reconnecting ... 1763972959.3138766
+2025-11-24T09:17:29.9890618Z CloudEvents: Reconnected. 1763972959.4140818
+2025-11-24T09:17:29.9890924Z CloudEvents: Disconnected. Reconnecting ... 1763972959.5244186
+2025-11-24T09:17:29.9891235Z CloudEvents: Reconnected. 1763972959.6245985
+2025-11-24T09:17:29.9891537Z CloudEvents: Disconnected. Reconnecting ... 1763973791.4114914
+2025-11-24T09:17:29.9891837Z CloudEvents: Reconnected. 1763973791.51171
+2025-11-24T09:17:29.9892135Z CloudEvents: Disconnected. Reconnecting ... 1763973921.6145175
+2025-11-24T09:17:29.9892446Z CloudEvents: Reconnected. 1763973921.7147186
+2025-11-24T09:17:29.9892840Z CloudEvents: Disconnected. Reconnecting ... 1763973926.549377
+2025-11-24T09:17:29.9893153Z CloudEvents: Reconnected. 1763973926.6495624
+2025-11-24T09:17:29.9893451Z CloudEvents: Disconnected. Reconnecting ... 1763973926.7935228
+2025-11-24T09:17:29.9893748Z CloudEvents: Reconnected. 1763973926.8937051
+2025-11-24T09:17:29.9894044Z CloudEvents: Disconnected. Reconnecting ... 1763973929.598252
+2025-11-24T09:17:29.9894345Z CloudEvents: Reconnected. 1763973929.6984591
+2025-11-24T09:17:29.9894788Z CloudEvents: Disconnected. Reconnecting ... 1763974156.2104547
+2025-11-24T09:17:29.9895104Z CloudEvents: Reconnected. 1763974156.3106885
+2025-11-24T09:17:29.9895394Z CloudEvents: Disconnected. Reconnecting ... 1763974156.4138741
+2025-11-24T09:17:29.9895699Z CloudEvents: Reconnected. 1763974156.514059
+2025-11-24T09:17:29.9896001Z CloudEvents: Disconnected. Reconnecting ... 1763974156.635984
+2025-11-24T09:17:29.9896485Z CloudEvents: Reconnected. 1763974156.7361534
+2025-11-24T09:17:29.9896847Z CloudEvents: Disconnected. Reconnecting ... 1763974353.9623914
+2025-11-24T09:17:29.9897154Z CloudEvents: Reconnected. 1763974354.0625684
+2025-11-24T09:17:29.9897454Z CloudEvents: Disconnected. Reconnecting ... 1763974354.1725013
+2025-11-24T09:17:29.9897758Z CloudEvents: Reconnected. 1763974354.2727118
+2025-11-24T09:17:29.9898054Z CloudEvents: Disconnected. Reconnecting ... 1763974354.3812637
+2025-11-24T09:17:29.9898355Z CloudEvents: Reconnected. 1763974354.481444
+2025-11-24T09:17:29.9898655Z CloudEvents: Disconnected. Reconnecting ... 1763974417.610862
+2025-11-24T09:17:29.9898956Z CloudEvents: Reconnected. 1763974417.7110674
+2025-11-24T09:17:29.9899245Z CloudEvents: Disconnected. Reconnecting ... 1763974417.8193328
+2025-11-24T09:17:29.9899546Z CloudEvents: Reconnected. 1763974417.9194982
+2025-11-24T09:17:29.9899838Z CloudEvents: Disconnected. Reconnecting ... 1763974625.1099327
+2025-11-24T09:17:29.9900139Z CloudEvents: Reconnected. 1763974625.2101028
+2025-11-24T09:17:29.9900449Z CloudEvents: Disconnected. Reconnecting ... 1763974625.3257034
+2025-11-24T09:17:29.9900750Z CloudEvents: Reconnected. 1763974625.4258714
+2025-11-24T09:17:29.9901189Z CloudEvents: Disconnected. Reconnecting ... 1763974648.7154677
+2025-11-24T09:17:29.9901495Z CloudEvents: Reconnected. 1763974648.815615
+2025-11-24T09:17:29.9901785Z CloudEvents: Disconnected. Reconnecting ... 1763974652.702451
+2025-11-24T09:17:29.9902091Z CloudEvents: Reconnected. 1763974652.8026636
+2025-11-24T09:17:29.9902399Z CloudEvents: Disconnected. Reconnecting ... 1763974652.9085045
+2025-11-24T09:17:29.9902696Z CloudEvents: Reconnected. 1763974653.0087101
+2025-11-24T09:17:29.9902993Z CloudEvents: Disconnected. Reconnecting ... 1763974656.6640134
+2025-11-24T09:17:29.9903295Z CloudEvents: Reconnected. 1763974656.7641854
+2025-11-24T09:17:29.9903584Z CloudEvents: Disconnected. Reconnecting ... 1763974661.4898996
+2025-11-24T09:17:29.9903885Z CloudEvents: Reconnected. 1763974661.5901113
+2025-11-24T09:17:29.9904172Z CloudEvents: Disconnected. Reconnecting ... 1763974661.697928
+2025-11-24T09:17:29.9904472Z CloudEvents: Reconnected. 1763974661.7981176
+2025-11-24T09:17:29.9904771Z CloudEvents: Disconnected. Reconnecting ... 1763974661.9053576
+2025-11-24T09:17:29.9905074Z CloudEvents: Reconnected. 1763974662.0055468
+2025-11-24T09:17:29.9905366Z CloudEvents: Disconnected. Reconnecting ... 1763974685.351859
+2025-11-24T09:17:29.9905668Z CloudEvents: Reconnected. 1763974685.4520373
+2025-11-24T09:17:29.9905956Z CloudEvents: Disconnected. Reconnecting ... 1763974690.634366
+2025-11-24T09:17:29.9906259Z CloudEvents: Reconnected. 1763974690.7345366
+2025-11-24T09:17:29.9906664Z CloudEvents: Disconnected. Reconnecting ... 1763974690.8349788
+2025-11-24T09:17:29.9906968Z CloudEvents: Reconnected. 1763974690.935152
+2025-11-24T09:17:29.9907268Z CloudEvents: Disconnected. Reconnecting ... 1763974778.4665987
+2025-11-24T09:17:29.9907569Z CloudEvents: Reconnected. 1763974778.5667768
+2025-11-24T09:17:29.9907857Z CloudEvents: Disconnected. Reconnecting ... 1763974778.6753397
+2025-11-24T09:17:29.9908162Z CloudEvents: Reconnected. 1763974778.7755003
+2025-11-24T09:17:29.9908449Z CloudEvents: Disconnected. Reconnecting ... 1763974778.882355
+2025-11-24T09:17:29.9908762Z CloudEvents: Reconnected. 1763974778.9825454
+2025-11-24T09:17:29.9909058Z CloudEvents: Disconnected. Reconnecting ... 1763975053.5322425
+2025-11-24T09:17:29.9909353Z CloudEvents: Reconnected. 1763975053.632432
+2025-11-24T09:17:29.9909646Z CloudEvents: Disconnected. Reconnecting ... 1763975237.9993725
+2025-11-24T09:17:29.9910069Z CloudEvents: Reconnected. 1763975238.0995867
+2025-11-24T09:17:29.9910366Z CloudEvents: Disconnected. Reconnecting ... 1763975238.2499807
+2025-11-24T09:17:29.9910669Z CloudEvents: Reconnected. 1763975238.3501685
+2025-11-24T09:17:29.9910963Z CloudEvents: Disconnected. Reconnecting ... 1763975238.4619446
+2025-11-24T09:17:29.9911265Z CloudEvents: Reconnected. 1763975238.5621243
+2025-11-24T09:17:29.9911558Z CloudEvents: Disconnected. Reconnecting ... 1763975343.81591
+2025-11-24T09:17:29.9911860Z CloudEvents: Reconnected. 1763975343.9161048
+2025-11-24T09:17:29.9912147Z CloudEvents: Disconnected. Reconnecting ... 1763975344.039265
+2025-11-24T09:17:29.9912473Z CloudEvents: Reconnected. 1763975344.139447
+2025-11-24T09:17:29.9912760Z CloudEvents: Disconnected. Reconnecting ... 1763975531.1319504
+2025-11-24T09:17:29.9913061Z CloudEvents: Reconnected. 1763975531.2321486
+2025-11-24T09:17:29.9913357Z CloudEvents: Disconnected. Reconnecting ... 1763975531.3434017
+2025-11-24T09:17:29.9913658Z CloudEvents: Reconnected. 1763975531.443584
+2025-11-24T09:17:29.9913950Z CloudEvents: Disconnected. Reconnecting ... 1763975531.5433953
+2025-11-24T09:17:29.9914249Z CloudEvents: Reconnected. 1763975531.643602
+2025-11-24T09:17:29.9914538Z CloudEvents: Disconnected. Reconnecting ... 1763975531.751732
+2025-11-24T09:17:29.9914840Z CloudEvents: Reconnected. 1763975531.8519354
+2025-11-24T10:22:42.1868249Z CloudEvents: Disconnected. Reconnecting ... 1763975849.985821
+2025-11-24T10:22:42.1869148Z CloudEvents: Reconnected. 1763975850.0860615
+2025-11-24T10:22:42.1870055Z CloudEvents: Disconnected. Reconnecting ... 1763975966.1411915
+2025-11-24T10:22:42.1870913Z CloudEvents: Reconnected. 1763975966.241396
+2025-11-24T10:22:42.1872064Z CloudEvents: Disconnected. Reconnecting ... 1763976144.4270935
+2025-11-24T10:22:42.1872700Z CloudEvents: Reconnected. 1763976144.5272982
+2025-11-24T10:22:42.1873213Z CloudEvents: Disconnected. Reconnecting ... 1763976158.902863
+2025-11-24T10:22:42.1873739Z CloudEvents: Reconnected. 1763976159.0030622
+2025-11-24T10:22:42.1874264Z CloudEvents: Disconnected. Reconnecting ... 1763976265.3712142
+2025-11-24T10:22:42.1874780Z CloudEvents: Reconnected. 1763976265.471416
+2025-11-24T10:22:42.1875282Z CloudEvents: Disconnected. Reconnecting ... 1763976465.750749
+2025-11-24T10:22:42.1875795Z CloudEvents: Reconnected. 1763976465.8509288
+2025-11-24T10:22:42.1876532Z CloudEvents: Disconnected. Reconnecting ... 1763976465.9657035
+2025-11-24T10:22:42.1876986Z CloudEvents: Reconnected. 1763976466.0659144
+2025-11-24T10:22:42.1877388Z CloudEvents: Disconnected. Reconnecting ... 1763976526.3981845
+2025-11-24T10:22:42.1877794Z CloudEvents: Reconnected. 1763976526.4983609
+2025-11-24T10:22:42.1878204Z CloudEvents: Disconnected. Reconnecting ... 1763976526.6176732
+2025-11-24T10:22:42.1878614Z CloudEvents: Reconnected. 1763976526.7178688
+2025-11-24T10:22:42.1879010Z CloudEvents: Disconnected. Reconnecting ... 1763976784.8154562
+2025-11-24T10:22:42.1879419Z CloudEvents: Reconnected. 1763976784.9156265
+2025-11-24T10:22:42.1879821Z CloudEvents: Disconnected. Reconnecting ... 1763976785.051225
+2025-11-24T10:22:42.1880344Z CloudEvents: Reconnected. 1763976785.1514132
+2025-11-24T10:22:42.1880972Z CloudEvents: Disconnected. Reconnecting ... 1763976936.6475544
+2025-11-24T10:22:42.1881623Z CloudEvents: Reconnected. 1763976936.7477188
+2025-11-24T10:22:42.1882166Z CloudEvents: Disconnected. Reconnecting ... 1763977026.8702328
+2025-11-24T10:22:42.1882679Z CloudEvents: Reconnected. 1763977026.9704177
+2025-11-24T10:22:42.1883212Z CloudEvents: Disconnected. Reconnecting ... 1763977027.0862792
+2025-11-24T10:22:42.1883657Z CloudEvents: Reconnected. 1763977027.1864593
+2025-11-24T10:22:42.1884063Z CloudEvents: Disconnected. Reconnecting ... 1763977066.9079866
+2025-11-24T10:22:42.1884483Z CloudEvents: Reconnected. 1763977067.0081658
+2025-11-24T10:22:42.1884899Z CloudEvents: Disconnected. Reconnecting ... 1763977120.936886
+2025-11-24T10:22:42.1885410Z CloudEvents: Reconnected. 1763977121.0370693
+2025-11-24T10:22:42.1886046Z CloudEvents: Disconnected. Reconnecting ... 1763977133.4772933
+2025-11-24T10:22:42.1886693Z CloudEvents: Reconnected. 1763977133.577477
+2025-11-24T10:22:42.1887100Z CloudEvents: Disconnected. Reconnecting ... 1763977133.698238
+2025-11-24T10:22:42.1887452Z CloudEvents: Reconnected. 1763977133.7984283
+2025-11-24T10:22:42.1887755Z CloudEvents: Disconnected. Reconnecting ... 1763977133.908222
+2025-11-24T10:22:42.1888066Z CloudEvents: Reconnected. 1763977134.008388
+2025-11-24T10:22:42.1888371Z CloudEvents: Disconnected. Reconnecting ... 1763977140.0759373
+2025-11-24T10:22:42.1888679Z CloudEvents: Reconnected. 1763977140.1761322
+2025-11-24T10:22:42.1888974Z CloudEvents: Disconnected. Reconnecting ... 1763977140.2780704
+2025-11-24T10:22:42.1889283Z CloudEvents: Reconnected. 1763977140.37826
+2025-11-24T10:22:42.1889580Z CloudEvents: Disconnected. Reconnecting ... 1763977145.9606876
+2025-11-24T10:22:42.1889878Z CloudEvents: Reconnected. 1763977146.0608487
+2025-11-24T10:22:42.1890179Z CloudEvents: Disconnected. Reconnecting ... 1763977146.1678727
+2025-11-24T10:22:42.1890481Z CloudEvents: Reconnected. 1763977146.268069
+2025-11-24T10:22:42.1890770Z CloudEvents: Disconnected. Reconnecting ... 1763977182.0598853
+2025-11-24T10:22:42.1891069Z CloudEvents: Reconnected. 1763977182.16005
+2025-11-24T10:22:42.1891354Z CloudEvents: Disconnected. Reconnecting ... 1763977215.751599
+2025-11-24T10:22:42.1891658Z CloudEvents: Reconnected. 1763977215.8517747
+2025-11-24T10:22:42.1891952Z CloudEvents: Disconnected. Reconnecting ... 1763977285.4058313
+2025-11-24T10:22:42.1892245Z CloudEvents: Reconnected. 1763977285.506044
+2025-11-24T10:22:42.1892539Z CloudEvents: Disconnected. Reconnecting ... 1763977285.6242685
+2025-11-24T10:22:42.1892982Z CloudEvents: Reconnected. 1763977285.7244678
+2025-11-24T10:22:42.1893273Z CloudEvents: Disconnected. Reconnecting ... 1763977285.822193
+2025-11-24T10:22:42.1893572Z CloudEvents: Reconnected. 1763977285.9223833
+2025-11-24T10:22:42.1893868Z CloudEvents: Disconnected. Reconnecting ... 1763977286.0303347
+2025-11-24T10:22:42.1894171Z CloudEvents: Reconnected. 1763977286.1305125
+2025-11-24T10:22:42.1894468Z CloudEvents: Disconnected. Reconnecting ... 1763977469.2956645
+2025-11-24T10:22:42.1894769Z CloudEvents: Reconnected. 1763977469.3958342
+2025-11-24T10:22:42.1895057Z CloudEvents: Disconnected. Reconnecting ... 1763977483.9491148
+2025-11-24T10:22:42.1895359Z CloudEvents: Reconnected. 1763977484.0493
+2025-11-24T10:22:42.1895651Z CloudEvents: Disconnected. Reconnecting ... 1763977491.5488927
+2025-11-24T10:22:42.1895960Z CloudEvents: Reconnected. 1763977491.6490386
+2025-11-24T10:22:42.1896257Z CloudEvents: Disconnected. Reconnecting ... 1763977494.6308606
+2025-11-24T10:22:42.1896707Z CloudEvents: Reconnected. 1763977494.7309968
+2025-11-24T10:22:42.1897014Z CloudEvents: Disconnected. Reconnecting ... 1763977496.8635738
+2025-11-24T10:22:42.1897317Z CloudEvents: Reconnected. 1763977496.9637856
+2025-11-24T10:22:42.1897608Z CloudEvents: Disconnected. Reconnecting ... 1763977500.9877348
+2025-11-24T10:22:42.1897907Z CloudEvents: Reconnected. 1763977501.0879061
+2025-11-24T10:22:42.1898209Z CloudEvents: Disconnected. Reconnecting ... 1763977501.204305
+2025-11-24T10:22:42.1898506Z CloudEvents: Reconnected. 1763977501.3044949
+2025-11-24T10:22:42.1898819Z CloudEvents: Disconnected. Reconnecting ... 1763977501.5111742
+2025-11-24T10:22:42.1899119Z CloudEvents: Reconnected. 1763977501.611368
+2025-11-24T10:22:42.1899406Z CloudEvents: Disconnected. Reconnecting ... 1763977502.7131822
+2025-11-24T10:22:42.1899705Z CloudEvents: Reconnected. 1763977502.8133867
+2025-11-24T10:22:42.1900216Z CloudEvents: Disconnected. Reconnecting ... 1763977503.0327923
+2025-11-24T10:22:42.1900761Z CloudEvents: Reconnected. 1763977503.1329718
+2025-11-24T10:22:42.1901298Z CloudEvents: Disconnected. Reconnecting ... 1763977507.9922366
+2025-11-24T10:22:42.1901830Z CloudEvents: Reconnected. 1763977508.0924025
+2025-11-24T10:22:42.1902315Z CloudEvents: Disconnected. Reconnecting ... 1763977508.2137241
+2025-11-24T10:22:42.1902622Z CloudEvents: Reconnected. 1763977508.3139236
+2025-11-24T10:22:42.1904550Z CloudEvents: Disconnected. Reconnecting ... 1763977508.435425
+2025-11-24T10:22:42.1904955Z CloudEvents: Reconnected. 1763977508.5355968
+2025-11-24T10:22:42.1905277Z CloudEvents: Disconnected. Reconnecting ... 1763977508.635972
+2025-11-24T10:22:42.1905584Z CloudEvents: Reconnected. 1763977508.736118
+2025-11-24T10:22:42.1905894Z CloudEvents: Disconnected. Reconnecting ... 1763977518.4055266
+2025-11-24T10:22:42.1906207Z CloudEvents: Reconnected. 1763977518.5057058
+2025-11-24T10:22:42.1906766Z CloudEvents: Disconnected. Reconnecting ... 1763977521.0888155
+2025-11-24T10:22:42.1907073Z CloudEvents: Reconnected. 1763977521.1889982
+2025-11-24T10:22:42.1907363Z CloudEvents: Disconnected. Reconnecting ... 1763977809.971556
+2025-11-24T10:22:42.1907680Z CloudEvents: Reconnected. 1763977810.0717537
+2025-11-24T10:22:42.1907979Z CloudEvents: Disconnected. Reconnecting ... 1763977833.8347378
+2025-11-24T10:22:42.1908274Z CloudEvents: Reconnected. 1763977833.9348967
+2025-11-24T10:22:42.1908572Z CloudEvents: Disconnected. Reconnecting ... 1763978078.0694935
+2025-11-24T10:22:42.1908879Z CloudEvents: Reconnected. 1763978078.1696599
+2025-11-24T10:22:42.1909163Z CloudEvents: Disconnected. Reconnecting ... 1763978185.8188632
+2025-11-24T10:22:42.1909461Z CloudEvents: Reconnected. 1763978185.9190593
+2025-11-24T10:22:42.1909751Z CloudEvents: Disconnected. Reconnecting ... 1763978190.6863644
+2025-11-24T10:22:42.1910042Z CloudEvents: Reconnected. 1763978190.7865415
+2025-11-24T10:22:42.1910336Z CloudEvents: Disconnected. Reconnecting ... 1763978206.1804092
+2025-11-24T10:22:42.1910634Z CloudEvents: Reconnected. 1763978206.2805958
+2025-11-24T10:22:42.1910919Z CloudEvents: Disconnected. Reconnecting ... 1763978211.1628857
+2025-11-24T10:22:42.1911534Z CloudEvents: Reconnected. 1763978211.2630692
+2025-11-24T10:22:42.1911820Z CloudEvents: Disconnected. Reconnecting ... 1763978238.1018832
+2025-11-24T10:22:42.1912116Z CloudEvents: Reconnected. 1763978238.2020526
+2025-11-24T10:22:42.1912407Z CloudEvents: Disconnected. Reconnecting ... 1763978238.3166955
+2025-11-24T10:22:42.1912702Z CloudEvents: Reconnected. 1763978238.4168553
+2025-11-24T10:22:42.1912994Z CloudEvents: Disconnected. Reconnecting ... 1763978238.5202117
+2025-11-24T10:22:42.1913296Z CloudEvents: Reconnected. 1763978238.6204011
+2025-11-24T10:22:42.1913582Z CloudEvents: Disconnected. Reconnecting ... 1763978238.7251732
+2025-11-24T10:22:42.1913877Z CloudEvents: Reconnected. 1763978238.8253381
+2025-11-24T10:22:42.1914168Z CloudEvents: Disconnected. Reconnecting ... 1763979082.8222594
+2025-11-24T10:22:42.1914460Z CloudEvents: Reconnected. 1763979082.9224389
+2025-11-24T10:22:42.1914751Z CloudEvents: Disconnected. Reconnecting ... 1763979083.077853
+2025-11-24T10:22:42.1915054Z CloudEvents: Reconnected. 1763979083.178056
+2025-11-24T10:22:42.1915346Z CloudEvents: Disconnected. Reconnecting ... 1763979083.3351488
+2025-11-24T10:22:42.1915648Z CloudEvents: Reconnected. 1763979083.43531
+2025-11-24T10:22:42.1915939Z CloudEvents: Disconnected. Reconnecting ... 1763979261.0991695
+2025-11-24T10:22:42.1916240Z CloudEvents: Reconnected. 1763979261.1993346
+2025-11-24T10:22:42.1916774Z CloudEvents: Disconnected. Reconnecting ... 1763979261.3303723
+2025-11-24T10:22:42.1917067Z CloudEvents: Reconnected. 1763979261.430542
+2025-11-24T10:22:42.1917363Z CloudEvents: Disconnected. Reconnecting ... 1763979261.563805
+2025-11-24T10:22:42.1917658Z CloudEvents: Reconnected. 1763979261.663962
+2025-11-24T10:22:42.1917939Z CloudEvents: Disconnected. Reconnecting ... 1763979281.3324814
+2025-11-24T10:22:42.1918236Z CloudEvents: Reconnected. 1763979281.4326968
+2025-11-24T10:22:42.1918530Z CloudEvents: Disconnected. Reconnecting ... 1763979281.5346596
+2025-11-24T10:22:42.1918825Z CloudEvents: Reconnected. 1763979281.6348462
+2025-11-24T10:22:42.1919133Z CloudEvents: Disconnected. Reconnecting ... 1763979343.227499
+2025-11-24T10:22:42.1919468Z CloudEvents: Reconnected. 1763979343.3277333
+2025-11-24T10:22:42.1919766Z CloudEvents: Disconnected. Reconnecting ... 1763979363.0581415
+2025-11-24T10:22:42.1920062Z CloudEvents: Reconnected. 1763979363.1583586
+2025-11-24T10:22:42.1920479Z CloudEvents: Disconnected. Reconnecting ... 1763979363.356014
+2025-11-24T10:22:42.1920784Z CloudEvents: Reconnected. 1763979363.4561727
+2025-11-24T10:22:42.1921076Z CloudEvents: Disconnected. Reconnecting ... 1763979363.5647645
+2025-11-24T10:22:42.1921373Z CloudEvents: Reconnected. 1763979363.6649702
+2025-11-24T10:22:42.1921661Z CloudEvents: Disconnected. Reconnecting ... 1763979465.1155694
+2025-11-24T10:22:42.1921953Z CloudEvents: Reconnected. 1763979465.2157402
+2025-11-24T10:22:42.1922242Z CloudEvents: Disconnected. Reconnecting ... 1763979465.3330095
+2025-11-24T10:22:42.1922540Z CloudEvents: Reconnected. 1763979465.433178
+2025-11-24T10:22:42.1922830Z CloudEvents: Disconnected. Reconnecting ... 1763979530.4862921
+2025-11-24T10:22:42.1923126Z CloudEvents: Reconnected. 1763979530.586499
+2025-11-24T10:22:42.1923408Z CloudEvents: Disconnected. Reconnecting ... 1763979568.561802
+2025-11-24T10:22:42.1923706Z CloudEvents: Reconnected. 1763979568.6619976
+2025-11-24T10:22:42.1924001Z CloudEvents: Disconnected. Reconnecting ... 1763979690.4481647
+2025-11-24T10:22:42.1924296Z CloudEvents: Reconnected. 1763979690.5483456
+2025-11-24T10:22:42.1924587Z CloudEvents: Disconnected. Reconnecting ... 1763979690.6640992
+2025-11-24T10:22:42.1924886Z CloudEvents: Reconnected. 1763979690.76427
+2025-11-24T10:22:42.1925177Z CloudEvents: Disconnected. Reconnecting ... 1763979690.8920183
+2025-11-24T10:22:42.1925474Z CloudEvents: Reconnected. 1763979690.9922
+2025-11-24T10:22:42.1925766Z CloudEvents: Disconnected. Reconnecting ... 1763979761.8752973
+2025-11-24T10:22:42.1926060Z CloudEvents: Reconnected. 1763979761.9754758
+2025-11-24T10:22:42.1926658Z CloudEvents: Disconnected. Reconnecting ... 1763979762.0863357
+2025-11-24T12:09:04.7641050Z CloudEvents: Reconnected. 1763979762.1865141
+2025-11-24T12:09:04.7642054Z CloudEvents: Disconnected. Reconnecting ... 1763980282.382879
+2025-11-24T12:09:04.7642657Z CloudEvents: Reconnected. 1763980282.4830477
+2025-11-24T12:09:04.7643341Z CloudEvents: Disconnected. Reconnecting ... 1763980294.8486142
+2025-11-24T12:09:04.7643923Z CloudEvents: Reconnected. 1763980294.9488475
+2025-11-24T12:09:04.7644479Z CloudEvents: Disconnected. Reconnecting ... 1763980295.0698142
+2025-11-24T12:09:04.7645050Z CloudEvents: Reconnected. 1763980295.169991
+2025-11-24T12:09:04.7645603Z CloudEvents: Disconnected. Reconnecting ... 1763980298.4845304
+2025-11-24T12:09:04.7646172Z CloudEvents: Reconnected. 1763980298.5847304
+2025-11-24T12:09:04.7646984Z CloudEvents: Disconnected. Reconnecting ... 1763980302.5885987
+2025-11-24T12:09:04.7647561Z CloudEvents: Reconnected. 1763980302.6887872
+2025-11-24T12:09:04.7648120Z CloudEvents: Disconnected. Reconnecting ... 1763980310.1429894
+2025-11-24T12:09:04.7648698Z CloudEvents: Reconnected. 1763980310.243172
+2025-11-24T12:09:04.7649138Z CloudEvents: Disconnected. Reconnecting ... 1763980310.356554
+2025-11-24T12:09:04.7649596Z CloudEvents: Reconnected. 1763980310.456724
+2025-11-24T12:09:04.7650040Z CloudEvents: Disconnected. Reconnecting ... 1763980314.1223114
+2025-11-24T12:09:04.7650496Z CloudEvents: Reconnected. 1763980314.2225003
+2025-11-24T12:09:04.7650941Z CloudEvents: Disconnected. Reconnecting ... 1763980314.3206766
+2025-11-24T12:09:04.7651396Z CloudEvents: Reconnected. 1763980314.4208448
+2025-11-24T12:09:04.7651835Z CloudEvents: Disconnected. Reconnecting ... 1763980314.536093
+2025-11-24T12:09:04.7652286Z CloudEvents: Reconnected. 1763980314.6362371
+2025-11-24T12:09:04.7652731Z CloudEvents: Disconnected. Reconnecting ... 1763980314.7375906
+2025-11-24T12:09:04.7653178Z CloudEvents: Reconnected. 1763980314.8377426
+2025-11-24T12:09:04.7653621Z CloudEvents: Disconnected. Reconnecting ... 1763980317.6649594
+2025-11-24T12:09:04.7654077Z CloudEvents: Reconnected. 1763980317.7651467
+2025-11-24T12:09:04.7654519Z CloudEvents: Disconnected. Reconnecting ... 1763980317.8671515
+2025-11-24T12:09:04.7654974Z CloudEvents: Reconnected. 1763980317.9673529
+2025-11-24T12:09:04.7655412Z CloudEvents: Disconnected. Reconnecting ... 1763980322.2430892
+2025-11-24T12:09:04.7656237Z CloudEvents: Reconnected. 1763980322.343284
+2025-11-24T12:09:04.7656797Z CloudEvents: Disconnected. Reconnecting ... 1763980369.0425384
+2025-11-24T12:09:04.7657251Z CloudEvents: Reconnected. 1763980369.1427228
+2025-11-24T12:09:04.7657695Z CloudEvents: Disconnected. Reconnecting ... 1763980369.2564166
+2025-11-24T12:09:04.7658154Z CloudEvents: Reconnected. 1763980369.3565948
+2025-11-24T12:09:04.7658610Z CloudEvents: Disconnected. Reconnecting ... 1763980369.454041
+2025-11-24T12:09:04.7659090Z CloudEvents: Reconnected. 1763980369.5542114
+2025-11-24T12:09:04.7659421Z CloudEvents: Disconnected. Reconnecting ... 1763980374.7331896
+2025-11-24T12:09:04.7659749Z CloudEvents: Reconnected. 1763980374.8333776
+2025-11-24T12:09:04.7660054Z CloudEvents: Disconnected. Reconnecting ... 1763980374.933845
+2025-11-24T12:09:04.7660371Z CloudEvents: Reconnected. 1763980375.0340314
+2025-11-24T12:09:04.7660679Z CloudEvents: Disconnected. Reconnecting ... 1763980375.1357503
+2025-11-24T12:09:04.7660985Z CloudEvents: Reconnected. 1763980375.235928
+2025-11-24T12:09:04.7661292Z CloudEvents: Disconnected. Reconnecting ... 1763980391.955428
+2025-11-24T12:09:04.7661599Z CloudEvents: Reconnected. 1763980392.0556202
+2025-11-24T12:09:04.7661907Z CloudEvents: Disconnected. Reconnecting ... 1763980692.0610173
+2025-11-24T12:09:04.7662222Z CloudEvents: Reconnected. 1763980692.1612358
+2025-11-24T12:09:04.7662523Z CloudEvents: Disconnected. Reconnecting ... 1763980692.278355
+2025-11-24T12:09:04.7662834Z CloudEvents: Reconnected. 1763980692.3785415
+2025-11-24T12:09:04.7663149Z CloudEvents: Disconnected. Reconnecting ... 1763980692.4767418
+2025-11-24T12:09:04.7663474Z CloudEvents: Reconnected. 1763980692.576942
+2025-11-24T12:09:04.7663948Z CloudEvents: Disconnected. Reconnecting ... 1763981168.449986
+2025-11-24T12:09:04.7664267Z CloudEvents: Reconnected. 1763981168.550172
+2025-11-24T12:09:04.7664575Z CloudEvents: Disconnected. Reconnecting ... 1763981220.5498552
+2025-11-24T12:09:04.7664896Z CloudEvents: Reconnected. 1763981220.6500437
+2025-11-24T12:09:04.7665217Z CloudEvents: Disconnected. Reconnecting ... 1763981220.7664297
+2025-11-24T12:09:04.7665524Z CloudEvents: Reconnected. 1763981220.866577
+2025-11-24T12:09:04.7665828Z CloudEvents: Disconnected. Reconnecting ... 1763981242.9305592
+2025-11-24T12:09:04.7666135Z CloudEvents: Reconnected. 1763981243.030738
+2025-11-24T12:09:04.7666548Z CloudEvents: Disconnected. Reconnecting ... 1763981249.5258253
+2025-11-24T12:09:04.7666864Z CloudEvents: Reconnected. 1763981249.6260498
+2025-11-24T12:09:04.7667167Z CloudEvents: Disconnected. Reconnecting ... 1763981311.2050352
+2025-11-24T12:09:04.7667476Z CloudEvents: Reconnected. 1763981311.305238
+2025-11-24T12:09:04.7667791Z CloudEvents: Disconnected. Reconnecting ... 1763981375.143582
+2025-11-24T12:09:04.7668100Z CloudEvents: Reconnected. 1763981375.2437627
+2025-11-24T12:09:04.7668408Z CloudEvents: Disconnected. Reconnecting ... 1763981375.3548567
+2025-11-24T12:09:04.7668727Z CloudEvents: Reconnected. 1763981375.4550302
+2025-11-24T12:09:04.7669034Z CloudEvents: Disconnected. Reconnecting ... 1763981375.56194
+2025-11-24T12:09:04.7669334Z CloudEvents: Reconnected. 1763981375.6621299
+2025-11-24T12:09:04.7669631Z CloudEvents: Disconnected. Reconnecting ... 1763981894.3887932
+2025-11-24T12:09:04.7669928Z CloudEvents: Reconnected. 1763981894.4890034
+2025-11-24T12:09:04.7670227Z CloudEvents: Disconnected. Reconnecting ... 1763981938.3533285
+2025-11-24T12:09:04.7670520Z CloudEvents: Reconnected. 1763981938.4535184
+2025-11-24T12:09:04.7670818Z CloudEvents: Disconnected. Reconnecting ... 1763981938.5673635
+2025-11-24T12:09:04.7671119Z CloudEvents: Reconnected. 1763981938.6675594
+2025-11-24T12:09:04.7671414Z CloudEvents: Disconnected. Reconnecting ... 1763981938.7645776
+2025-11-24T12:09:04.7671718Z CloudEvents: Reconnected. 1763981938.864779
+2025-11-24T12:09:04.7672010Z CloudEvents: Disconnected. Reconnecting ... 1763981938.991208
+2025-11-24T12:09:04.7672303Z CloudEvents: Reconnected. 1763981939.0914037
+2025-11-24T12:09:04.7672597Z CloudEvents: Disconnected. Reconnecting ... 1763982029.7918432
+2025-11-24T12:09:04.7673020Z CloudEvents: Reconnected. 1763982029.892045
+2025-11-24T12:09:04.7673312Z CloudEvents: Disconnected. Reconnecting ... 1763982255.042845
+2025-11-24T12:09:04.7673611Z CloudEvents: Reconnected. 1763982255.1430383
+2025-11-24T12:09:04.7673903Z CloudEvents: Disconnected. Reconnecting ... 1763982255.26712
+2025-11-24T12:09:04.7674197Z CloudEvents: Reconnected. 1763982255.3672886
+2025-11-24T12:09:04.7674491Z CloudEvents: Disconnected. Reconnecting ... 1763982533.932862
+2025-11-24T12:09:04.7674787Z CloudEvents: Reconnected. 1763982534.0330732
+2025-11-24T12:09:04.7675081Z CloudEvents: Disconnected. Reconnecting ... 1763982534.1501062
+2025-11-24T12:09:04.7675388Z CloudEvents: Reconnected. 1763982534.2502728
+2025-11-24T12:09:04.7675676Z CloudEvents: Disconnected. Reconnecting ... 1763982548.7592163
+2025-11-24T12:09:04.7675976Z CloudEvents: Reconnected. 1763982548.8594182
+2025-11-24T12:09:04.7676392Z CloudEvents: Disconnected. Reconnecting ... 1763982548.9728265
+2025-11-24T12:09:04.7676697Z CloudEvents: Reconnected. 1763982549.073015
+2025-11-24T12:09:04.7676989Z CloudEvents: Disconnected. Reconnecting ... 1763983171.3467216
+2025-11-24T12:09:04.7677286Z CloudEvents: Reconnected. 1763983171.446928
+2025-11-24T12:09:04.7677572Z CloudEvents: Disconnected. Reconnecting ... 1763983171.5628998
+2025-11-24T12:09:04.7677871Z CloudEvents: Reconnected. 1763983171.663106
+2025-11-24T12:09:04.7678165Z CloudEvents: Disconnected. Reconnecting ... 1763983171.841751
+2025-11-24T12:09:04.7678460Z CloudEvents: Reconnected. 1763983171.9419527
+2025-11-24T12:09:04.7678763Z CloudEvents: Disconnected. Reconnecting ... 1763983364.625867
+2025-11-24T12:09:04.7679184Z CloudEvents: Reconnected. 1763983364.7260437
+2025-11-24T12:09:04.7679477Z CloudEvents: Disconnected. Reconnecting ... 1763983364.832757
+2025-11-24T12:09:04.7679777Z CloudEvents: Reconnected. 1763983364.9329493
+2025-11-24T12:09:04.7680070Z CloudEvents: Disconnected. Reconnecting ... 1763983756.8375316
+2025-11-24T12:09:04.7680380Z CloudEvents: Reconnected. 1763983756.9377127
+2025-11-24T12:09:04.7680677Z CloudEvents: Disconnected. Reconnecting ... 1763983757.126583
+2025-11-24T12:09:04.7680971Z CloudEvents: Reconnected. 1763983757.2267556
+2025-11-24T12:09:04.7681263Z CloudEvents: Disconnected. Reconnecting ... 1763983757.332851
+2025-11-24T12:09:04.7681561Z CloudEvents: Reconnected. 1763983757.4330215
+2025-11-24T12:09:04.7681853Z CloudEvents: Disconnected. Reconnecting ... 1763983757.5333977
+2025-11-24T12:09:04.7682154Z CloudEvents: Reconnected. 1763983757.6335626
+2025-11-24T12:09:04.7682448Z CloudEvents: Disconnected. Reconnecting ... 1763983794.1984932
+2025-11-24T12:09:04.7682739Z CloudEvents: Reconnected. 1763983794.298725
+2025-11-24T12:09:04.7683037Z CloudEvents: Disconnected. Reconnecting ... 1763984405.1684847
+2025-11-24T12:09:04.7683329Z CloudEvents: Reconnected. 1763984405.268679
+2025-11-24T12:09:04.7683621Z CloudEvents: Disconnected. Reconnecting ... 1763984486.7864776
+2025-11-24T12:09:04.7683920Z CloudEvents: Reconnected. 1763984486.886696
+2025-11-24T12:09:04.7684207Z CloudEvents: Disconnected. Reconnecting ... 1763984487.0487103
+2025-11-24T12:09:04.7684509Z CloudEvents: Reconnected. 1763984487.1488945
+2025-11-24T12:09:04.7684804Z CloudEvents: Disconnected. Reconnecting ... 1763984690.3698258
+2025-11-24T12:09:04.7685103Z CloudEvents: Reconnected. 1763984690.470023
+2025-11-24T12:09:04.7685393Z CloudEvents: Disconnected. Reconnecting ... 1763984690.6039925
+2025-11-24T12:09:04.7685692Z CloudEvents: Reconnected. 1763984690.70414
+2025-11-24T12:09:04.7685981Z CloudEvents: Disconnected. Reconnecting ... 1763984690.8374965
+2025-11-24T12:09:04.7686436Z CloudEvents: Reconnected. 1763984690.9377012
+2025-11-24T12:09:04.7686743Z CloudEvents: Disconnected. Reconnecting ... 1763984731.1731248
+2025-11-24T12:09:04.7687039Z CloudEvents: Reconnected. 1763984731.2733004
+2025-11-24T12:09:04.7687339Z CloudEvents: Disconnected. Reconnecting ... 1763984731.4011848
+2025-11-24T12:09:04.7687632Z CloudEvents: Reconnected. 1763984731.501363
+2025-11-24T12:09:04.7688047Z CloudEvents: Disconnected. Reconnecting ... 1763984913.3718398
+2025-11-24T12:09:04.7688354Z CloudEvents: Reconnected. 1763984913.4720058
+2025-11-24T12:09:04.7688647Z CloudEvents: Disconnected. Reconnecting ... 1763984913.57027
+2025-11-24T12:09:04.7688943Z CloudEvents: Reconnected. 1763984913.6704266
+2025-11-24T12:09:04.7689239Z CloudEvents: Disconnected. Reconnecting ... 1763985026.7111413
+2025-11-24T12:09:04.7689532Z CloudEvents: Reconnected. 1763985026.811344
+2025-11-24T12:09:04.7689821Z CloudEvents: Disconnected. Reconnecting ... 1763985072.8329723
+2025-11-24T12:09:04.7690121Z CloudEvents: Reconnected. 1763985072.9331436
+2025-11-24T12:09:04.7690405Z CloudEvents: Disconnected. Reconnecting ... 1763985341.61234
+2025-11-24T12:09:04.7690710Z CloudEvents: Reconnected. 1763985341.7125342
+2025-11-24T12:09:04.7691005Z CloudEvents: Disconnected. Reconnecting ... 1763985341.820177
+2025-11-24T12:09:04.7691314Z CloudEvents: Reconnected. 1763985341.9203618
+2025-11-24T12:09:04.7691611Z CloudEvents: Disconnected. Reconnecting ... 1763985408.0248356
+2025-11-24T12:09:04.7691912Z CloudEvents: Reconnected. 1763985408.1250048
+2025-11-24T12:09:04.7692206Z CloudEvents: Disconnected. Reconnecting ... 1763985416.6808734
+2025-11-24T12:09:04.7692507Z CloudEvents: Reconnected. 1763985416.7810535
+2025-11-24T12:09:04.7692797Z CloudEvents: Disconnected. Reconnecting ... 1763985460.6229658
+2025-11-24T12:09:04.7693096Z CloudEvents: Reconnected. 1763985460.723152
+2025-11-24T12:09:04.7693387Z CloudEvents: Disconnected. Reconnecting ... 1763985474.2082484
+2025-11-24T12:09:04.7693680Z CloudEvents: Reconnected. 1763985474.308446
+2025-11-24T12:09:04.7693968Z CloudEvents: Disconnected. Reconnecting ... 1763985832.229793
+2025-11-24T12:09:04.7694391Z CloudEvents: Reconnected. 1763985832.329965
+2025-11-24T12:09:04.7694677Z CloudEvents: Disconnected. Reconnecting ... 1763986109.5379708
+2025-11-24T12:09:04.7694978Z CloudEvents: Reconnected. 1763986109.6381342
+2025-11-24T12:09:04.7695269Z CloudEvents: Disconnected. Reconnecting ... 1763986133.9446838
+2025-11-24T12:09:04.7695573Z CloudEvents: Reconnected. 1763986134.0448449
+2025-11-24T13:07:46.6897690Z CloudEvents: Disconnected. Reconnecting ... 1763986144.7638526
+2025-11-24T13:07:46.6898289Z CloudEvents: Reconnected. 1763986144.8640847
+2025-11-24T13:07:46.6898784Z CloudEvents: Disconnected. Reconnecting ... 1763986165.1501408
+2025-11-24T13:07:46.6899275Z CloudEvents: Reconnected. 1763986165.250322
+2025-11-24T13:07:46.6899743Z CloudEvents: Disconnected. Reconnecting ... 1763986165.3564768
+2025-11-24T13:07:46.6900228Z CloudEvents: Reconnected. 1763986165.4566734
+2025-11-24T13:07:46.6900698Z CloudEvents: Disconnected. Reconnecting ... 1763986187.56749
+2025-11-24T13:07:46.6901197Z CloudEvents: Reconnected. 1763986187.6677294
+2025-11-24T13:07:46.6901667Z CloudEvents: Disconnected. Reconnecting ... 1763986193.036963
+2025-11-24T13:07:46.6902153Z CloudEvents: Reconnected. 1763986193.137152
+2025-11-24T13:07:46.6902624Z CloudEvents: Disconnected. Reconnecting ... 1763986287.4897559
+2025-11-24T13:07:46.6903155Z CloudEvents: Reconnected. 1763986287.5899532
+2025-11-24T13:07:46.6903651Z CloudEvents: Disconnected. Reconnecting ... 1763986340.4615905
+2025-11-24T13:07:46.6904108Z CloudEvents: Reconnected. 1763986340.5617418
+2025-11-24T13:07:46.6904559Z CloudEvents: Disconnected. Reconnecting ... 1763986358.407325
+2025-11-24T13:07:46.6905019Z CloudEvents: Reconnected. 1763986358.5075102
+2025-11-24T13:07:46.6905465Z CloudEvents: Disconnected. Reconnecting ... 1763986669.3073819
+2025-11-24T13:07:46.6905923Z CloudEvents: Reconnected. 1763986669.4075744
+2025-11-24T13:07:46.6906593Z CloudEvents: Disconnected. Reconnecting ... 1763986684.639266
+2025-11-24T13:07:46.6907060Z CloudEvents: Reconnected. 1763986684.739468
+2025-11-24T13:07:46.6907521Z CloudEvents: Disconnected. Reconnecting ... 1763986692.9331768
+2025-11-24T13:07:46.6907982Z CloudEvents: Reconnected. 1763986693.0333812
+2025-11-24T13:07:46.6908439Z CloudEvents: Disconnected. Reconnecting ... 1763986792.1302638
+2025-11-24T13:07:46.6908902Z CloudEvents: Reconnected. 1763986792.2304118
+2025-11-24T13:07:46.6909757Z CloudEvents: Disconnected. Reconnecting ... 1763986975.448371
+2025-11-24T13:07:46.6910221Z CloudEvents: Reconnected. 1763986975.5485418
+2025-11-24T13:07:46.6910668Z CloudEvents: Disconnected. Reconnecting ... 1763986975.6675832
+2025-11-24T13:07:46.6911120Z CloudEvents: Reconnected. 1763986975.7677786
+2025-11-24T13:07:46.6911567Z CloudEvents: Disconnected. Reconnecting ... 1763987014.7201095
+2025-11-24T13:07:46.6912022Z CloudEvents: Reconnected. 1763987014.820308
+2025-11-24T13:07:46.6912462Z CloudEvents: Disconnected. Reconnecting ... 1763987020.1692405
+2025-11-24T13:07:46.6912919Z CloudEvents: Reconnected. 1763987020.2694175
+2025-11-24T13:07:46.6913374Z CloudEvents: Disconnected. Reconnecting ... 1763987020.3799577
+2025-11-24T13:07:46.6913835Z CloudEvents: Reconnected. 1763987020.4801636
+2025-11-24T13:07:46.6914168Z CloudEvents: Disconnected. Reconnecting ... 1763987020.5890932
+2025-11-24T13:07:46.6914491Z CloudEvents: Reconnected. 1763987020.689259
+2025-11-24T13:07:46.6914820Z CloudEvents: Disconnected. Reconnecting ... 1763987020.7875504
+2025-11-24T13:07:46.6915150Z CloudEvents: Reconnected. 1763987020.8877287
+2025-11-24T13:07:46.6915471Z CloudEvents: Disconnected. Reconnecting ... 1763987156.1772466
+2025-11-24T13:07:46.6915806Z CloudEvents: Reconnected. 1763987156.2774222
+2025-11-24T13:07:46.6916129Z CloudEvents: Disconnected. Reconnecting ... 1763987156.3856752
+2025-11-24T13:07:46.6916658Z CloudEvents: Reconnected. 1763987156.4858303
+2025-11-24T13:07:46.6916986Z CloudEvents: Disconnected. Reconnecting ... 1763987156.5993974
+2025-11-24T13:07:46.6917318Z CloudEvents: Reconnected. 1763987156.6995714
+2025-11-24T13:07:46.6917637Z CloudEvents: Disconnected. Reconnecting ... 1763987307.97106
+2025-11-24T13:07:46.6918120Z CloudEvents: Reconnected. 1763987308.0712538
+2025-11-24T13:07:46.6918438Z CloudEvents: Disconnected. Reconnecting ... 1763987326.0681067
+2025-11-24T13:07:46.6918771Z CloudEvents: Reconnected. 1763987326.1682656
+2025-11-24T13:07:46.6919100Z CloudEvents: Disconnected. Reconnecting ... 1763987326.277961
+2025-11-24T13:07:46.6919427Z CloudEvents: Reconnected. 1763987326.3781412
+2025-11-24T13:07:46.6919749Z CloudEvents: Disconnected. Reconnecting ... 1763987337.7760463
+2025-11-24T13:07:46.6920082Z CloudEvents: Reconnected. 1763987337.8762615
+2025-11-24T13:07:46.6920398Z CloudEvents: Disconnected. Reconnecting ... 1763987356.4339786
+2025-11-24T13:07:46.6920730Z CloudEvents: Reconnected. 1763987356.5341775
+2025-11-24T13:07:46.6921053Z CloudEvents: Disconnected. Reconnecting ... 1763987356.6664648
+2025-11-24T13:07:46.6921379Z CloudEvents: Reconnected. 1763987356.7666748
+2025-11-24T13:07:46.6921704Z CloudEvents: Disconnected. Reconnecting ... 1763987356.876745
+2025-11-24T13:07:46.6922037Z CloudEvents: Reconnected. 1763987356.9769254
+2025-11-24T13:07:46.6922352Z CloudEvents: Disconnected. Reconnecting ... 1763987380.5377176
+2025-11-24T13:07:46.6922684Z CloudEvents: Reconnected. 1763987380.6379106
+2025-11-24T13:07:46.6923006Z CloudEvents: Disconnected. Reconnecting ... 1763987504.4191015
+2025-11-24T13:07:46.6923347Z CloudEvents: Reconnected. 1763987504.5192695
+2025-11-24T13:07:46.6923682Z CloudEvents: Disconnected. Reconnecting ... 1763987746.147118
+2025-11-24T13:07:46.6923997Z CloudEvents: Reconnected. 1763987746.2472928
+2025-11-24T13:07:46.6924296Z CloudEvents: Disconnected. Reconnecting ... 1763987822.9478648
+2025-11-24T13:07:46.6924605Z CloudEvents: Reconnected. 1763987823.0480425
+2025-11-24T13:07:46.6924897Z CloudEvents: Disconnected. Reconnecting ... 1763987857.845116
+2025-11-24T13:07:46.6925210Z CloudEvents: Reconnected. 1763987857.945282
+2025-11-24T13:07:46.6925511Z CloudEvents: Disconnected. Reconnecting ... 1763987864.2053106
+2025-11-24T13:07:46.6925815Z CloudEvents: Reconnected. 1763987864.3054984
+2025-11-24T13:07:46.6926112Z CloudEvents: Disconnected. Reconnecting ... 1763987879.8147979
+2025-11-24T13:07:46.6926619Z CloudEvents: Reconnected. 1763987879.914958
+2025-11-24T13:07:46.6926910Z CloudEvents: Disconnected. Reconnecting ... 1763987892.923533
+2025-11-24T13:07:46.6927335Z CloudEvents: Reconnected. 1763987893.0237217
+2025-11-24T13:07:46.6927636Z CloudEvents: Disconnected. Reconnecting ... 1763987893.1360557
+2025-11-24T13:07:46.6927930Z CloudEvents: Reconnected. 1763987893.2362459
+2025-11-24T13:07:46.6928224Z CloudEvents: Disconnected. Reconnecting ... 1763987893.3595033
+2025-11-24T13:07:46.6928523Z CloudEvents: Reconnected. 1763987893.4596941
+2025-11-24T13:07:46.6928813Z CloudEvents: Disconnected. Reconnecting ... 1763988011.6253414
+2025-11-24T13:07:46.6929116Z CloudEvents: Reconnected. 1763988011.7255318
+2025-11-24T13:07:46.6929407Z CloudEvents: Disconnected. Reconnecting ... 1763988059.6894433
+2025-11-24T13:07:46.6929708Z CloudEvents: Reconnected. 1763988059.7896152
+2025-11-24T13:07:46.6930007Z CloudEvents: Disconnected. Reconnecting ... 1763988069.5021613
+2025-11-24T13:07:46.6930306Z CloudEvents: Reconnected. 1763988069.6023552
+2025-11-24T13:07:46.6930604Z CloudEvents: Disconnected. Reconnecting ... 1763988117.7285612
+2025-11-24T13:07:46.6930907Z CloudEvents: Reconnected. 1763988117.8287826
+2025-11-24T13:07:46.6931217Z CloudEvents: Disconnected. Reconnecting ... 1763988117.9557784
+2025-11-24T13:07:46.6931517Z CloudEvents: Reconnected. 1763988118.0559742
+2025-11-24T13:07:46.6931809Z CloudEvents: Disconnected. Reconnecting ... 1763988225.244934
+2025-11-24T13:07:46.6932104Z CloudEvents: Reconnected. 1763988225.3451164
+2025-11-24T13:07:46.6932401Z CloudEvents: Disconnected. Reconnecting ... 1763988225.4527206
+2025-11-24T13:07:46.6932702Z CloudEvents: Reconnected. 1763988225.5529277
+2025-11-24T13:07:46.6932990Z CloudEvents: Disconnected. Reconnecting ... 1763988298.07708
+2025-11-24T13:07:46.6933289Z CloudEvents: Reconnected. 1763988298.177262
+2025-11-24T13:07:46.6933716Z CloudEvents: Disconnected. Reconnecting ... 1763988606.1385293
+2025-11-24T13:07:46.6934019Z CloudEvents: Reconnected. 1763988606.2387269
+2025-11-24T13:07:46.6934315Z CloudEvents: Disconnected. Reconnecting ... 1763988625.5280848
+2025-11-24T13:07:46.6934611Z CloudEvents: Reconnected. 1763988625.6282682
+2025-11-24T13:07:46.6934912Z CloudEvents: Disconnected. Reconnecting ... 1763988625.756059
+2025-11-24T13:07:46.6935215Z CloudEvents: Reconnected. 1763988625.8562307
+2025-11-24T13:07:46.6935510Z CloudEvents: Disconnected. Reconnecting ... 1763988686.2865498
+2025-11-24T13:07:46.6935811Z CloudEvents: Reconnected. 1763988686.3867633
+2025-11-24T13:07:46.6936109Z CloudEvents: Disconnected. Reconnecting ... 1763988711.3808963
+2025-11-24T13:07:46.6936620Z CloudEvents: Reconnected. 1763988711.4810896
+2025-11-24T13:07:46.6936922Z CloudEvents: Disconnected. Reconnecting ... 1763988711.5874836
+2025-11-24T13:07:46.6937221Z CloudEvents: Reconnected. 1763988711.6877146
+2025-11-24T13:07:46.6937523Z CloudEvents: Disconnected. Reconnecting ... 1763988727.9009407
+2025-11-24T13:07:46.6937823Z CloudEvents: Reconnected. 1763988728.0011451
+2025-11-24T13:07:46.6938112Z CloudEvents: Disconnected. Reconnecting ... 1763988728.1104853
+2025-11-24T13:07:46.6938413Z CloudEvents: Reconnected. 1763988728.2107036
+2025-11-24T13:07:46.6938708Z CloudEvents: Disconnected. Reconnecting ... 1763988728.3315911
+2025-11-24T13:07:46.6939005Z CloudEvents: Reconnected. 1763988728.4317603
+2025-11-24T13:07:46.6939300Z CloudEvents: Disconnected. Reconnecting ... 1763988738.3095665
+2025-11-24T13:07:46.6939601Z CloudEvents: Reconnected. 1763988738.4097574
+2025-11-24T13:07:46.6939892Z CloudEvents: Disconnected. Reconnecting ... 1763988790.0998154
+2025-11-24T13:07:46.6940197Z CloudEvents: Reconnected. 1763988790.2000036
+2025-11-24T13:07:46.6940491Z CloudEvents: Disconnected. Reconnecting ... 1763988814.789831
+2025-11-24T13:07:46.6940787Z CloudEvents: Reconnected. 1763988814.8900151
+2025-11-24T13:07:46.6941082Z CloudEvents: Disconnected. Reconnecting ... 1763988990.791916
+2025-11-24T13:07:46.6941384Z CloudEvents: Reconnected. 1763988990.8921134
+2025-11-24T13:07:46.6941671Z CloudEvents: Disconnected. Reconnecting ... 1763989100.785475
+2025-11-24T13:07:46.6941973Z CloudEvents: Reconnected. 1763989100.885695
+2025-11-24T13:07:46.6942262Z CloudEvents: Disconnected. Reconnecting ... 1763989177.7754877
+2025-11-24T13:07:46.6942687Z CloudEvents: Reconnected. 1763989177.8757193
+2025-11-24T13:07:46.6942989Z CloudEvents: Disconnected. Reconnecting ... 1763989183.3403778
+2025-11-24T13:07:46.6943284Z CloudEvents: Reconnected. 1763989183.4405828
+2025-11-24T13:07:46.6943577Z CloudEvents: Disconnected. Reconnecting ... 1763989183.5399115
+2025-11-24T13:07:46.6943878Z CloudEvents: Reconnected. 1763989183.6401148
+2025-11-24T13:07:46.6944165Z CloudEvents: Disconnected. Reconnecting ... 1763989183.7558131
+2025-11-24T13:07:46.6944478Z CloudEvents: Reconnected. 1763989183.8560076
+2025-11-24T13:07:46.6944772Z CloudEvents: Disconnected. Reconnecting ... 1763989298.8134518
+2025-11-24T13:07:46.6945072Z CloudEvents: Reconnected. 1763989298.9137151
+2025-11-24T13:07:46.6945368Z CloudEvents: Disconnected. Reconnecting ... 1763989313.3497958
+2025-11-24T13:07:46.6945667Z CloudEvents: Reconnected. 1763989313.4500167
+2025-11-24T13:07:46.6945957Z CloudEvents: Disconnected. Reconnecting ... 1763989313.5772398
+2025-11-24T13:07:46.6946418Z CloudEvents: Reconnected. 1763989313.6774483
+2025-11-24T13:07:46.6946759Z CloudEvents: Disconnected. Reconnecting ... 1763989313.7905886
+2025-11-24T13:07:46.6947069Z CloudEvents: Reconnected. 1763989313.8908083
+2025-11-24T13:07:46.6947377Z CloudEvents: Disconnected. Reconnecting ... 1763989314.001246
+2025-11-24T13:07:46.6947677Z CloudEvents: Reconnected. 1763989314.1014235
+2025-11-24T13:07:46.6947975Z CloudEvents: Disconnected. Reconnecting ... 1763989628.8373594
+2025-11-24T13:07:46.6948283Z CloudEvents: Reconnected. 1763989628.9375694
+2025-11-24T13:07:46.6948576Z CloudEvents: Disconnected. Reconnecting ... 1763989629.058841
+2025-11-24T13:07:46.6950966Z CloudEvents: Reconnected. 1763989629.1590555
+2025-11-24T13:07:46.6951296Z CloudEvents: Disconnected. Reconnecting ... 1763989642.2378376
+2025-11-24T13:07:46.6951610Z CloudEvents: Reconnected. 1763989642.338022
+2025-11-24T13:07:46.6951914Z CloudEvents: Disconnected. Reconnecting ... 1763989642.4500391
+2025-11-24T13:07:46.6952223Z CloudEvents: Reconnected. 1763989642.5502152
+2025-11-24T13:07:46.6952532Z CloudEvents: Disconnected. Reconnecting ... 1763989666.263169
+2025-11-24T13:07:46.6952836Z CloudEvents: Reconnected. 1763989666.3633878
+2025-11-24T13:07:46.6953136Z CloudEvents: Disconnected. Reconnecting ... 1763989666.4808586
+2025-11-24T13:07:46.6953446Z CloudEvents: Reconnected. 1763989666.5810666
+2025-11-24T13:21:19.2453499Z CloudEvents: Disconnected. Reconnecting ... 1763989666.6895423
+2025-11-24T13:21:19.2511230Z Post job cleanup.
+2025-11-24T13:21:19.3297606Z [command]/usr/bin/git version
+2025-11-24T13:21:19.3334017Z git version 2.51.2
+2025-11-24T13:21:19.3372026Z Temporarily overriding HOME='/home/runner/work/_temp/dd5615c3-5c93-4896-b150-7fd52eb1a74a' before making global git config changes
+2025-11-24T13:21:19.3373109Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-24T13:21:19.3377641Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-11-24T13:21:19.3415341Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-24T13:21:19.3449628Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-24T13:21:19.3717362Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-24T13:21:19.3741818Z http.https://github.com/.extraheader
+2025-11-24T13:21:19.3751940Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-11-24T13:21:19.3783399Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-24T13:21:19.4014247Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-11-24T13:21:19.4046102Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-11-24T13:21:19.4389336Z Post job cleanup.
+2025-11-24T13:21:19.5564171Z (node:4914) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2025-11-24T13:21:19.5565124Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2025-11-24T13:21:19.5701646Z Post job cleanup.
+2025-11-24T13:21:19.6489567Z [command]/usr/bin/git version
+2025-11-24T13:21:19.6557716Z git version 2.51.2
+2025-11-24T13:21:19.6596714Z Temporarily overriding HOME='/home/runner/work/_temp/d538bc47-62ce-4d99-98bb-799b1bcd5915' before making global git config changes
+2025-11-24T13:21:19.6598023Z Adding repository directory to the temporary git global config as a safe directory
+2025-11-24T13:21:19.6602934Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-11-24T13:21:19.6641881Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-11-24T13:21:19.6674729Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-11-24T13:21:19.6919081Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-11-24T13:21:19.6956258Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-11-24T13:21:19.7209131Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-11-24T13:21:19.7245687Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-11-24T13:21:19.7602912Z Cleaning up orphan processes
