@@ -31,7 +31,7 @@ class Storage:
 	|  
 	| Storage.__init__()
 	|
-	| Storage._dprint(***)(\\)
+	| Storage.self._dprint(***)(\\)
 	| Storage._encode(***)(\\)
 	| Storage._decode(***)(\\)
 	| Storage._to_dict(***)(\\)
@@ -118,9 +118,9 @@ class Storage:
 		output=''
 		while i < len(to_decode):
 			totalchars=int(to_decode[i])
-			#_dprint(f"Debug: totalchars {totalchars}")
+			#self._dprint(f"Debug: totalchars {totalchars}")
 			currentchar=int(to_decode[i+1:i+1+totalchars])
-			#_dprint(f"Debug: currentchar {currentchar}")
+			#self._dprint(f"Debug: currentchar {currentchar}")
 			#Bounds Check
 			if not (0 <= currentchar-1 < len(char)):
 				raise ValueError(f"Decoding error: Index {currentchar - 1} out of bounds for character map.")
@@ -178,7 +178,7 @@ class Storage:
 			with open(file_path, "r") as f:
 				all_data = json.load(f)
 		except FileNotFoundError:
-			_dprint(f"File '{file_path}' not found. Creating a new one.")
+			Storage._dprint(f"File '{file_path}' not found. Creating a new one.")
 		except json.JSONDecodeError:
 			warnings.warn(f"Warning: File '{file_path}' contains invalid JSON. Overwriting.", SyntaxWarning)
 			all_data = {}
@@ -188,14 +188,14 @@ class Storage:
 		try:
 			with open(file_path, "w") as f:
 				json.dump(all_data, f, indent=indent)
-			_dprint(f"Data for key '{list(dict_to_dump.keys())[0]}' stored successfully in '{file_path}'.")
+			Storage._dprint(f"Data for key '{list(dict_to_dump.keys())[0]}' stored successfully in '{file_path}'.")
 		except IOError as e:
-			_dprint(f"Error writing to file '{file_path}': {e}")
+			Storage._dprint(f"Error writing to file '{file_path}': {e}")
 	
 	@staticmethod
 	def __is_warning_category_ignored(category: Any) -> bool:
 		for action, message, cat, module, lineno in warnings.filters:
-			if action == 'ignore' and issubclass(category, cat):
+			if action == 'ignore' and category==cat:
 				return True
 		return False
 		
@@ -206,7 +206,7 @@ class Storage:
 			with open(file_path, "r") as f:
 				all_data = json.load(f)
 		except FileNotFoundError:
-			_dprint(f"File '{file_path}' not found. Creating a new one.")
+			self._dprint(f"File '{file_path}' not found. Creating a new one.")
 		except json.JSONDecodeError:
 			warnings.warn(f"Warning: File '{file_path}' contains invalid JSON. Overwriting.", SyntaxWarning)
 			all_data = {}
@@ -216,9 +216,9 @@ class Storage:
 		try:
 			with open(file_path, "w") as f:
 				json.dump(all_data, f, indent=indent)
-			_dprint(f"Data for key '{self.key}' stored successfully in '{file_path}'.")
+			self._dprint(f"Data for key '{self.key}' stored successfully in '{file_path}'.")
 		except IOError as e:
-			_dprint(f"Error writing to file '{file_path}': {e}")
+			self._dprint(f"Error writing to file '{file_path}': {e}")
 			
 	class DeleteWarning(UserWarning):
 		"""Custom warning when attempting to delete the contents of a whole database."""
@@ -234,33 +234,33 @@ class Storage:
 				with open(file_path, "r") as f:
 					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
-				_dprint(f"Failed to load with key '{key}' - file '{file_path}' does not exist.")
+				Storage._dprint(f"Failed to load with key '{key}' - file '{file_path}' does not exist.")
 				return None
 			except json.JSONDecodeError:
-				_dprint(f"Failed to load with key '{key}' - file '{file_path}' contains invalid JSON.")
+				Storage._dprint(f"Failed to load with key '{key}' - file '{file_path}' contains invalid JSON.")
 				return None
 	
 			#Debug
-			#_dprint(f"DEBUG: Data loaded from '{file_path}': {loaded_data}")
-			#_dprint(f"DEBUG: Keys in loaded_data: {loaded_data.keys()}")
-			#_dprint(f"DEBUG: Type of loaded_data keys: {[type(k) for k in loaded_data.keys()]}") # Add this line
-			#_dprint(f"DEBUG: Key being searched for: '{key}'")
-			#_dprint(f"DEBUG: Type of search key: {type(key)}") # Add this line
+			#Storage._dprint(f"DEBUG: Data loaded from '{file_path}': {loaded_data}")
+			#Storage._dprint(f"DEBUG: Keys in loaded_data: {loaded_data.keys()}")
+			#Storage._dprint(f"DEBUG: Type of loaded_data keys: {[type(k) for k in loaded_data.keys()]}") # Add this line
+			#Storage._dprint(f"DEBUG: Key being searched for: '{key}'")
+			#Storage._dprint(f"DEBUG: Type of search key: {type(key)}") # Add this line
 		  
 			# Super-detailed comparison check
 			#found_in_keys = False
 			#for k in loaded_data.keys():
-				#_dprint(f"  Comparing '{key}' (len={len(key)}, repr={repr(key)}) with loaded key '{k}' (len={len(k)}, repr={repr(k)})")
+				#Storage._dprint(f"  Comparing '{key}' (len={len(key)}, repr={repr(key)}) with loaded key '{k}' (len={len(k)}, repr={repr(k)})")
 				#if key == k:
 					#found_in_keys = True
-					#_dprint(f"  Match found for key '{key}'!")
+					#Storage._dprint(f"  Match found for key '{key}'!")
 					#break
 			
 			if key in loaded_data: #found_in_keys: #Use the flag from the detailed comparison
 				try:
 					return Storage._from_dict({key: loaded_data[key]}, raw) 
 				except ValueError as e:
-					_dprint(f"Error reconstructing object for key '{key}': {e}")
+					Storage._dprint(f"Error reconstructing object for key '{key}': {e}")
 					return None
 			else:
 				raise _KeyNotFoundError(file_path, key)
@@ -272,17 +272,17 @@ class Storage:
 				with open(file_path, "r") as f:
 					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
-				_dprint(f"Failed to load by index '{index}' - file '{file_path}' does not exist.")
+				Storage._dprint(f"Failed to load by index '{index}' - file '{file_path}' does not exist.")
 				return None
 			except json.JSONDecodeError:
-				_dprint(f"Failed to load by index '{index}' - file '{file_path}' contains invalid JSON.")
+				Storage._dprint(f"Failed to load by index '{index}' - file '{file_path}' contains invalid JSON.")
 				return None
 	
 			keys = list(loaded_data.keys())
 	
 			# Check if the provided index is valid
 			if not (0 <= index < len(keys)):
-				_dprint(f"Index '{index}' is out of bounds for the keys in '{file_path}'. Available keys: {len(keys)}")
+				Storage._dprint(f"Index '{index}' is out of bounds for the keys in '{file_path}'. Available keys: {len(keys)}")
 				return None
 	
 			# Get the key at the specified index
@@ -293,7 +293,7 @@ class Storage:
 				try:
 					return Storage._from_dict({target_key: loaded_data[target_key]}, raw) 
 				except ValueError as e:
-					_dprint(f"Error reconstructing object for key '{target_key}' at index '{index}': {e}")
+					Storage._dprint(f"Error reconstructing object for key '{target_key}' at index '{index}': {e}")
 					return None
 			else: # This path should ideally not be hit if the index check is correct
 				raise _KeyNotFoundError(file_path, target_key, f"Key '{target_key}' unexpectedly not found in loaded data for index '{index}'.")
@@ -305,10 +305,10 @@ class Storage:
 				with open(file_path, "r") as f:
 					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
-				_dprint(f"Failed to load file '{file_path}': does not exist.")
+				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
 			except json.JSONDecodeError:
-				_dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
+				Storage._dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
 				return None
 	
 			return list(loaded_data.keys())
@@ -323,17 +323,17 @@ class Storage:
 				with open(file_path, "r") as f:
 					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
-				_dprint(f"Failed to load file '{file_path}': does not exist.")
+				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
 			except json.JSONDecodeError:
-				_dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
+				Storage._dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
 				return None
 	
 			if key in loaded_data:
 				try:
 				   subsection: Dict[str, Dict[str, Any]] = Storage._from_dict({key: loaded_data[key]}, raw) 
 				except ValueError as e:
-					_dprint(f"Error reconstructing object for key '{key}': {e}")
+					Storage._dprint(f"Error reconstructing object for key '{key}': {e}")
 					return None
 			else:
 				raise _KeyNotFoundError(file_path, key)
@@ -344,7 +344,7 @@ class Storage:
 					items.append(f"{key}: {val}")
 				else:
 					items.append(val)
-					#_dprint(f"DEBUG: {val}")
+					#Storage._dprint(f"DEBUG: {val}")
 			return items
 	
 	class Edit:
@@ -357,17 +357,17 @@ class Storage:
 				with open(file_path, "r") as f:
 					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
-				_dprint(f"Failed to load file '{file_path}': does not exist.")
+				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
 			except json.JSONDecodeError:
-				_dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
+				Storage._dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
 				return None
 	
 			if top_lv_key in loaded_data:
 				try:
 				   subsection: Dict[str, Dict[str, Any]] = Storage._from_dict({top_lv_key: loaded_data[top_lv_key]}) 
 				except ValueError as e:
-					_dprint(f"Error reconstructing object for key '{top_level_key}': {e}")
+					Storage._dprint(f"Error reconstructing object for key '{top_level_key}': {e}")
 					return None
 			else:
 				raise _KeyNotFoundError(file_path, top_lv_key)
@@ -386,7 +386,7 @@ class Storage:
 						#allkeys.append(propkey)
 						#allvalues.append(propval)
 			elif new:
-				_dprint(f"Subkey {oldpropkey} was not found. Creating a new subkey under the name"+
+				Storage._dprint(f"Subkey {oldpropkey} was not found. Creating a new subkey under the name"+
 					  " {newpropkey} with value '' (override this with new=False, will raise exception)")
 				for propkey, propval in subsection.values.items():
 					items[propkey] = propval
@@ -399,7 +399,7 @@ class Storage:
 			}
 	
 			Storage._Storage__store(file_path, to_dump)
-			_dprint(f"Sucessfully renamed {oldpropkey} to {newpropkey}.")
+			Storage._dprint(f"Sucessfully renamed {oldpropkey} to {newpropkey}.")
 	
 		@classmethod
 		def propval(cls, file_path: str, top_lv_key: str | uuid.UUID, propkey: str, newval: str) -> None:
@@ -408,17 +408,17 @@ class Storage:
 				with open(file_path, "r") as f:
 					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
-				_dprint(f"Failed to load file '{file_path}': does not exist.")
+				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
 			except json.JSONDecodeError:
-				_dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
+				Storage._dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
 				return None
 	
 			if top_lv_key in loaded_data:
 				try:
 				   subsection: Dict[str, Dict[str, Any]] = Storage._from_dict({top_lv_key: loaded_data[top_lv_key]}) 
 				except ValueError as e:
-					_dprint(f"Error reconstructing object for key '{top_lv_key}': {e}")
+					Storage._dprint(f"Error reconstructing object for key '{top_lv_key}': {e}")
 					return None
 			else:
 				raise _KeyNotFoundError(file_path, top_lv_key)
@@ -442,7 +442,7 @@ class Storage:
 			}
 	
 			Storage._Storage__store(file_path, to_dump)
-			_dprint(f"Sucessfully changed value {oldval} to {newval} under key {top_lv_key}.{propkey}.")
+			Storage._dprint(f"Sucessfully changed value {oldval} to {newval} under key {top_lv_key}.{propkey}.")
 	
 		@classmethod
 		def key(cls, file_path: str, oldkey: str | uuid.UUID, newkey: str | uuid.UUID) -> None:
@@ -453,28 +453,28 @@ class Storage:
 				with open(file_path, "r") as f:
 					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
-				_dprint(f"Failed to load file '{file_path}': does not exist.")
+				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
 			except json.JSONDecodeError:
-				_dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
+				Storage._dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
 				return None
 	
-			#_dprint(f"DEBUG: {loaded_data.keys()}")
-			#_dprint(f"DEBUG: {loaded_data.values()}")
-			#_dprint(f"DEBUG: {loaded_data}")
+			#Storage._dprint(f"DEBUG: {loaded_data.keys()}")
+			#Storage._dprint(f"DEBUG: {loaded_data.values()}")
+			#Storage._dprint(f"DEBUG: {loaded_data}")
 	
 			if oldkey in loaded_data:
 				loaded_data = {
 					newkey if key == oldkey else key: value
 					for key, value in loaded_data.items()
 				}
-				_dprint(f"DEBUG: New dictionary: {loaded_data}")
+				Storage._dprint(f"DEBUG: New dictionary: {loaded_data}")
 				try:
 					with open(file_path, "w") as f:
 						json.dump(loaded_data, f)
-						_dprint(f"Successfully changed key '{oldkey}' to '{newkey}'.")
+						Storage._dprint(f"Successfully changed key '{oldkey}' to '{newkey}'.")
 				except IOError as e:
-					_dprint(f"Error writing to file '{file_path}' after deletion: {e}")
+					Storage._dprint(f"Error writing to file '{file_path}' after deletion: {e}")
 			else:
 				raise _KeyNotFoundError(file_path, oldkey)
 	
@@ -488,17 +488,17 @@ class Storage:
 				with open(file_path, "r") as f:
 					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
-				_dprint(f"Failed to load file '{file_path}': does not exist.")
+				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
 			except json.JSONDecodeError:
-				_dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
+				Storage._dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
 				return None
 			
 			if top_level_key in loaded_data:
 				try:
 				   subsection: Dict[str, Dict[str, Any]] = Storage._from_dict({top_level_key: loaded_data[top_level_key]}) 
 				except ValueError as e:
-					_dprint(f"Error reconstructing object for key '{top_level_key}': {e}")
+					Storage._dprint(f"Error reconstructing object for key '{top_level_key}': {e}")
 					return None
 			else:
 				raise _KeyNotFoundError(file_path, top_level_key)
@@ -512,17 +512,17 @@ class Storage:
 					#allkeys.append(propkey)
 					#allvalues.append(propval)
 	
-			#_dprint(f"DEBUG: {items}")
-			#_dprint(type(items))
-			#_dprint(f"DEBUG: {subsection}")
-			#_dprint(f"DEBUG: {top_level_key}")
-			#_dprint(type(top_level_key))
+			#Storage._dprint(f"DEBUG: {items}")
+			#Storage._dprint(type(items))
+			#Storage._dprint(f"DEBUG: {subsection}")
+			#Storage._dprint(f"DEBUG: {top_level_key}")
+			#Storage._dprint(type(top_level_key))
 		  
 			to_dump: Dict[str, Dict[str, Any]] = {
 				top_level_key: items
 			}
 	
-			#_dprint(f"DEBUG: {to_dump}")
+			#Storage._dprint(f"DEBUG: {to_dump}")
 	
 			Storage._Storage__store(file_path, to_dump)
 	
@@ -535,24 +535,24 @@ class Storage:
 				with open(file_path, "r") as f:
 					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
-				_dprint(f"Failed to load file '{file_path}': does not exist.")
+				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
 			except json.JSONDecodeError:
-				_dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
+				Storage._dprint(f"Failed to load file '{file_path}': contains invalid JSON.")
 				return None
 	
-			#_dprint(f"DEBUG: {loaded_data.keys()}")
-			#_dprint(f"DEBUG: {loaded_data.values()}")
-			#_dprint(f"DEBUG: {loaded_data}")
+			#Storage._dprint(f"DEBUG: {loaded_data.keys()}")
+			#Storage._dprint(f"DEBUG: {loaded_data.values()}")
+			#Storage._dprint(f"DEBUG: {loaded_data}")
 	
 			if key in loaded_data:
 				del loaded_data[key]
 				try:
 					with open(file_path, "w") as f:
 						json.dump(loaded_data, f)
-						_dprint(f"Successfully deleted key '{key}' from '{file_path}'.")
+						Storage._dprint(f"Successfully deleted key '{key}' from '{file_path}'.")
 				except IOError as e:
-					_dprint(f"Error writing to file '{file_path}' after deletion: {e}")
+					Storage._dprint(f"Error writing to file '{file_path}' after deletion: {e}")
 			else:
 				raise _KeyNotFoundError(file_path, key)
 	
@@ -568,7 +568,7 @@ class Storage:
 			else:
 				with open(file_path, "w") as f:
 					json.dump({}, f)
-					_dprint(f"Deleted all data from {file_path} sucessfully.")
+					Storage._dprint(f"Deleted all data from {file_path} sucessfully.")
 					return None
 	
 	def __str__(self) -> str:
