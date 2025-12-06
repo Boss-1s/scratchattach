@@ -44,13 +44,13 @@ jobs:
     runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
     steps:
       - name: checkout repo content
-        uses: actions/checkout@v5.0.0 # checkout the repository content to github runner
+        uses: actions/checkout@v6.0.1 # checkout the repository content to github runner
         with:
 #          ref: v1.4.4a
           ref: scratch_chat_dev
 
       - name: setup python
-        uses: actions/setup-python@v6.0.0
+        uses: actions/setup-python@v6.1.0
         with:
           python-version: "${{ github.events.inputs.py_version == '' && '3.13' || github.events.inputs.py_versions }}" # install the python version needed
           
@@ -58,7 +58,7 @@ jobs:
         uses: bossOfCode/install-scratchattach@v1.0.3
 
       - name: recheckout repo content
-        uses: actions/checkout@v5.0.0 # checkout the repository content to github runner
+        uses: actions/checkout@v6.0.1 # checkout the repository content to github runner
         with:
 #          ref: v1.4.4a
           ref: scratch_chat_dev
