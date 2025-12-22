@@ -6,21 +6,6 @@ permissions:
 on:
   workflow_dispatch:
     inputs:
-      py_version:
-        description: "Python Version"
-        required: true
-        type: choice
-        options:
-          - "3.8"
-          - "3.10"
-          - "3.10.3"
-          - "3.11"
-          - "3.11.3"
-          - "3.12"
-          - "3.12.4"
-          - "3.12.5"
-          - "3.13"
-        default: "3.13"
       runner:
         description: "Run on which OS?"
         type: choice
@@ -52,7 +37,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v6.1.0
         with:
-          python-version: "${{ github.events.inputs.py_version == '' && '3.13' || github.events.inputs.py_versions }}" # install the python version needed
+          check-latest: true
           
       - name: install scratchattach
         uses: bossOfCode/install-scratchattach@v1.0.3
