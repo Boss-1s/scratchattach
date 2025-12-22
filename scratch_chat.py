@@ -122,11 +122,11 @@ def on_ready() -> None:
 @client.event
 def on_request(request) -> None:
     """Runs when request is recieved."""
-    dprint(f"Received request {request.request.name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}\n")
+    dprint(f"Received request {request.request_name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}\n")
 
 @client.event
 def on_unknown_request(request) -> None:
     """Runs when unknown request is recieved."""
-    dprint(f"Received unknown request {request.request.name}, requester {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}. Check the project to make sure there are no typing and/or spelling errors.")
+    dprint(f"Received unknown request {request.request_name}, requester {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}. Check the project to make sure there are no typing and/or spelling errors.")
     
 client.start(thread=True)
