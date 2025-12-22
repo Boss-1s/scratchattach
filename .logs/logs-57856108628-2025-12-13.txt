@@ -1,0 +1,916 @@
+﻿2025-12-12T03:24:31.8248202Z Current runner version: '2.329.0'
+2025-12-12T03:24:31.8270821Z ##[group]Runner Image Provisioner
+2025-12-12T03:24:31.8271602Z Hosted Compute Agent
+2025-12-12T03:24:31.8272333Z Version: 20251202.455
+2025-12-12T03:24:31.8273063Z Commit: 6c10caca4910e198df60de23adf20ad317c474e3
+2025-12-12T03:24:31.8273716Z Build Date: 2025-12-02T15:56:59Z
+2025-12-12T03:24:31.8274340Z Worker ID: {c4c904f9-0588-457a-8cba-61a90a85b812}
+2025-12-12T03:24:31.8275122Z ##[endgroup]
+2025-12-12T03:24:31.8275603Z ##[group]Operating System
+2025-12-12T03:24:31.8276131Z Ubuntu
+2025-12-12T03:24:31.8276621Z 24.04.3
+2025-12-12T03:24:31.8277118Z LTS
+2025-12-12T03:24:31.8277583Z ##[endgroup]
+2025-12-12T03:24:31.8278098Z ##[group]Runner Image
+2025-12-12T03:24:31.8278627Z Image: ubuntu-24.04
+2025-12-12T03:24:31.8279117Z Version: 20251208.163.1
+2025-12-12T03:24:31.8280174Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251208.163/images/ubuntu/Ubuntu2404-Readme.md
+2025-12-12T03:24:31.8281735Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251208.163
+2025-12-12T03:24:31.8282883Z ##[endgroup]
+2025-12-12T03:24:31.8283869Z ##[group]GITHUB_TOKEN Permissions
+2025-12-12T03:24:31.8285682Z Contents: write
+2025-12-12T03:24:31.8286254Z Metadata: read
+2025-12-12T03:24:31.8286751Z ##[endgroup]
+2025-12-12T03:24:31.8289076Z Secret source: Actions
+2025-12-12T03:24:31.8289977Z Prepare workflow directory
+2025-12-12T03:24:31.8658982Z Prepare all required actions
+2025-12-12T03:24:31.8697213Z Getting action download info
+2025-12-12T03:24:32.3269879Z Download action repository 'actions/checkout@v6.0.1' (SHA:8e8c483db84b4bee98b60c0593521ed34d9990e8)
+2025-12-12T03:24:32.4190507Z Download action repository 'actions/setup-python@v6.1.0' (SHA:83679a892e2d95755f2dac6acb0bfd1e9ac5d548)
+2025-12-12T03:24:32.5017029Z Download action repository 'bossOfCode/install-scratchattach@v1.0.3' (SHA:be17a7cf1ecb5a7040eb42ef26c2e1fbe72bb25a)
+2025-12-12T03:24:33.1545053Z Complete job name: Run Prioritzing Handler
+2025-12-12T03:24:33.2229073Z ##[group]Run actions/checkout@v6.0.1
+2025-12-12T03:24:33.2229976Z with:
+2025-12-12T03:24:33.2230360Z   ref: main
+2025-12-12T03:24:33.2230773Z   repository: Boss-1s/scratchattach
+2025-12-12T03:24:33.2231499Z   token: ***
+2025-12-12T03:24:33.2231895Z   ssh-strict: true
+2025-12-12T03:24:33.2232484Z   ssh-user: git
+2025-12-12T03:24:33.2232915Z   persist-credentials: true
+2025-12-12T03:24:33.2233412Z   clean: true
+2025-12-12T03:24:33.2233825Z   sparse-checkout-cone-mode: true
+2025-12-12T03:24:33.2234351Z   fetch-depth: 1
+2025-12-12T03:24:33.2234761Z   fetch-tags: false
+2025-12-12T03:24:33.2235187Z   show-progress: true
+2025-12-12T03:24:33.2235619Z   lfs: false
+2025-12-12T03:24:33.2236000Z   submodules: false
+2025-12-12T03:24:33.2236433Z   set-safe-directory: true
+2025-12-12T03:24:33.2237148Z ##[endgroup]
+2025-12-12T03:24:33.3129920Z Syncing repository: Boss-1s/scratchattach
+2025-12-12T03:24:33.3131854Z ##[group]Getting Git version info
+2025-12-12T03:24:33.3133155Z Working directory is '/home/runner/work/scratchattach/scratchattach'
+2025-12-12T03:24:33.3134404Z [command]/usr/bin/git version
+2025-12-12T03:24:33.3214195Z git version 2.52.0
+2025-12-12T03:24:33.3266971Z ##[endgroup]
+2025-12-12T03:24:33.3280725Z Temporarily overriding HOME='/home/runner/work/_temp/ac40ac8b-f176-4926-9eb3-e0429a9f4132' before making global git config changes
+2025-12-12T03:24:33.3283028Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-12T03:24:33.3285363Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-12-12T03:24:33.3323848Z Deleting the contents of '/home/runner/work/scratchattach/scratchattach'
+2025-12-12T03:24:33.3326904Z ##[group]Initializing the repository
+2025-12-12T03:24:33.3331144Z [command]/usr/bin/git init /home/runner/work/scratchattach/scratchattach
+2025-12-12T03:24:33.3465383Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-12-12T03:24:33.3467292Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2025-12-12T03:24:33.3469548Z hint: to use in all of your new repositories, which will suppress this warning,
+2025-12-12T03:24:33.3471405Z hint: call:
+2025-12-12T03:24:33.3472380Z hint:
+2025-12-12T03:24:33.3473217Z hint: 	git config --global init.defaultBranch <name>
+2025-12-12T03:24:33.3473986Z hint:
+2025-12-12T03:24:33.3474722Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-12-12T03:24:33.3475901Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-12-12T03:24:33.3476756Z hint:
+2025-12-12T03:24:33.3477411Z hint: 	git branch -m <name>
+2025-12-12T03:24:33.3478105Z hint:
+2025-12-12T03:24:33.3478840Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-12-12T03:24:33.3480134Z Initialized empty Git repository in /home/runner/work/scratchattach/scratchattach/.git/
+2025-12-12T03:24:33.3483085Z [command]/usr/bin/git remote add origin https://github.com/Boss-1s/scratchattach
+2025-12-12T03:24:33.3522149Z ##[endgroup]
+2025-12-12T03:24:33.3523375Z ##[group]Disabling automatic garbage collection
+2025-12-12T03:24:33.3525130Z [command]/usr/bin/git config --local gc.auto 0
+2025-12-12T03:24:33.3551801Z ##[endgroup]
+2025-12-12T03:24:33.3553107Z ##[group]Setting up auth
+2025-12-12T03:24:33.3553979Z Removing SSH command configuration
+2025-12-12T03:24:33.3559000Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-12T03:24:33.3589027Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-12T03:24:33.3949709Z Removing HTTP extra header
+2025-12-12T03:24:33.3954753Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-12T03:24:33.3986213Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-12T03:24:33.4193352Z Removing includeIf entries pointing to credentials config files
+2025-12-12T03:24:33.4199397Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-12T03:24:33.4230418Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-12T03:24:33.4447561Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-12-12T03:24:33.4480625Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path /home/runner/work/_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config
+2025-12-12T03:24:33.4510901Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config
+2025-12-12T03:24:33.4540884Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config
+2025-12-12T03:24:33.4571243Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config
+2025-12-12T03:24:33.4597023Z ##[endgroup]
+2025-12-12T03:24:33.4598320Z ##[group]Fetching the repository
+2025-12-12T03:24:33.4607107Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+2025-12-12T03:24:36.4184166Z From https://github.com/Boss-1s/scratchattach
+2025-12-12T03:24:36.4185360Z  * [new branch]      main       -> origin/main
+2025-12-12T03:24:36.4217371Z ##[endgroup]
+2025-12-12T03:24:36.4218603Z ##[group]Determining the checkout info
+2025-12-12T03:24:36.4225128Z [command]/usr/bin/git branch --list --remote origin/main
+2025-12-12T03:24:36.4254665Z   origin/main
+2025-12-12T03:24:36.4259407Z ##[endgroup]
+2025-12-12T03:24:36.4264011Z [command]/usr/bin/git sparse-checkout disable
+2025-12-12T03:24:36.4305447Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-12-12T03:24:36.4333745Z ##[group]Checking out the ref
+2025-12-12T03:24:36.4334442Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-12-12T03:24:37.1399942Z Switched to a new branch 'main'
+2025-12-12T03:24:37.1404194Z branch 'main' set up to track 'origin/main'.
+2025-12-12T03:24:37.1511043Z ##[endgroup]
+2025-12-12T03:24:37.1525283Z [command]/usr/bin/git log -1 --format=%H
+2025-12-12T03:24:37.1547065Z 27f0432a5767a568de864190a4a853d741a74058
+2025-12-12T03:24:37.1807365Z ##[group]Run actions/setup-python@v6.1.0
+2025-12-12T03:24:37.1807677Z with:
+2025-12-12T03:24:37.1807874Z   python-version: 3.13
+2025-12-12T03:24:37.1808125Z   check-latest: false
+2025-12-12T03:24:37.1808466Z   token: ***
+2025-12-12T03:24:37.1808668Z   update-environment: true
+2025-12-12T03:24:37.1808896Z   allow-prereleases: false
+2025-12-12T03:24:37.1809122Z   freethreaded: false
+2025-12-12T03:24:37.1809328Z ##[endgroup]
+2025-12-12T03:24:37.3051439Z ##[group]Installed versions
+2025-12-12T03:24:37.6406434Z (node:2134) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2025-12-12T03:24:37.6407627Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2025-12-12T03:24:37.6410292Z Successfully set up CPython (3.13.11)
+2025-12-12T03:24:37.6411301Z ##[endgroup]
+2025-12-12T03:24:37.6856713Z ##[group]Run bossOfCode/install-scratchattach@v1.0.3
+2025-12-12T03:24:37.6857242Z env:
+2025-12-12T03:24:37.6857663Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:37.6858360Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.11/x64/lib/pkgconfig
+2025-12-12T03:24:37.6859061Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:37.6859659Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:37.6860261Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:37.6860857Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.11/x64/lib
+2025-12-12T03:24:37.6861170Z ##[endgroup]
+2025-12-12T03:24:37.6943085Z ##[group]Run python3 -m pip install --upgrade pip
+2025-12-12T03:24:37.6943698Z [36;1mpython3 -m pip install --upgrade pip[0m
+2025-12-12T03:24:37.6998893Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-12-12T03:24:37.6999221Z env:
+2025-12-12T03:24:37.6999517Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:37.6999937Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.11/x64/lib/pkgconfig
+2025-12-12T03:24:37.7000344Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:37.7000705Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:37.7001060Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:37.7001419Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.11/x64/lib
+2025-12-12T03:24:37.7001718Z ##[endgroup]
+2025-12-12T03:24:40.4433911Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages (25.3)
+2025-12-12T03:24:40.7310116Z ##[group]Run pip install -U scratchattach
+2025-12-12T03:24:40.7310436Z [36;1mpip install -U scratchattach[0m
+2025-12-12T03:24:40.7343776Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-12-12T03:24:40.7344098Z env:
+2025-12-12T03:24:40.7344356Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:40.7344775Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.11/x64/lib/pkgconfig
+2025-12-12T03:24:40.7345179Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:40.7345522Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:40.7346024Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:40.7346373Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.11/x64/lib
+2025-12-12T03:24:40.7346662Z ##[endgroup]
+2025-12-12T03:24:41.2730295Z Collecting scratchattach
+2025-12-12T03:24:41.3617688Z   Downloading scratchattach-2.1.13-py3-none-any.whl.metadata (5.5 kB)
+2025-12-12T03:24:41.3948258Z Collecting websocket-client (from scratchattach)
+2025-12-12T03:24:41.4053228Z   Downloading websocket_client-1.9.0-py3-none-any.whl.metadata (8.3 kB)
+2025-12-12T03:24:41.4483057Z Collecting requests (from scratchattach)
+2025-12-12T03:24:41.4592264Z   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+2025-12-12T03:24:41.4796303Z Collecting bs4 (from scratchattach)
+2025-12-12T03:24:41.4897933Z   Downloading bs4-0.0.2-py2.py3-none-any.whl.metadata (411 bytes)
+2025-12-12T03:24:41.5741128Z Collecting SimpleWebSocketServer (from scratchattach)
+2025-12-12T03:24:41.5880228Z   Downloading SimpleWebSocketServer-0.1.2.tar.gz (10 kB)
+2025-12-12T03:24:41.5981571Z   Installing build dependencies: started
+2025-12-12T03:24:42.5531770Z   Installing build dependencies: finished with status 'done'
+2025-12-12T03:24:42.5539250Z   Getting requirements to build wheel: started
+2025-12-12T03:24:42.9783099Z   Getting requirements to build wheel: finished with status 'done'
+2025-12-12T03:24:42.9791744Z   Preparing metadata (pyproject.toml): started
+2025-12-12T03:24:43.1698952Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2025-12-12T03:24:43.1991314Z Collecting typing-extensions (from scratchattach)
+2025-12-12T03:24:43.2117719Z   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+2025-12-12T03:24:43.2387511Z Collecting beautifulsoup4 (from bs4->scratchattach)
+2025-12-12T03:24:43.2499603Z   Downloading beautifulsoup4-4.14.3-py3-none-any.whl.metadata (3.8 kB)
+2025-12-12T03:24:43.2768661Z Collecting soupsieve>=1.6.1 (from beautifulsoup4->bs4->scratchattach)
+2025-12-12T03:24:43.2898896Z   Downloading soupsieve-2.8-py3-none-any.whl.metadata (4.6 kB)
+2025-12-12T03:24:43.4059787Z Collecting charset_normalizer<4,>=2 (from requests->scratchattach)
+2025-12-12T03:24:43.4173639Z   Downloading charset_normalizer-3.4.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+2025-12-12T03:24:43.4473650Z Collecting idna<4,>=2.5 (from requests->scratchattach)
+2025-12-12T03:24:43.4582591Z   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+2025-12-12T03:24:43.4963614Z Collecting urllib3<3,>=1.21.1 (from requests->scratchattach)
+2025-12-12T03:24:43.5068186Z   Downloading urllib3-2.6.2-py3-none-any.whl.metadata (6.6 kB)
+2025-12-12T03:24:43.5374690Z Collecting certifi>=2017.4.17 (from requests->scratchattach)
+2025-12-12T03:24:43.5497190Z   Downloading certifi-2025.11.12-py3-none-any.whl.metadata (2.5 kB)
+2025-12-12T03:24:43.5717644Z Downloading scratchattach-2.1.13-py3-none-any.whl (141 kB)
+2025-12-12T03:24:43.5967156Z Downloading bs4-0.0.2-py2.py3-none-any.whl (1.2 kB)
+2025-12-12T03:24:43.6096110Z Downloading beautifulsoup4-4.14.3-py3-none-any.whl (107 kB)
+2025-12-12T03:24:43.6231107Z Downloading soupsieve-2.8-py3-none-any.whl (36 kB)
+2025-12-12T03:24:43.6361929Z Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+2025-12-12T03:24:43.6487770Z Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+2025-12-12T03:24:43.6625586Z Downloading charset_normalizer-3.4.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (153 kB)
+2025-12-12T03:24:43.6784851Z Downloading idna-3.11-py3-none-any.whl (71 kB)
+2025-12-12T03:24:43.6908242Z Downloading urllib3-2.6.2-py3-none-any.whl (131 kB)
+2025-12-12T03:24:43.7062787Z Downloading certifi-2025.11.12-py3-none-any.whl (159 kB)
+2025-12-12T03:24:43.7198723Z Downloading websocket_client-1.9.0-py3-none-any.whl (82 kB)
+2025-12-12T03:24:43.7328461Z Building wheels for collected packages: SimpleWebSocketServer
+2025-12-12T03:24:43.7336589Z   Building wheel for SimpleWebSocketServer (pyproject.toml): started
+2025-12-12T03:24:43.9763586Z   Building wheel for SimpleWebSocketServer (pyproject.toml): finished with status 'done'
+2025-12-12T03:24:43.9769102Z   Created wheel for SimpleWebSocketServer: filename=simplewebsocketserver-0.1.2-py3-none-any.whl size=9715 sha256=1f390f6f258671e73b4d4c5b93c87468840e01505fcb3b59c6e4c379af3baf2b
+2025-12-12T03:24:43.9770336Z   Stored in directory: /home/runner/.cache/pip/wheels/c4/5b/e8/4f2c15a82edc4923058056f6681373168be02a0c00389a6dcf
+2025-12-12T03:24:43.9789537Z Successfully built SimpleWebSocketServer
+2025-12-12T03:24:43.9976576Z Installing collected packages: SimpleWebSocketServer, websocket-client, urllib3, typing-extensions, soupsieve, idna, charset_normalizer, certifi, requests, beautifulsoup4, bs4, scratchattach
+2025-12-12T03:24:44.5909223Z 
+2025-12-12T03:24:44.5931294Z Successfully installed SimpleWebSocketServer-0.1.2 beautifulsoup4-4.14.3 bs4-0.0.2 certifi-2025.11.12 charset_normalizer-3.4.4 idna-3.11 requests-2.32.5 scratchattach-2.1.13 soupsieve-2.8 typing-extensions-4.15.0 urllib3-2.6.2 websocket-client-1.9.0
+2025-12-12T03:24:44.6708482Z ##[group]Run actions/checkout@v6.0.1
+2025-12-12T03:24:44.6708752Z with:
+2025-12-12T03:24:44.6708923Z   ref: main
+2025-12-12T03:24:44.6709116Z   repository: Boss-1s/scratchattach
+2025-12-12T03:24:44.6709459Z   token: ***
+2025-12-12T03:24:44.6709644Z   ssh-strict: true
+2025-12-12T03:24:44.6709829Z   ssh-user: git
+2025-12-12T03:24:44.6710024Z   persist-credentials: true
+2025-12-12T03:24:44.6710237Z   clean: true
+2025-12-12T03:24:44.6710430Z   sparse-checkout-cone-mode: true
+2025-12-12T03:24:44.6710667Z   fetch-depth: 1
+2025-12-12T03:24:44.6710854Z   fetch-tags: false
+2025-12-12T03:24:44.6711044Z   show-progress: true
+2025-12-12T03:24:44.6711237Z   lfs: false
+2025-12-12T03:24:44.6711411Z   submodules: false
+2025-12-12T03:24:44.6711599Z   set-safe-directory: true
+2025-12-12T03:24:44.6711804Z env:
+2025-12-12T03:24:44.6712175Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:44.6712584Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.11/x64/lib/pkgconfig
+2025-12-12T03:24:44.6713017Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:44.6713369Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:44.6713717Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:44.6714057Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.11/x64/lib
+2025-12-12T03:24:44.6714350Z ##[endgroup]
+2025-12-12T03:24:44.7472533Z Syncing repository: Boss-1s/scratchattach
+2025-12-12T03:24:44.7473067Z ##[group]Getting Git version info
+2025-12-12T03:24:44.7473457Z Working directory is '/home/runner/work/scratchattach/scratchattach'
+2025-12-12T03:24:44.7507477Z [command]/usr/bin/git version
+2025-12-12T03:24:44.7543597Z git version 2.52.0
+2025-12-12T03:24:44.7595618Z ##[endgroup]
+2025-12-12T03:24:44.7608941Z Temporarily overriding HOME='/home/runner/work/_temp/ac5f045e-a028-49c0-b04a-f0e9c83411ed' before making global git config changes
+2025-12-12T03:24:44.7610285Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-12T03:24:44.7615508Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-12-12T03:24:44.7652715Z [command]/usr/bin/git config --local --get remote.origin.url
+2025-12-12T03:24:44.7674608Z https://github.com/Boss-1s/scratchattach
+2025-12-12T03:24:44.7687478Z ##[group]Removing previously created refs, to avoid conflicts
+2025-12-12T03:24:44.7691773Z [command]/usr/bin/git rev-parse --symbolic-full-name --verify --quiet HEAD
+2025-12-12T03:24:44.7712484Z refs/heads/main
+2025-12-12T03:24:44.7721841Z [command]/usr/bin/git checkout --detach
+2025-12-12T03:24:44.8293284Z HEAD is now at 27f0432 [BOT] Download Logs
+2025-12-12T03:24:44.8336780Z [command]/usr/bin/git branch --delete --force main
+2025-12-12T03:24:44.8362477Z Deleted branch main (was 27f0432).
+2025-12-12T03:24:44.8396891Z ##[endgroup]
+2025-12-12T03:24:44.8400192Z [command]/usr/bin/git submodule status
+2025-12-12T03:24:44.8628559Z ##[group]Cleaning the repository
+2025-12-12T03:24:44.8633740Z [command]/usr/bin/git clean -ffdx
+2025-12-12T03:24:44.8680591Z [command]/usr/bin/git reset --hard HEAD
+2025-12-12T03:24:44.8764802Z HEAD is now at 27f0432 [BOT] Download Logs
+2025-12-12T03:24:44.8770316Z ##[endgroup]
+2025-12-12T03:24:44.8771779Z ##[group]Disabling automatic garbage collection
+2025-12-12T03:24:44.8776383Z [command]/usr/bin/git config --local gc.auto 0
+2025-12-12T03:24:44.8802800Z ##[endgroup]
+2025-12-12T03:24:44.8803404Z ##[group]Setting up auth
+2025-12-12T03:24:44.8804692Z Removing SSH command configuration
+2025-12-12T03:24:44.8810723Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-12T03:24:44.8841251Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-12T03:24:44.9067247Z Removing HTTP extra header
+2025-12-12T03:24:44.9072204Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-12T03:24:44.9101303Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-12T03:24:44.9319812Z Removing includeIf entries pointing to credentials config files
+2025-12-12T03:24:44.9325707Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-12T03:24:44.9348087Z includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path
+2025-12-12T03:24:44.9349042Z includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path
+2025-12-12T03:24:44.9349538Z includeif.gitdir:/github/workspace/.git.path
+2025-12-12T03:24:44.9349886Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2025-12-12T03:24:44.9356962Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path
+2025-12-12T03:24:44.9383350Z /home/runner/work/_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config
+2025-12-12T03:24:44.9393740Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path /home/runner/work/_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config
+2025-12-12T03:24:44.9424708Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path
+2025-12-12T03:24:44.9446558Z /home/runner/work/_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config
+2025-12-12T03:24:44.9454837Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config
+2025-12-12T03:24:44.9483694Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2025-12-12T03:24:44.9503500Z /github/runner_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config
+2025-12-12T03:24:44.9511717Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config
+2025-12-12T03:24:44.9542836Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2025-12-12T03:24:44.9563124Z /github/runner_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config
+2025-12-12T03:24:44.9572348Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config
+2025-12-12T03:24:44.9603142Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-12T03:24:44.9818142Z Removing credentials config '/home/runner/work/_temp/git-credentials-525bb074-e187-4129-86fd-44180878b2a3.config'
+2025-12-12T03:24:44.9831103Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-12-12T03:24:44.9868030Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path /home/runner/work/_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config
+2025-12-12T03:24:44.9896545Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config
+2025-12-12T03:24:44.9925243Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config
+2025-12-12T03:24:44.9954934Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config
+2025-12-12T03:24:44.9980135Z ##[endgroup]
+2025-12-12T03:24:44.9980757Z ##[group]Fetching the repository
+2025-12-12T03:24:44.9990575Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+2025-12-12T03:24:45.4456173Z ##[endgroup]
+2025-12-12T03:24:45.4456877Z ##[group]Determining the checkout info
+2025-12-12T03:24:45.4463491Z [command]/usr/bin/git branch --list --remote origin/main
+2025-12-12T03:24:45.4488620Z   origin/main
+2025-12-12T03:24:45.4493038Z ##[endgroup]
+2025-12-12T03:24:45.4497794Z [command]/usr/bin/git sparse-checkout disable
+2025-12-12T03:24:45.4554663Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-12-12T03:24:45.4580853Z ##[group]Checking out the ref
+2025-12-12T03:24:45.4585330Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-12-12T03:24:45.4649398Z Switched to a new branch 'main'
+2025-12-12T03:24:45.4651762Z branch 'main' set up to track 'origin/main'.
+2025-12-12T03:24:45.4657339Z ##[endgroup]
+2025-12-12T03:24:45.4700373Z [command]/usr/bin/git log -1 --format=%H
+2025-12-12T03:24:45.4723531Z 27f0432a5767a568de864190a4a853d741a74058
+2025-12-12T03:24:45.4828205Z ##[group]Run python3 aesthetic_prioritizing.py
+2025-12-12T03:24:45.4828559Z [36;1mpython3 aesthetic_prioritizing.py[0m
+2025-12-12T03:24:45.4862700Z shell: /usr/bin/bash -e {0}
+2025-12-12T03:24:45.4862939Z env:
+2025-12-12T03:24:45.4863195Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:45.4863613Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.11/x64/lib/pkgconfig
+2025-12-12T03:24:45.4864026Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:45.4864390Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:45.4864765Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.11/x64
+2025-12-12T03:24:45.4865160Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.11/x64/lib
+2025-12-12T03:24:45.4865599Z   PASS: ***
+2025-12-12T03:24:45.4865779Z ##[endgroup]
+2025-12-12T03:24:47.0867315Z Prioritizing: Attempt 1
+2025-12-12T03:24:47.0873620Z Projects already on top. No prioritizing needed.
+2025-12-12T03:24:47.0879823Z Prioritized projects in your favorite list.
+2025-12-12T03:24:47.0886066Z Prioritizing: Attempt 1
+2025-12-12T03:24:47.4828413Z Unfollowed stuido 50609120
+2025-12-12T03:25:22.4840023Z Followed studio 50609120 to move it to the top
+2025-12-12T03:26:08.2566896Z Unfollowed stuido 50609126
+2025-12-12T03:26:43.2579143Z Followed studio 50609126 to move it to the top
+2025-12-12T03:27:28.8341216Z Unfollowed stuido 50609128
+2025-12-12T03:28:03.8352490Z Followed studio 50609128 to move it to the top
+2025-12-12T03:28:59.3292932Z sh: 1: Syntax error: "(" unexpected
+2025-12-12T03:28:59.3299261Z Prioritizing: Attempt 2
+2025-12-12T03:29:09.4766683Z sh: 1: Syntax error: "(" unexpected
+2025-12-12T03:29:09.4773725Z Prioritizing: Attempt 3
+2025-12-12T03:29:13.9355448Z Unfollowed stuido 50609120
+2025-12-12T03:29:48.9366097Z Followed studio 50609120 to move it to the top
+2025-12-12T03:29:59.0160560Z sh: 1: Syntax error: "(" unexpected
+2025-12-12T03:29:59.0167023Z Prioritizing: Attempt 4
+2025-12-12T03:30:09.2422977Z sh: 1: Syntax error: "(" unexpected
+2025-12-12T03:30:09.2428773Z Prioritizing: Attempt 5
+2025-12-12T03:30:18.8116508Z Unfollowed stuido 50609120
+2025-12-12T03:30:53.8127358Z Followed studio 50609120 to move it to the top
+2025-12-12T03:31:03.8813387Z sh: 1: Syntax error: "(" unexpected
+2025-12-12T03:31:03.8819733Z Prioritizing: Attempt 6
+2025-12-12T03:31:03.8826191Z Prioritized studios in your favorite list.
+2025-12-12T03:31:03.9441591Z Traceback (most recent call last):
+2025-12-12T03:31:03.9457732Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+2025-12-12T03:31:03.9458396Z     response = conn.getresponse()
+2025-12-12T03:31:03.9459022Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connection.py", line 571, in getresponse
+2025-12-12T03:31:03.9459589Z     httplib_response = super().getresponse()
+2025-12-12T03:31:03.9460106Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 1450, in getresponse
+2025-12-12T03:31:03.9460564Z     response.begin()
+2025-12-12T03:31:03.9460765Z     ~~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9461163Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 336, in begin
+2025-12-12T03:31:03.9461609Z     version, status, reason = self._read_status()
+2025-12-12T03:31:03.9461887Z                               ~~~~~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9462638Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 297, in _read_status
+2025-12-12T03:31:03.9463137Z     line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+2025-12-12T03:31:03.9463448Z                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9463908Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/socket.py", line 719, in readinto
+2025-12-12T03:31:03.9464336Z     return self._sock.recv_into(b)
+2025-12-12T03:31:03.9464564Z            ~~~~~~~~~~~~~~~~~~~~^^^
+2025-12-12T03:31:03.9465274Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/ssl.py", line 1304, in recv_into
+2025-12-12T03:31:03.9465701Z     return self.read(nbytes, buffer)
+2025-12-12T03:31:03.9465932Z            ~~~~~~~~~^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9466328Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/ssl.py", line 1138, in read
+2025-12-12T03:31:03.9466737Z     return self._sslobj.read(len, buffer)
+2025-12-12T03:31:03.9466982Z            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+2025-12-12T03:31:03.9467238Z TimeoutError: The read operation timed out
+2025-12-12T03:31:03.9467418Z 
+2025-12-12T03:31:03.9467593Z The above exception was the direct cause of the following exception:
+2025-12-12T03:31:03.9467844Z 
+2025-12-12T03:31:03.9467940Z Traceback (most recent call last):
+2025-12-12T03:31:03.9498925Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+2025-12-12T03:31:03.9499877Z     resp = conn.urlopen(
+2025-12-12T03:31:03.9500273Z         method=request.method,
+2025-12-12T03:31:03.9500679Z     ...<9 lines>...
+2025-12-12T03:31:03.9501027Z         chunked=chunked,
+2025-12-12T03:31:03.9501377Z     )
+2025-12-12T03:31:03.9502481Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+2025-12-12T03:31:03.9503476Z     retries = retries.increment(
+2025-12-12T03:31:03.9504037Z         method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+2025-12-12T03:31:03.9504658Z     )
+2025-12-12T03:31:03.9505562Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/util/retry.py", line 474, in increment
+2025-12-12T03:31:03.9506610Z     raise reraise(type(error), error, _stacktrace)
+2025-12-12T03:31:03.9507433Z           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9508426Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/util/util.py", line 39, in reraise
+2025-12-12T03:31:03.9509335Z     raise value
+2025-12-12T03:31:03.9510238Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+2025-12-12T03:31:03.9511195Z     response = self._make_request(
+2025-12-12T03:31:03.9511590Z         conn,
+2025-12-12T03:31:03.9511897Z     ...<10 lines>...
+2025-12-12T03:31:03.9512473Z         **response_kw,
+2025-12-12T03:31:03.9512805Z     )
+2025-12-12T03:31:03.9513745Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+2025-12-12T03:31:03.9514887Z     self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+2025-12-12T03:31:03.9515495Z     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9516602Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+2025-12-12T03:31:03.9517645Z     raise ReadTimeoutError(
+2025-12-12T03:31:03.9518164Z         self, url, f"Read timed out. (read timeout={timeout_value})"
+2025-12-12T03:31:03.9518682Z     ) from err
+2025-12-12T03:31:03.9519549Z urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9520380Z 
+2025-12-12T03:31:03.9520700Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9521152Z 
+2025-12-12T03:31:03.9521322Z Traceback (most recent call last):
+2025-12-12T03:31:03.9522547Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/utils/requests.py", line 61, in put
+2025-12-12T03:31:03.9523800Z     r = requests.put(url, data=data, json=json, headers=headers, cookies=cookies, params=params,
+2025-12-12T03:31:03.9524553Z                      timeout=timeout, proxies=proxies)
+2025-12-12T03:31:03.9525486Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/api.py", line 130, in put
+2025-12-12T03:31:03.9526624Z     return request("put", url, data=data, **kwargs)
+2025-12-12T03:31:03.9527749Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/api.py", line 59, in request
+2025-12-12T03:31:03.9528782Z     return session.request(method=method, url=url, **kwargs)
+2025-12-12T03:31:03.9529351Z            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9530344Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+2025-12-12T03:31:03.9531275Z     resp = self.send(prep, **send_kwargs)
+2025-12-12T03:31:03.9532411Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+2025-12-12T03:31:03.9533345Z     r = adapter.send(request, **kwargs)
+2025-12-12T03:31:03.9534321Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/adapters.py", line 690, in send
+2025-12-12T03:31:03.9535314Z     raise ReadTimeout(e, request=request)
+2025-12-12T03:31:03.9536305Z requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9537136Z 
+2025-12-12T03:31:03.9537452Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9537918Z 
+2025-12-12T03:31:03.9538085Z Traceback (most recent call last):
+2025-12-12T03:31:03.9539074Z   File "/home/runner/work/scratchattach/scratchattach/aesthetic_prioritizing.py", line 114, in prioritize_studio
+2025-12-12T03:31:03.9540005Z     studio.unfollow()
+2025-12-12T03:31:03.9540354Z     ~~~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9541309Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/site/studio.py", line 118, in unfollow
+2025-12-12T03:31:03.9542742Z     requests.put(
+2025-12-12T03:31:03.9543076Z     ~~~~~~~~~~~~^
+2025-12-12T03:31:03.9543845Z         f"https://scratch.mit.edu/site-api/users/bookmarkers/{self.id}/remove/?usernames={self._session._username}",
+2025-12-12T03:31:03.9544767Z         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9545253Z     ...<2 lines>...
+2025-12-12T03:31:03.9545579Z         timeout=10,
+2025-12-12T03:31:03.9545893Z         ^^^^^^^^^^^
+2025-12-12T03:31:03.9546197Z     )
+2025-12-12T03:31:03.9546468Z     ^
+2025-12-12T03:31:03.9547403Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/utils/requests.py", line 64, in put
+2025-12-12T03:31:03.9548416Z     raise exceptions.FetchError(e)
+2025-12-12T03:31:03.9549450Z scratchattach.utils.exceptions.FetchError: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9550364Z 
+2025-12-12T03:31:03.9550682Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9551158Z 
+2025-12-12T03:31:03.9551328Z Traceback (most recent call last):
+2025-12-12T03:31:03.9552631Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+2025-12-12T03:31:03.9553660Z     response = conn.getresponse()
+2025-12-12T03:31:03.9554646Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connection.py", line 571, in getresponse
+2025-12-12T03:31:03.9555645Z     httplib_response = super().getresponse()
+2025-12-12T03:31:03.9556541Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 1450, in getresponse
+2025-12-12T03:31:03.9557364Z     response.begin()
+2025-12-12T03:31:03.9558006Z     ~~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9584079Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 336, in begin
+2025-12-12T03:31:03.9585027Z     version, status, reason = self._read_status()
+2025-12-12T03:31:03.9585549Z                               ~~~~~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9586452Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 297, in _read_status
+2025-12-12T03:31:03.9587624Z     line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+2025-12-12T03:31:03.9588199Z                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9589029Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/socket.py", line 719, in readinto
+2025-12-12T03:31:03.9589815Z     return self._sock.recv_into(b)
+2025-12-12T03:31:03.9590229Z            ~~~~~~~~~~~~~~~~~~~~^^^
+2025-12-12T03:31:03.9590991Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/ssl.py", line 1304, in recv_into
+2025-12-12T03:31:03.9591759Z     return self.read(nbytes, buffer)
+2025-12-12T03:31:03.9592382Z            ~~~~~~~~~^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9593133Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/ssl.py", line 1138, in read
+2025-12-12T03:31:03.9593913Z     return self._sslobj.read(len, buffer)
+2025-12-12T03:31:03.9594370Z            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+2025-12-12T03:31:03.9594865Z TimeoutError: The read operation timed out
+2025-12-12T03:31:03.9595197Z 
+2025-12-12T03:31:03.9595517Z The above exception was the direct cause of the following exception:
+2025-12-12T03:31:03.9595984Z 
+2025-12-12T03:31:03.9596148Z Traceback (most recent call last):
+2025-12-12T03:31:03.9597091Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+2025-12-12T03:31:03.9598005Z     resp = conn.urlopen(
+2025-12-12T03:31:03.9598398Z         method=request.method,
+2025-12-12T03:31:03.9598785Z     ...<9 lines>...
+2025-12-12T03:31:03.9599125Z         chunked=chunked,
+2025-12-12T03:31:03.9599466Z     )
+2025-12-12T03:31:03.9600352Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+2025-12-12T03:31:03.9601581Z     retries = retries.increment(
+2025-12-12T03:31:03.9602340Z         method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+2025-12-12T03:31:03.9602908Z     )
+2025-12-12T03:31:03.9603779Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/util/retry.py", line 474, in increment
+2025-12-12T03:31:03.9604810Z     raise reraise(type(error), error, _stacktrace)
+2025-12-12T03:31:03.9605319Z           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9606265Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/util/util.py", line 39, in reraise
+2025-12-12T03:31:03.9607185Z     raise value
+2025-12-12T03:31:03.9608107Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+2025-12-12T03:31:03.9609081Z     response = self._make_request(
+2025-12-12T03:31:03.9609474Z         conn,
+2025-12-12T03:31:03.9609798Z     ...<10 lines>...
+2025-12-12T03:31:03.9610145Z         **response_kw,
+2025-12-12T03:31:03.9610472Z     )
+2025-12-12T03:31:03.9611394Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+2025-12-12T03:31:03.9612716Z     self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+2025-12-12T03:31:03.9613320Z     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9614412Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+2025-12-12T03:31:03.9615445Z     raise ReadTimeoutError(
+2025-12-12T03:31:03.9615967Z         self, url, f"Read timed out. (read timeout={timeout_value})"
+2025-12-12T03:31:03.9616509Z     ) from err
+2025-12-12T03:31:03.9617402Z urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9618258Z 
+2025-12-12T03:31:03.9618579Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9619040Z 
+2025-12-12T03:31:03.9619207Z Traceback (most recent call last):
+2025-12-12T03:31:03.9620449Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/utils/requests.py", line 61, in put
+2025-12-12T03:31:03.9621753Z     r = requests.put(url, data=data, json=json, headers=headers, cookies=cookies, params=params,
+2025-12-12T03:31:03.9622702Z                      timeout=timeout, proxies=proxies)
+2025-12-12T03:31:03.9623665Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/api.py", line 130, in put
+2025-12-12T03:31:03.9624595Z     return request("put", url, data=data, **kwargs)
+2025-12-12T03:31:03.9625566Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/api.py", line 59, in request
+2025-12-12T03:31:03.9626537Z     return session.request(method=method, url=url, **kwargs)
+2025-12-12T03:31:03.9627115Z            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9628112Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+2025-12-12T03:31:03.9629046Z     resp = self.send(prep, **send_kwargs)
+2025-12-12T03:31:03.9630010Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+2025-12-12T03:31:03.9630930Z     r = adapter.send(request, **kwargs)
+2025-12-12T03:31:03.9631875Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/adapters.py", line 690, in send
+2025-12-12T03:31:03.9633002Z     raise ReadTimeout(e, request=request)
+2025-12-12T03:31:03.9633951Z requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9634743Z 
+2025-12-12T03:31:03.9635061Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9635740Z 
+2025-12-12T03:31:03.9635913Z Traceback (most recent call last):
+2025-12-12T03:31:03.9636888Z   File "/home/runner/work/scratchattach/scratchattach/aesthetic_prioritizing.py", line 114, in prioritize_studio
+2025-12-12T03:31:03.9637822Z     studio.unfollow()
+2025-12-12T03:31:03.9638173Z     ~~~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9639104Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/site/studio.py", line 118, in unfollow
+2025-12-12T03:31:03.9640068Z     requests.put(
+2025-12-12T03:31:03.9640390Z     ~~~~~~~~~~~~^
+2025-12-12T03:31:03.9641141Z         f"https://scratch.mit.edu/site-api/users/bookmarkers/{self.id}/remove/?usernames={self._session._username}",
+2025-12-12T03:31:03.9642246Z         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9642739Z     ...<2 lines>...
+2025-12-12T03:31:03.9643062Z         timeout=10,
+2025-12-12T03:31:03.9643393Z         ^^^^^^^^^^^
+2025-12-12T03:31:03.9643724Z     )
+2025-12-12T03:31:03.9644015Z     ^
+2025-12-12T03:31:03.9644903Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/utils/requests.py", line 64, in put
+2025-12-12T03:31:03.9645913Z     raise exceptions.FetchError(e)
+2025-12-12T03:31:03.9647001Z scratchattach.utils.exceptions.FetchError: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9647879Z 
+2025-12-12T03:31:03.9648202Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9648668Z 
+2025-12-12T03:31:03.9648836Z Traceback (most recent call last):
+2025-12-12T03:31:03.9649948Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+2025-12-12T03:31:03.9650982Z     response = conn.getresponse()
+2025-12-12T03:31:03.9652148Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connection.py", line 571, in getresponse
+2025-12-12T03:31:03.9653157Z     httplib_response = super().getresponse()
+2025-12-12T03:31:03.9654079Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 1450, in getresponse
+2025-12-12T03:31:03.9654898Z     response.begin()
+2025-12-12T03:31:03.9655447Z     ~~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9656216Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 336, in begin
+2025-12-12T03:31:03.9657042Z     version, status, reason = self._read_status()
+2025-12-12T03:31:03.9657559Z                               ~~~~~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9658449Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 297, in _read_status
+2025-12-12T03:31:03.9659379Z     line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+2025-12-12T03:31:03.9659927Z                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9660731Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/socket.py", line 719, in readinto
+2025-12-12T03:31:03.9661512Z     return self._sock.recv_into(b)
+2025-12-12T03:31:03.9661937Z            ~~~~~~~~~~~~~~~~~~~~^^^
+2025-12-12T03:31:03.9662896Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/ssl.py", line 1304, in recv_into
+2025-12-12T03:31:03.9663673Z     return self.read(nbytes, buffer)
+2025-12-12T03:31:03.9664103Z            ~~~~~~~~~^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9664823Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/ssl.py", line 1138, in read
+2025-12-12T03:31:03.9665554Z     return self._sslobj.read(len, buffer)
+2025-12-12T03:31:03.9666011Z            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+2025-12-12T03:31:03.9666478Z TimeoutError: The read operation timed out
+2025-12-12T03:31:03.9666805Z 
+2025-12-12T03:31:03.9667121Z The above exception was the direct cause of the following exception:
+2025-12-12T03:31:03.9667582Z 
+2025-12-12T03:31:03.9667739Z Traceback (most recent call last):
+2025-12-12T03:31:03.9668587Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+2025-12-12T03:31:03.9669677Z     resp = conn.urlopen(
+2025-12-12T03:31:03.9670056Z         method=request.method,
+2025-12-12T03:31:03.9670419Z     ...<9 lines>...
+2025-12-12T03:31:03.9670745Z         chunked=chunked,
+2025-12-12T03:31:03.9671082Z     )
+2025-12-12T03:31:03.9671853Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+2025-12-12T03:31:03.9672932Z     retries = retries.increment(
+2025-12-12T03:31:03.9673415Z         method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+2025-12-12T03:31:03.9673888Z     )
+2025-12-12T03:31:03.9674616Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/util/retry.py", line 474, in increment
+2025-12-12T03:31:03.9675471Z     raise reraise(type(error), error, _stacktrace)
+2025-12-12T03:31:03.9675886Z           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9676754Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/util/util.py", line 39, in reraise
+2025-12-12T03:31:03.9677544Z     raise value
+2025-12-12T03:31:03.9678277Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+2025-12-12T03:31:03.9679088Z     response = self._make_request(
+2025-12-12T03:31:03.9679417Z         conn,
+2025-12-12T03:31:03.9679711Z     ...<10 lines>...
+2025-12-12T03:31:03.9679994Z         **response_kw,
+2025-12-12T03:31:03.9680294Z     )
+2025-12-12T03:31:03.9681059Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+2025-12-12T03:31:03.9682303Z     self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+2025-12-12T03:31:03.9682823Z     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9683729Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+2025-12-12T03:31:03.9684628Z     raise ReadTimeoutError(
+2025-12-12T03:31:03.9685055Z         self, url, f"Read timed out. (read timeout={timeout_value})"
+2025-12-12T03:31:03.9685478Z     ) from err
+2025-12-12T03:31:03.9686383Z urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9687120Z 
+2025-12-12T03:31:03.9687387Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9687787Z 
+2025-12-12T03:31:03.9687931Z Traceback (most recent call last):
+2025-12-12T03:31:03.9688765Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/utils/requests.py", line 61, in put
+2025-12-12T03:31:03.9689789Z     r = requests.put(url, data=data, json=json, headers=headers, cookies=cookies, params=params,
+2025-12-12T03:31:03.9690415Z                      timeout=timeout, proxies=proxies)
+2025-12-12T03:31:03.9691231Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/api.py", line 130, in put
+2025-12-12T03:31:03.9692154Z     return request("put", url, data=data, **kwargs)
+2025-12-12T03:31:03.9692987Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/api.py", line 59, in request
+2025-12-12T03:31:03.9693829Z     return session.request(method=method, url=url, **kwargs)
+2025-12-12T03:31:03.9694307Z            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9695108Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+2025-12-12T03:31:03.9695983Z     resp = self.send(prep, **send_kwargs)
+2025-12-12T03:31:03.9696789Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+2025-12-12T03:31:03.9697557Z     r = adapter.send(request, **kwargs)
+2025-12-12T03:31:03.9698329Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/adapters.py", line 690, in send
+2025-12-12T03:31:03.9699334Z     raise ReadTimeout(e, request=request)
+2025-12-12T03:31:03.9700136Z requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9700804Z 
+2025-12-12T03:31:03.9701075Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9701450Z 
+2025-12-12T03:31:03.9701582Z Traceback (most recent call last):
+2025-12-12T03:31:03.9702534Z   File "/home/runner/work/scratchattach/scratchattach/aesthetic_prioritizing.py", line 122, in prioritize_studio
+2025-12-12T03:31:03.9703057Z     studio.follow()
+2025-12-12T03:31:03.9703240Z     ~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9703748Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/site/studio.py", line 106, in follow
+2025-12-12T03:31:03.9704274Z     requests.put(
+2025-12-12T03:31:03.9704449Z     ~~~~~~~~~~~~^
+2025-12-12T03:31:03.9704856Z         f"https://scratch.mit.edu/site-api/users/bookmarkers/{self.id}/add/?usernames={self._session._username}",
+2025-12-12T03:31:03.9705339Z         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9705595Z     ...<2 lines>...
+2025-12-12T03:31:03.9705776Z         timeout=10,
+2025-12-12T03:31:03.9705949Z         ^^^^^^^^^^^
+2025-12-12T03:31:03.9706117Z     )
+2025-12-12T03:31:03.9706276Z     ^
+2025-12-12T03:31:03.9706747Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/utils/requests.py", line 64, in put
+2025-12-12T03:31:03.9707293Z     raise exceptions.FetchError(e)
+2025-12-12T03:31:03.9707855Z scratchattach.utils.exceptions.FetchError: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9708330Z 
+2025-12-12T03:31:03.9708502Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9708761Z 
+2025-12-12T03:31:03.9708854Z Traceback (most recent call last):
+2025-12-12T03:31:03.9709416Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+2025-12-12T03:31:03.9709964Z     response = conn.getresponse()
+2025-12-12T03:31:03.9710624Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connection.py", line 571, in getresponse
+2025-12-12T03:31:03.9711163Z     httplib_response = super().getresponse()
+2025-12-12T03:31:03.9711652Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 1450, in getresponse
+2025-12-12T03:31:03.9712259Z     response.begin()
+2025-12-12T03:31:03.9712451Z     ~~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9712844Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 336, in begin
+2025-12-12T03:31:03.9713292Z     version, status, reason = self._read_status()
+2025-12-12T03:31:03.9713566Z                               ~~~~~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9714034Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 297, in _read_status
+2025-12-12T03:31:03.9714529Z     line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+2025-12-12T03:31:03.9714832Z                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9715270Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/socket.py", line 719, in readinto
+2025-12-12T03:31:03.9715693Z     return self._sock.recv_into(b)
+2025-12-12T03:31:03.9715920Z            ~~~~~~~~~~~~~~~~~~~~^^^
+2025-12-12T03:31:03.9716323Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/ssl.py", line 1304, in recv_into
+2025-12-12T03:31:03.9716742Z     return self.read(nbytes, buffer)
+2025-12-12T03:31:03.9716974Z            ~~~~~~~~~^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9717363Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/ssl.py", line 1138, in read
+2025-12-12T03:31:03.9717767Z     return self._sslobj.read(len, buffer)
+2025-12-12T03:31:03.9718197Z            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+2025-12-12T03:31:03.9718449Z TimeoutError: The read operation timed out
+2025-12-12T03:31:03.9718630Z 
+2025-12-12T03:31:03.9718797Z The above exception was the direct cause of the following exception:
+2025-12-12T03:31:03.9719050Z 
+2025-12-12T03:31:03.9719150Z Traceback (most recent call last):
+2025-12-12T03:31:03.9719649Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+2025-12-12T03:31:03.9720143Z     resp = conn.urlopen(
+2025-12-12T03:31:03.9720364Z         method=request.method,
+2025-12-12T03:31:03.9720577Z     ...<9 lines>...
+2025-12-12T03:31:03.9720767Z         chunked=chunked,
+2025-12-12T03:31:03.9720958Z     )
+2025-12-12T03:31:03.9721430Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+2025-12-12T03:31:03.9721956Z     retries = retries.increment(
+2025-12-12T03:31:03.9722404Z         method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+2025-12-12T03:31:03.9722721Z     )
+2025-12-12T03:31:03.9723180Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/util/retry.py", line 474, in increment
+2025-12-12T03:31:03.9723745Z     raise reraise(type(error), error, _stacktrace)
+2025-12-12T03:31:03.9724024Z           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9724541Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/util/util.py", line 39, in reraise
+2025-12-12T03:31:03.9725024Z     raise value
+2025-12-12T03:31:03.9725496Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+2025-12-12T03:31:03.9726015Z     response = self._make_request(
+2025-12-12T03:31:03.9726241Z         conn,
+2025-12-12T03:31:03.9726411Z     ...<10 lines>...
+2025-12-12T03:31:03.9726610Z         **response_kw,
+2025-12-12T03:31:03.9726802Z     )
+2025-12-12T03:31:03.9727297Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+2025-12-12T03:31:03.9727909Z     self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+2025-12-12T03:31:03.9728365Z     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9728952Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+2025-12-12T03:31:03.9729511Z     raise ReadTimeoutError(
+2025-12-12T03:31:03.9729800Z         self, url, f"Read timed out. (read timeout={timeout_value})"
+2025-12-12T03:31:03.9730086Z     ) from err
+2025-12-12T03:31:03.9730561Z urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9731010Z 
+2025-12-12T03:31:03.9731179Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9731427Z 
+2025-12-12T03:31:03.9731523Z Traceback (most recent call last):
+2025-12-12T03:31:03.9732167Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/utils/requests.py", line 61, in put
+2025-12-12T03:31:03.9732843Z     r = requests.put(url, data=data, json=json, headers=headers, cookies=cookies, params=params,
+2025-12-12T03:31:03.9733256Z                      timeout=timeout, proxies=proxies)
+2025-12-12T03:31:03.9733769Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/api.py", line 130, in put
+2025-12-12T03:31:03.9734269Z     return request("put", url, data=data, **kwargs)
+2025-12-12T03:31:03.9734792Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/api.py", line 59, in request
+2025-12-12T03:31:03.9735313Z     return session.request(method=method, url=url, **kwargs)
+2025-12-12T03:31:03.9735633Z            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9736156Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+2025-12-12T03:31:03.9736785Z     resp = self.send(prep, **send_kwargs)
+2025-12-12T03:31:03.9737292Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+2025-12-12T03:31:03.9737789Z     r = adapter.send(request, **kwargs)
+2025-12-12T03:31:03.9738293Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/adapters.py", line 690, in send
+2025-12-12T03:31:03.9738796Z     raise ReadTimeout(e, request=request)
+2025-12-12T03:31:03.9739317Z requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9739749Z 
+2025-12-12T03:31:03.9739919Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9740165Z 
+2025-12-12T03:31:03.9740257Z Traceback (most recent call last):
+2025-12-12T03:31:03.9740774Z   File "/home/runner/work/scratchattach/scratchattach/aesthetic_prioritizing.py", line 114, in prioritize_studio
+2025-12-12T03:31:03.9741274Z     studio.unfollow()
+2025-12-12T03:31:03.9741466Z     ~~~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9741966Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/site/studio.py", line 118, in unfollow
+2025-12-12T03:31:03.9742612Z     requests.put(
+2025-12-12T03:31:03.9742795Z     ~~~~~~~~~~~~^
+2025-12-12T03:31:03.9743201Z         f"https://scratch.mit.edu/site-api/users/bookmarkers/{self.id}/remove/?usernames={self._session._username}",
+2025-12-12T03:31:03.9743689Z         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9743955Z     ...<2 lines>...
+2025-12-12T03:31:03.9744132Z         timeout=10,
+2025-12-12T03:31:03.9744306Z         ^^^^^^^^^^^
+2025-12-12T03:31:03.9744468Z     )
+2025-12-12T03:31:03.9744626Z     ^
+2025-12-12T03:31:03.9745093Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/utils/requests.py", line 64, in put
+2025-12-12T03:31:03.9745635Z     raise exceptions.FetchError(e)
+2025-12-12T03:31:03.9746187Z scratchattach.utils.exceptions.FetchError: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9746820Z 
+2025-12-12T03:31:03.9746992Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9747243Z 
+2025-12-12T03:31:03.9747336Z Traceback (most recent call last):
+2025-12-12T03:31:03.9747891Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 534, in _make_request
+2025-12-12T03:31:03.9748437Z     response = conn.getresponse()
+2025-12-12T03:31:03.9748963Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connection.py", line 571, in getresponse
+2025-12-12T03:31:03.9749487Z     httplib_response = super().getresponse()
+2025-12-12T03:31:03.9749967Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 1450, in getresponse
+2025-12-12T03:31:03.9750408Z     response.begin()
+2025-12-12T03:31:03.9750592Z     ~~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9750978Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 336, in begin
+2025-12-12T03:31:03.9751420Z     version, status, reason = self._read_status()
+2025-12-12T03:31:03.9751696Z                               ~~~~~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9752252Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/http/client.py", line 297, in _read_status
+2025-12-12T03:31:03.9752745Z     line = str(self.fp.readline(_MAXLINE + 1), "iso-8859-1")
+2025-12-12T03:31:03.9753041Z                ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9753463Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/socket.py", line 719, in readinto
+2025-12-12T03:31:03.9753884Z     return self._sock.recv_into(b)
+2025-12-12T03:31:03.9754114Z            ~~~~~~~~~~~~~~~~~~~~^^^
+2025-12-12T03:31:03.9754630Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/ssl.py", line 1304, in recv_into
+2025-12-12T03:31:03.9755043Z     return self.read(nbytes, buffer)
+2025-12-12T03:31:03.9755280Z            ~~~~~~~~~^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9755666Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/ssl.py", line 1138, in read
+2025-12-12T03:31:03.9756067Z     return self._sslobj.read(len, buffer)
+2025-12-12T03:31:03.9756315Z            ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+2025-12-12T03:31:03.9756563Z TimeoutError: The read operation timed out
+2025-12-12T03:31:03.9756744Z 
+2025-12-12T03:31:03.9756910Z The above exception was the direct cause of the following exception:
+2025-12-12T03:31:03.9757161Z 
+2025-12-12T03:31:03.9757253Z Traceback (most recent call last):
+2025-12-12T03:31:03.9757747Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/adapters.py", line 644, in send
+2025-12-12T03:31:03.9758227Z     resp = conn.urlopen(
+2025-12-12T03:31:03.9758447Z         method=request.method,
+2025-12-12T03:31:03.9758660Z     ...<9 lines>...
+2025-12-12T03:31:03.9758843Z         chunked=chunked,
+2025-12-12T03:31:03.9759033Z     )
+2025-12-12T03:31:03.9759493Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 841, in urlopen
+2025-12-12T03:31:03.9760013Z     retries = retries.increment(
+2025-12-12T03:31:03.9760330Z         method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+2025-12-12T03:31:03.9760638Z     )
+2025-12-12T03:31:03.9761095Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/util/retry.py", line 474, in increment
+2025-12-12T03:31:03.9761649Z     raise reraise(type(error), error, _stacktrace)
+2025-12-12T03:31:03.9761927Z           ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9762558Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/util/util.py", line 39, in reraise
+2025-12-12T03:31:03.9763043Z     raise value
+2025-12-12T03:31:03.9763518Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 787, in urlopen
+2025-12-12T03:31:03.9764033Z     response = self._make_request(
+2025-12-12T03:31:03.9764255Z         conn,
+2025-12-12T03:31:03.9764549Z     ...<10 lines>...
+2025-12-12T03:31:03.9764739Z         **response_kw,
+2025-12-12T03:31:03.9764924Z     )
+2025-12-12T03:31:03.9765412Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 536, in _make_request
+2025-12-12T03:31:03.9766020Z     self._raise_timeout(err=e, url=url, timeout_value=read_timeout)
+2025-12-12T03:31:03.9766358Z     ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9766945Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/urllib3/connectionpool.py", line 367, in _raise_timeout
+2025-12-12T03:31:03.9767489Z     raise ReadTimeoutError(
+2025-12-12T03:31:03.9767777Z         self, url, f"Read timed out. (read timeout={timeout_value})"
+2025-12-12T03:31:03.9768072Z     ) from err
+2025-12-12T03:31:03.9768537Z urllib3.exceptions.ReadTimeoutError: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9768992Z 
+2025-12-12T03:31:03.9769161Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9769407Z 
+2025-12-12T03:31:03.9769503Z Traceback (most recent call last):
+2025-12-12T03:31:03.9770062Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/utils/requests.py", line 61, in put
+2025-12-12T03:31:03.9770723Z     r = requests.put(url, data=data, json=json, headers=headers, cookies=cookies, params=params,
+2025-12-12T03:31:03.9771135Z                      timeout=timeout, proxies=proxies)
+2025-12-12T03:31:03.9771640Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/api.py", line 130, in put
+2025-12-12T03:31:03.9772361Z     return request("put", url, data=data, **kwargs)
+2025-12-12T03:31:03.9772887Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/api.py", line 59, in request
+2025-12-12T03:31:03.9773417Z     return session.request(method=method, url=url, **kwargs)
+2025-12-12T03:31:03.9773740Z            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9774263Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/sessions.py", line 589, in request
+2025-12-12T03:31:03.9774764Z     resp = self.send(prep, **send_kwargs)
+2025-12-12T03:31:03.9775272Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/sessions.py", line 703, in send
+2025-12-12T03:31:03.9775757Z     r = adapter.send(request, **kwargs)
+2025-12-12T03:31:03.9776258Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/requests/adapters.py", line 690, in send
+2025-12-12T03:31:03.9776764Z     raise ReadTimeout(e, request=request)
+2025-12-12T03:31:03.9777289Z requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9777723Z 
+2025-12-12T03:31:03.9777888Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9778144Z 
+2025-12-12T03:31:03.9778236Z Traceback (most recent call last):
+2025-12-12T03:31:03.9778759Z   File "/home/runner/work/scratchattach/scratchattach/aesthetic_prioritizing.py", line 122, in prioritize_studio
+2025-12-12T03:31:03.9779248Z     studio.follow()
+2025-12-12T03:31:03.9779436Z     ~~~~~~~~~~~~~^^
+2025-12-12T03:31:03.9779922Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/site/studio.py", line 106, in follow
+2025-12-12T03:31:03.9780433Z     requests.put(
+2025-12-12T03:31:03.9780614Z     ~~~~~~~~~~~~^
+2025-12-12T03:31:03.9781017Z         f"https://scratch.mit.edu/site-api/users/bookmarkers/{self.id}/add/?usernames={self._session._username}",
+2025-12-12T03:31:03.9781493Z         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9781791Z     ...<2 lines>...
+2025-12-12T03:31:03.9781969Z         timeout=10,
+2025-12-12T03:31:03.9782265Z         ^^^^^^^^^^^
+2025-12-12T03:31:03.9782549Z     )
+2025-12-12T03:31:03.9782709Z     ^
+2025-12-12T03:31:03.9783176Z   File "/opt/hostedtoolcache/Python/3.13.11/x64/lib/python3.13/site-packages/scratchattach/utils/requests.py", line 64, in put
+2025-12-12T03:31:03.9783722Z     raise exceptions.FetchError(e)
+2025-12-12T03:31:03.9784280Z scratchattach.utils.exceptions.FetchError: HTTPSConnectionPool(host='scratch.mit.edu', port=443): Read timed out. (read timeout=10)
+2025-12-12T03:31:03.9784767Z 
+2025-12-12T03:31:03.9784937Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9785193Z 
+2025-12-12T03:31:03.9785281Z Traceback (most recent call last):
+2025-12-12T03:31:03.9785805Z   File "/home/runner/work/scratchattach/scratchattach/aesthetic_prioritizing.py", line 105, in prioritize_studio
+2025-12-12T03:31:03.9786510Z     raise ValueError("Process failed, and the maximum attempt value has been reached. Exiting.")
+2025-12-12T03:31:03.9787059Z ValueError: Process failed, and the maximum attempt value has been reached. Exiting.
+2025-12-12T03:31:03.9787367Z 
+2025-12-12T03:31:03.9787534Z During handling of the above exception, another exception occurred:
+2025-12-12T03:31:03.9787781Z 
+2025-12-12T03:31:03.9787876Z Traceback (most recent call last):
+2025-12-12T03:31:03.9788365Z   File "/home/runner/work/scratchattach/scratchattach/aesthetic_prioritizing.py", line 154, in <module>
+2025-12-12T03:31:03.9788846Z     prioritize_studio(atmp, max_atmp)
+2025-12-12T03:31:03.9789082Z     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9789589Z   File "/home/runner/work/scratchattach/scratchattach/aesthetic_prioritizing.py", line 138, in prioritize_studio
+2025-12-12T03:31:03.9790093Z     prioritize_studio(atmp, max_atmp)
+2025-12-12T03:31:03.9790441Z     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9790937Z   File "/home/runner/work/scratchattach/scratchattach/aesthetic_prioritizing.py", line 138, in prioritize_studio
+2025-12-12T03:31:03.9791438Z     prioritize_studio(atmp, max_atmp)
+2025-12-12T03:31:03.9791674Z     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9792268Z   File "/home/runner/work/scratchattach/scratchattach/aesthetic_prioritizing.py", line 138, in prioritize_studio
+2025-12-12T03:31:03.9792769Z     prioritize_studio(atmp, max_atmp)
+2025-12-12T03:31:03.9793001Z     ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+2025-12-12T03:31:03.9793235Z   [Previous line repeated 2 more times]
+2025-12-12T03:31:03.9793768Z   File "/home/runner/work/scratchattach/scratchattach/aesthetic_prioritizing.py", line 127, in prioritize_studio
+2025-12-12T03:31:03.9794268Z     os.system("echo " + e)
+2025-12-12T03:31:03.9794476Z               ~~~~~~~~^~~
+2025-12-12T03:31:03.9794752Z TypeError: can only concatenate str (not "ValueError") to str
+2025-12-12T03:31:03.9970390Z ##[error]Process completed with exit code 1.
+2025-12-12T03:31:04.0039435Z Post job cleanup.
+2025-12-12T03:31:04.0805491Z [command]/usr/bin/git version
+2025-12-12T03:31:04.0840959Z git version 2.52.0
+2025-12-12T03:31:04.0909203Z Temporarily overriding HOME='/home/runner/work/_temp/ccedc6da-6151-434e-af4f-afa841145631' before making global git config changes
+2025-12-12T03:31:04.0910467Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-12T03:31:04.0915278Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-12-12T03:31:04.0945009Z Removing SSH command configuration
+2025-12-12T03:31:04.0951035Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-12T03:31:04.0983293Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-12T03:31:04.1206950Z Removing HTTP extra header
+2025-12-12T03:31:04.1211954Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-12T03:31:04.1243450Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-12T03:31:04.1464316Z Removing includeIf entries pointing to credentials config files
+2025-12-12T03:31:04.1472370Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-12T03:31:04.1494558Z includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path
+2025-12-12T03:31:04.1495577Z includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path
+2025-12-12T03:31:04.1496402Z includeif.gitdir:/github/workspace/.git.path
+2025-12-12T03:31:04.1497031Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2025-12-12T03:31:04.1505667Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path
+2025-12-12T03:31:04.1527116Z /home/runner/work/_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config
+2025-12-12T03:31:04.1538412Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path /home/runner/work/_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config
+2025-12-12T03:31:04.1573729Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path
+2025-12-12T03:31:04.1595353Z /home/runner/work/_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config
+2025-12-12T03:31:04.1606506Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config
+2025-12-12T03:31:04.1638292Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2025-12-12T03:31:04.1658341Z /github/runner_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config
+2025-12-12T03:31:04.1665745Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config
+2025-12-12T03:31:04.1695422Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2025-12-12T03:31:04.1714888Z /github/runner_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config
+2025-12-12T03:31:04.1723782Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config
+2025-12-12T03:31:04.1754339Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-12T03:31:04.1971016Z Removing credentials config '/home/runner/work/_temp/git-credentials-8240b55f-2afb-486b-b2e8-e1fcca6e37a4.config'
+2025-12-12T03:31:04.2099644Z Post job cleanup.
+2025-12-12T03:31:04.2865781Z [command]/usr/bin/git version
+2025-12-12T03:31:04.2934152Z git version 2.52.0
+2025-12-12T03:31:04.2968806Z Temporarily overriding HOME='/home/runner/work/_temp/40331f55-6ebc-44a3-883b-4b825e427046' before making global git config changes
+2025-12-12T03:31:04.2970460Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-12T03:31:04.2974069Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-12-12T03:31:04.3004645Z Removing SSH command configuration
+2025-12-12T03:31:04.3010633Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-12T03:31:04.3042977Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-12T03:31:04.3264706Z Removing HTTP extra header
+2025-12-12T03:31:04.3268805Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-12T03:31:04.3299102Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-12T03:31:04.3516687Z Removing includeIf entries pointing to credentials config files
+2025-12-12T03:31:04.3522411Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-12T03:31:04.3551600Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-12T03:31:04.3885625Z Cleaning up orphan processes
