@@ -5,6 +5,7 @@ from key_multivalue_storage import Storage as s
 import os
 import warnings
 import scratchattach as scratch3
+import websocket
 from scratchattach import Encoding
 
 warnings.filterwarnings('ignore', category=scratch3.LoginDataWarning)
@@ -128,5 +129,11 @@ def on_request(request) -> None:
 def on_unknown_request(request) -> None:
     """Runs when unknown request is recieved."""
     dprint(f"Received unknown request {request.request_name}, requester {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}. Check the project to make sure there are no typing and/or spelling errors.")
-    
-client.start(thread=True)
+
+try:
+    client.start(thread=True)
+except websocket._exceptions.WebSocketBadStatusException as e:
+    print("Could not establish websocket connection. Scratch's cloud may be down.")
+    raise SystemExit from e
+except Exception as e:
+    raise SystemExit from e
