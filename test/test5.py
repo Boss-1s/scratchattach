@@ -1,4 +1,4 @@
-from key_multivalue_storage import Storage as s
+from ../key_multivalue_storage import Storage as s
 from typing import get_type_hints
 import time
 import sys
