@@ -1,7 +1,11 @@
-from ../key_multivalue_storage import Storage as s
 from typing import get_type_hints
 import time
 import sys
+import os
+current_dir = os.path.dirname(os.path.abspath(__file__))
+parent_dir = os.path.dirname(current_dir)
+sys.path.append(parent_dir)
+from key_multivalue_storage import Storage as s
 
 sload = s.Load
 sdelete = s.Delete
