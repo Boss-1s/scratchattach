@@ -210,7 +210,10 @@ class Storage:
 		except json.JSONDecodeError:
 			warnings.warn(f"Warning: File '{file_path}' contains invalid JSON. Overwriting.", SyntaxWarning)
 			all_data = {}
-	
+
+        if ".json" not in file_path:
+			fp = str(file_path) + ".json"
+		
 		all_data.update(self._to_dict())
 	
 		try:
