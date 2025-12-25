@@ -21,7 +21,7 @@ def dprint(str) -> None:
     os.system("echo " + str)
     
 # When adding new client methods, remember to put dprint() before return, so that the console gets a copy of the output.
-client = cloud.requests(used_cloud_vars=["1", "2", "3", "4", "5", "6", "7", "8", "9"])
+client = cloud.requests()
 
 @client.request(response_priority=1)
 def r_ping() -> str:
@@ -35,11 +35,11 @@ def r_user_check(argument1) -> str:
     dprint(f"User existence requested for {argument1}")
     try:
         user = scratch3.get_user(argument1)
-        dprint("Sucessful return\nHTTP 200: SUCCESS")
+        dprint("Sucessful return---HTTP 200: SUCCESS")
         return user
     except Exception as e:
         dprint(f"{argument1} does not exist, returning error in project...(See below for details):")
-        dprint(f"ERR HTTP 404: NOT_FOUND\nRequested for:{argument1}\nStatus: FAILED\nReason: {e}")
+        dprint(f"ERR HTTP 404: NOT_FOUND---Requested for:{argument1}---Status: FAILED---Reason: {e}")
         return "404 Error: user does not exist - Check Python console for more details"
 
 @client.request(response_priority=5)
@@ -53,8 +53,8 @@ def r_new_scratcher_detect(argument1) -> str:
         answer = Encoding.encode(user.is_new_scratcher())
         return answer
     except Exception as e:
-        dprint(f'{argument1} may not use this project, per "new_scratcher" status rules...(See below for details):')
-        dprint(f"ERR HTTP 403: FORBIDDEN\nRequested for:{argument1}\nStatus: REJECTED\nReason: {e}")
+        dprint(f'"{argument1} may not use this project, per "new_scratcher" status rules...(See below for details):"')
+        dprint(f"ERR HTTP 403: FORBIDDEN---Requested for:{argument1}---Status: REJECTED---Reason: {e}")
         return "403 Error: user is a new scratcher - Check Python console for more details"
 
 @client.request(response_priority=2)
@@ -123,7 +123,7 @@ def on_ready() -> None:
 @client.event
 def on_request(request) -> None:
     """Runs when request is recieved."""
-    dprint(f"Received request {request.request_name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}\n")
+    dprint(f"Received request {request.request_name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}")
 
 @client.event
 def on_unknown_request(request) -> None:
