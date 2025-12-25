@@ -25,16 +25,9 @@ def message_ping(argument1):
     "Main client request"
     os.system(f"echo Message Count requested for {argument1}")
     user = scratch3.get_user(argument1)
-    return user.message_count()
-
-@client.request
-@deprecated("method deprecated because you cannot truly check if a new scratcher is a new scratcher, as they cannot use cloud vars.")
-def new_scratcher_detect(argument1):
-    "Secondary client request"
-    os.system(f"echo Checking if {argument1} is a new scratcher")
-    user = session.connect_user(argument1)
-    answer = Encoding.encode(user.is_new_scratcher())
-    return answer
+    mc = user.message_count()
+    os.system(f"echo Message Count read: {mc}")
+    return mc
 
 @client.event
 def on_ready():
@@ -65,7 +58,7 @@ def on_disconnect():
 def on_error(request, e):
     "Runs when client runs into error"
     os.system(f"echo Request: {request.request.name} {request.requester} {request.arguments} {request.timestamp} {request.request_id}")
-    os.system("echo Error that occured: {e}")
+    os.system(f"echo Error that occured: {e}")
 
 @client.event
 def on_request(request):
