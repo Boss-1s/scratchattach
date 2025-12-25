@@ -8,5 +8,7 @@
 
 [![CodeQL](https://github.com/Boss-1s/scratchattach/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/Boss-1s/scratchattach/actions/workflows/github-code-scanning/codeql)
 
+[![key_multivalue_storage](https://github.com/Boss-1s/scratchattach/actions/workflows/test-multivalue.yml/badge.svg)](https://github.com/Boss-1s/scratchattach/actions/workflows/test-multivalue.yml)
+
 Current Version: 1.6 <br>
 08/11/2025
