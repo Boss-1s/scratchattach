@@ -2,6 +2,7 @@ from typing import get_type_hints
 import time
 import sys
 import os
+import json
 current_dir = os.path.dirname(os.path.abspath(__file__))
 parent_dir = os.path.dirname(current_dir)
 sys.path.append(parent_dir)
@@ -71,18 +72,19 @@ def db_delete_all(db):
     print(f"Sucessfully deleted all data from {db}.")
     #return "Success"
 
-db_add_subval("test.json", "test_top_level_key", "sk1", "val1", "sk2", "skibidi toilet")
-db_add_subval("test.json", "test_top_level_key2", "sk1", "val1", "sk2", "the fate of sigma")
-db_add_subval("test.json", "test_top_level_key2", "sk3", "val3", "sk4", "the fate of shard")
+db_add_subval("otest.json", "test_top_level_key", "sk1", "val1", "sk2", "skibidi toilet")
+assert db_get_keys("otest.json") == "test_top_level_key", "failed at debug point 1"
+db_add_subval("otest.json", "test_top_level_key2", "sk1", "val1", "sk2", "the fate of sigma")
+db_add_subval("otest.json", "test_top_level_key2", "sk3", "val3", "sk4", "the fate of shard")
 time.sleep(2)
-db_set_val("test.json", "test_top_level_key", "sk2", "sigma")
+db_set_val("otest.json", "test_top_level_key", "sk2", "sigma")
 time.sleep(2)
-print(db_get_keys("test.json"))
+print(db_get_keys("otest.json"))
 time.sleep(1)
-print(db_get_subkeys_values("test.json", "test_top_level_key"))
+print(db_get_subkeys_values("otest.json", "test_top_level_key"))
 time.sleep(1)
-db_delete_key("test.json", "test_top_level_key2")
+db_delete_key("otest.json", "test_top_level_key2")
 time.sleep(1)
-db_delete_all("test.json")
+db_delete_all("otest.json")
 
-print("test passed sucessfully")
+print("\ntest passed sucessfully")
