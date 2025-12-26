@@ -1,0 +1,483 @@
+﻿2025-12-25T03:11:13.5197826Z Current runner version: '2.330.0'
+2025-12-25T03:11:13.5220704Z ##[group]Runner Image Provisioner
+2025-12-25T03:11:13.5221582Z Hosted Compute Agent
+2025-12-25T03:11:13.5222171Z Version: 20251211.462
+2025-12-25T03:11:13.5222783Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+2025-12-25T03:11:13.5223484Z Build Date: 2025-12-11T16:28:49Z
+2025-12-25T03:11:13.5224164Z Worker ID: {2907a61f-a39f-4379-be38-12dc5e2d2c92}
+2025-12-25T03:11:13.5224872Z ##[endgroup]
+2025-12-25T03:11:13.5225608Z ##[group]Operating System
+2025-12-25T03:11:13.5226230Z Ubuntu
+2025-12-25T03:11:13.5226667Z 24.04.3
+2025-12-25T03:11:13.5227170Z LTS
+2025-12-25T03:11:13.5227650Z ##[endgroup]
+2025-12-25T03:11:13.5228144Z ##[group]Runner Image
+2025-12-25T03:11:13.5228717Z Image: ubuntu-24.04
+2025-12-25T03:11:13.5229251Z Version: 20251215.174.1
+2025-12-25T03:11:13.5230226Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251215.174/images/ubuntu/Ubuntu2404-Readme.md
+2025-12-25T03:11:13.5231810Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251215.174
+2025-12-25T03:11:13.5232825Z ##[endgroup]
+2025-12-25T03:11:13.5233877Z ##[group]GITHUB_TOKEN Permissions
+2025-12-25T03:11:13.5236366Z Contents: write
+2025-12-25T03:11:13.5237009Z Metadata: read
+2025-12-25T03:11:13.5237505Z ##[endgroup]
+2025-12-25T03:11:13.5239521Z Secret source: Actions
+2025-12-25T03:11:13.5240287Z Prepare workflow directory
+2025-12-25T03:11:13.5622907Z Prepare all required actions
+2025-12-25T03:11:13.5660992Z Getting action download info
+2025-12-25T03:11:13.9990497Z Download action repository 'actions/checkout@v6.0.1' (SHA:8e8c483db84b4bee98b60c0593521ed34d9990e8)
+2025-12-25T03:11:14.1012328Z Download action repository 'actions/setup-python@v6.1.0' (SHA:83679a892e2d95755f2dac6acb0bfd1e9ac5d548)
+2025-12-25T03:11:14.1930310Z Download action repository 'bossOfCode/install-scratchattach@v1.0.3' (SHA:be17a7cf1ecb5a7040eb42ef26c2e1fbe72bb25a)
+2025-12-25T03:11:14.8242801Z Complete job name: Run Request/Database Handler
+2025-12-25T03:11:14.9046388Z ##[group]Run actions/checkout@v6.0.1
+2025-12-25T03:11:14.9047745Z with:
+2025-12-25T03:11:14.9048463Z   ref: scratch_chat_dev
+2025-12-25T03:11:14.9049334Z   repository: Boss-1s/scratchattach
+2025-12-25T03:11:14.9050549Z   token: ***
+2025-12-25T03:11:14.9051280Z   ssh-strict: true
+2025-12-25T03:11:14.9052032Z   ssh-user: git
+2025-12-25T03:11:14.9052812Z   persist-credentials: true
+2025-12-25T03:11:14.9053744Z   clean: true
+2025-12-25T03:11:14.9054530Z   sparse-checkout-cone-mode: true
+2025-12-25T03:11:14.9055695Z   fetch-depth: 1
+2025-12-25T03:11:14.9056480Z   fetch-tags: false
+2025-12-25T03:11:14.9057258Z   show-progress: true
+2025-12-25T03:11:14.9058050Z   lfs: false
+2025-12-25T03:11:14.9058760Z   submodules: false
+2025-12-25T03:11:14.9059557Z   set-safe-directory: true
+2025-12-25T03:11:14.9060683Z ##[endgroup]
+2025-12-25T03:11:14.9973226Z Syncing repository: Boss-1s/scratchattach
+2025-12-25T03:11:14.9976079Z ##[group]Getting Git version info
+2025-12-25T03:11:14.9977746Z Working directory is '/home/runner/work/scratchattach/scratchattach'
+2025-12-25T03:11:14.9979785Z [command]/usr/bin/git version
+2025-12-25T03:11:15.0026586Z git version 2.52.0
+2025-12-25T03:11:15.0046972Z ##[endgroup]
+2025-12-25T03:11:15.0061285Z Temporarily overriding HOME='/home/runner/work/_temp/f2db7f60-05f6-4828-a5d5-cbf47c40113c' before making global git config changes
+2025-12-25T03:11:15.0064391Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-25T03:11:15.0067699Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-12-25T03:11:15.0105862Z Deleting the contents of '/home/runner/work/scratchattach/scratchattach'
+2025-12-25T03:11:15.0109009Z ##[group]Initializing the repository
+2025-12-25T03:11:15.0112914Z [command]/usr/bin/git init /home/runner/work/scratchattach/scratchattach
+2025-12-25T03:11:15.0227931Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-12-25T03:11:15.0230231Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2025-12-25T03:11:15.0232874Z hint: to use in all of your new repositories, which will suppress this warning,
+2025-12-25T03:11:15.0235133Z hint: call:
+2025-12-25T03:11:15.0236482Z hint:
+2025-12-25T03:11:15.0237514Z hint: 	git config --global init.defaultBranch <name>
+2025-12-25T03:11:15.0238631Z hint:
+2025-12-25T03:11:15.0239675Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-12-25T03:11:15.0242327Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-12-25T03:11:15.0243725Z hint:
+2025-12-25T03:11:15.0244440Z hint: 	git branch -m <name>
+2025-12-25T03:11:15.0245298Z hint:
+2025-12-25T03:11:15.0246752Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-12-25T03:11:15.0248783Z Initialized empty Git repository in /home/runner/work/scratchattach/scratchattach/.git/
+2025-12-25T03:11:15.0251931Z [command]/usr/bin/git remote add origin https://github.com/Boss-1s/scratchattach
+2025-12-25T03:11:15.0309700Z ##[endgroup]
+2025-12-25T03:11:15.0311049Z ##[group]Disabling automatic garbage collection
+2025-12-25T03:11:15.0312647Z [command]/usr/bin/git config --local gc.auto 0
+2025-12-25T03:11:15.0341551Z ##[endgroup]
+2025-12-25T03:11:15.0343065Z ##[group]Setting up auth
+2025-12-25T03:11:15.0344490Z Removing SSH command configuration
+2025-12-25T03:11:15.0348833Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-25T03:11:15.0385105Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-25T03:11:15.0721618Z Removing HTTP extra header
+2025-12-25T03:11:15.0726943Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-25T03:11:15.0757482Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-25T03:11:15.0974057Z Removing includeIf entries pointing to credentials config files
+2025-12-25T03:11:15.0979562Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-25T03:11:15.1010089Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-25T03:11:15.1233824Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-12-25T03:11:15.1270320Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path /home/runner/work/_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config
+2025-12-25T03:11:15.1301338Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config
+2025-12-25T03:11:15.1332042Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config
+2025-12-25T03:11:15.1362759Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config
+2025-12-25T03:11:15.1389311Z ##[endgroup]
+2025-12-25T03:11:15.1390817Z ##[group]Fetching the repository
+2025-12-25T03:11:15.1399960Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/scratch_chat_dev*:refs/remotes/origin/scratch_chat_dev* +refs/tags/scratch_chat_dev*:refs/tags/scratch_chat_dev*
+2025-12-25T03:11:18.3594732Z From https://github.com/Boss-1s/scratchattach
+2025-12-25T03:11:18.3595850Z  * [new branch]      scratch_chat_dev -> origin/scratch_chat_dev
+2025-12-25T03:11:18.3628492Z ##[endgroup]
+2025-12-25T03:11:18.3629122Z ##[group]Determining the checkout info
+2025-12-25T03:11:18.3635912Z [command]/usr/bin/git branch --list --remote origin/scratch_chat_dev
+2025-12-25T03:11:18.3666525Z   origin/scratch_chat_dev
+2025-12-25T03:11:18.3671098Z ##[endgroup]
+2025-12-25T03:11:18.3675305Z [command]/usr/bin/git sparse-checkout disable
+2025-12-25T03:11:18.3717456Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-12-25T03:11:18.3745332Z ##[group]Checking out the ref
+2025-12-25T03:11:18.3749185Z [command]/usr/bin/git checkout --progress --force -B scratch_chat_dev refs/remotes/origin/scratch_chat_dev
+2025-12-25T03:11:19.0366878Z Switched to a new branch 'scratch_chat_dev'
+2025-12-25T03:11:19.0367662Z branch 'scratch_chat_dev' set up to track 'origin/scratch_chat_dev'.
+2025-12-25T03:11:19.0424056Z ##[endgroup]
+2025-12-25T03:11:19.0462501Z [command]/usr/bin/git log -1 --format=%H
+2025-12-25T03:11:19.0485195Z 555b5a2b7e89fd45a67ff02f90ae6bacc403ff71
+2025-12-25T03:11:19.0703408Z ##[group]Run actions/setup-python@v6.1.0
+2025-12-25T03:11:19.0703720Z with:
+2025-12-25T03:11:19.0703931Z   python-version: 3.14
+2025-12-25T03:11:19.0704176Z   check-latest: true
+2025-12-25T03:11:19.0704529Z   token: ***
+2025-12-25T03:11:19.0704747Z   update-environment: true
+2025-12-25T03:11:19.0704999Z   allow-prereleases: false
+2025-12-25T03:11:19.0705231Z   freethreaded: false
+2025-12-25T03:11:19.0705747Z ##[endgroup]
+2025-12-25T03:11:19.1939216Z ##[group]Installed versions
+2025-12-25T03:11:19.2102497Z (node:2254) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2025-12-25T03:11:19.2103222Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2025-12-25T03:11:20.0242694Z Resolved as '3.14.2'
+2025-12-25T03:11:20.0279873Z Successfully set up CPython (3.14.2)
+2025-12-25T03:11:20.0280673Z ##[endgroup]
+2025-12-25T03:11:20.0477233Z ##[group]Run bossOfCode/install-scratchattach@v1.0.3
+2025-12-25T03:11:20.0477575Z env:
+2025-12-25T03:11:20.0477818Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:20.0478221Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2025-12-25T03:11:20.0478609Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:20.0478948Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:20.0479291Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:20.0479635Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2025-12-25T03:11:20.0479922Z ##[endgroup]
+2025-12-25T03:11:20.0627863Z ##[group]Run python3 -m pip install --upgrade pip
+2025-12-25T03:11:20.0628277Z [36;1mpython3 -m pip install --upgrade pip[0m
+2025-12-25T03:11:20.0749481Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-12-25T03:11:20.0749817Z env:
+2025-12-25T03:11:20.0750112Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:20.0750525Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2025-12-25T03:11:20.0750917Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:20.0751279Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:20.0751654Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:20.0752001Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2025-12-25T03:11:20.0752299Z ##[endgroup]
+2025-12-25T03:11:22.4469746Z Requirement already satisfied: pip in /opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages (25.3)
+2025-12-25T03:11:22.7969945Z ##[group]Run pip install -U scratchattach
+2025-12-25T03:11:22.7970262Z [36;1mpip install -U scratchattach[0m
+2025-12-25T03:11:22.8003223Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-12-25T03:11:22.8003539Z env:
+2025-12-25T03:11:22.8003793Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:22.8004192Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2025-12-25T03:11:22.8004745Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:22.8005078Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:22.8005650Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:22.8006021Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2025-12-25T03:11:22.8006303Z ##[endgroup]
+2025-12-25T03:11:23.3105228Z Collecting scratchattach
+2025-12-25T03:11:23.4153678Z   Downloading scratchattach-2.1.13-py3-none-any.whl.metadata (5.5 kB)
+2025-12-25T03:11:23.4555830Z Collecting websocket-client (from scratchattach)
+2025-12-25T03:11:23.4740895Z   Downloading websocket_client-1.9.0-py3-none-any.whl.metadata (8.3 kB)
+2025-12-25T03:11:23.5260804Z Collecting requests (from scratchattach)
+2025-12-25T03:11:23.5447440Z   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+2025-12-25T03:11:23.5717332Z Collecting bs4 (from scratchattach)
+2025-12-25T03:11:23.5915155Z   Downloading bs4-0.0.2-py2.py3-none-any.whl.metadata (411 bytes)
+2025-12-25T03:11:23.6210706Z Collecting SimpleWebSocketServer (from scratchattach)
+2025-12-25T03:11:23.6407706Z   Downloading SimpleWebSocketServer-0.1.2.tar.gz (10 kB)
+2025-12-25T03:11:23.6503528Z   Installing build dependencies: started
+2025-12-25T03:11:24.7986195Z   Installing build dependencies: finished with status 'done'
+2025-12-25T03:11:24.7991846Z   Getting requirements to build wheel: started
+2025-12-25T03:11:25.3999970Z   Getting requirements to build wheel: finished with status 'done'
+2025-12-25T03:11:25.4008715Z   Preparing metadata (pyproject.toml): started
+2025-12-25T03:11:25.6028928Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2025-12-25T03:11:25.6376215Z Collecting typing-extensions (from scratchattach)
+2025-12-25T03:11:25.6564690Z   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+2025-12-25T03:11:25.6922622Z Collecting beautifulsoup4 (from bs4->scratchattach)
+2025-12-25T03:11:25.7106423Z   Downloading beautifulsoup4-4.14.3-py3-none-any.whl.metadata (3.8 kB)
+2025-12-25T03:11:25.7479287Z Collecting soupsieve>=1.6.1 (from beautifulsoup4->bs4->scratchattach)
+2025-12-25T03:11:25.7664131Z   Downloading soupsieve-2.8.1-py3-none-any.whl.metadata (4.6 kB)
+2025-12-25T03:11:25.8980574Z Collecting charset_normalizer<4,>=2 (from requests->scratchattach)
+2025-12-25T03:11:25.9169762Z   Downloading charset_normalizer-3.4.4-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+2025-12-25T03:11:25.9587893Z Collecting idna<4,>=2.5 (from requests->scratchattach)
+2025-12-25T03:11:25.9772476Z   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+2025-12-25T03:11:26.0262033Z Collecting urllib3<3,>=1.21.1 (from requests->scratchattach)
+2025-12-25T03:11:26.0444540Z   Downloading urllib3-2.6.2-py3-none-any.whl.metadata (6.6 kB)
+2025-12-25T03:11:26.0844472Z Collecting certifi>=2017.4.17 (from requests->scratchattach)
+2025-12-25T03:11:26.1031786Z   Downloading certifi-2025.11.12-py3-none-any.whl.metadata (2.5 kB)
+2025-12-25T03:11:26.1281540Z Downloading scratchattach-2.1.13-py3-none-any.whl (141 kB)
+2025-12-25T03:11:26.1708498Z Downloading bs4-0.0.2-py2.py3-none-any.whl (1.2 kB)
+2025-12-25T03:11:26.1961039Z Downloading beautifulsoup4-4.14.3-py3-none-any.whl (107 kB)
+2025-12-25T03:11:26.2201401Z Downloading soupsieve-2.8.1-py3-none-any.whl (36 kB)
+2025-12-25T03:11:26.2407472Z Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+2025-12-25T03:11:26.2613723Z Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+2025-12-25T03:11:26.2829430Z Downloading charset_normalizer-3.4.4-cp314-cp314-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (152 kB)
+2025-12-25T03:11:26.3081783Z Downloading idna-3.11-py3-none-any.whl (71 kB)
+2025-12-25T03:11:26.3294993Z Downloading urllib3-2.6.2-py3-none-any.whl (131 kB)
+2025-12-25T03:11:26.3527284Z Downloading certifi-2025.11.12-py3-none-any.whl (159 kB)
+2025-12-25T03:11:26.3768726Z Downloading websocket_client-1.9.0-py3-none-any.whl (82 kB)
+2025-12-25T03:11:26.3903379Z Building wheels for collected packages: SimpleWebSocketServer
+2025-12-25T03:11:26.3910878Z   Building wheel for SimpleWebSocketServer (pyproject.toml): started
+2025-12-25T03:11:26.6269305Z   Building wheel for SimpleWebSocketServer (pyproject.toml): finished with status 'done'
+2025-12-25T03:11:26.6274938Z   Created wheel for SimpleWebSocketServer: filename=simplewebsocketserver-0.1.2-py3-none-any.whl size=9715 sha256=57d446dfec713866ccc2dca53beca8597010edf3226eaf379f7589f811737e24
+2025-12-25T03:11:26.6276936Z   Stored in directory: /home/runner/.cache/pip/wheels/5a/5b/20/48ef42cb119fe12cb5ea0267429e2c7bba29ccf56933420a51
+2025-12-25T03:11:26.6294669Z Successfully built SimpleWebSocketServer
+2025-12-25T03:11:26.6471207Z Installing collected packages: SimpleWebSocketServer, websocket-client, urllib3, typing-extensions, soupsieve, idna, charset_normalizer, certifi, requests, beautifulsoup4, bs4, scratchattach
+2025-12-25T03:11:27.4210912Z 
+2025-12-25T03:11:27.4231705Z Successfully installed SimpleWebSocketServer-0.1.2 beautifulsoup4-4.14.3 bs4-0.0.2 certifi-2025.11.12 charset_normalizer-3.4.4 idna-3.11 requests-2.32.5 scratchattach-2.1.13 soupsieve-2.8.1 typing-extensions-4.15.0 urllib3-2.6.2 websocket-client-1.9.0
+2025-12-25T03:11:27.5141558Z ##[group]Run actions/checkout@v6.0.1
+2025-12-25T03:11:27.5141831Z with:
+2025-12-25T03:11:27.5142015Z   ref: scratch_chat_dev
+2025-12-25T03:11:27.5142231Z   repository: Boss-1s/scratchattach
+2025-12-25T03:11:27.5142585Z   token: ***
+2025-12-25T03:11:27.5142770Z   ssh-strict: true
+2025-12-25T03:11:27.5142955Z   ssh-user: git
+2025-12-25T03:11:27.5143150Z   persist-credentials: true
+2025-12-25T03:11:27.5143365Z   clean: true
+2025-12-25T03:11:27.5143561Z   sparse-checkout-cone-mode: true
+2025-12-25T03:11:27.5143798Z   fetch-depth: 1
+2025-12-25T03:11:27.5143979Z   fetch-tags: false
+2025-12-25T03:11:27.5144174Z   show-progress: true
+2025-12-25T03:11:27.5144366Z   lfs: false
+2025-12-25T03:11:27.5144533Z   submodules: false
+2025-12-25T03:11:27.5144743Z   set-safe-directory: true
+2025-12-25T03:11:27.5144948Z env:
+2025-12-25T03:11:27.5145179Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:27.5145873Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2025-12-25T03:11:27.5146254Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:27.5146594Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:27.5146933Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:27.5147270Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2025-12-25T03:11:27.5147557Z ##[endgroup]
+2025-12-25T03:11:27.5904916Z Syncing repository: Boss-1s/scratchattach
+2025-12-25T03:11:27.5907594Z ##[group]Getting Git version info
+2025-12-25T03:11:27.5908430Z Working directory is '/home/runner/work/scratchattach/scratchattach'
+2025-12-25T03:11:27.5944587Z [command]/usr/bin/git version
+2025-12-25T03:11:27.5981058Z git version 2.52.0
+2025-12-25T03:11:27.6033194Z ##[endgroup]
+2025-12-25T03:11:27.6047717Z Temporarily overriding HOME='/home/runner/work/_temp/55647525-9380-4278-b9db-d7869665bf12' before making global git config changes
+2025-12-25T03:11:27.6049050Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-25T03:11:27.6053490Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-12-25T03:11:27.6091190Z [command]/usr/bin/git config --local --get remote.origin.url
+2025-12-25T03:11:27.6111958Z https://github.com/Boss-1s/scratchattach
+2025-12-25T03:11:27.6125696Z ##[group]Removing previously created refs, to avoid conflicts
+2025-12-25T03:11:27.6130413Z [command]/usr/bin/git rev-parse --symbolic-full-name --verify --quiet HEAD
+2025-12-25T03:11:27.6151084Z refs/heads/scratch_chat_dev
+2025-12-25T03:11:27.6160268Z [command]/usr/bin/git checkout --detach
+2025-12-25T03:11:27.6498700Z HEAD is now at 555b5a2 Merge branch 'main' into scratch_chat_dev
+2025-12-25T03:11:27.6541965Z [command]/usr/bin/git branch --delete --force scratch_chat_dev
+2025-12-25T03:11:27.6567904Z Deleted branch scratch_chat_dev (was 555b5a2).
+2025-12-25T03:11:27.6602162Z ##[endgroup]
+2025-12-25T03:11:27.6606162Z [command]/usr/bin/git submodule status
+2025-12-25T03:11:27.6832561Z ##[group]Cleaning the repository
+2025-12-25T03:11:27.6836776Z [command]/usr/bin/git clean -ffdx
+2025-12-25T03:11:27.6886627Z [command]/usr/bin/git reset --hard HEAD
+2025-12-25T03:11:27.6981202Z HEAD is now at 555b5a2 Merge branch 'main' into scratch_chat_dev
+2025-12-25T03:11:27.6986872Z ##[endgroup]
+2025-12-25T03:11:27.6988520Z ##[group]Disabling automatic garbage collection
+2025-12-25T03:11:27.6992575Z [command]/usr/bin/git config --local gc.auto 0
+2025-12-25T03:11:27.7018768Z ##[endgroup]
+2025-12-25T03:11:27.7019171Z ##[group]Setting up auth
+2025-12-25T03:11:27.7020522Z Removing SSH command configuration
+2025-12-25T03:11:27.7026086Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-25T03:11:27.7055922Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-25T03:11:27.7280107Z Removing HTTP extra header
+2025-12-25T03:11:27.7285267Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-25T03:11:27.7315675Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-25T03:11:27.7533944Z Removing includeIf entries pointing to credentials config files
+2025-12-25T03:11:27.7539942Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-25T03:11:27.7564307Z includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path
+2025-12-25T03:11:27.7565623Z includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path
+2025-12-25T03:11:27.7566183Z includeif.gitdir:/github/workspace/.git.path
+2025-12-25T03:11:27.7566533Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2025-12-25T03:11:27.7572535Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path
+2025-12-25T03:11:27.7594594Z /home/runner/work/_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config
+2025-12-25T03:11:27.7604646Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path /home/runner/work/_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config
+2025-12-25T03:11:27.7635012Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path
+2025-12-25T03:11:27.7655811Z /home/runner/work/_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config
+2025-12-25T03:11:27.7664599Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config
+2025-12-25T03:11:27.7694312Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2025-12-25T03:11:27.7714873Z /github/runner_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config
+2025-12-25T03:11:27.7723073Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config
+2025-12-25T03:11:27.7754438Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2025-12-25T03:11:27.7774294Z /github/runner_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config
+2025-12-25T03:11:27.7783776Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config
+2025-12-25T03:11:27.7816296Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-25T03:11:27.8031792Z Removing credentials config '/home/runner/work/_temp/git-credentials-136e132e-7633-4e4d-954e-074a7e72c161.config'
+2025-12-25T03:11:27.8044796Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-12-25T03:11:27.8079249Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path /home/runner/work/_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config
+2025-12-25T03:11:27.8114715Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config
+2025-12-25T03:11:27.8146454Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config
+2025-12-25T03:11:27.8178721Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config
+2025-12-25T03:11:27.8204984Z ##[endgroup]
+2025-12-25T03:11:27.8205809Z ##[group]Fetching the repository
+2025-12-25T03:11:27.8215972Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/scratch_chat_dev*:refs/remotes/origin/scratch_chat_dev* +refs/tags/scratch_chat_dev*:refs/tags/scratch_chat_dev*
+2025-12-25T03:11:28.2934171Z ##[endgroup]
+2025-12-25T03:11:28.2934841Z ##[group]Determining the checkout info
+2025-12-25T03:11:28.2942117Z [command]/usr/bin/git branch --list --remote origin/scratch_chat_dev
+2025-12-25T03:11:28.2970785Z   origin/scratch_chat_dev
+2025-12-25T03:11:28.2976224Z ##[endgroup]
+2025-12-25T03:11:28.2981250Z [command]/usr/bin/git sparse-checkout disable
+2025-12-25T03:11:28.3044518Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-12-25T03:11:28.3073214Z ##[group]Checking out the ref
+2025-12-25T03:11:28.3078922Z [command]/usr/bin/git checkout --progress --force -B scratch_chat_dev refs/remotes/origin/scratch_chat_dev
+2025-12-25T03:11:28.3162024Z Switched to a new branch 'scratch_chat_dev'
+2025-12-25T03:11:28.3163958Z branch 'scratch_chat_dev' set up to track 'origin/scratch_chat_dev'.
+2025-12-25T03:11:28.3169805Z ##[endgroup]
+2025-12-25T03:11:28.3207629Z [command]/usr/bin/git log -1 --format=%H
+2025-12-25T03:11:28.3231904Z 555b5a2b7e89fd45a67ff02f90ae6bacc403ff71
+2025-12-25T03:11:28.3347919Z ##[group]Run git config --global user.name 'Boss-1s [via Actions]'
+2025-12-25T03:11:28.3348402Z [36;1mgit config --global user.name 'Boss-1s [via Actions]'[0m
+2025-12-25T03:11:28.3348838Z [36;1mgit config --global user.email 'Boss-1s[auto]@users.noreply.github.com'[0m
+2025-12-25T03:11:28.3349331Z [36;1mtimeout 3m python3 scratch_chat.py || { [[ $? -eq 124 ]] && exit 0; }[0m
+2025-12-25T03:11:28.3382591Z shell: /usr/bin/bash -e {0}
+2025-12-25T03:11:28.3382833Z env:
+2025-12-25T03:11:28.3383091Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:28.3383501Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2025-12-25T03:11:28.3383890Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:28.3384237Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:28.3384578Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:11:28.3384963Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2025-12-25T03:11:28.3385691Z   PASS: ***
+2025-12-25T03:11:28.3385904Z ##[endgroup]
+2025-12-25T03:11:29.7532981Z Thanks for giving credit for CloudRequests!
+2025-12-25T03:11:29.7533661Z Request handler is running
+2025-12-25T03:11:29.7541412Z Request handler is running
+2025-12-25T03:11:38.3561790Z Traceback (most recent call last):
+2025-12-25T03:11:38.3570940Z   File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/scratchattach/eventhandlers/_base.py", line 46, in call_event
+2025-12-25T03:11:38.3571624Z     func(*args)
+2025-12-25T03:11:38.3571821Z     ~~~~^^^^^^^
+2025-12-25T03:11:38.3572279Z   File "/home/runner/work/scratchattach/scratchattach/scratch_chat.py", line 126, in on_request
+2025-12-25T03:11:38.3573195Z     dprint(f"Received request {request.request_name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}\n")
+2025-12-25T03:11:38.3573889Z                                ^^^^^^^^^^^^^^^^^^^^
+2025-12-25T03:11:38.3574398Z AttributeError: 'ReceivedRequest' object has no attribute 'request_name'. Did you mean: 'request_id'?
+2025-12-25T03:11:38.3575593Z Request Handler Pinged
+2025-12-25T03:11:47.6183750Z Traceback (most recent call last):
+2025-12-25T03:11:47.6188531Z   File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/scratchattach/eventhandlers/_base.py", line 46, in call_event
+2025-12-25T03:11:47.6189938Z     func(*args)
+2025-12-25T03:11:47.6190324Z     ~~~~^^^^^^^
+2025-12-25T03:11:47.6191251Z   File "/home/runner/work/scratchattach/scratchattach/scratch_chat.py", line 126, in on_request
+2025-12-25T03:11:47.6193073Z     dprint(f"Received request {request.request_name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}\n")
+2025-12-25T03:11:47.6194232Z                                ^^^^^^^^^^^^^^^^^^^^
+2025-12-25T03:11:47.6194823Z AttributeError: 'ReceivedRequest' object has no attribute 'request_name'. Did you mean: 'request_id'?
+2025-12-25T03:11:47.6198594Z client.requester requested subkeys under the top level key Boss_1s in database settings.json
+2025-12-25T03:12:09.2108795Z Traceback (most recent call last):
+2025-12-25T03:12:09.2112008Z   File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/scratchattach/eventhandlers/_base.py", line 46, in call_event
+2025-12-25T03:12:09.2113327Z     func(*args)
+2025-12-25T03:12:09.2113715Z     ~~~~^^^^^^^
+2025-12-25T03:12:09.2116293Z   File "/home/runner/work/scratchattach/scratchattach/scratch_chat.py", line 126, in on_request
+2025-12-25T03:12:09.2117854Z     dprint(f"Received request {request.request_name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}\n")
+2025-12-25T03:12:09.2118940Z                                ^^^^^^^^^^^^^^^^^^^^
+2025-12-25T03:12:09.2119667Z AttributeError: 'ReceivedRequest' object has no attribute 'request_name'. Did you mean: 'request_id'?
+2025-12-25T03:12:09.2121429Z client.requester requested subkeys under the top level key Boss_1s in database settings.json
+2025-12-25T03:12:34.9986307Z Traceback (most recent call last):
+2025-12-25T03:12:34.9992549Z   File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/scratchattach/eventhandlers/_base.py", line 46, in call_event
+2025-12-25T03:12:34.9993483Z     func(*args)
+2025-12-25T03:12:34.9993754Z     ~~~~^^^^^^^
+2025-12-25T03:12:34.9994475Z   File "/home/runner/work/scratchattach/scratchattach/scratch_chat.py", line 126, in on_request
+2025-12-25T03:12:34.9996280Z     dprint(f"Received request {request.request_name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}\n")
+2025-12-25T03:12:34.9997432Z                                ^^^^^^^^^^^^^^^^^^^^
+2025-12-25T03:12:34.9998212Z AttributeError: 'ReceivedRequest' object has no attribute 'request_name'. Did you mean: 'request_id'?
+2025-12-25T03:12:35.0001887Z client.requester requested subkeys under the top level key Boss_1s in database settings.json
+2025-12-25T03:12:44.3051878Z Traceback (most recent call last):
+2025-12-25T03:12:44.3056277Z   File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/scratchattach/eventhandlers/_base.py", line 46, in call_event
+2025-12-25T03:12:44.3057717Z     func(*args)
+2025-12-25T03:12:44.3058008Z     ~~~~^^^^^^^
+2025-12-25T03:12:44.3058704Z   File "/home/runner/work/scratchattach/scratchattach/scratch_chat.py", line 126, in on_request
+2025-12-25T03:12:44.3059794Z     dprint(f"Received request {request.request_name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}\n")
+2025-12-25T03:12:44.3060490Z                                ^^^^^^^^^^^^^^^^^^^^
+2025-12-25T03:12:44.3060959Z AttributeError: 'ReceivedRequest' object has no attribute 'request_name'. Did you mean: 'request_id'?
+2025-12-25T03:12:44.3066262Z client.requester requested subkeys under the top level key Boss_1s in database settings.json
+2025-12-25T03:12:49.0092972Z Traceback (most recent call last):
+2025-12-25T03:12:49.0096528Z   File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/scratchattach/eventhandlers/_base.py", line 46, in call_event
+2025-12-25T03:12:49.0097584Z     func(*args)
+2025-12-25T03:12:49.0097986Z     ~~~~^^^^^^^
+2025-12-25T03:12:49.0098816Z   File "/home/runner/work/scratchattach/scratchattach/scratch_chat.py", line 126, in on_request
+2025-12-25T03:12:49.0100493Z     dprint(f"Received request {request.request_name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}\n")
+2025-12-25T03:12:49.0101942Z                                ^^^^^^^^^^^^^^^^^^^^
+2025-12-25T03:12:49.0102709Z AttributeError: 'ReceivedRequest' object has no attribute 'request_name'. Did you mean: 'request_id'?
+2025-12-25T03:12:49.0107072Z client.requester requested keys from database settings.json
+2025-12-25T03:12:54.6221080Z Traceback (most recent call last):
+2025-12-25T03:12:54.6226637Z   File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/scratchattach/eventhandlers/_base.py", line 46, in call_event
+2025-12-25T03:12:54.6227566Z     func(*args)
+2025-12-25T03:12:54.6227876Z     ~~~~^^^^^^^
+2025-12-25T03:12:54.6228607Z   File "/home/runner/work/scratchattach/scratchattach/scratch_chat.py", line 126, in on_request
+2025-12-25T03:12:54.6230223Z     dprint(f"Received request {request.request_name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}\n")
+2025-12-25T03:12:54.6231372Z                                ^^^^^^^^^^^^^^^^^^^^
+2025-12-25T03:12:54.6232111Z AttributeError: 'ReceivedRequest' object has no attribute 'request_name'. Did you mean: 'request_id'?
+2025-12-25T03:12:54.6235099Z client.requester requested subkeys under the top level key Boss_1s in database notifs
+2025-12-25T03:12:54.6242011Z Failed to load file notifs: does not exist.
+2025-12-25T03:13:13.9450935Z Traceback (most recent call last):
+2025-12-25T03:13:13.9454229Z   File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/scratchattach/eventhandlers/_base.py", line 46, in call_event
+2025-12-25T03:13:13.9455751Z     func(*args)
+2025-12-25T03:13:13.9456151Z     ~~~~^^^^^^^
+2025-12-25T03:13:13.9457026Z   File "/home/runner/work/scratchattach/scratchattach/scratch_chat.py", line 126, in on_request
+2025-12-25T03:13:13.9459898Z     dprint(f"Received request {request.request_name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}\n")
+2025-12-25T03:13:13.9461039Z                                ^^^^^^^^^^^^^^^^^^^^
+2025-12-25T03:13:13.9461780Z AttributeError: 'ReceivedRequest' object has no attribute 'request_name'. Did you mean: 'request_id'?
+2025-12-25T03:13:13.9463672Z Checking if Boss_1s is a new scratcher
+2025-12-25T03:13:29.1643835Z Traceback (most recent call last):
+2025-12-25T03:13:29.1647531Z   File "/opt/hostedtoolcache/Python/3.14.2/x64/lib/python3.14/site-packages/scratchattach/eventhandlers/_base.py", line 46, in call_event
+2025-12-25T03:13:29.1648540Z     func(*args)
+2025-12-25T03:13:29.1648866Z     ~~~~^^^^^^^
+2025-12-25T03:13:29.1649330Z   File "/home/runner/work/scratchattach/scratchattach/scratch_chat.py", line 126, in on_request
+2025-12-25T03:13:29.1650716Z     dprint(f"Received request {request.request_name}, requested by {request.requester}, args {request.arguments}, timestamp {request.timestamp}, id {request.request_id}\n")
+2025-12-25T03:13:29.1651470Z                                ^^^^^^^^^^^^^^^^^^^^
+2025-12-25T03:13:29.1651946Z AttributeError: 'ReceivedRequest' object has no attribute 'request_name'. Did you mean: 'request_id'?
+2025-12-25T03:13:29.1656259Z User existence requested for
+2025-12-25T03:13:29.3379897Z sh: 1: Syntax error: "(" unexpected
+2025-12-25T03:13:29.3386308Z ERR HTTP 404: NOT_FOUND
+2025-12-25T03:13:29.3386999Z sh: 2: Requested: not found
+2025-12-25T03:13:29.3387771Z sh: 3: Status:: not found
+2025-12-25T03:13:29.3388441Z sh: 4: Reason:: not found
+2025-12-25T03:14:28.3564456Z ##[group]Run bash push.sh
+2025-12-25T03:14:28.3564721Z [36;1mbash push.sh[0m
+2025-12-25T03:14:28.3597095Z shell: /usr/bin/bash -e {0}
+2025-12-25T03:14:28.3597328Z env:
+2025-12-25T03:14:28.3597572Z   pythonLocation: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:14:28.3597987Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib/pkgconfig
+2025-12-25T03:14:28.3598373Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:14:28.3598712Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:14:28.3599057Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.14.2/x64
+2025-12-25T03:14:28.3599393Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.14.2/x64/lib
+2025-12-25T03:14:28.3599682Z ##[endgroup]
+2025-12-25T03:14:28.7102616Z From https://github.com/Boss-1s/scratchattach
+2025-12-25T03:14:28.7103169Z  * branch            scratch_chat_dev -> FETCH_HEAD
+2025-12-25T03:14:28.7179399Z Already up to date.
+2025-12-25T03:14:28.7242494Z Git working tree is clean (no uncommitted changes).
+2025-12-25T03:14:28.7336810Z Post job cleanup.
+2025-12-25T03:14:28.8142312Z [command]/usr/bin/git version
+2025-12-25T03:14:28.8178260Z git version 2.52.0
+2025-12-25T03:14:28.8239470Z Copying '/home/runner/.gitconfig' to '/home/runner/work/_temp/a8184224-e9c3-487a-809e-f40c35624bc3/.gitconfig'
+2025-12-25T03:14:28.8248221Z Temporarily overriding HOME='/home/runner/work/_temp/a8184224-e9c3-487a-809e-f40c35624bc3' before making global git config changes
+2025-12-25T03:14:28.8249244Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-25T03:14:28.8253547Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-12-25T03:14:28.8284274Z Removing SSH command configuration
+2025-12-25T03:14:28.8291625Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-25T03:14:28.8326841Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-25T03:14:28.8554436Z Removing HTTP extra header
+2025-12-25T03:14:28.8559520Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-25T03:14:28.8591152Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-25T03:14:28.8815610Z Removing includeIf entries pointing to credentials config files
+2025-12-25T03:14:28.8822376Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-25T03:14:28.8844032Z includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path
+2025-12-25T03:14:28.8844911Z includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path
+2025-12-25T03:14:28.8845603Z includeif.gitdir:/github/workspace/.git.path
+2025-12-25T03:14:28.8846000Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2025-12-25T03:14:28.8854614Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path
+2025-12-25T03:14:28.8875001Z /home/runner/work/_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config
+2025-12-25T03:14:28.8885657Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path /home/runner/work/_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config
+2025-12-25T03:14:28.8918247Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path
+2025-12-25T03:14:28.8939860Z /home/runner/work/_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config
+2025-12-25T03:14:28.8948725Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config
+2025-12-25T03:14:28.8978557Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2025-12-25T03:14:28.8998938Z /github/runner_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config
+2025-12-25T03:14:28.9007655Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config
+2025-12-25T03:14:28.9038895Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2025-12-25T03:14:28.9059648Z /github/runner_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config
+2025-12-25T03:14:28.9069279Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config
+2025-12-25T03:14:28.9101168Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-25T03:14:28.9330364Z Removing credentials config '/home/runner/work/_temp/git-credentials-22a00605-99f3-4feb-8125-303100737431.config'
+2025-12-25T03:14:28.9469701Z Post job cleanup.
+2025-12-25T03:14:29.0603396Z (node:2710) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2025-12-25T03:14:29.0604574Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2025-12-25T03:14:29.0747845Z Post job cleanup.
+2025-12-25T03:14:29.1512135Z [command]/usr/bin/git version
+2025-12-25T03:14:29.1548182Z git version 2.52.0
+2025-12-25T03:14:29.1578215Z Copying '/home/runner/.gitconfig' to '/home/runner/work/_temp/c349c1c5-437b-44f2-9bab-876c721acadf/.gitconfig'
+2025-12-25T03:14:29.1586702Z Temporarily overriding HOME='/home/runner/work/_temp/c349c1c5-437b-44f2-9bab-876c721acadf' before making global git config changes
+2025-12-25T03:14:29.1587734Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-25T03:14:29.1591891Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-12-25T03:14:29.1623936Z Removing SSH command configuration
+2025-12-25T03:14:29.1630848Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-25T03:14:29.1664793Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-25T03:14:29.1888111Z Removing HTTP extra header
+2025-12-25T03:14:29.1892757Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-25T03:14:29.1923724Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-25T03:14:29.2146274Z Removing includeIf entries pointing to credentials config files
+2025-12-25T03:14:29.2147165Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-25T03:14:29.2177534Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-25T03:14:29.2510701Z Cleaning up orphan processes

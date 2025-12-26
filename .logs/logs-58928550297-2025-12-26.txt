@@ -1,0 +1,398 @@
+﻿2025-12-25T18:44:24.8854090Z Current runner version: '2.330.0'
+2025-12-25T18:44:24.8876987Z ##[group]Runner Image Provisioner
+2025-12-25T18:44:24.8877725Z Hosted Compute Agent
+2025-12-25T18:44:24.8878329Z Version: 20251211.462
+2025-12-25T18:44:24.8878933Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+2025-12-25T18:44:24.8879582Z Build Date: 2025-12-11T16:28:49Z
+2025-12-25T18:44:24.8880276Z Worker ID: {9489063e-97bd-41d9-8e8d-1b2754eb468e}
+2025-12-25T18:44:24.8880945Z ##[endgroup]
+2025-12-25T18:44:24.8881464Z ##[group]Operating System
+2025-12-25T18:44:24.8882068Z Ubuntu
+2025-12-25T18:44:24.8882500Z 24.04.3
+2025-12-25T18:44:24.8882977Z LTS
+2025-12-25T18:44:24.8883467Z ##[endgroup]
+2025-12-25T18:44:24.8884044Z ##[group]Runner Image
+2025-12-25T18:44:24.8884579Z Image: ubuntu-24.04
+2025-12-25T18:44:24.8885157Z Version: 20251215.174.1
+2025-12-25T18:44:24.8886510Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251215.174/images/ubuntu/Ubuntu2404-Readme.md
+2025-12-25T18:44:24.8888114Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251215.174
+2025-12-25T18:44:24.8889249Z ##[endgroup]
+2025-12-25T18:44:24.8890198Z ##[group]GITHUB_TOKEN Permissions
+2025-12-25T18:44:24.8892353Z Contents: write
+2025-12-25T18:44:24.8892915Z Metadata: read
+2025-12-25T18:44:24.8893440Z ##[endgroup]
+2025-12-25T18:44:24.8895692Z Secret source: Actions
+2025-12-25T18:44:24.8896882Z Prepare workflow directory
+2025-12-25T18:44:24.9567888Z Prepare all required actions
+2025-12-25T18:44:24.9623302Z Getting action download info
+2025-12-25T18:44:25.2774713Z Download action repository 'actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd' (SHA:93cb6efe18208431cddfb8368fd83d5badbf9bfd)
+2025-12-25T18:44:25.3929631Z Download action repository 'actions/setup-python@v6' (SHA:83679a892e2d95755f2dac6acb0bfd1e9ac5d548)
+2025-12-25T18:44:25.4796986Z Download action repository 'actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb' (SHA:9255dc7a253b0ccc959486e2bca901246202afeb)
+2025-12-25T18:44:25.9589444Z Download action repository 'actions/component-detection-dependency-submission-action@374343effede691df3a5ffaf36b4e7acab919590' (SHA:374343effede691df3a5ffaf36b4e7acab919590)
+2025-12-25T18:44:26.5035216Z Complete job name: submit-pypi
+2025-12-25T18:44:26.5775068Z ##[group]Run actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
+2025-12-25T18:44:26.5776973Z with:
+2025-12-25T18:44:26.5777688Z   ref: refs/heads/main
+2025-12-25T18:44:26.5778537Z   repository: Boss-1s/scratchattach
+2025-12-25T18:44:26.5779769Z   token: ***
+2025-12-25T18:44:26.5780501Z   ssh-strict: true
+2025-12-25T18:44:26.5781255Z   ssh-user: git
+2025-12-25T18:44:26.5782015Z   persist-credentials: true
+2025-12-25T18:44:26.5782874Z   clean: true
+2025-12-25T18:44:26.5783640Z   sparse-checkout-cone-mode: true
+2025-12-25T18:44:26.5784581Z   fetch-depth: 1
+2025-12-25T18:44:26.5785323Z   fetch-tags: false
+2025-12-25T18:44:26.5786394Z   show-progress: true
+2025-12-25T18:44:26.5787194Z   lfs: false
+2025-12-25T18:44:26.5787926Z   submodules: false
+2025-12-25T18:44:26.5788741Z   set-safe-directory: true
+2025-12-25T18:44:26.5789857Z env:
+2025-12-25T18:44:26.5790546Z   SKIP_CACHE: 
+2025-12-25T18:44:26.5791255Z ##[endgroup]
+2025-12-25T18:44:26.6692750Z Syncing repository: Boss-1s/scratchattach
+2025-12-25T18:44:26.6695498Z ##[group]Getting Git version info
+2025-12-25T18:44:26.6697424Z Working directory is '/home/runner/work/scratchattach/scratchattach'
+2025-12-25T18:44:26.6699370Z [command]/usr/bin/git version
+2025-12-25T18:44:26.6754913Z git version 2.52.0
+2025-12-25T18:44:26.6809236Z ##[endgroup]
+2025-12-25T18:44:26.6823527Z Temporarily overriding HOME='/home/runner/work/_temp/fc9a5a33-44a7-4baa-b70e-4ff1b5b68f29' before making global git config changes
+2025-12-25T18:44:26.6826599Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-25T18:44:26.6829723Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-12-25T18:44:26.6866669Z Deleting the contents of '/home/runner/work/scratchattach/scratchattach'
+2025-12-25T18:44:26.6869982Z ##[group]Initializing the repository
+2025-12-25T18:44:26.6874671Z [command]/usr/bin/git init /home/runner/work/scratchattach/scratchattach
+2025-12-25T18:44:26.6980324Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-12-25T18:44:26.6982180Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2025-12-25T18:44:26.6984095Z hint: to use in all of your new repositories, which will suppress this warning,
+2025-12-25T18:44:26.6985894Z hint: call:
+2025-12-25T18:44:26.6987171Z hint:
+2025-12-25T18:44:26.6988092Z hint: 	git config --global init.defaultBranch <name>
+2025-12-25T18:44:26.6989188Z hint:
+2025-12-25T18:44:26.6990442Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-12-25T18:44:26.6992194Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-12-25T18:44:26.6993710Z hint:
+2025-12-25T18:44:26.6994744Z hint: 	git branch -m <name>
+2025-12-25T18:44:26.6995648Z hint:
+2025-12-25T18:44:26.6997081Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-12-25T18:44:26.6999136Z Initialized empty Git repository in /home/runner/work/scratchattach/scratchattach/.git/
+2025-12-25T18:44:26.7002202Z [command]/usr/bin/git remote add origin https://github.com/Boss-1s/scratchattach
+2025-12-25T18:44:26.7029741Z ##[endgroup]
+2025-12-25T18:44:26.7031226Z ##[group]Disabling automatic garbage collection
+2025-12-25T18:44:26.7032801Z [command]/usr/bin/git config --local gc.auto 0
+2025-12-25T18:44:26.7067738Z ##[endgroup]
+2025-12-25T18:44:26.7069944Z ##[group]Setting up auth
+2025-12-25T18:44:26.7072152Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-25T18:44:26.7102087Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-25T18:44:26.7469915Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-25T18:44:26.7501791Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-25T18:44:26.7717528Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-25T18:44:26.7749239Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-25T18:44:26.7965752Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-12-25T18:44:26.7998274Z ##[endgroup]
+2025-12-25T18:44:26.8007112Z ##[group]Fetching the repository
+2025-12-25T18:44:26.8009348Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main:refs/remotes/origin/main
+2025-12-25T18:44:29.6986241Z From https://github.com/Boss-1s/scratchattach
+2025-12-25T18:44:29.6988172Z  * [new branch]      main       -> origin/main
+2025-12-25T18:44:29.7017817Z ##[endgroup]
+2025-12-25T18:44:29.7018381Z ##[group]Determining the checkout info
+2025-12-25T18:44:29.7020569Z ##[endgroup]
+2025-12-25T18:44:29.7025608Z [command]/usr/bin/git sparse-checkout disable
+2025-12-25T18:44:29.7066461Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-12-25T18:44:29.7091718Z ##[group]Checking out the ref
+2025-12-25T18:44:29.7095138Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-12-25T18:44:30.3749745Z Switched to a new branch 'main'
+2025-12-25T18:44:30.3750401Z branch 'main' set up to track 'origin/main'.
+2025-12-25T18:44:30.3833312Z ##[endgroup]
+2025-12-25T18:44:30.3875545Z [command]/usr/bin/git log -1 --format=%H
+2025-12-25T18:44:30.3909767Z 47bb5e9ca2d8c69402a8d1e2b622c4607b3e7383
+2025-12-25T18:44:30.4137229Z ##[group]Run actions/setup-python@v6
+2025-12-25T18:44:30.4137874Z with:
+2025-12-25T18:44:30.4138176Z   check-latest: false
+2025-12-25T18:44:30.4138624Z   token: ***
+2025-12-25T18:44:30.4138877Z   update-environment: true
+2025-12-25T18:44:30.4139297Z   allow-prereleases: false
+2025-12-25T18:44:30.4139628Z   freethreaded: false
+2025-12-25T18:44:30.4139873Z env:
+2025-12-25T18:44:30.4140161Z   SKIP_CACHE: 
+2025-12-25T18:44:30.4140411Z ##[endgroup]
+2025-12-25T18:44:30.5382920Z [warning]Neither 'python-version' nor 'python-version-file' inputs were supplied. Attempting to find '.python-version' file.
+2025-12-25T18:44:30.5384240Z [warning].python-version doesn't exist.
+2025-12-25T18:44:30.5409597Z ##[warning]The `python-version` input is not set.  The version of Python currently in `PATH` will be used.
+2025-12-25T18:44:30.5419951Z (node:2214) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2025-12-25T18:44:30.5421355Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2025-12-25T18:44:30.5533540Z ##[group]Run version=$(python --version)
+2025-12-25T18:44:30.5534082Z [36;1mversion=$(python --version)[0m
+2025-12-25T18:44:30.5534580Z [36;1mecho "::notice::Using python version: $version"[0m
+2025-12-25T18:44:30.5535050Z [36;1mpip install "pip<25.3" # Temporary pin to avoid issues with pip 25.3+[0m
+2025-12-25T18:44:30.5535519Z [36;1mpip_version=$(pip --version)[0m
+2025-12-25T18:44:30.5535926Z [36;1mecho "::notice::Using pip version: $pip_version"[0m
+2025-12-25T18:44:30.5536796Z [36;1mpip install pip-tools[0m
+2025-12-25T18:44:30.5537148Z [36;1mpip_compile_version=$(pip-compile --version)[0m
+2025-12-25T18:44:30.5537668Z [36;1mecho "::notice::Using pip-compile version: $pip_compile_version"[0m
+2025-12-25T18:44:30.5576496Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2025-12-25T18:44:30.5577041Z env:
+2025-12-25T18:44:30.5577277Z   SKIP_CACHE: 
+2025-12-25T18:44:30.5577561Z ##[endgroup]
+2025-12-25T18:44:30.5728645Z ##[notice]Using python version: Python 3.12.3
+2025-12-25T18:44:30.9820908Z Defaulting to user installation because normal site-packages is not writeable
+2025-12-25T18:44:31.3366972Z Requirement already satisfied: pip<25.3 in /usr/lib/python3/dist-packages (24.0)
+2025-12-25T18:44:31.8748906Z ##[notice]Using pip version: pip 24.0 from /usr/lib/python3/dist-packages/pip (python 3.12)
+2025-12-25T18:44:32.1345090Z Defaulting to user installation because normal site-packages is not writeable
+2025-12-25T18:44:32.3773947Z Collecting pip-tools
+2025-12-25T18:44:32.4446005Z   Downloading pip_tools-7.5.2-py3-none-any.whl.metadata (26 kB)
+2025-12-25T18:44:32.4838278Z Collecting build>=1.0.0 (from pip-tools)
+2025-12-25T18:44:32.4984449Z   Downloading build-1.3.0-py3-none-any.whl.metadata (5.6 kB)
+2025-12-25T18:44:32.5028987Z Requirement already satisfied: click>=8 in /usr/lib/python3/dist-packages (from pip-tools) (8.1.6)
+2025-12-25T18:44:32.5041516Z Requirement already satisfied: pip>=22.2 in /usr/lib/python3/dist-packages (from pip-tools) (24.0)
+2025-12-25T18:44:32.5220993Z Collecting pyproject_hooks (from pip-tools)
+2025-12-25T18:44:32.5366394Z   Downloading pyproject_hooks-1.2.0-py3-none-any.whl.metadata (1.3 kB)
+2025-12-25T18:44:32.5402395Z Requirement already satisfied: setuptools in /usr/lib/python3/dist-packages (from pip-tools) (68.1.2)
+2025-12-25T18:44:32.5408659Z Requirement already satisfied: wheel in /usr/lib/python3/dist-packages (from pip-tools) (0.42.0)
+2025-12-25T18:44:32.5493762Z Requirement already satisfied: packaging>=19.1 in /usr/lib/python3/dist-packages (from build>=1.0.0->pip-tools) (24.0)
+2025-12-25T18:44:32.5706018Z Downloading pip_tools-7.5.2-py3-none-any.whl (66 kB)
+2025-12-25T18:44:32.5863848Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 66.9/66.9 kB 4.3 MB/s eta 0:00:00
+2025-12-25T18:44:32.6004530Z Downloading build-1.3.0-py3-none-any.whl (23 kB)
+2025-12-25T18:44:32.6167743Z Downloading pyproject_hooks-1.2.0-py3-none-any.whl (10 kB)
+2025-12-25T18:44:32.8665129Z Installing collected packages: pyproject_hooks, build, pip-tools
+2025-12-25T18:44:32.9323189Z Successfully installed build-1.3.0 pip-tools-7.5.2 pyproject_hooks-1.2.0
+2025-12-25T18:44:33.3621079Z ##[notice]Using pip-compile version: pip-compile, version 7.5.2
+2025-12-25T18:44:33.3674479Z ##[group]Run if [[ -n "" ]]; then
+2025-12-25T18:44:33.3674784Z [36;1mif [[ -n "" ]]; then[0m
+2025-12-25T18:44:33.3675123Z [36;1m  echo "Python cache disabled via 'GH_DEPENDENCY_SUBMISSION_SKIP_CACHE'"[0m
+2025-12-25T18:44:33.3675470Z [36;1melse[0m
+2025-12-25T18:44:33.3675864Z [36;1m  echo "Caching Python packages. Set 'GH_DEPENDENCY_SUBMISSION_SKIP_CACHE=true' to skip caching in future."[0m
+2025-12-25T18:44:33.3676456Z [36;1mfi[0m
+2025-12-25T18:44:33.3708230Z shell: /usr/bin/bash -e {0}
+2025-12-25T18:44:33.3708448Z env:
+2025-12-25T18:44:33.3708611Z   SKIP_CACHE: 
+2025-12-25T18:44:33.3708781Z ##[endgroup]
+2025-12-25T18:44:33.3758760Z Caching Python packages. Set 'GH_DEPENDENCY_SUBMISSION_SKIP_CACHE=true' to skip caching in future.
+2025-12-25T18:44:33.5944033Z ##[group]Run actions/cache@9255dc7a253b0ccc959486e2bca901246202afeb
+2025-12-25T18:44:33.5944392Z with:
+2025-12-25T18:44:33.5944568Z   path: ~/.cache/pip
+2025-12-25T18:44:33.5944953Z   key: Linux-pip-python-e85ab2cf7d1a67abcff61ef2db6e0732235856ee8b1df91debe4372ebe4f3535
+2025-12-25T18:44:33.5945400Z   restore-keys: Linux-python-
+
+2025-12-25T18:44:33.5945631Z   enableCrossOsArchive: false
+2025-12-25T18:44:33.5945853Z   fail-on-cache-miss: false
+2025-12-25T18:44:33.5946299Z   lookup-only: false
+2025-12-25T18:44:33.5946615Z   save-always: false
+2025-12-25T18:44:33.5946805Z env:
+2025-12-25T18:44:33.5946955Z   SKIP_CACHE: 
+2025-12-25T18:44:33.5947125Z ##[endgroup]
+2025-12-25T18:44:33.8620354Z Cache hit for: Linux-pip-python-e85ab2cf7d1a67abcff61ef2db6e0732235856ee8b1df91debe4372ebe4f3535
+2025-12-25T18:44:34.3437196Z Received 5481845 of 5481845 (100.0%), 14.2 MBs/sec
+2025-12-25T18:44:34.3438040Z Cache Size: ~5 MB (5481845 B)
+2025-12-25T18:44:34.3467819Z [command]/usr/bin/tar -xf /home/runner/work/_temp/6e6d657b-469b-4a4e-a8f6-84235a9c5195/cache.tzst -P -C /home/runner/work/scratchattach/scratchattach --use-compress-program unzstd
+2025-12-25T18:44:34.3700676Z Cache restored successfully
+2025-12-25T18:44:34.3787837Z Cache restored from key: Linux-pip-python-e85ab2cf7d1a67abcff61ef2db6e0732235856ee8b1df91debe4372ebe4f3535
+2025-12-25T18:44:34.3873353Z ##[group]Run if pip-compile --dry-run -o requirements.out requirements.txt; then
+2025-12-25T18:44:34.3873913Z [36;1mif pip-compile --dry-run -o requirements.out requirements.txt; then[0m
+2025-12-25T18:44:34.3874336Z [36;1m  echo "::debug::Python validate no broken dependencies"[0m
+2025-12-25T18:44:34.3874693Z [36;1m  echo "{valid-project}={true}" >> "$GITHUB_OUTPUT"[0m
+2025-12-25T18:44:34.3874972Z [36;1melse[0m
+2025-12-25T18:44:34.3875206Z [36;1m  echo "{valid-project}={false}" >> "$GITHUB_OUTPUT"[0m
+2025-12-25T18:44:34.3875644Z [36;1m  echo "### :warning: Python validation failed in repository root" >> $GITHUB_STEP_SUMMARY[0m
+2025-12-25T18:44:34.3877063Z [36;1m  echo "We were unable to validate a Python project in the repository root. If your repository requires additional setup steps, you may need to check in your own workflow." >> $GITHUB_STEP_SUMMARY[0m
+2025-12-25T18:44:34.3877810Z [36;1m  echo "" >> $GITHUB_STEP_SUMMARY[0m
+2025-12-25T18:44:34.3878751Z [36;1m  echo "For more information on submitting Python dependencies from your own workflow, refer to [the submission action](https://github.com/actions/component-detection-dependency-submission-action)" >> $GITHUB_STEP_SUMMARY[0m
+2025-12-25T18:44:34.3879720Z [36;1m  echo "::warning::Python validation failed in the repository root."[0m
+2025-12-25T18:44:34.3880040Z [36;1m  exit 1[0m
+2025-12-25T18:44:34.3880217Z [36;1mfi[0m
+2025-12-25T18:44:34.3912736Z shell: /usr/bin/bash -e {0}
+2025-12-25T18:44:34.3913032Z env:
+2025-12-25T18:44:34.3913193Z   SKIP_CACHE: 
+2025-12-25T18:44:34.3913375Z ##[endgroup]
+2025-12-25T18:44:36.3572718Z WARNING: --strip-extras is becoming the default in version 8.0.0. To silence this warning, either use --strip-extras to opt into the new default or use --no-strip-extras to retain the existing behavior.
+2025-12-25T18:44:36.3574589Z #
+2025-12-25T18:44:36.3575087Z # This file is autogenerated by pip-compile with Python 3.12
+2025-12-25T18:44:36.3575751Z # by the following command:
+2025-12-25T18:44:36.3576423Z #
+2025-12-25T18:44:36.3576956Z #    pip-compile --output-file=requirements.out requirements.txt
+2025-12-25T18:44:36.3577597Z #
+2025-12-25T18:44:36.3577942Z beautifulsoup4==4.14.3
+2025-12-25T18:44:36.3578368Z     # via bs4
+2025-12-25T18:44:36.3578735Z browser-cookie3==0.20.1
+2025-12-25T18:44:36.3579150Z     # via scratchattach
+2025-12-25T18:44:36.3579558Z bs4==0.0.2
+2025-12-25T18:44:36.3579922Z     # via scratchattach
+2025-12-25T18:44:36.3580326Z certifi==2025.11.12
+2025-12-25T18:44:36.3580726Z     # via requests
+2025-12-25T18:44:36.3581087Z charset-normalizer==3.4.4
+2025-12-25T18:44:36.3581428Z     # via requests
+2025-12-25T18:44:36.3581673Z idna==3.11
+2025-12-25T18:44:36.3581847Z     # via requests
+2025-12-25T18:44:36.3582043Z jeepney==0.9.0
+2025-12-25T18:44:36.3582227Z     # via browser-cookie3
+2025-12-25T18:44:36.3582435Z lz4==4.4.5
+2025-12-25T18:44:36.3582614Z     # via browser-cookie3
+2025-12-25T18:44:36.3582857Z pycryptodomex==3.23.0
+2025-12-25T18:44:36.3583073Z     # via browser-cookie3
+2025-12-25T18:44:36.3583279Z requests==2.32.5
+2025-12-25T18:44:36.3583465Z     # via scratchattach
+2025-12-25T18:44:36.3583670Z scratchattach==2.1.15b0
+2025-12-25T18:44:36.3583886Z     # via -r requirements.txt
+2025-12-25T18:44:36.3584124Z simplewebsocketserver==0.1.2
+2025-12-25T18:44:36.3584356Z     # via scratchattach
+2025-12-25T18:44:36.3584559Z soupsieve==2.8.1
+2025-12-25T18:44:36.3584747Z     # via beautifulsoup4
+2025-12-25T18:44:36.3584972Z typing-extensions==4.15.0
+2025-12-25T18:44:36.3585179Z     # via
+2025-12-25T18:44:36.3585354Z     #   beautifulsoup4
+2025-12-25T18:44:36.3585547Z     #   scratchattach
+2025-12-25T18:44:36.3585736Z urllib3==2.6.2
+2025-12-25T18:44:36.3585916Z     # via requests
+2025-12-25T18:44:36.3586344Z websocket-client==1.9.0
+2025-12-25T18:44:36.3586692Z     # via scratchattach
+2025-12-25T18:44:36.3587025Z Dry-run, so nothing updated.
+2025-12-25T18:44:36.4379489Z ##[group]Run actions/component-detection-dependency-submission-action@374343effede691df3a5ffaf36b4e7acab919590
+2025-12-25T18:44:36.4380029Z with:
+2025-12-25T18:44:36.4380225Z   detectorsCategories: Python
+2025-12-25T18:44:36.4380477Z   detectorsFilter: PipReport
+2025-12-25T18:44:36.4380755Z   snapshot-sha: 47bb5e9ca2d8c69402a8d1e2b622c4607b3e7383
+2025-12-25T18:44:36.4381047Z   snapshot-ref: refs/heads/main
+2025-12-25T18:44:36.4381306Z   detector-name: Automatic Dependency Submission
+2025-12-25T18:44:36.4381594Z   detector-version: 1f3f3060931e
+2025-12-25T18:44:36.4382017Z   detector-url: https://github.com/actions/component-detection-dependency-submission-action
+2025-12-25T18:44:36.4382571Z   token: ***
+2025-12-25T18:44:36.4382753Z   filePath: .
+2025-12-25T18:44:36.4382926Z env:
+2025-12-25T18:44:36.4383077Z   SKIP_CACHE: 
+2025-12-25T18:44:36.4383250Z ##[endgroup]
+2025-12-25T18:44:37.2301865Z Running component-detection
+2025-12-25T18:44:37.2346291Z [command]/home/runner/work/scratchattach/scratchattach/component-detection scan --SourceDirectory . --ManifestFile ./output.json --DetectorsFilter PipReport --DetectorCategories Python
+2025-12-25T18:44:37.5673810Z [18:44:37 INF] Finding components...
+2025-12-25T18:44:38.2606700Z [18:44:38 INF] Starting enumeration of /home/runner/work/scratchattach/scratchattach
+2025-12-25T18:44:38.2793828Z [18:44:38 INF] Enumerated 17 files and 0 directories in 00:00:00.0190374
+2025-12-25T18:44:38.3181671Z [18:44:38 INF] PipReport: Generating pip installation report for /home/runner/work/scratchattach/scratchattach/requirements.txt
+2025-12-25T18:44:40.2443683Z [18:44:40 INF] PipReport: Pip installation report for /home/runner/work/scratchattach/scratchattach/requirements.txt completed in 1.924 seconds with 16 detected packages.
+2025-12-25T18:44:40.3723699Z                                [38;5;7mDetection Summary[0m                                
+2025-12-25T18:44:40.3724956Z ┌───────────────────┬───────────────────┬───────────────────┬──────────────────┐
+2025-12-25T18:44:40.3725707Z │ [1mComponent [0m        │ [1mDetection Time[0m    │ [1m# Components [0m     │ [1m# Explicitly [0m    │
+2025-12-25T18:44:40.3726921Z │ [1mDetector Id[0m       │                   │ [1mFound[0m             │ [1mReferenced[0m       │
+2025-12-25T18:44:40.3727522Z ├───────────────────┼───────────────────┼───────────────────┼──────────────────┤
+2025-12-25T18:44:40.3727991Z │ [38;5;14mPipReport[0m         │ 2.7 seconds       │ 16                │ 1                │
+2025-12-25T18:44:40.3728461Z │ ───────────────── │ ───────────────── │ ───────────────── │ ──────────────── │
+2025-12-25T18:44:40.3728874Z │ [1;4mTotal[0m             │ 2.7 seconds       │ 16                │ 1                │
+2025-12-25T18:44:40.3729320Z └───────────────────┴───────────────────┴───────────────────┴──────────────────┘
+2025-12-25T18:44:40.3757304Z [18:44:40 INF] 
+2025-12-25T18:44:40.3759398Z [18:44:40 INF] 
+2025-12-25T18:44:40.3770783Z [18:44:40 INF] Detection time: 2.720009 seconds.
+2025-12-25T18:44:40.4095916Z [18:44:40 INF] Scan Manifest file: /home/runner/work/scratchattach/scratchattach/output.json
+2025-12-25T18:44:40.4937852Z Getting manifests from results
+2025-12-25T18:44:40.4992273Z ##[notice]Submitting snapshot...
+2025-12-25T18:44:40.5011381Z ##[notice]{
+    "manifests": {
+        "requirements.txt": {
+            "resolved": {
+                "pkg:pypi/urllib3@2.6.2": {
+                    "package_url": "pkg:pypi/urllib3@2.6.2",
+                    "relationship": "indirect",
+                    "scope": "runtime",
+                    "dependencies": []
+                },
+                "pkg:pypi/requests@2.32.5": {
+                    "package_url": "pkg:pypi/requests@2.32.5",
+                    "relationship": "indirect",
+                    "scope": "runtime",
+                    "dependencies": []
+                },
+                "pkg:pypi/websocket-client@1.9.0": {
+                    "package_url": "pkg:pypi/websocket-client@1.9.0",
+                    "relationship": "indirect",
+                    "scope": "runtime",
+                    "dependencies": []
+                },
+                "pkg:pypi/browser-cookie3@0.20.1": {
+                    "package_url": "pkg:pypi/browser-cookie3@0.20.1",
+                    "relationship": "indirect",
+                    "scope": "runtime",
+                    "dependencies": []
+                },
+                "pkg:pypi/typing-extensions@4.15.0": {
+                    "package_url": "pkg:pypi/typing-extensions@4.15.0",
+                    "relationship": "indirect",
+                    "scope": "runtime",
+                    "dependencies": []
+                },
+                "pkg:pypi/jeepney@0.9.0": {
+                    "package_url": "pkg:pypi/jeepney@0.9.0",
+                    "relationship": "indirect",
+                    "scope": "runtime",
+                    "dependencies": []
+                },
+                "pkg:pypi/certifi@2025.11.12": {
+                    "package_url": "pkg:pypi/certifi@2025.11.12",
+                    "relationship": "indirect",
+                    "scope": "runtime",
+                    "dependencies": []
+                },
+                "pkg:pypi/charset-normalizer@3.4.4": {
+                    "package_url": "pkg:pypi/charset-normalizer@3.4.4",
+                    "relationship": "indirect",
+                    "scope": "runtime",
+                    "dependencies": []
+                },
+                "pkg:pypi/scratchattach@2.1.15b0": {
+                    "package_url": "pkg:pypi/scratchattach@2.1.15b0",
+                    "relationship": "direct",
+                    "scope": "runtime",
+                    "dependencies": [
+                        "pkg:pypi/urllib3@2.6.2",
+                        "pkg:pypi/requests@2.32.5",
+                        "pkg:pypi/websocket-client@1.9.0",
+                        "pkg:pypi/browser-cookie3@0.20.1",
+                        "pkg:pypi/typing-extensions@4.15.0",
+                        "pkg:pypi/jeepney@0.9.0",
+                        "pkg:pypi/certifi@2025.11.12",
+                        "pkg:pypi/charset-normalizer@3.4.4",
+                        "pkg:pypi/soupsieve@2.8.1",
+                        "pkg:pypi/bs4@0.0.2",
+                        "pkg:pypi/beautifulsoup4@4.14.3",
+                        "pkg:pypi/idna@3.11",
+                        "pkg:pypi/lz4@4.4.5",
+                        "pkg:pypi/simplewebsocketserver@0.1.2",
+                        "pkg:pypi/pycryptodomex@3.23.0"
+                    ]
+                },
+                "pkg:pypi/soupsieve@2.8.1": {
+                    "package_url": "pkg:pypi/soupsieve@2.8.1",
+                    "relationship": "indirect",
+                    "scope": "runtime",
+                    "dependencies": []
+                },
+                "pkg:pypi/bs4@0.0.2": {
+                    "package_url": "pkg:pypi/bs4@0.0.2",
+                    "relationship": "indirect",
+                    "scope": "runtime",
+                    "dependencies": []
+                },
+                "pkg:pypi/beautifulsoup4@4.14.3": {
+                    "package_url": "pkg:pypi/beautifulsoup4@4.14.3",
+                    "relationship": "indirect",
+                    "scope": "runtime",
+                    "dependencies": []
+                },
+                "pkg:pypi/idna@3.11": {
+         
+2025-12-25T18:44:40.8695956Z ##[notice]Snapshot successfully created at 2025-12-25T18:44:40.720Z
+2025-12-25T18:44:41.1735549Z Post job cleanup.
+2025-12-25T18:44:41.2882481Z Cache hit occurred on the primary key Linux-pip-python-e85ab2cf7d1a67abcff61ef2db6e0732235856ee8b1df91debe4372ebe4f3535, not saving cache.
+2025-12-25T18:44:41.2992943Z Post job cleanup.
+2025-12-25T18:44:41.4107646Z (node:2403) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2025-12-25T18:44:41.4108831Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2025-12-25T18:44:41.4225828Z Post job cleanup.
+2025-12-25T18:44:41.4978865Z [command]/usr/bin/git version
+2025-12-25T18:44:41.5044829Z git version 2.52.0
+2025-12-25T18:44:41.5080556Z Temporarily overriding HOME='/home/runner/work/_temp/513d13a4-b69d-47f3-b4ac-5c7f084df228' before making global git config changes
+2025-12-25T18:44:41.5081774Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-25T18:44:41.5085559Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2025-12-25T18:44:41.5121317Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-25T18:44:41.5153389Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-25T18:44:41.5380555Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-25T18:44:41.5401833Z http.https://github.com/.extraheader
+2025-12-25T18:44:41.5411494Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-12-25T18:44:41.5441934Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-25T18:44:41.5660484Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-25T18:44:41.5689752Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-25T18:44:41.6037434Z Cleaning up orphan processes
