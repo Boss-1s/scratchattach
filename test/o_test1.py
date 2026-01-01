@@ -108,7 +108,7 @@ else:raise AssertionError("Division has failed. Check the __truediv__ and __rtur
   
 print("Part 2.2 passed.\n-----\nPart 2.3: Bitwise Operators")
 
-s2 = s("test1", sk4="val1", sk6="val2", sk3="val3")
+s2 = s("test1", sk4="val1", sk6="val2", sk5="val3")
 s3 = s("test1", sk4="val1", sk6="val2", sk3="val3")
 
 assert ((repr(s3&s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk6='val2', sk4='val1'])") or 
