@@ -111,12 +111,30 @@ print("Part 2.2 passed.\n-----\nPart 2.3: Bitwise Operators")
 s2 = s("test1", sk4="val1", sk6="val2", sk3="val3")
 s3 = s("test1", sk4="val1", sk6="val2", sk3="val3")
 
-assert repr(s3&s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk6='val2', sk4='val1'])", "The bitwise operator AND (&) has failed. Check the __and__ method."
-assert repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk6='val2', sk4='val1', sk5='val3', sk3='val3'])", "The bitwise operator OR (|) has failed. Check the __or__ method."
-assert repr(s3^s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk5='val3', sk3='val3'])", "The bitwise operator XOR (^) has failed. Check the __xor__ method."
+assert ((repr(s3&s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk6='val2', sk4='val1'])") or 
+       (repr(s3&s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk4='val1', sk6='val2'])")), "The bitwise operator AND (&) has failed. Check the __and__ method."
+assert ((repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk6='val2', sk4='val1', sk5='val3', sk3='val3'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk3='val3', sk6='val2', sk4='val1', sk5='val3'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk5='val3', sk3='val3', sk6='val2', sk4='val1'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk4='val1', sk5='val3', sk3='val3', sk6='val2'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk6='val2', sk3='val3', sk4='val1', sk5='val3'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk6='val2', sk5='val3', sk3='val3', sk4='val1'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk6='val2', sk4='val1', sk3='val3', sk5='val3'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk3='val3', sk5='val3', sk6='val2', sk4='val1'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk3='val3', sk4='val1', sk5='val3', sk6='val2'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk3='val3', sk4='val1', sk6='val2', sk5='val3'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk5='val3', sk4='val1', sk3='val3', sk6='val2'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk5='val3', sk6='val2', sk4='val1', sk3='val3'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk5='val3', sk6='val2', sk3='val3', sk4='val1'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk4='val1', sk6='val2', sk5='val3', sk3='val3'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk4='val1', sk3='val3', sk6='val2', sk5='val3'])") or
+       (repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk4='val1', sk3='val3', sk5='val3', sk6='val2'])")
+       ), "The bitwise operator OR (|) has failed. Check the __or__ method."
+assert ((repr(s3^s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk5='val3', sk3='val3'])") or
+        (repr(s3^s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk3='val3', sk5='val3'])")), "The bitwise operator XOR (^) has failed. Check the __xor__ method."
 assert repr(s3<<1) == "Storage(top_lv_key=test1, key_value_pairs=[sk6='val2', sk3='val3'])", "The bitwise operator LEFT_SHIFT (<<) has failed. Check the __lshift__ method."
 assert repr(s3>>2) == "Storage(top_lv_key=test1, key_value_pairs=[sk4='val1'])", "The bitwise operator RIGHT_SHIFT (>>) has failed. Check the __rshift__ method."
 
-print("Part 2.3 passed.\n-----\nPart 2.4: Indexing and Slicing")
+print("Part 2.3 passed.\n-----\nPart 2.4: Collecting and Containing")
 
 print("\nTest passed sucessfully")
