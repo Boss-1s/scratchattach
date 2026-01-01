@@ -40,9 +40,11 @@ def db_delete_all(db):
     except Exception as e:print(f"Process failed: {e}")
     print(f"Sucessfully deleted all data from {db}.")
 
+time.sleep(2)
 db_delete_all(file)
 
 print("Begin test\n"+("-"*20)+"\nPart 1: Storing, Editing, and Deleting via JSON\n"+("-"*20))
+
 db_add_subval(file, "test_top_level_key", "sk1", "val1", "sk2", "skibidi toilet")
 assert db_get_keys(file) == ["test_top_level_key"], "Adding a top level key has failed. Try checking the store method."
 assert db_get_subkeys_values(file, "test_top_level_key") == ["sk1: val1","sk2: skibidi toilet"],"Adding subkey-value pairs has failed. Try checking the store method."
@@ -62,11 +64,15 @@ assert db_get_keys(file) == ["test_top_level_key"], "Deleting a key has failed. 
 db_delete_all(file)
 assert db_get_keys(file) == [], "Bulk deleting has failed. Check the Delete.all method."
 print("Part 1 passed.")
+
 print(("-"*20)+"\nPart 2: Storing, Editing, and Deleting via dunder methods\n"+("-"*20))
+
 s1 = s("test1", sk1="val1", sk2="val2")
 s2 = s("test1", sk4="val1", sk6="val2", sk3="val3")
 s3 = s("test2", sk4="val1", sk6="val2", sk3="val3")
+
 print("Part 2.1: Comparisons")
+
 assert s1 != s2 # if this fails, python probably updated without notice lol
 assert repr(s1) == "Storage(top_lv_key=test1, key_value_pairs=[sk1='val1', sk2='val2'])", "The repr representation of instance s1 is incorrect. Check the __repr__ method."
 assert repr(s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk4='val1', sk6='val2', sk3='val3'])", "The repr representation of instance s1 is incorrect. Check the __repr__ method."
@@ -76,7 +82,9 @@ assert s1<s2
 try:assert s2>s3
 except ValueError:pass
 else:raise AssertionError("Key comparison most likely failed, otherwise an unknown error occurred. Check the __lt__ method.")
-print("Part 2.1 passed.\nPart 2.2: Arithmetic")
+  
+print("Part 2.1 passed.\n-----\nPart 2.2: Arithmetic")
+
 assert repr(s1+
             {"sk7": "67",
              "sk8": "hehe"
@@ -97,6 +105,18 @@ assert s1/1 == [s1], "Division has failed. Check the __truediv__ method."
 try:assert 1/s1
 except TypeError:pass
 else:raise AssertionError("Division has failed. Check the __truediv__ and __rturediv__ methods.")
+  
+print("Part 2.2 passed.\n-----\nPart 2.3: Bitwise Operators")
 
+s2 = s("test1", sk4="val1", sk6="val2", sk3="val3")
+s3 = s("test1", sk4="val1", sk6="val2", sk3="val3")
 
-print("\ntest passed sucessfully")
+assert repr(s3&s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk6='val2', sk4='val1'])", "The bitwise operator AND (&) has failed. Check the __and__ method."
+assert repr(s3|s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk6='val2', sk4='val1', sk5='val3', sk3='val3'])", "The bitwise operator OR (|) has failed. Check the __or__ method."
+assert repr(s3^s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk5='val3', sk3='val3'])", "The bitwise operator XOR (^) has failed. Check the __xor__ method."
+assert repr(s3<<1) == "Storage(top_lv_key=test1, key_value_pairs=[sk6='val2', sk3='val3'])", "The bitwise operator LEFT_SHIFT (<<) has failed. Check the __lshift__ method."
+assert repr(s3>>2) == "Storage(top_lv_key=test1, key_value_pairs=[sk4='val1'])", "The bitwise operator RIGHT_SHIFT (>>) has failed. Check the __rshift__ method."
+
+print("Part 2.3 passed.\n-----\nPart 2.4: Indexing and Slicing")
+
+print("\nTest passed sucessfully")
