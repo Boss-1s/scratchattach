@@ -751,8 +751,111 @@ class Storage:
 		Note that attempting to divide a Storage instance by another instance
 		or a dictionary (and vice versa) will result in the subtraction of the two.
 		"""
-		if isinstance(other, (type(self),dict)):return self - other
+		if isinstance(other, (type(self),dict)):return other - self
 		else:return NotImplemented
+
+	def __and__(self, other) -> Self | int:
+		"""Defines using AND (&) for bitwise operations with Storage instances and dictionaries."""
+		if isinstance(other, type(self)):
+			if self.key==other.key:
+				skeys: set = set(self.values.keys()) & set(other.values.keys())
+				if not skeys: return 0
+				rtd: dict = {}
+				for akey in skeys:
+					akey: str
+					if akey in self.values:rtd[akey] = self.values[akey]
+					if akey in other.values:rtd[akey] = other.values[akey]
+				return Storage(self.key, **rtd)
+			else:raise ValueError("Both instances must have the same top level key")
+		elif isinstance(other, dict):
+			skeys: set = set(self.values.keys()) & set(other)
+			if not skeys: return 0
+			rtd: dict = {}
+			for akey in skeys:
+				akey: str
+				if akey in self.values:rtd[akey] = self.values[akey]
+				if akey in other.values:rtd[akey] = other.values[akey]
+			return Storage(self.key, **rtd)
+		else:return NotImplemented
+
+	def __or__(self, other) -> Self | int:
+		"""Defines using OR (|) for bitwise operations with Storage instances and dictionaries."""
+		if isinstance(other, type(self)):
+			if self.key==other.key:
+				skeys: set = set(self.values.keys()) | set(other.values.keys())
+				if not skeys: return 0
+				rtd: dict = {}
+				for akey in skeys:
+					akey: str
+					if akey in self.values:rtd[akey] = self.values[akey]
+					if akey in other.values:rtd[akey] = other.values[akey]
+				return Storage(self.key, **rtd)
+			else:raise ValueError("Both instances must have the same top level key")
+		elif isinstance(other, dict):
+			skeys: set = set(self.values.keys()) | set(other)
+			if not skeys: return 0
+			rtd: dict = {}
+			for akey in skeys:
+				akey: str
+				if akey in self.values:rtd[akey] = self.values[akey]
+				if akey in other.values:rtd[akey] = other.values[akey]
+			return Storage(self.key, **rtd)
+		else:return NotImplemented
+
+	def __xor__(self, other) -> Self | int:
+		"""Defines using XOR (^) for bitwise operations with Storage instances and dictionaries."""
+		if isinstance(other, type(self)):
+			if self.key==other.key:
+				skeys: set = set(self.values.keys()) ^ set(other.values.keys())
+				if not skeys: return 0
+				rtd: dict = {}
+				for akey in skeys:
+					akey: str
+					if akey in self.values:rtd[akey] = self.values[akey]
+					if akey in other.values:rtd[akey] = other.values[akey]
+				return Storage(self.key, **rtd)
+			else:raise ValueError("Both instances must have the same top level key")
+		elif isinstance(other, dict):
+			skeys: set = set(self.values.keys()) ^ set(other)
+			if not skeys: return 0
+			rtd: dict = {}
+			for akey in skeys:
+				akey: str
+				if akey in self.values:rtd[akey] = self.values[akey]
+				if akey in other.values:rtd[akey] = other.values[akey]
+			return Storage(self.key, **rtd)
+		else:return NotImplemented
+
+	def __lshift__(self, other) -> Self | int:
+		"""Defines using left shifting (<<) for bitwise operations with Storage instances."""
+		if isinstance(other, int):
+			if other > len(self.values.keys()):return 0
+			try:
+				skeys: list = list(self.values.keys())[other:]
+				if not skeys: return 0
+				rtd: dict = {}
+				for akey in skeys:
+					akey: str
+					if akey in self.values: rtd[akey] = self.values[akey]
+				return Storage(self.key, **rtd)
+			except IndexError:
+				return 0
+
+	def __rshift__(self, other) -> Self | int:
+		"""Defines using right shifting (>>) for bitwise operations with Storage instances."""
+		if isinstance(other, int):
+			if other > len(self.values.keys()):return 0
+			try:
+				skeys: list = list(self.values.keys())[:-other]
+				if not skeys: return 0
+				rtd: dict = {}
+				for akey in skeys:
+					akey: str
+					if akey in self.values: rtd[akey] = self.values[akey]
+				return Storage(self.key, **rtd)
+			except IndexError:
+				return 0
+				
 			
 # Allow importing all Storage.InnerClass()
 Delete = Storage.Delete
