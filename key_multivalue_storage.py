@@ -1,14 +1,12 @@
-import os
-import json
-import uuid
-import warnings
-import logging
-from typing import Dict, Any, Optional, Type, List
+from __future__ import annotations
+import os,json,uuid,warnings,logging
+from typing import Any, Optional, Self
+from functools import total_ordering
 
-logging.basicConfig(level=logging.WARNING)
+logging.basicConfig(level=logging.INFO)
 logging.captureWarnings(True)
 
-__all__ = ["Storage", "Storage.Delete", "Storage.Load", "Storage.Edit"]
+__all__ = ["Storage", "Storage.Delete", "Storage.Load", "Storage.Edit", "Delete", "Load", "Edit"]
 
 class _KeyNotFoundError(Exception):
 	"""Custom exception raised when a key is not found."""
@@ -18,6 +16,7 @@ class _KeyNotFoundError(Exception):
 		self.message = f"The following key was not found in {file}: {mkey}" if message == "" else message
 		super().__init__(self.message)
 
+@total_ordering
 class Storage:
 	"""
 	Class for monokey-multivalue storage.
@@ -39,7 +38,7 @@ class Storage:
 	| Storage.__store(***)(\\)
 	| Storage.__is_filtered_warning(***)(\\)
 	|
-	| Storage.store(file_path: str) -> Stores created instance into a JSON file
+	| Storage.store(file_path: str, instant_delete: bool, indent: int) -> Stores created instance into a JSON file
 	|
 	| Storage.DeleteWarning(UserWarning) -> a custom warning class used to warn about deleteing in Storage.Delete.all().
 	|
@@ -64,7 +63,7 @@ class Storage:
 	
 	#self.variable typing hints
 	key: str | uuid.UUID
-	values: Dict[str, Any]
+	values: dict[str, Any]
 	
 	#Define public and private methods/classes
 	__all__ = ["store", "DeleteWarning", "Load", "Edit", "Delete", "__str__"]
@@ -128,9 +127,9 @@ class Storage:
 			i=i+1+totalchars
 		return output
 	
-	def _to_dict(self) -> Dict[str, Dict[str, Any]]:
+	def _to_dict(self) -> dict[str, dict[str, Any]]:
 		"""Converts key-multivalue pair into a dict for json dumping"""
-		encoded_values: Dict[str, Any] = {}
+		encoded_values: dict[str, Any] = {}
 		for prop_key, prop_value in self.values.items():
 			if not (type(self.values.items) is str):
 				encoded_values[prop_key] = self._encode(prop_value) # Use self._encode
@@ -142,20 +141,20 @@ class Storage:
 		}
 	
 	@classmethod
-	def _from_dict(cls, data_dict: Dict[str, Dict[str, Any]], raw: bool=False) -> 'Storage':
+	def _from_dict(cls, data_dict: dict[str, dict[str, Any]], raw: bool=False) -> 'Storage':
 		"""Class method that extracts data from a dict into seperate key-multivalue pairs, decoding values in the process."""
 		
 		if not isinstance(data_dict, dict) or len(data_dict) != 1:
 			raise ValueError("Expected a dictionary with a single top-level key.")
 		
 		top_level_key: str = list(data_dict.keys())[0]
-		og_nested_values: Dict[str, Any] = data_dict[top_level_key]
+		og_nested_values: dict[str, Any] = data_dict[top_level_key]
 		
 		if not isinstance(og_nested_values, dict):
 			raise ValueError("Expected nested values to be a dictionary.")
 	
 		if not raw:
-		  decoded_values: Dict[str, Any] = {}
+		  decoded_values: dict[str, Any] = {}
 		  # Decide which values to decode.
 		  # Only decode if the value is an int (encoded string) or a string that looks like an encoded int.
 		  for prop_key, encoded_value in og_nested_values.items():
@@ -170,10 +169,10 @@ class Storage:
 		return cls(top_level_key, **og_nested_values)
 	
 	@staticmethod
-	def __store(file_path: str, dict_to_dump: Dict[str, Dict[str, Any]], indent: int=4) -> None:
+	def __store(file_path: str, dict_to_dump: dict[str, dict[str, Any]], indent: int=4) -> None:
 		"""For private use by delete class, works just like Storage.store() but dict is already created, so no instance is required."""
 		"""Store a key-multivalue pair into a json file."""
-		all_data: Dict[str, Dict[str, Any]] = {}
+		all_data: dict[str, dict[str, Any]] = {}
 		try:
 			with open(file_path, "r") as f:
 				all_data = json.load(f)
@@ -199,9 +198,9 @@ class Storage:
 				return True
 		return False
 		
-	def store(self, file_path: str, indent: int=4) -> None:
+	def store(self, file_path: str, instant_delete: bool=False, indent: int=4) -> None:
 		"""Store a key-multivalue pair into a json file."""
-		all_data: Dict[str, Dict[str, Any]] = {}
+		all_data: dict[str, dict[str, Any]] = {}
 		try:
 			with open(file_path, "r") as f:
 				all_data = json.load(f)
@@ -222,9 +221,19 @@ class Storage:
 			self._dprint(f"Data for key '{self.key}' stored successfully in '{file_path}'.")
 		except IOError as e:
 			self._dprint(f"Error writing to file '{file_path}': {e}")
-			
+
+		if instant_delete:del self
+
 	class DeleteWarning(UserWarning):
 		"""Custom warning when attempting to delete the contents of a whole database."""
+		pass
+
+	class AdditionFailureWarning(RuntimeWarning):
+		"""Custom warning when attempting to add a Storage instance with a dictionary or list."""
+		pass
+
+	class SubtractionFailureWarning(RuntimeWarning):
+		"""Custom warning when attempting to subtract a Storage instance by a dictionary, and vice versa."""
 		pass
 	
 	class Load:
@@ -235,7 +244,7 @@ class Storage:
 			"""Load a json file and find the key to extract a single key-multivalue pair and its values"""
 			try:
 				with open(file_path, "r") as f:
-					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
+					loaded_data: dict[str, dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
 				Storage._dprint(f"Failed to load with key '{key}' - file '{file_path}' does not exist.")
 				return None
@@ -273,7 +282,7 @@ class Storage:
 			"""Load a json file and find the index at which to extract a single key-multivalue pair and its values."""
 			try:
 				with open(file_path, "r") as f:
-					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
+					loaded_data: dict[str, dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
 				Storage._dprint(f"Failed to load by index '{index}' - file '{file_path}' does not exist.")
 				return None
@@ -302,11 +311,11 @@ class Storage:
 				raise _KeyNotFoundError(file_path, target_key, f"Key '{target_key}' unexpectedly not found in loaded data for index '{index}'.")
 	
 		@classmethod
-		def keys(cls, file_path: str) -> Optional[List[str]]:
+		def keys(cls, file_path: str) -> Optional[list[str]]:
 			"""Load a json file and returns the keys of that file."""
 			try:
 				with open(file_path, "r") as f:
-					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
+					loaded_data: dict[str, dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
 				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
@@ -317,14 +326,14 @@ class Storage:
 			return list(loaded_data.keys())
 	
 		@classmethod
-		def values(cls, file_path: str, key: str | uuid.UUID, keys: bool=False, raw: bool=True) -> Optional[List[str]]:
+		def values(cls, file_path: str, key: str | uuid.UUID, keys: bool=False, raw: bool=True) -> Optional[list[str]]:
 			"""
 			Loads a json file and returns the values under the inputed key. Unlike other loading methods, this one returns the raw values by default.
 			Keys can also be returned as a key-value pair if keys=True.
 			"""
 			try:
 				with open(file_path, "r") as f:
-					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
+					loaded_data: dict[str, dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
 				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
@@ -334,14 +343,14 @@ class Storage:
 	
 			if key in loaded_data:
 				try:
-				   subsection: Dict[str, Dict[str, Any]] = Storage._from_dict({key: loaded_data[key]}, raw) 
+				   subsection: dict[str, dict[str, Any]] = Storage._from_dict({key: loaded_data[key]}, raw) 
 				except ValueError as e:
 					Storage._dprint(f"Error reconstructing object for key '{key}': {e}")
 					return None
 			else:
 				raise _KeyNotFoundError(file_path, key)
 	
-			items: List[str] = []
+			items: list[str] = []
 			for key, val in subsection.values.items():
 				if keys:
 					items.append(f"{key}: {val}")
@@ -358,7 +367,7 @@ class Storage:
 			"""Edits the name of subkey within a key within a JSON file. The value of that subkey does not change."""
 			try:
 				with open(file_path, "r") as f:
-					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
+					loaded_data: dict[str, dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
 				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
@@ -368,16 +377,16 @@ class Storage:
 	
 			if top_lv_key in loaded_data:
 				try:
-				   subsection: Dict[str, Dict[str, Any]] = Storage._from_dict({top_lv_key: loaded_data[top_lv_key]}) 
+				   subsection: dict[str, dict[str, Any]] = Storage._from_dict({top_lv_key: loaded_data[top_lv_key]}) 
 				except ValueError as e:
 					Storage._dprint(f"Error reconstructing object for key '{top_level_key}': {e}")
 					return None
 			else:
 				raise _KeyNotFoundError(file_path, top_lv_key)
 	
-			items: Dict[str, Any] = {}
-			#allkeys: List[str] = []
-			#allvalues: List[Any] = []
+			items: dict[str, Any] = {}
+			#allkeys: list[str] = []
+			#allvalues: list[Any] = []
 			if oldpropkey in subsection:
 				for propkey, propval in subsection.values.items():
 					if propkey == oldpropkey:
@@ -397,7 +406,7 @@ class Storage:
 			else:
 				raise _KeyNotFoundError(file_path, oldpropkey)
 	
-			to_dump: Dict[str, Dict[str, Any]] = {
+			to_dump: dict[str, dict[str, Any]] = {
 				top_lv_key: items
 			}
 	
@@ -409,7 +418,7 @@ class Storage:
 			"""Edits the value of a subkey within a key within a JSON file. The subkey of that value does not change."""
 			try:
 				with open(file_path, "r") as f:
-					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
+					loaded_data: dict[str, dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
 				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
@@ -419,16 +428,16 @@ class Storage:
 	
 			if top_lv_key in loaded_data:
 				try:
-				   subsection: Dict[str, Dict[str, Any]] = Storage._from_dict({top_lv_key: loaded_data[top_lv_key]}) 
+				   subsection: dict[str, dict[str, Any]] = Storage._from_dict({top_lv_key: loaded_data[top_lv_key]}) 
 				except ValueError as e:
 					Storage._dprint(f"Error reconstructing object for key '{top_lv_key}': {e}")
 					return None
 			else:
 				raise _KeyNotFoundError(file_path, top_lv_key)
 	
-			items: Dict[str, Any] = {}
-			#allkeys: List[str] = []
-			#allvalues: List[Any] = []
+			items: dict[str, Any] = {}
+			#allkeys: list[str] = []
+			#allvalues: list[Any] = []
 			for propkey1, propval in subsection.values.items():
 				if propkey == propkey1:
 					oldval = propval
@@ -440,7 +449,7 @@ class Storage:
 					#allkeys.append(propkey1)
 					#allvalues.append(propval)
 	
-			to_dump: Dict[str, Dict[str, Any]] = {
+			to_dump: dict[str, dict[str, Any]] = {
 				top_lv_key: items
 			}
 	
@@ -454,7 +463,7 @@ class Storage:
 			the values to see the changes."""
 			try:
 				with open(file_path, "r") as f:
-					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
+					loaded_data: dict[str, dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
 				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
@@ -489,7 +498,7 @@ class Storage:
 			"""Deletes a property within a top-level key in the JSON file. Does NOT create a new instance of Storage, you will have to regrab the values to see the changes."""
 			try:
 				with open(file_path, "r") as f:
-					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
+					loaded_data: dict[str, dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
 				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
@@ -499,16 +508,16 @@ class Storage:
 			
 			if top_level_key in loaded_data:
 				try:
-				   subsection: Dict[str, Dict[str, Any]] = Storage._from_dict({top_level_key: loaded_data[top_level_key]}) 
+				   subsection: dict[str, dict[str, Any]] = Storage._from_dict({top_level_key: loaded_data[top_level_key]}) 
 				except ValueError as e:
 					Storage._dprint(f"Error reconstructing object for key '{top_level_key}': {e}")
 					return None
 			else:
 				raise _KeyNotFoundError(file_path, top_level_key)
 			
-			items: Dict[str, Any] = {}
-			#allkeys: List[str] = []
-			#allvalues: List[Any] = []
+			items: dict[str, Any] = {}
+			#allkeys: list[str] = []
+			#allvalues: list[Any] = []
 			for propkey, propval in subsection.values.items():
 				if propkey != property_key:
 					items[propkey] = propval
@@ -521,7 +530,7 @@ class Storage:
 			#Storage._dprint(f"DEBUG: {top_level_key}")
 			#Storage._dprint(type(top_level_key))
 		  
-			to_dump: Dict[str, Dict[str, Any]] = {
+			to_dump: dict[str, dict[str, Any]] = {
 				top_level_key: items
 			}
 	
@@ -536,7 +545,7 @@ class Storage:
 			values to see the changes."""
 			try:
 				with open(file_path, "r") as f:
-					loaded_data: Dict[str, Dict[str, Any]] = json.load(f)
+					loaded_data: dict[str, dict[str, Any]] = json.load(f)
 			except FileNotFoundError:
 				Storage._dprint(f"Failed to load file '{file_path}': does not exist.")
 				return None
@@ -573,13 +582,178 @@ class Storage:
 					json.dump({}, f)
 					Storage._dprint(f"Deleted all data from {file_path} sucessfully.")
 					return None
+
+	# dunder functions (other than __init__ and __new__)
 	
 	def __str__(self) -> str:
-		"""Defines how the object should be represented as a string, useful for printing the whole output in the desired format."""
-		# Format the nested dictionary directly
-		values_str = ', '.join([f"{prop}: {repr(value)}" for prop, value in self.values.items()])
-		return f"{self.key}: {{{values_str}}}"
+		"""Defines how the object should be represented in a easy-to-read, user-friendly form."""
+		values_str: str = ',\n'.join([f"    {prop}: {repr(value)}" for prop, value in self.values.items()])
+		return "{\n" + f"  {self.key}: {{\n{values_str}\n  }}\n" + "}"
 
+	def __repr__(self) -> str:
+		"""Defines how the object should be represented in an unambiguous, dev-friendly form."""
+		values_str: str = ', '.join([f"{prop}={repr(value)}" for prop, value in self.values.items()])
+		return f"Storage(top_lv_key={self.key}, key_value_pairs=[{values_str}])"
+
+	def __eq__(self, other) -> bool:
+		"""Defines how the object should be compared as equal."""
+		if isinstance(other, type(self)):
+			if self.key==other.key and self.values.items()==other.values.items():
+				return True
+			return False
+		return NotImplemented
+
+	def __lt__(self, other) -> bool:
+		"""Defines how the object should be compared as less than."""
+		if isinstance(other, type(self)):
+			if self.key!=other.key:raise ValueError("Both instances must have the same top level key")
+			if len(self.values.items()) < len(other.values.items()):
+				return True
+			return False
+		return NotImplemented
+
+	def __le__(self, other) -> bool:
+		"""Defines how the object should be compared as less than or equal to."""
+		if isinstance(other, type(self)):
+			if len(self.values.items()) < len(other.values.items()) or self==other:
+				return True
+			return False
+		return NotImplemented
+
+	def __add__(self, other: Storage | dict[str, Any] | list[Any]) -> Self:
+		"""Defines how to add two objects, same type or no."""
+		if isinstance(other, type(self)):
+			if self.key==other.key:
+				self.values.update(other.values)
+				return Storage(self.key, **self.values)
+			else:raise ValueError("Both instances must have the same top level key")
+		elif isinstance(other, dict):
+			warnings.warn("WARNING! You are strongly advised against adding a Storage "+
+						  "instance and a dict/list together, as it may break the Storage "+
+						  "instance that is created.",
+						 self.AdditionFailureWarning)
+			self.values.update(other)
+			return Storage(self.key, **self.values)
+		elif isinstance(other, list):
+			warnings.warn("WARNING! You are strongly advised against adding a Storage "+
+						  "instance and a dict/list together, as it may break the Storage "+
+						  "instance that is created.",
+						 self.AdditionFailureWarning)
+			self.values.update({"undefined": other})
+			return Storage(self.key, **self.values)
+		else:return NotImplemented
+	
+	def __radd__(self, other: Storage | dict[str, Any]) -> Self:
+		"""Defines how to add two objects, same type or no."""
+		if isinstance(other, type(self)):
+			if self.key==other.key:
+				self.values.update(other.values)
+				return Storage(self.key, **self.values)
+			else:raise ValueError("Both instances must have the same top level key")
+		elif isinstance(other, dict):
+			warnings.warn("WARNING! You are strongly advised against adding a dict "+
+						  "and a Storage instance together, as it may break the Storage "+
+						  "instance that is created.",
+						 self.AdditionFailureWarning)
+			self.values=other|self.values
+			return Storage(self.key, **self.values)
+		else:return NotImplemented
+			
+	def __sub__(self, other: Storage | dict[str, Any]) -> Self:
+		"""Defines how to subtract two objects, same type or no."""
+		if isinstance(other, type(self)):
+			if self.key==other.key:
+				skeys: set = set(self.values.keys()) & set(other.values.keys())
+				for akey in skeys:
+					akey: str
+					if akey in self.values:
+						del self.values[akey]
+					else:
+						self.values[akey] = other.values[akey]
+				return Storage(self.key, **self.values)
+			else:raise ValueError("Both instances must have the same top level key")
+		elif isinstance(other, dict):
+			warnings.warn("WARNING! You are strongly advised against subtracting/dividing a Storage "+
+						  "instance by a dict, as it may break the Storage "+
+						  "instance that is created.",
+						 self.SubtractionFailureWarning)
+			skeys: set = set(self.values.keys()) & set(other)
+			for akey in skeys:
+				akey: str
+				if akey in self.values:
+					del self.values[akey]
+				else:
+					self.values[akey] = other.values[akey]
+			return Storage(self.key, **self.values)
+		else:return NotImplemented
+
+	def __rsub__(self, other: Storage | dict[str, Any]) -> Self:
+		"""Defines how to subtract two objects, same type or no."""
+		if isinstance(other, type(self)):
+			if self.key==other.key:
+				skeys: set = set(self.values.keys()) & set(other.values.keys())
+				for akey in skeys:
+					akey: str
+					if akey in self.values:
+						del self.values[akey]
+					else:
+						self.values[akey] = other.values[akey]
+				return Storage(self.key, **self.values)
+			else:raise ValueError("Both instances must have the same top level key")
+		elif isinstance(other, dict):
+			warnings.warn("WARNING! You are strongly advised against subtracting/dividing a dict "+
+						  "by a Storage instance, as it may break the Storage "+
+						  "instance that is created.",
+						 self.SubtractionFailureWarning)
+			skeys: set = set(self.values.keys()) & set(other)
+			for akey in skeys:
+				akey: str
+				if akey in self.values:
+					del self.values[akey]
+				else:
+					self.values[akey] = other.values[akey]
+			return Storage(self.key, **self.values)
+		else:return NotImplemented
+
+	def __truediv__(self, other: Storage | dict[str, Any] | int) -> list[Self,...] | Self:
+		"""
+		Defines how to divide two objects, same type or no.
+		Note that attempting to divide a Storage instance by another instance
+		or a dictionary (and vice versa) will result in the subtraction of the two.
+		"""
+		if isinstance(other, (type(self),dict)):return self - other
+		elif isinstance(other, int):
+			split: float | int = len(self.values.keys())/other
+			if other > 9:raise ValueError("Dividing by a number greater than nine is unsupported")
+			elif len(self.values.keys()) == split: return [Storage(self.key, **self.values)]
+			elif split.is_integer():
+				i: int = 0
+				rtlist: list[dict | Storage] = []
+				while i < split*other:
+					nd: dict = {}
+					nkey: str = list(self.values.keys())[i]
+					nd[nkey]=self.values[nkey]
+					i += 1
+					while i % split != 0:
+						nkey = list(self.values.keys())[i]
+						nd.update([str(nkey),self.values[nkey]])
+						i += 1
+					rtlist.append(nd)
+				i = 0
+				while i < other: rtlist[i] = Storage(self.key, **rtlist[i]); i+=1
+				return rtlist
+			else:raise ValueError(f"Cannot divide by number {other} for a list length of {len(self.values.keys())}")
+		else:return NotImplemented
+
+	def __rtruediv__(self, other: Storage | dict[str, Any]) -> Self:
+		"""
+		Defines how to divide two objects, same type or no.
+		Note that attempting to divide a Storage instance by another instance
+		or a dictionary (and vice versa) will result in the subtraction of the two.
+		"""
+		if isinstance(other, (type(self),dict)):return self - other
+		else:return NotImplemented
+			
 # Allow importing all Storage.InnerClass()
 Delete = Storage.Delete
 Load = Storage.Load
