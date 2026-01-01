@@ -63,9 +63,9 @@ db_delete_all(file)
 assert db_get_keys(file) == [], "Bulk deleting has failed. Check the Delete.all method."
 print("Part 1 passed.")
 print(("-"*20)+"\nPart 2: Storing, Editing, and Deleting via dunder methods\n"+("-"*20))
-s1 = Storage("test1", sk1="val1", sk2="val2")
-s2 = Storage("test1", sk4="val1", sk6="val2", sk3="val3")
-s3 = Storage("test2", sk4="val1", sk6="val2", sk3="val3")
+s1 = s("test1", sk1="val1", sk2="val2")
+s2 = s("test1", sk4="val1", sk6="val2", sk3="val3")
+s3 = s("test2", sk4="val1", sk6="val2", sk3="val3")
 print("Part 2.1: Comparisons")
 assert s1 != s2 # if this fails, python probably updated without notice lol
 assert repr(s1) == "Storage(top_lv_key=test1, key_value_pairs=[sk1='val1', sk2='val2'])", "The repr representation of instance s1 is incorrect. Check the __repr__ method."
@@ -82,11 +82,11 @@ assert repr(s1+
              "sk8": "hehe"
             }+s2
            )=="Storage(top_lv_key=test1, key_value_pairs=[sk1='val1', sk2='val2', sk7='67', sk8='hehe', sk4='val1', sk6='val2', sk3='val3'])", "Adding a dict to the instance has failed. Check the __add__ and __radd__ methods."
-s1 = Storage("test1", sk1="val1", sk2="val2")
+s1 = s("test1", sk1="val1", sk2="val2")
 assert repr(s1+s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk1='val1', sk2='val2', sk4='val1', sk6='val2', sk3='val3'])", "Adding two instances has failed. Check the __add__ and __radd__ methods."
-s1 = Storage("test1", sk1="val1", sk2="val2")
+s1 = s("test1", sk1="val1", sk2="val2")
 assert repr(s1+["val1", "val2"]) == "Storage(top_lv_key=test1, key_value_pairs=[sk1='val1', sk2='val2', undefined=['val1', 'val2']])"
-s1 = Storage("test1", sk1="val1", sk2="val2")
+s1 = s("test1", sk1="val1", sk2="val2")
 assert repr(s1-s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk1='val1', sk2='val2'])"
 try:assert s3-s2
 except ValueError:pass
