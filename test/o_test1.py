@@ -143,6 +143,56 @@ assert ((repr(s3^s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk5='val3', 
 assert repr(s3<<1) == "Storage(top_lv_key=test1, key_value_pairs=[sk6='val2', sk3='val3'])", "The bitwise operator LEFT_SHIFT (<<) has failed. Check the __lshift__ method."
 assert repr(s3>>2) == "Storage(top_lv_key=test1, key_value_pairs=[sk4='val1'])", "The bitwise operator RIGHT_SHIFT (>>) has failed. Check the __rshift__ method."
 
-print("Part 2.3 passed.\n-----\nPart 2.4: Collecting and Containing")
+print("Part 2.3 passed.\n-----\nPart 2.4: Collection and Container tests")
+
+s1 = s("test1", sk1="val1", sk2="val2")
+s2 = s("test1", sk4="val1", sk6="val2", sk3="val3")
+s3 = s("test2", sk4="val1", sk6="val2", sk3="val3")
+assert s1['sk1']=='val1'
+assert s1[0]=='val1'
+assert s3[1:3]==['val2', 'val3']
+s1['sk1']='skib'
+assert repr(s1)=="Storage(top_lv_key=test1, key_value_pairs=[sk1='skib', sk2='val2'])"
+s1[0]='hehe'
+assert repr(s1)=="Storage(top_lv_key=test1, key_value_pairs=[sk1='hehe', sk2='val2'])"
+s1+={'sk5': "will be del"}
+assert repr(s1)=="Storage(top_lv_key=test1, key_value_pairs=[sk1='hehe', sk2='val2', sk5='will be del'])"
+del s1['sk5']
+assert repr(s1)=="Storage(top_lv_key=test1, key_value_pairs=[sk1='hehe', sk2='val2'])"
+del s3['sk3']
+repr(s3)=="Storage(top_lv_key=test2, key_value_pairs=[sk4='val1', sk6='val2'])"
+try:fail=s1.hack_tuah
+except AttributeError as e:pass
+else:raise AssertionError()
+with s2 as f:assert f=={'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}
+
+print("Part 2.4 passed.\n-----\nPart 2.5: Built-in attributes")
+
+assert [len(s1),len(s2),len(s3)]==[2,3,2]
+assert ["sk3"in s1,"sk3"in s2,"sk3"in s3]==[False,True,False]
+
+print("Part 2.5 passed.\n-----\nPart 2.6: Iteration Test (for loop)")
+
+i=0
+for item in s2:
+  if i==0:
+    assert item==s2.key
+  else:
+    assert (set(list(item.keys())).issubset(set(list(s2.values.keys())))) and (set(list(item.values())).issubset(set(list(s2.values.values()))))
+  i+=1
+
+print("Part 2.6 passed.\n-----\nPart 2.7: Miscellaneous Tests (__call__, __format__)")
+
+s3(sk3='val3')
+assert repr(s3)=="Storage(top_lv_key=test2, key_value_pairs=[sk4='val1', sk6='val2', sk3='val3'])"
+assert format(s2,".dictf")=="{'test1': {'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}}"
+assert format(s2,".dictt")=="{'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}"
+assert format(s2,".tuplef")=="('test1',)"
+assert format(s2,".tuplet")=="('sk4', 'sk6', 'sk3')"
+assert format(s2,".key")=='test1'
+assert format(s2,".keys")=="['sk4', 'sk6', 'sk3']"
+assert format(s2,".values")=="['val1', 'val2', 'val3']"
+
+print("Part 2.7 passed.")
 
 print("\nTest passed sucessfully")
