@@ -12,7 +12,7 @@ jobs:
 
       - name: Fix and Format
         run: |
-          ruff check --fix --per-file-ignores "test/*:S101,D" --per-file-ignores "scratch_chat.py:F811" --per-file-ignores ".archive/*:ALL" --per-file-ignores "scratch_chat.py:F811"
+          ruff check . --fix --show-fixes --per-file-ignores "test/*.py:S101,D" --per-file-ignores "scratch_chat.py:F811" --per-file-ignores ".archive/*:ALL" --per-file-ignores "scratch_chat.py:F811"
           ruff format .
 
       - name: Generate UUID
