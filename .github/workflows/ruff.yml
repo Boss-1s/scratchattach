@@ -8,11 +8,11 @@ jobs:
         uses: actions/checkout@v4
         
       - name: Install Ruff
-        run: pip install ruff
+        run: ux add --dev ruff
 
       - name: Fix and Format
         run: |
-          ruff check . --fix --show-fixes --per-file-ignores "test/*.py:S101" --per-file-ignores "test/*.py:D" --per-file-ignores "scratch_chat.py:F811" --per-file-ignores ".archive/*:ALL" --per-file-ignores "scratch_chat.py:F811"
+          ruff check . --fix
           ruff format .
 
       - name: Generate UUID
