@@ -1,0 +1,1345 @@
+﻿2026-01-06T22:01:54.9670792Z Current runner version: '2.330.0'
+2026-01-06T22:01:54.9706074Z ##[group]Runner Image Provisioner
+2026-01-06T22:01:54.9707290Z Hosted Compute Agent
+2026-01-06T22:01:54.9708433Z Version: 20251211.462
+2026-01-06T22:01:54.9709456Z Commit: 6cbad8c2bb55d58165063d031ccabf57e2d2db61
+2026-01-06T22:01:54.9710778Z Build Date: 2025-12-11T16:28:49Z
+2026-01-06T22:01:54.9712125Z Worker ID: {c8d05918-c84f-4762-936e-17a4f47ae3b4}
+2026-01-06T22:01:54.9713293Z ##[endgroup]
+2026-01-06T22:01:54.9714253Z ##[group]Operating System
+2026-01-06T22:01:54.9715334Z Ubuntu
+2026-01-06T22:01:54.9716173Z 24.04.3
+2026-01-06T22:01:54.9716898Z LTS
+2026-01-06T22:01:54.9717815Z ##[endgroup]
+2026-01-06T22:01:54.9718725Z ##[group]Runner Image
+2026-01-06T22:01:54.9719625Z Image: ubuntu-24.04
+2026-01-06T22:01:54.9720925Z Version: 20251215.174.1
+2026-01-06T22:01:54.9722725Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20251215.174/images/ubuntu/Ubuntu2404-Readme.md
+2026-01-06T22:01:54.9725625Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20251215.174
+2026-01-06T22:01:54.9727414Z ##[endgroup]
+2026-01-06T22:01:54.9732473Z ##[group]GITHUB_TOKEN Permissions
+2026-01-06T22:01:54.9735596Z Actions: write
+2026-01-06T22:01:54.9736500Z ArtifactMetadata: write
+2026-01-06T22:01:54.9737528Z Attestations: write
+2026-01-06T22:01:54.9738507Z Checks: write
+2026-01-06T22:01:54.9739313Z Contents: write
+2026-01-06T22:01:54.9740243Z Deployments: write
+2026-01-06T22:01:54.9741389Z Discussions: write
+2026-01-06T22:01:54.9742243Z Issues: write
+2026-01-06T22:01:54.9743017Z Metadata: read
+2026-01-06T22:01:54.9744051Z Models: read
+2026-01-06T22:01:54.9744929Z Packages: write
+2026-01-06T22:01:54.9745718Z Pages: write
+2026-01-06T22:01:54.9746795Z PullRequests: write
+2026-01-06T22:01:54.9747818Z RepositoryProjects: write
+2026-01-06T22:01:54.9748812Z SecurityEvents: write
+2026-01-06T22:01:54.9749857Z Statuses: write
+2026-01-06T22:01:54.9750997Z ##[endgroup]
+2026-01-06T22:01:54.9753742Z Secret source: Actions
+2026-01-06T22:01:54.9755658Z Prepare workflow directory
+2026-01-06T22:01:55.0140572Z Prepare all required actions
+2026-01-06T22:01:55.0196182Z Getting action download info
+2026-01-06T22:01:55.3767014Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2026-01-06T22:01:55.7656697Z Download action repository 'Boss-1s/generate-uuid@v1.4' (SHA:144b2c798ad89eaf56b3e3c2e67c8e7b7d3b02d9)
+2026-01-06T22:01:56.1203565Z Download action repository 'peter-evans/create-pull-request@v6' (SHA:c5a7806660adbe173f04e3e038b0ccdcd758773c)
+2026-01-06T22:01:56.7033351Z Getting action download info
+2026-01-06T22:01:56.8928714Z Download action repository 'actions/checkout@v6.0.1' (SHA:8e8c483db84b4bee98b60c0593521ed34d9990e8)
+2026-01-06T22:01:56.9454802Z Download action repository 'actions/setup-python@v6' (SHA:83679a892e2d95755f2dac6acb0bfd1e9ac5d548)
+2026-01-06T22:01:57.1184338Z Complete job name: ruff-check
+2026-01-06T22:01:57.1985530Z ##[group]Run actions/checkout@v4
+2026-01-06T22:01:57.1986800Z with:
+2026-01-06T22:01:57.1987565Z   repository: Boss-1s/scratchattach
+2026-01-06T22:01:57.1988824Z   token: ***
+2026-01-06T22:01:57.1989552Z   ssh-strict: true
+2026-01-06T22:01:57.1990468Z   ssh-user: git
+2026-01-06T22:01:57.1991261Z   persist-credentials: true
+2026-01-06T22:01:57.1992114Z   clean: true
+2026-01-06T22:01:57.1992898Z   sparse-checkout-cone-mode: true
+2026-01-06T22:01:57.1993849Z   fetch-depth: 1
+2026-01-06T22:01:57.1994599Z   fetch-tags: false
+2026-01-06T22:01:57.1995363Z   show-progress: true
+2026-01-06T22:01:57.1996138Z   lfs: false
+2026-01-06T22:01:57.1996845Z   submodules: false
+2026-01-06T22:01:57.1997645Z   set-safe-directory: true
+2026-01-06T22:01:57.1998749Z ##[endgroup]
+2026-01-06T22:01:57.3079583Z Syncing repository: Boss-1s/scratchattach
+2026-01-06T22:01:57.3082361Z ##[group]Getting Git version info
+2026-01-06T22:01:57.3083792Z Working directory is '/home/runner/work/scratchattach/scratchattach'
+2026-01-06T22:01:57.3085684Z [command]/usr/bin/git version
+2026-01-06T22:01:57.3994341Z git version 2.52.0
+2026-01-06T22:01:57.4020147Z ##[endgroup]
+2026-01-06T22:01:57.4034407Z Temporarily overriding HOME='/home/runner/work/_temp/281e5567-21b7-4bf5-86a5-d032bf6eb503' before making global git config changes
+2026-01-06T22:01:57.4037044Z Adding repository directory to the temporary git global config as a safe directory
+2026-01-06T22:01:57.4047559Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2026-01-06T22:01:57.4121842Z Deleting the contents of '/home/runner/work/scratchattach/scratchattach'
+2026-01-06T22:01:57.4124934Z ##[group]Initializing the repository
+2026-01-06T22:01:57.4129005Z [command]/usr/bin/git init /home/runner/work/scratchattach/scratchattach
+2026-01-06T22:01:57.4711327Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-01-06T22:01:57.4713297Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-01-06T22:01:57.4715087Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-01-06T22:01:57.4716544Z hint: call:
+2026-01-06T22:01:57.4717223Z hint:
+2026-01-06T22:01:57.4718093Z hint: 	git config --global init.defaultBranch <name>
+2026-01-06T22:01:57.4719185Z hint:
+2026-01-06T22:01:57.4720209Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-01-06T22:01:57.4722143Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-01-06T22:01:57.4723536Z hint:
+2026-01-06T22:01:57.4724233Z hint: 	git branch -m <name>
+2026-01-06T22:01:57.4725077Z hint:
+2026-01-06T22:01:57.4726205Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-01-06T22:01:57.4745753Z Initialized empty Git repository in /home/runner/work/scratchattach/scratchattach/.git/
+2026-01-06T22:01:57.4759967Z [command]/usr/bin/git remote add origin https://github.com/Boss-1s/scratchattach
+2026-01-06T22:01:57.4834604Z ##[endgroup]
+2026-01-06T22:01:57.4836907Z ##[group]Disabling automatic garbage collection
+2026-01-06T22:01:57.4839068Z [command]/usr/bin/git config --local gc.auto 0
+2026-01-06T22:01:57.4872412Z ##[endgroup]
+2026-01-06T22:01:57.4874464Z ##[group]Setting up auth
+2026-01-06T22:01:57.4882057Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-01-06T22:01:57.4916626Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-01-06T22:01:57.6357610Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-01-06T22:01:57.6392250Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-01-06T22:01:57.6614402Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-01-06T22:01:57.6646459Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-01-06T22:01:57.6884253Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-01-06T22:01:57.6919804Z ##[endgroup]
+2026-01-06T22:01:57.6921390Z ##[group]Fetching the repository
+2026-01-06T22:01:57.6929586Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +aa0c655960342010b4a459676da700454874660c:refs/remotes/origin/scratch_chat_dev
+2026-01-06T22:02:05.1524412Z From https://github.com/Boss-1s/scratchattach
+2026-01-06T22:02:05.1525316Z  * [new ref]         aa0c655960342010b4a459676da700454874660c -> origin/scratch_chat_dev
+2026-01-06T22:02:05.1594819Z ##[endgroup]
+2026-01-06T22:02:05.1595514Z ##[group]Determining the checkout info
+2026-01-06T22:02:05.1597765Z ##[endgroup]
+2026-01-06T22:02:05.1603819Z [command]/usr/bin/git sparse-checkout disable
+2026-01-06T22:02:05.1683952Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-01-06T22:02:05.1715983Z ##[group]Checking out the ref
+2026-01-06T22:02:05.1716697Z [command]/usr/bin/git checkout --progress --force -B scratch_chat_dev refs/remotes/origin/scratch_chat_dev
+2026-01-06T22:02:06.2571225Z Updating files:  90% (2618/2880)
+2026-01-06T22:02:06.5687362Z Updating files:  91% (2621/2880)
+2026-01-06T22:02:06.8635038Z Updating files:  92% (2650/2880)
+2026-01-06T22:02:06.8670622Z Updating files:  93% (2679/2880)
+2026-01-06T22:02:06.8712288Z Updating files:  94% (2708/2880)
+2026-01-06T22:02:07.0698679Z Updating files:  95% (2736/2880)
+2026-01-06T22:02:07.0723943Z Updating files:  96% (2765/2880)
+2026-01-06T22:02:07.2049004Z Updating files:  97% (2794/2880)
+2026-01-06T22:02:07.2931316Z Updating files:  97% (2816/2880)
+2026-01-06T22:02:07.8451038Z Updating files:  98% (2823/2880)
+2026-01-06T22:02:07.8474159Z Updating files:  99% (2852/2880)
+2026-01-06T22:02:07.8474658Z Updating files: 100% (2880/2880)
+2026-01-06T22:02:07.8475063Z Updating files: 100% (2880/2880), done.
+2026-01-06T22:02:07.8507504Z Switched to a new branch 'scratch_chat_dev'
+2026-01-06T22:02:07.8511940Z branch 'scratch_chat_dev' set up to track 'origin/scratch_chat_dev'.
+2026-01-06T22:02:07.8621288Z ##[endgroup]
+2026-01-06T22:02:07.8662126Z [command]/usr/bin/git log -1 --format=%H
+2026-01-06T22:02:07.8686665Z aa0c655960342010b4a459676da700454874660c
+2026-01-06T22:02:07.8868175Z ##[group]Run pip install ruff
+2026-01-06T22:02:07.8868522Z [36;1mpip install ruff[0m
+2026-01-06T22:02:07.8903028Z shell: /usr/bin/bash -e {0}
+2026-01-06T22:02:07.8903321Z ##[endgroup]
+2026-01-06T22:02:08.9456664Z Defaulting to user installation because normal site-packages is not writeable
+2026-01-06T22:02:10.4554976Z Collecting ruff
+2026-01-06T22:02:10.5246906Z   Downloading ruff-0.14.10-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (26 kB)
+2026-01-06T22:02:10.5493145Z Downloading ruff-0.14.10-py3-none-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (14.2 MB)
+2026-01-06T22:02:10.6920497Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 14.2/14.2 MB 152.6 MB/s eta 0:00:00
+2026-01-06T22:02:10.9747393Z Installing collected packages: ruff
+2026-01-06T22:02:11.1468369Z Successfully installed ruff-0.14.10
+2026-01-06T22:02:11.2409695Z ##[group]Run ruff check --fix .
+2026-01-06T22:02:11.2410002Z [36;1mruff check --fix .[0m
+2026-01-06T22:02:11.2410231Z [36;1mruff format .[0m
+2026-01-06T22:02:11.2442074Z shell: /usr/bin/bash -e {0}
+2026-01-06T22:02:11.2442310Z ##[endgroup]
+2026-01-06T22:02:11.2664965Z F811 Redefinition of unused `on_save` from line 54
+2026-01-06T22:02:11.2665598Z   --> .archive/scratch_chat_db.py:62:5
+2026-01-06T22:02:11.2665992Z    |
+2026-01-06T22:02:11.2666250Z 61 | @db2.event
+2026-01-06T22:02:11.2666536Z 62 | def on_save():
+2026-01-06T22:02:11.2666864Z    |     ^^^^^^^ `on_save` redefined here
+2026-01-06T22:02:11.2667315Z 63 |     print2("Data was saved to db history")
+2026-01-06T22:02:11.2667732Z    |
+2026-01-06T22:02:11.2673359Z   ::: .archive/scratch_chat_db.py:54:5
+2026-01-06T22:02:11.2673838Z    |
+2026-01-06T22:02:11.2674100Z 53 | @db1.event
+2026-01-06T22:02:11.2674423Z 54 | def on_save():
+2026-01-06T22:02:11.2674806Z    |     ------- previous definition of `on_save` here
+2026-01-06T22:02:11.2675365Z 55 |     print2("Data was saved to db chat")
+2026-01-06T22:02:11.2675765Z    |
+2026-01-06T22:02:11.2676045Z help: Remove definition: `on_save`
+2026-01-06T22:02:11.2676324Z 
+2026-01-06T22:02:11.2676507Z F811 Redefinition of unused `on_set` from line 58
+2026-01-06T22:02:11.2676999Z   --> .archive/scratch_chat_db.py:66:5
+2026-01-06T22:02:11.2677374Z    |
+2026-01-06T22:02:11.2677620Z 65 | @db2.event
+2026-01-06T22:02:11.2677906Z 66 | def on_set(key, value):
+2026-01-06T22:02:11.2678271Z    |     ^^^^^^ `on_set` redefined here
+2026-01-06T22:02:11.2678801Z 67 |     print2(f"Key {key} was set to value {value} in db history")
+2026-01-06T22:02:11.2679305Z    |
+2026-01-06T22:02:11.2679607Z   ::: .archive/scratch_chat_db.py:58:5
+2026-01-06T22:02:11.2679973Z    |
+2026-01-06T22:02:11.2680669Z 57 | @db1.event
+2026-01-06T22:02:11.2680974Z 58 | def on_set(key, value):
+2026-01-06T22:02:11.2681400Z    |     ------ previous definition of `on_set` here
+2026-01-06T22:02:11.2681989Z 59 |     print2(f"Key {key} was set to value {value} in db chat")
+2026-01-06T22:02:11.2682488Z    |
+2026-01-06T22:02:11.2682760Z help: Remove definition: `on_set`
+2026-01-06T22:02:11.2683035Z 
+2026-01-06T22:02:11.2683219Z F822 Undefined name `Storage.Delete` in `__all__`
+2026-01-06T22:02:11.2683710Z   --> key_multivalue_storage.py:12:23
+2026-01-06T22:02:11.2684096Z    |
+2026-01-06T22:02:11.2684389Z 10 | from functools import total_ordering
+2026-01-06T22:02:11.2684777Z 11 |
+2026-01-06T22:02:11.2685325Z 12 | __all__ = ["Storage", "Storage.Delete", "Storage.Load", "Storage.Edit", "Delete", "Load", "Edit"]
+2026-01-06T22:02:11.2686025Z    |                       ^^^^^^^^^^^^^^^^
+2026-01-06T22:02:11.2686437Z 13 | logger: logging.Logger | None = None
+2026-01-06T22:02:11.2686817Z    |
+2026-01-06T22:02:11.2686965Z 
+2026-01-06T22:02:11.2687146Z F822 Undefined name `Storage.Load` in `__all__`
+2026-01-06T22:02:11.2687903Z   --> key_multivalue_storage.py:12:41
+2026-01-06T22:02:11.2688147Z    |
+2026-01-06T22:02:11.2688337Z 10 | from functools import total_ordering
+2026-01-06T22:02:11.2688568Z 11 |
+2026-01-06T22:02:11.2688907Z 12 | __all__ = ["Storage", "Storage.Delete", "Storage.Load", "Storage.Edit", "Delete", "Load", "Edit"]
+2026-01-06T22:02:11.2689353Z    |                                         ^^^^^^^^^^^^^^
+2026-01-06T22:02:11.2689628Z 13 | logger: logging.Logger | None = None
+2026-01-06T22:02:11.2689850Z    |
+2026-01-06T22:02:11.2689938Z 
+2026-01-06T22:02:11.2690041Z F822 Undefined name `Storage.Edit` in `__all__`
+2026-01-06T22:02:11.2690518Z   --> key_multivalue_storage.py:12:57
+2026-01-06T22:02:11.2690795Z    |
+2026-01-06T22:02:11.2690970Z 10 | from functools import total_ordering
+2026-01-06T22:02:11.2691188Z 11 |
+2026-01-06T22:02:11.2691504Z 12 | __all__ = ["Storage", "Storage.Delete", "Storage.Load", "Storage.Edit", "Delete", "Load", "Edit"]
+2026-01-06T22:02:11.2691950Z    |                                                         ^^^^^^^^^^^^^^
+2026-01-06T22:02:11.2692236Z 13 | logger: logging.Logger | None = None
+2026-01-06T22:02:11.2692454Z    |
+2026-01-06T22:02:11.2692755Z 
+2026-01-06T22:02:11.2692866Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2693159Z   --> key_multivalue_storage.py:22:27
+2026-01-06T22:02:11.2693439Z    |
+2026-01-06T22:02:11.2693591Z 20 |     # Set up logging
+2026-01-06T22:02:11.2693799Z 21 |     os.makedirs(dir, exist_ok=True)
+2026-01-06T22:02:11.2694044Z 22 |     with open(dir+fname, 'w'):pass
+2026-01-06T22:02:11.2694283Z    |                              ^
+2026-01-06T22:02:11.2694508Z 23 |     logger = logging.getLogger(lname)
+2026-01-06T22:02:11.2694765Z 24 |     logger.setLevel(logging.INFO)
+2026-01-06T22:02:11.2694983Z    |
+2026-01-06T22:02:11.2695074Z 
+2026-01-06T22:02:11.2695176Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2695441Z   --> key_multivalue_storage.py:30:43
+2026-01-06T22:02:11.2695669Z    |
+2026-01-06T22:02:11.2695834Z 28 | def _toggle_logger(self) -> None:
+2026-01-06T22:02:11.2696086Z 29 |     """Toggles the logger on and off."""
+2026-01-06T22:02:11.2696443Z 30 |     if logger.level == logging.CRITICAL + 100:logger.setLevel(logging.INFO)
+2026-01-06T22:02:11.2696810Z    |                                              ^
+2026-01-06T22:02:11.2697094Z 31 |     else:logger.setLevel(logging.CRITICAL + 100)
+2026-01-06T22:02:11.2697342Z    |
+2026-01-06T22:02:11.2697428Z 
+2026-01-06T22:02:11.2697523Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2697777Z   --> key_multivalue_storage.py:31:6
+2026-01-06T22:02:11.2697994Z    |
+2026-01-06T22:02:11.2698158Z 29 |     """Toggles the logger on and off."""
+2026-01-06T22:02:11.2698495Z 30 |     if logger.level == logging.CRITICAL + 100:logger.setLevel(logging.INFO)
+2026-01-06T22:02:11.2698869Z 31 |     else:logger.setLevel(logging.CRITICAL + 100)
+2026-01-06T22:02:11.2699119Z    |         ^
+2026-01-06T22:02:11.2699397Z 32 |
+2026-01-06T22:02:11.2699557Z 33 | def print(*args, **kwargs) -> None:
+2026-01-06T22:02:11.2699789Z    |
+2026-01-06T22:02:11.2699932Z 
+2026-01-06T22:02:11.2700566Z F841 Local variable `decoded_values` is assigned to but never used
+2026-01-06T22:02:11.2701166Z    --> key_multivalue_storage.py:165:5
+2026-01-06T22:02:11.2701547Z     |
+2026-01-06T22:02:11.2701793Z 164 |         if not raw:
+2026-01-06T22:02:11.2702147Z 165 |           decoded_values: dict[str, Any] = {}
+2026-01-06T22:02:11.2702410Z     |           ^^^^^^^^^^^^^^
+2026-01-06T22:02:11.2702651Z 166 |           # Decide which values to decode.
+2026-01-06T22:02:11.2703099Z 167 |           # Only decode if the value is an int (encoded string) or a string that looks like an encoded int.
+2026-01-06T22:02:11.2703531Z     |
+2026-01-06T22:02:11.2703759Z help: Remove assignment to unused variable `decoded_values`
+2026-01-06T22:02:11.2703996Z 
+2026-01-06T22:02:11.2704119Z F841 Local variable `fp` is assigned to but never used
+2026-01-06T22:02:11.2704414Z    --> key_multivalue_storage.py:222:4
+2026-01-06T22:02:11.2704646Z     |
+2026-01-06T22:02:11.2704816Z 221 |         if ".json" not in file_path:
+2026-01-06T22:02:11.2705080Z 222 |             fp = str(file_path) + ".json"
+2026-01-06T22:02:11.2705320Z     |             ^^
+2026-01-06T22:02:11.2705486Z 223 |         
+2026-01-06T22:02:11.2705676Z 224 |         all_data.update(self._to_dict())
+2026-01-06T22:02:11.2705907Z     |
+2026-01-06T22:02:11.2706097Z help: Remove assignment to unused variable `fp`
+2026-01-06T22:02:11.2706281Z 
+2026-01-06T22:02:11.2706378Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2706643Z    --> key_multivalue_storage.py:233:20
+2026-01-06T22:02:11.2706865Z     |
+2026-01-06T22:02:11.2707125Z 231 |             print(f"store: ERROR: Error writing to file '{file_path}': {e}") 
+2026-01-06T22:02:11.2707456Z 232 |
+2026-01-06T22:02:11.2707613Z 233 |         if instant_delete:del self
+2026-01-06T22:02:11.2707849Z     |                          ^
+2026-01-06T22:02:11.2708045Z 234 |
+2026-01-06T22:02:11.2708221Z 235 |     class DeleteWarning(UserWarning):
+2026-01-06T22:02:11.2708451Z     |
+2026-01-06T22:02:11.2708536Z 
+2026-01-06T22:02:11.2708620Z F821 Undefined name `top_level_key`
+2026-01-06T22:02:11.2709012Z    --> key_multivalue_storage.py:430:73
+2026-01-06T22:02:11.2709255Z     |
+2026-01-06T22:02:11.2709621Z 428 |                    subsection: dict[str, dict[str, Any]] = Storage._from_dict({top_lv_key: loaded_data[top_lv_key]}) 
+2026-01-06T22:02:11.2710085Z 429 |                 except ValueError as e:
+2026-01-06T22:02:11.2710736Z 430 |                     print(f"Edit.propkey: ERROR: Error reconstructing object for key '{top_level_key}': {e}")
+2026-01-06T22:02:11.2711237Z     |                                                                                        ^^^^^^^^^^^^^
+2026-01-06T22:02:11.2711549Z 431 |                     return None
+2026-01-06T22:02:11.2711764Z 432 |             else:
+2026-01-06T22:02:11.2711946Z     |
+2026-01-06T22:02:11.2712038Z 
+2026-01-06T22:02:11.2712144Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2712408Z    --> key_multivalue_storage.py:439:30
+2026-01-06T22:02:11.2712637Z     |
+2026-01-06T22:02:11.2712816Z 437 |             if oldpropkey in subsection:
+2026-01-06T22:02:11.2713136Z 438 |                 for propkey, propval in subsection.values.items():
+2026-01-06T22:02:11.2713514Z 439 |                     if propkey == oldpropkey:items[newpropkey] = propval
+2026-01-06T22:02:11.2713835Z     |                                             ^
+2026-01-06T22:02:11.2714099Z 440 |                     else:items[propkey] = propval
+2026-01-06T22:02:11.2714368Z 441 |             elif noexist_ok:
+2026-01-06T22:02:11.2714583Z     |
+2026-01-06T22:02:11.2714664Z 
+2026-01-06T22:02:11.2714761Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2715030Z    --> key_multivalue_storage.py:440:10
+2026-01-06T22:02:11.2715255Z     |
+2026-01-06T22:02:11.2715488Z 438 |                 for propkey, propval in subsection.values.items():
+2026-01-06T22:02:11.2715989Z 439 |                     if propkey == oldpropkey:items[newpropkey] = propval
+2026-01-06T22:02:11.2716329Z 440 |                     else:items[propkey] = propval
+2026-01-06T22:02:11.2716587Z     |                         ^
+2026-01-06T22:02:11.2716799Z 441 |             elif noexist_ok:
+2026-01-06T22:02:11.2717208Z 442 |                 warnings.warn(f"Subkey {oldpropkey} was not found. Creating a new subkey under the name"+
+2026-01-06T22:02:11.2717623Z     |
+2026-01-06T22:02:11.2717705Z 
+2026-01-06T22:02:11.2717807Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2718060Z    --> key_multivalue_storage.py:444:54
+2026-01-06T22:02:11.2718286Z     |
+2026-01-06T22:02:11.2718614Z 442 |                 warnings.warn(f"Subkey {oldpropkey} was not found. Creating a new subkey under the name"+
+2026-01-06T22:02:11.2719240Z 443 |                                 f" {newpropkey} with value '' (override this with noexist_ok=False, will raise exception)")
+2026-01-06T22:02:11.2719828Z 444 |                 for propkey, propval in subsection.values.items():items[propkey] = propval
+2026-01-06T22:02:11.2720230Z     |                                                                  ^
+2026-01-06T22:02:11.2720796Z 445 |                 items[newpropkey] = ''
+2026-01-06T22:02:11.2721031Z 446 |             else:
+2026-01-06T22:02:11.2721207Z     |
+2026-01-06T22:02:11.2721288Z 
+2026-01-06T22:02:11.2721381Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2721643Z    --> key_multivalue_storage.py:502:35
+2026-01-06T22:02:11.2721871Z     |
+2026-01-06T22:02:11.2722011Z 500 |             """
+2026-01-06T22:02:11.2722189Z 501 |             try:
+2026-01-06T22:02:11.2722519Z 502 |                 with open(file_path, "r") as f:loaded_data: dict[str, dict[str, Any]] = json.load(f)
+2026-01-06T22:02:11.2722918Z     |                                               ^
+2026-01-06T22:02:11.2723176Z 503 |             except FileNotFoundError:
+2026-01-06T22:02:11.2723558Z 504 |                 print(f"Edit.key: ERROR: Failed to load file '{file_path}': does not exist.")
+2026-01-06T22:02:11.2723928Z     |
+2026-01-06T22:02:11.2724020Z 
+2026-01-06T22:02:11.2724116Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2724506Z    --> key_multivalue_storage.py:541:35
+2026-01-06T22:02:11.2724734Z     |
+2026-01-06T22:02:11.2724883Z 539 |             """
+2026-01-06T22:02:11.2725051Z 540 |             try:
+2026-01-06T22:02:11.2725389Z 541 |                 with open(file_path, "r") as f:loaded_data: dict[str, dict[str, Any]] = json.load(f)
+2026-01-06T22:02:11.2725779Z     |                                               ^
+2026-01-06T22:02:11.2726045Z 542 |             except FileNotFoundError:
+2026-01-06T22:02:11.2726459Z 543 |                 print(f"Delete.by_propkey: ERROR: Failed to load file '{file_path}': does not exist.")
+2026-01-06T22:02:11.2726856Z     |
+2026-01-06T22:02:11.2726939Z 
+2026-01-06T22:02:11.2727038Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2727301Z    --> key_multivalue_storage.py:550:8
+2026-01-06T22:02:11.2727531Z     |
+2026-01-06T22:02:11.2727710Z 549 |             if top_level_key in loaded_data:
+2026-01-06T22:02:11.2728205Z 550 |                 try:subsection: dict[str, dict[str, Any]] = Storage._from_dict({top_level_key: loaded_data[top_level_key]}) 
+2026-01-06T22:02:11.2728665Z     |                    ^
+2026-01-06T22:02:11.2728877Z 551 |                 except ValueError as e:
+2026-01-06T22:02:11.2729330Z 552 |                     print(f"Delete.by_propkey: ERROR: Error reconstructing object for key '{top_level_key}': {e}")
+2026-01-06T22:02:11.2729767Z     |
+2026-01-06T22:02:11.2729849Z 
+2026-01-06T22:02:11.2729948Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2730223Z    --> key_multivalue_storage.py:646:26
+2026-01-06T22:02:11.2730678Z     |
+2026-01-06T22:02:11.2730935Z 644 |         """Defines how the object should be compared as less than."""
+2026-01-06T22:02:11.2731287Z 645 |         if isinstance(other, type(self)):
+2026-01-06T22:02:11.2731892Z 646 |             if self.key!=other.key:raise ValueError("Both instances must have the same top level key")
+2026-01-06T22:02:11.2732320Z     |                                   ^
+2026-01-06T22:02:11.2732633Z 647 |             if len(self.values.items()) < len(other.values.items()):
+2026-01-06T22:02:11.2732953Z 648 |                 return True
+2026-01-06T22:02:11.2733156Z     |
+2026-01-06T22:02:11.2733245Z 
+2026-01-06T22:02:11.2733460Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2733724Z    --> key_multivalue_storage.py:666:8
+2026-01-06T22:02:11.2733954Z     |
+2026-01-06T22:02:11.2734142Z 664 |                 self.values.update(other.values)
+2026-01-06T22:02:11.2734448Z 665 |                 return Storage(self.key, **self.values)
+2026-01-06T22:02:11.2734891Z 666 |             else:raise ValueError("Both instances must have the same top level key")
+2026-01-06T22:02:11.2735248Z     |                 ^
+2026-01-06T22:02:11.2735450Z 667 |         elif isinstance(other, dict):
+2026-01-06T22:02:11.2735935Z 668 |             warnings.warn(self.AdditionFailureWarning("WARNING! You are strongly advised against adding a Storage "+
+2026-01-06T22:02:11.2736410Z     |
+2026-01-06T22:02:11.2736499Z 
+2026-01-06T22:02:11.2736598Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2736855Z    --> key_multivalue_storage.py:679:7
+2026-01-06T22:02:11.2737084Z     |
+2026-01-06T22:02:11.2737275Z 677 |             self.values.update({"undefined": other})
+2026-01-06T22:02:11.2737580Z 678 |             return Storage(self.key, **self.values)
+2026-01-06T22:02:11.2737857Z 679 |         else:return NotImplemented
+2026-01-06T22:02:11.2738089Z     |             ^
+2026-01-06T22:02:11.2738251Z 680 |     
+2026-01-06T22:02:11.2738487Z 681 |     def __radd__(self, other: Storage | dict[str, Any]) -> Self:
+2026-01-06T22:02:11.2738786Z     |
+2026-01-06T22:02:11.2738873Z 
+2026-01-06T22:02:11.2738965Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2739226Z    --> key_multivalue_storage.py:687:8
+2026-01-06T22:02:11.2739445Z     |
+2026-01-06T22:02:11.2739632Z 685 |                 self.values.update(other.values)
+2026-01-06T22:02:11.2740041Z 686 |                 return Storage(self.key, **self.values)
+2026-01-06T22:02:11.2740746Z 687 |             else:raise ValueError("Both instances must have the same top level key")
+2026-01-06T22:02:11.2741109Z     |                 ^
+2026-01-06T22:02:11.2741308Z 688 |         elif isinstance(other, dict):
+2026-01-06T22:02:11.2741783Z 689 |             warnings.warn(self.AdditionFailureWarning("WARNING! You are strongly advised against adding a Storage "+
+2026-01-06T22:02:11.2742262Z     |
+2026-01-06T22:02:11.2742346Z 
+2026-01-06T22:02:11.2742447Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2742702Z    --> key_multivalue_storage.py:694:7
+2026-01-06T22:02:11.2742922Z     |
+2026-01-06T22:02:11.2743096Z 692 |             self.values=other|self.values
+2026-01-06T22:02:11.2743386Z 693 |             return Storage(self.key, **self.values)
+2026-01-06T22:02:11.2743672Z 694 |         else:return NotImplemented
+2026-01-06T22:02:11.2743905Z     |             ^
+2026-01-06T22:02:11.2744066Z 695 |             
+2026-01-06T22:02:11.2744316Z 696 |     def __sub__(self, other: Storage | dict[str, Any]) -> Self:
+2026-01-06T22:02:11.2744610Z     |
+2026-01-06T22:02:11.2744693Z 
+2026-01-06T22:02:11.2744787Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2745046Z    --> key_multivalue_storage.py:708:8
+2026-01-06T22:02:11.2745263Z     |
+2026-01-06T22:02:11.2745461Z 706 |                         self.values[akey] = other.values[akey]
+2026-01-06T22:02:11.2745776Z 707 |                 return Storage(self.key, **self.values)
+2026-01-06T22:02:11.2746170Z 708 |             else:raise ValueError("Both instances must have the same top level key")
+2026-01-06T22:02:11.2746527Z     |                 ^
+2026-01-06T22:02:11.2746721Z 709 |         elif isinstance(other, dict):
+2026-01-06T22:02:11.2747023Z 710 |             warnings.warn(self.SubtractionFailureWarning(
+2026-01-06T22:02:11.2747468Z     |
+2026-01-06T22:02:11.2747554Z 
+2026-01-06T22:02:11.2747657Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2747921Z    --> key_multivalue_storage.py:722:7
+2026-01-06T22:02:11.2748145Z     |
+2026-01-06T22:02:11.2748337Z 720 |                     self.values[akey] = other.values[akey]
+2026-01-06T22:02:11.2748654Z 721 |             return Storage(self.key, **self.values)
+2026-01-06T22:02:11.2748938Z 722 |         else:return NotImplemented
+2026-01-06T22:02:11.2749160Z     |             ^
+2026-01-06T22:02:11.2749322Z 723 |
+2026-01-06T22:02:11.2749544Z 724 |     def __rsub__(self, other: Storage | dict[str, Any]) -> Self:
+2026-01-06T22:02:11.2749839Z     |
+2026-01-06T22:02:11.2749921Z 
+2026-01-06T22:02:11.2750019Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2750441Z    --> key_multivalue_storage.py:736:8
+2026-01-06T22:02:11.2750702Z     |
+2026-01-06T22:02:11.2750905Z 734 |                         self.values[akey] = other.values[akey]
+2026-01-06T22:02:11.2751227Z 735 |                 return Storage(self.key, **self.values)
+2026-01-06T22:02:11.2751614Z 736 |             else:raise ValueError("Both instances must have the same top level key")
+2026-01-06T22:02:11.2751971Z     |                 ^
+2026-01-06T22:02:11.2752166Z 737 |         elif isinstance(other, dict):
+2026-01-06T22:02:11.2752471Z 738 |             warnings.warn(self.SubtractionFailureWarning(
+2026-01-06T22:02:11.2752752Z     |
+2026-01-06T22:02:11.2752840Z 
+2026-01-06T22:02:11.2752934Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2753189Z    --> key_multivalue_storage.py:750:7
+2026-01-06T22:02:11.2753418Z     |
+2026-01-06T22:02:11.2753614Z 748 |                     self.values[akey] = other.values[akey]
+2026-01-06T22:02:11.2753916Z 749 |             return Storage(self.key, **self.values)
+2026-01-06T22:02:11.2754193Z 750 |         else:return NotImplemented
+2026-01-06T22:02:11.2754412Z     |             ^
+2026-01-06T22:02:11.2754576Z 751 |
+2026-01-06T22:02:11.2754870Z 752 |     def __truediv__(self, other: Storage | dict[str, Any] | int) -> list[Self,...] | Self:
+2026-01-06T22:02:11.2755250Z     |
+2026-01-06T22:02:11.2755333Z 
+2026-01-06T22:02:11.2755546Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2755814Z    --> key_multivalue_storage.py:758:42
+2026-01-06T22:02:11.2756044Z     |
+2026-01-06T22:02:11.2756316Z 756 |         or a dictionary (and vice versa) will result in the subtraction of the two.
+2026-01-06T22:02:11.2756671Z 757 |         """
+2026-01-06T22:02:11.2756921Z 758 |         if isinstance(other, (type(self),dict)):return self - other
+2026-01-06T22:02:11.2757254Z     |                                                ^
+2026-01-06T22:02:11.2757506Z 759 |         elif isinstance(other, int):
+2026-01-06T22:02:11.2757809Z 760 |             split: float | int = len(self.values.keys())/other
+2026-01-06T22:02:11.2758087Z     |
+2026-01-06T22:02:11.2758176Z 
+2026-01-06T22:02:11.2758272Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2758545Z    --> key_multivalue_storage.py:761:16
+2026-01-06T22:02:11.2758769Z     |
+2026-01-06T22:02:11.2758945Z 759 |         elif isinstance(other, int):
+2026-01-06T22:02:11.2759244Z 760 |             split: float | int = len(self.values.keys())/other
+2026-01-06T22:02:11.2759709Z 761 |             if other > 9:raise ValueError("Dividing by a number greater than nine is unsupported")
+2026-01-06T22:02:11.2760114Z     |                         ^
+2026-01-06T22:02:11.2760703Z 762 |             elif len(self.values.keys()) == split: return [Storage(self.key, **self.values)]
+2026-01-06T22:02:11.2761116Z 763 |             elif split.is_integer():
+2026-01-06T22:02:11.2761340Z     |
+2026-01-06T22:02:11.2761423Z 
+2026-01-06T22:02:11.2761523Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2761781Z    --> key_multivalue_storage.py:762:41
+2026-01-06T22:02:11.2762006Z     |
+2026-01-06T22:02:11.2762211Z 760 |             split: float | int = len(self.values.keys())/other
+2026-01-06T22:02:11.2762792Z 761 |             if other > 9:raise ValueError("Dividing by a number greater than nine is unsupported")
+2026-01-06T22:02:11.2763334Z 762 |             elif len(self.values.keys()) == split: return [Storage(self.key, **self.values)]
+2026-01-06T22:02:11.2763725Z     |                                                  ^
+2026-01-06T22:02:11.2763999Z 763 |             elif split.is_integer():
+2026-01-06T22:02:11.2764238Z 764 |                 i: int = 0
+2026-01-06T22:02:11.2764430Z     |
+2026-01-06T22:02:11.2764513Z 
+2026-01-06T22:02:11.2764615Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2764871Z    --> key_multivalue_storage.py:777:20
+2026-01-06T22:02:11.2765094Z     |
+2026-01-06T22:02:11.2765262Z 775 |                     rtlist.append(nd)
+2026-01-06T22:02:11.2765500Z 776 |                 i = 0
+2026-01-06T22:02:11.2765796Z 777 |                 while i < other: rtlist[i] = Storage(self.key, **rtlist[i]); i+=1
+2026-01-06T22:02:11.2766141Z     |                                ^
+2026-01-06T22:02:11.2766371Z 778 |                 return rtlist
+2026-01-06T22:02:11.2766818Z 779 |             else:raise ValueError(f"Cannot divide by number {other} for a list length of {len(self.values.keys())}")
+2026-01-06T22:02:11.2767286Z     |
+2026-01-06T22:02:11.2767369Z 
+2026-01-06T22:02:11.2767475Z E702 Multiple statements on one line (semicolon)
+2026-01-06T22:02:11.2767755Z    --> key_multivalue_storage.py:777:64
+2026-01-06T22:02:11.2767972Z     |
+2026-01-06T22:02:11.2768139Z 775 |                     rtlist.append(nd)
+2026-01-06T22:02:11.2768372Z 776 |                 i = 0
+2026-01-06T22:02:11.2768667Z 777 |                 while i < other: rtlist[i] = Storage(self.key, **rtlist[i]); i+=1
+2026-01-06T22:02:11.2769038Z     |                                                                            ^
+2026-01-06T22:02:11.2769312Z 778 |                 return rtlist
+2026-01-06T22:02:11.2769758Z 779 |             else:raise ValueError(f"Cannot divide by number {other} for a list length of {len(self.values.keys())}")
+2026-01-06T22:02:11.2770212Z     |
+2026-01-06T22:02:11.2770493Z 
+2026-01-06T22:02:11.2770623Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2771017Z    --> key_multivalue_storage.py:779:8
+2026-01-06T22:02:11.2771250Z     |
+2026-01-06T22:02:11.2771500Z 777 |                 while i < other: rtlist[i] = Storage(self.key, **rtlist[i]); i+=1
+2026-01-06T22:02:11.2771826Z 778 |                 return rtlist
+2026-01-06T22:02:11.2772268Z 779 |             else:raise ValueError(f"Cannot divide by number {other} for a list length of {len(self.values.keys())}")
+2026-01-06T22:02:11.2772715Z     |                 ^
+2026-01-06T22:02:11.2772921Z 780 |         else:return NotImplemented
+2026-01-06T22:02:11.2773142Z     |
+2026-01-06T22:02:11.2773232Z 
+2026-01-06T22:02:11.2773326Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2773585Z    --> key_multivalue_storage.py:780:7
+2026-01-06T22:02:11.2773801Z     |
+2026-01-06T22:02:11.2773954Z 778 |                 return rtlist
+2026-01-06T22:02:11.2774388Z 779 |             else:raise ValueError(f"Cannot divide by number {other} for a list length of {len(self.values.keys())}")
+2026-01-06T22:02:11.2774867Z 780 |         else:return NotImplemented
+2026-01-06T22:02:11.2775091Z     |             ^
+2026-01-06T22:02:11.2775261Z 781 |
+2026-01-06T22:02:11.2775497Z 782 |     def __rtruediv__(self, other: Storage | dict[str, Any]) -> Self:
+2026-01-06T22:02:11.2775814Z     |
+2026-01-06T22:02:11.2775896Z 
+2026-01-06T22:02:11.2775996Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2776249Z    --> key_multivalue_storage.py:788:42
+2026-01-06T22:02:11.2776472Z     |
+2026-01-06T22:02:11.2776744Z 786 |         or a dictionary (and vice versa) will result in the subtraction of the two.
+2026-01-06T22:02:11.2777098Z 787 |         """
+2026-01-06T22:02:11.2777350Z 788 |         if isinstance(other, (type(self),dict)):return other - self
+2026-01-06T22:02:11.2777689Z     |                                                ^
+2026-01-06T22:02:11.2778051Z 789 |         else:return NotImplemented
+2026-01-06T22:02:11.2778275Z     |
+2026-01-06T22:02:11.2778358Z 
+2026-01-06T22:02:11.2778459Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2778717Z    --> key_multivalue_storage.py:789:7
+2026-01-06T22:02:11.2778940Z     |
+2026-01-06T22:02:11.2779081Z 787 |         """
+2026-01-06T22:02:11.2779331Z 788 |         if isinstance(other, (type(self),dict)):return other - self
+2026-01-06T22:02:11.2779660Z 789 |         else:return NotImplemented
+2026-01-06T22:02:11.2779885Z     |             ^
+2026-01-06T22:02:11.2780046Z 790 |
+2026-01-06T22:02:11.2780393Z 791 |     def __and__(self, other: Storage | dict[str, Any]) -> Self | int:
+2026-01-06T22:02:11.2780705Z     |
+2026-01-06T22:02:11.2780797Z 
+2026-01-06T22:02:11.2780895Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2781161Z    --> key_multivalue_storage.py:796:17
+2026-01-06T22:02:11.2781387Z     |
+2026-01-06T22:02:11.2781550Z 794 |             if self.key==other.key:
+2026-01-06T22:02:11.2781880Z 795 |                 skeys: set = set(self.values.keys()) & set(other.values.keys())
+2026-01-06T22:02:11.2782228Z 796 |                 if not skeys: return 0
+2026-01-06T22:02:11.2782457Z     |                             ^
+2026-01-06T22:02:11.2782672Z 797 |                 rtd: dict = {}
+2026-01-06T22:02:11.2782894Z 798 |                 for akey in skeys:
+2026-01-06T22:02:11.2783111Z     |
+2026-01-06T22:02:11.2783193Z 
+2026-01-06T22:02:11.2783293Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2783546Z    --> key_multivalue_storage.py:800:28
+2026-01-06T22:02:11.2783767Z     |
+2026-01-06T22:02:11.2783921Z 798 |                 for akey in skeys:
+2026-01-06T22:02:11.2784147Z 799 |                     akey: str
+2026-01-06T22:02:11.2784421Z 800 |                     if akey in self.values:rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2784736Z     |                                           ^
+2026-01-06T22:02:11.2785042Z 801 |                     if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2785393Z 802 |                 return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2785645Z     |
+2026-01-06T22:02:11.2785730Z 
+2026-01-06T22:02:11.2785942Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2786210Z    --> key_multivalue_storage.py:801:29
+2026-01-06T22:02:11.2786432Z     |
+2026-01-06T22:02:11.2786587Z 799 |                     akey: str
+2026-01-06T22:02:11.2786862Z 800 |                     if akey in self.values:rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2787233Z 801 |                     if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2787551Z     |                                            ^
+2026-01-06T22:02:11.2787814Z 802 |                 return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2788196Z 803 |             else:raise ValueError("Both instances must have the same top level key")
+2026-01-06T22:02:11.2788556Z     |
+2026-01-06T22:02:11.2788645Z 
+2026-01-06T22:02:11.2788748Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2789006Z    --> key_multivalue_storage.py:803:8
+2026-01-06T22:02:11.2789234Z     |
+2026-01-06T22:02:11.2789457Z 801 |                     if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2789795Z 802 |                 return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2790174Z 803 |             else:raise ValueError("Both instances must have the same top level key")
+2026-01-06T22:02:11.2790624Z     |                 ^
+2026-01-06T22:02:11.2790828Z 804 |         elif isinstance(other, dict):
+2026-01-06T22:02:11.2791122Z 805 |             skeys: set = set(self.values.keys()) & set(other)
+2026-01-06T22:02:11.2791405Z     |
+2026-01-06T22:02:11.2791490Z 
+2026-01-06T22:02:11.2791587Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2791852Z    --> key_multivalue_storage.py:806:16
+2026-01-06T22:02:11.2792077Z     |
+2026-01-06T22:02:11.2792247Z 804 |         elif isinstance(other, dict):
+2026-01-06T22:02:11.2792695Z 805 |             skeys: set = set(self.values.keys()) & set(other)
+2026-01-06T22:02:11.2792996Z 806 |             if not skeys: return 0
+2026-01-06T22:02:11.2793227Z     |                         ^
+2026-01-06T22:02:11.2793440Z 807 |             rtd: dict = {}
+2026-01-06T22:02:11.2793658Z 808 |             for akey in skeys:
+2026-01-06T22:02:11.2793861Z     |
+2026-01-06T22:02:11.2793950Z 
+2026-01-06T22:02:11.2794044Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2794300Z    --> key_multivalue_storage.py:810:27
+2026-01-06T22:02:11.2794524Z     |
+2026-01-06T22:02:11.2794679Z 808 |             for akey in skeys:
+2026-01-06T22:02:11.2794890Z 809 |                 akey: str
+2026-01-06T22:02:11.2795158Z 810 |                 if akey in self.values:rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2795461Z     |                                       ^
+2026-01-06T22:02:11.2795759Z 811 |                 if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2796090Z 812 |             return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2796330Z     |
+2026-01-06T22:02:11.2796414Z 
+2026-01-06T22:02:11.2796509Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2796768Z    --> key_multivalue_storage.py:811:28
+2026-01-06T22:02:11.2796996Z     |
+2026-01-06T22:02:11.2797142Z 809 |                 akey: str
+2026-01-06T22:02:11.2797410Z 810 |                 if akey in self.values:rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2797770Z 811 |                 if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2798081Z     |                                        ^
+2026-01-06T22:02:11.2798328Z 812 |             return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2798596Z 813 |         else:return NotImplemented
+2026-01-06T22:02:11.2798817Z     |
+2026-01-06T22:02:11.2798905Z 
+2026-01-06T22:02:11.2798996Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2799255Z    --> key_multivalue_storage.py:813:7
+2026-01-06T22:02:11.2799480Z     |
+2026-01-06T22:02:11.2799699Z 811 |                 if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2800020Z 812 |             return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2800532Z 813 |         else:return NotImplemented
+2026-01-06T22:02:11.2800858Z     |             ^
+2026-01-06T22:02:11.2801027Z 814 |
+2026-01-06T22:02:11.2801272Z 815 |     def __or__(self, other: Storage | dict[str, Any]) -> Self | int:
+2026-01-06T22:02:11.2801607Z     |
+2026-01-06T22:02:11.2801692Z 
+2026-01-06T22:02:11.2801797Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2802061Z    --> key_multivalue_storage.py:820:17
+2026-01-06T22:02:11.2802289Z     |
+2026-01-06T22:02:11.2802454Z 818 |             if self.key==other.key:
+2026-01-06T22:02:11.2802792Z 819 |                 skeys: set = set(self.values.keys()) | set(other.values.keys())
+2026-01-06T22:02:11.2803138Z 820 |                 if not skeys: return 0
+2026-01-06T22:02:11.2803375Z     |                             ^
+2026-01-06T22:02:11.2803590Z 821 |                 rtd: dict = {}
+2026-01-06T22:02:11.2803820Z 822 |                 for akey in skeys:
+2026-01-06T22:02:11.2804040Z     |
+2026-01-06T22:02:11.2804125Z 
+2026-01-06T22:02:11.2804222Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2804484Z    --> key_multivalue_storage.py:824:28
+2026-01-06T22:02:11.2804705Z     |
+2026-01-06T22:02:11.2804869Z 822 |                 for akey in skeys:
+2026-01-06T22:02:11.2805094Z 823 |                     akey: str
+2026-01-06T22:02:11.2805376Z 824 |                     if akey in self.values:rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2805689Z     |                                           ^
+2026-01-06T22:02:11.2805996Z 825 |                     if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2806335Z 826 |                 return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2806577Z     |
+2026-01-06T22:02:11.2806660Z 
+2026-01-06T22:02:11.2806761Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2807137Z    --> key_multivalue_storage.py:825:29
+2026-01-06T22:02:11.2807365Z     |
+2026-01-06T22:02:11.2807518Z 823 |                     akey: str
+2026-01-06T22:02:11.2807805Z 824 |                     if akey in self.values:rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2808178Z 825 |                     if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2808497Z     |                                            ^
+2026-01-06T22:02:11.2808769Z 826 |                 return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2809149Z 827 |             else:raise ValueError("Both instances must have the same top level key")
+2026-01-06T22:02:11.2809508Z     |
+2026-01-06T22:02:11.2809593Z 
+2026-01-06T22:02:11.2809690Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2809956Z    --> key_multivalue_storage.py:827:8
+2026-01-06T22:02:11.2810176Z     |
+2026-01-06T22:02:11.2810502Z 825 |                     if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2810843Z 826 |                 return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2811217Z 827 |             else:raise ValueError("Both instances must have the same top level key")
+2026-01-06T22:02:11.2811580Z     |                 ^
+2026-01-06T22:02:11.2811783Z 828 |         elif isinstance(other, dict):
+2026-01-06T22:02:11.2812083Z 829 |             skeys: set = set(self.values.keys()) | set(other)
+2026-01-06T22:02:11.2812358Z     |
+2026-01-06T22:02:11.2812448Z 
+2026-01-06T22:02:11.2812547Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2812803Z    --> key_multivalue_storage.py:830:16
+2026-01-06T22:02:11.2813031Z     |
+2026-01-06T22:02:11.2813201Z 828 |         elif isinstance(other, dict):
+2026-01-06T22:02:11.2813484Z 829 |             skeys: set = set(self.values.keys()) | set(other)
+2026-01-06T22:02:11.2813779Z 830 |             if not skeys: return 0
+2026-01-06T22:02:11.2814003Z     |                         ^
+2026-01-06T22:02:11.2814210Z 831 |             rtd: dict = {}
+2026-01-06T22:02:11.2814424Z 832 |             for akey in skeys:
+2026-01-06T22:02:11.2814633Z     |
+2026-01-06T22:02:11.2814716Z 
+2026-01-06T22:02:11.2814812Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2815186Z    --> key_multivalue_storage.py:834:27
+2026-01-06T22:02:11.2815415Z     |
+2026-01-06T22:02:11.2815567Z 832 |             for akey in skeys:
+2026-01-06T22:02:11.2815784Z 833 |                 akey: str
+2026-01-06T22:02:11.2816049Z 834 |                 if akey in self.values:rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2816357Z     |                                       ^
+2026-01-06T22:02:11.2816644Z 835 |                 if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2816986Z 836 |             return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2817228Z     |
+2026-01-06T22:02:11.2817317Z 
+2026-01-06T22:02:11.2817412Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2817672Z    --> key_multivalue_storage.py:835:28
+2026-01-06T22:02:11.2817897Z     |
+2026-01-06T22:02:11.2818051Z 833 |                 akey: str
+2026-01-06T22:02:11.2818311Z 834 |                 if akey in self.values:rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2818681Z 835 |                 if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2818987Z     |                                        ^
+2026-01-06T22:02:11.2819241Z 836 |             return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2819504Z 837 |         else:return NotImplemented
+2026-01-06T22:02:11.2819734Z     |
+2026-01-06T22:02:11.2819817Z 
+2026-01-06T22:02:11.2819916Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2820167Z    --> key_multivalue_storage.py:837:7
+2026-01-06T22:02:11.2820583Z     |
+2026-01-06T22:02:11.2820801Z 835 |                 if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2821124Z 836 |             return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2821381Z 837 |         else:return NotImplemented
+2026-01-06T22:02:11.2821735Z     |             ^
+2026-01-06T22:02:11.2821898Z 838 |
+2026-01-06T22:02:11.2822142Z 839 |     def __xor__(self, other: Storage | dict[str, Any]) -> Self | int:
+2026-01-06T22:02:11.2822449Z     |
+2026-01-06T22:02:11.2822534Z 
+2026-01-06T22:02:11.2822629Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2822889Z    --> key_multivalue_storage.py:844:17
+2026-01-06T22:02:11.2823107Z     |
+2026-01-06T22:02:11.2823272Z 842 |             if self.key==other.key:
+2026-01-06T22:02:11.2823597Z 843 |                 skeys: set = set(self.values.keys()) ^ set(other.values.keys())
+2026-01-06T22:02:11.2823949Z 844 |                 if not skeys: return 0
+2026-01-06T22:02:11.2824177Z     |                             ^
+2026-01-06T22:02:11.2824395Z 845 |                 rtd: dict = {}
+2026-01-06T22:02:11.2824623Z 846 |                 for akey in skeys:
+2026-01-06T22:02:11.2824837Z     |
+2026-01-06T22:02:11.2824918Z 
+2026-01-06T22:02:11.2825020Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2825277Z    --> key_multivalue_storage.py:848:28
+2026-01-06T22:02:11.2825500Z     |
+2026-01-06T22:02:11.2825653Z 846 |                 for akey in skeys:
+2026-01-06T22:02:11.2825894Z 847 |                     akey: str
+2026-01-06T22:02:11.2826167Z 848 |                     if akey in self.values:rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2826480Z     |                                           ^
+2026-01-06T22:02:11.2826788Z 849 |                     if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2827122Z 850 |                 return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2827370Z     |
+2026-01-06T22:02:11.2827453Z 
+2026-01-06T22:02:11.2827547Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2827806Z    --> key_multivalue_storage.py:849:29
+2026-01-06T22:02:11.2828026Z     |
+2026-01-06T22:02:11.2828181Z 847 |                     akey: str
+2026-01-06T22:02:11.2828450Z 848 |                     if akey in self.values:rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2828828Z 849 |                     if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2829145Z     |                                            ^
+2026-01-06T22:02:11.2829519Z 850 |                 return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2829905Z 851 |             else:raise ValueError("Both instances must have the same top level key")
+2026-01-06T22:02:11.2830259Z     |
+2026-01-06T22:02:11.2830451Z 
+2026-01-06T22:02:11.2830547Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2830807Z    --> key_multivalue_storage.py:851:8
+2026-01-06T22:02:11.2831032Z     |
+2026-01-06T22:02:11.2831257Z 849 |                     if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2831586Z 850 |                 return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2831963Z 851 |             else:raise ValueError("Both instances must have the same top level key")
+2026-01-06T22:02:11.2832317Z     |                 ^
+2026-01-06T22:02:11.2832529Z 852 |         elif isinstance(other, dict):
+2026-01-06T22:02:11.2832821Z 853 |             skeys: set = set(self.values.keys()) ^ set(other)
+2026-01-06T22:02:11.2833099Z     |
+2026-01-06T22:02:11.2833186Z 
+2026-01-06T22:02:11.2833279Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2833538Z    --> key_multivalue_storage.py:854:16
+2026-01-06T22:02:11.2833758Z     |
+2026-01-06T22:02:11.2833921Z 852 |         elif isinstance(other, dict):
+2026-01-06T22:02:11.2834206Z 853 |             skeys: set = set(self.values.keys()) ^ set(other)
+2026-01-06T22:02:11.2834521Z 854 |             if not skeys: return 0
+2026-01-06T22:02:11.2834756Z     |                         ^
+2026-01-06T22:02:11.2834957Z 855 |             rtd: dict = {}
+2026-01-06T22:02:11.2835170Z 856 |             for akey in skeys:
+2026-01-06T22:02:11.2835377Z     |
+2026-01-06T22:02:11.2835465Z 
+2026-01-06T22:02:11.2835561Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2835822Z    --> key_multivalue_storage.py:858:27
+2026-01-06T22:02:11.2836153Z     |
+2026-01-06T22:02:11.2836310Z 856 |             for akey in skeys:
+2026-01-06T22:02:11.2836519Z 857 |                 akey: str
+2026-01-06T22:02:11.2836791Z 858 |                 if akey in self.values:rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2837093Z     |                                       ^
+2026-01-06T22:02:11.2837386Z 859 |                 if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2837708Z 860 |             return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2837947Z     |
+2026-01-06T22:02:11.2838030Z 
+2026-01-06T22:02:11.2838132Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2838384Z    --> key_multivalue_storage.py:859:28
+2026-01-06T22:02:11.2838607Z     |
+2026-01-06T22:02:11.2838752Z 857 |                 akey: str
+2026-01-06T22:02:11.2839018Z 858 |                 if akey in self.values:rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2839375Z 859 |                 if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2839689Z     |                                        ^
+2026-01-06T22:02:11.2839938Z 860 |             return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2840205Z 861 |         else:return NotImplemented
+2026-01-06T22:02:11.2840623Z     |
+2026-01-06T22:02:11.2840732Z 
+2026-01-06T22:02:11.2840837Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2841104Z    --> key_multivalue_storage.py:861:7
+2026-01-06T22:02:11.2841321Z     |
+2026-01-06T22:02:11.2841548Z 859 |                 if akey in other.values:rtd[akey] = other.values[akey]
+2026-01-06T22:02:11.2841870Z 860 |             return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2842134Z 861 |         else:return NotImplemented
+2026-01-06T22:02:11.2842357Z     |             ^
+2026-01-06T22:02:11.2842521Z 862 |
+2026-01-06T22:02:11.2842728Z 863 |     def __lshift__(self, other: int) -> Self | int:
+2026-01-06T22:02:11.2842987Z     |
+2026-01-06T22:02:11.2843071Z 
+2026-01-06T22:02:11.2843177Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2843432Z    --> key_multivalue_storage.py:866:38
+2026-01-06T22:02:11.2843659Z     |
+2026-01-06T22:02:11.2844085Z 864 |         """Defines using left shifting (<<) for bitwise operations with Storage instances."""
+2026-01-06T22:02:11.2844510Z 865 |         if isinstance(other, int):
+2026-01-06T22:02:11.2844795Z 866 |             if other > len(self.values.keys()):return 0
+2026-01-06T22:02:11.2845089Z     |                                               ^
+2026-01-06T22:02:11.2845331Z 867 |             try:
+2026-01-06T22:02:11.2845567Z 868 |                 skeys: list = list(self.values.keys())[other:]
+2026-01-06T22:02:11.2845849Z     |
+2026-01-06T22:02:11.2845933Z 
+2026-01-06T22:02:11.2846029Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2846294Z    --> key_multivalue_storage.py:869:17
+2026-01-06T22:02:11.2846513Z     |
+2026-01-06T22:02:11.2846661Z 867 |             try:
+2026-01-06T22:02:11.2846889Z 868 |                 skeys: list = list(self.values.keys())[other:]
+2026-01-06T22:02:11.2847191Z 869 |                 if not skeys: return 0
+2026-01-06T22:02:11.2847424Z     |                             ^
+2026-01-06T22:02:11.2847638Z 870 |                 rtd: dict = {}
+2026-01-06T22:02:11.2847862Z 871 |                 for akey in skeys:
+2026-01-06T22:02:11.2848075Z     |
+2026-01-06T22:02:11.2848159Z 
+2026-01-06T22:02:11.2848258Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2848512Z    --> key_multivalue_storage.py:873:28
+2026-01-06T22:02:11.2848734Z     |
+2026-01-06T22:02:11.2848890Z 871 |                 for akey in skeys:
+2026-01-06T22:02:11.2849119Z 872 |                     akey: str
+2026-01-06T22:02:11.2849412Z 873 |                     if akey in self.values: rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2849735Z     |                                           ^
+2026-01-06T22:02:11.2850008Z 874 |                 return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2850267Z 875 |             except IndexError:
+2026-01-06T22:02:11.2850706Z     |
+2026-01-06T22:02:11.2850789Z 
+2026-01-06T22:02:11.2850885Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2851142Z    --> key_multivalue_storage.py:881:38
+2026-01-06T22:02:11.2851364Z     |
+2026-01-06T22:02:11.2851677Z 879 |         """Defines using right shifting (>>) for bitwise operations with Storage instances."""
+2026-01-06T22:02:11.2852094Z 880 |         if isinstance(other, int):
+2026-01-06T22:02:11.2852372Z 881 |             if other > len(self.values.keys()):return 0
+2026-01-06T22:02:11.2852669Z     |                                               ^
+2026-01-06T22:02:11.2852898Z 882 |             try:
+2026-01-06T22:02:11.2853138Z 883 |                 skeys: list = list(self.values.keys())[:-other]
+2026-01-06T22:02:11.2853411Z     |
+2026-01-06T22:02:11.2853499Z 
+2026-01-06T22:02:11.2853594Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2853850Z    --> key_multivalue_storage.py:884:17
+2026-01-06T22:02:11.2854076Z     |
+2026-01-06T22:02:11.2854228Z 882 |             try:
+2026-01-06T22:02:11.2854457Z 883 |                 skeys: list = list(self.values.keys())[:-other]
+2026-01-06T22:02:11.2854756Z 884 |                 if not skeys: return 0
+2026-01-06T22:02:11.2854988Z     |                             ^
+2026-01-06T22:02:11.2855204Z 885 |                 rtd: dict = {}
+2026-01-06T22:02:11.2855422Z 886 |                 for akey in skeys:
+2026-01-06T22:02:11.2855643Z     |
+2026-01-06T22:02:11.2855725Z 
+2026-01-06T22:02:11.2855820Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2856078Z    --> key_multivalue_storage.py:888:28
+2026-01-06T22:02:11.2856296Z     |
+2026-01-06T22:02:11.2856457Z 886 |                 for akey in skeys:
+2026-01-06T22:02:11.2856683Z 887 |                     akey: str
+2026-01-06T22:02:11.2856962Z 888 |                     if akey in self.values: rtd[akey] = self.values[akey]
+2026-01-06T22:02:11.2857281Z     |                                           ^
+2026-01-06T22:02:11.2857548Z 889 |                 return Storage(self.key, **rtd)
+2026-01-06T22:02:11.2857811Z 890 |             except IndexError:
+2026-01-06T22:02:11.2858018Z     |
+2026-01-06T22:02:11.2858109Z 
+2026-01-06T22:02:11.2858316Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2858580Z    --> key_multivalue_storage.py:895:26
+2026-01-06T22:02:11.2858798Z     |
+2026-01-06T22:02:11.2859013Z 893 |     def __getitem__(self, key: str | int | slice) -> Any:
+2026-01-06T22:02:11.2859349Z 894 |         """Defines how to get an item from the object."""
+2026-01-06T22:02:11.2859677Z 895 |         if isinstance(key, str):return self.values[key]
+2026-01-06T22:02:11.2859952Z     |                                ^
+2026-01-06T22:02:11.2860436Z 896 |         elif isinstance(key,int):return self.values[list(self.values.keys())[key]]
+2026-01-06T22:02:11.2860984Z 897 |         elif isinstance(key,slice): return [self.values[k] for k in list(self.values.keys())[key]]
+2026-01-06T22:02:11.2861393Z     |
+2026-01-06T22:02:11.2861487Z 
+2026-01-06T22:02:11.2861589Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2861849Z    --> key_multivalue_storage.py:896:27
+2026-01-06T22:02:11.2862075Z     |
+2026-01-06T22:02:11.2862287Z 894 |         """Defines how to get an item from the object."""
+2026-01-06T22:02:11.2862624Z 895 |         if isinstance(key, str):return self.values[key]
+2026-01-06T22:02:11.2863021Z 896 |         elif isinstance(key,int):return self.values[list(self.values.keys())[key]]
+2026-01-06T22:02:11.2863383Z     |                                 ^
+2026-01-06T22:02:11.2863778Z 897 |         elif isinstance(key,slice): return [self.values[k] for k in list(self.values.keys())[key]]
+2026-01-06T22:02:11.2864173Z     |
+2026-01-06T22:02:11.2864257Z 
+2026-01-06T22:02:11.2864357Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2864614Z    --> key_multivalue_storage.py:897:29
+2026-01-06T22:02:11.2864834Z     |
+2026-01-06T22:02:11.2865031Z 895 |         if isinstance(key, str):return self.values[key]
+2026-01-06T22:02:11.2865551Z 896 |         elif isinstance(key,int):return self.values[list(self.values.keys())[key]]
+2026-01-06T22:02:11.2866083Z 897 |         elif isinstance(key,slice): return [self.values[k] for k in list(self.values.keys())[key]]
+2026-01-06T22:02:11.2866492Z     |                                   ^
+2026-01-06T22:02:11.2866709Z 898 |
+2026-01-06T22:02:11.2866927Z 899 |     def __setitem__(self, key: str | int, value: Any) -> None:
+2026-01-06T22:02:11.2867216Z     |
+2026-01-06T22:02:11.2867297Z 
+2026-01-06T22:02:11.2867390Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2867645Z    --> key_multivalue_storage.py:901:26
+2026-01-06T22:02:11.2867863Z     |
+2026-01-06T22:02:11.2868084Z 899 |     def __setitem__(self, key: str | int, value: Any) -> None:
+2026-01-06T22:02:11.2868465Z 900 |         """Defines how to set an item in the object to another value."""
+2026-01-06T22:02:11.2868846Z 901 |         if isinstance(key, str):self.values[key] = value
+2026-01-06T22:02:11.2869128Z     |                                ^
+2026-01-06T22:02:11.2869477Z 902 |         elif isinstance(key, int):self.values[list(self.values.keys())[key]] = value
+2026-01-06T22:02:11.2869835Z     |
+2026-01-06T22:02:11.2870126Z 
+2026-01-06T22:02:11.2889129Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2889582Z    --> key_multivalue_storage.py:902:28
+2026-01-06T22:02:11.2889832Z     |
+2026-01-06T22:02:11.2890091Z 900 |         """Defines how to set an item in the object to another value."""
+2026-01-06T22:02:11.2890732Z 901 |         if isinstance(key, str):self.values[key] = value
+2026-01-06T22:02:11.2891148Z 902 |         elif isinstance(key, int):self.values[list(self.values.keys())[key]] = value
+2026-01-06T22:02:11.2891547Z     |                                  ^
+2026-01-06T22:02:11.2891760Z 903 |
+2026-01-06T22:02:11.2891982Z 904 |     def __delitem__(self, key: str | int | slice) -> None:
+2026-01-06T22:02:11.2892259Z     |
+2026-01-06T22:02:11.2892349Z 
+2026-01-06T22:02:11.2892449Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2892716Z    --> key_multivalue_storage.py:906:26
+2026-01-06T22:02:11.2892944Z     |
+2026-01-06T22:02:11.2893150Z 904 |     def __delitem__(self, key: str | int | slice) -> None:
+2026-01-06T22:02:11.2893651Z 905 |         """Defines how to delete an item in the object."""
+2026-01-06T22:02:11.2893998Z 906 |         if isinstance(key, str): del self.values[key]
+2026-01-06T22:02:11.2894270Z     |                                ^
+2026-01-06T22:02:11.2894639Z 907 |         elif isinstance(key, (int,slice)): del self.values[list(self.values.keys())[key]]
+2026-01-06T22:02:11.2895007Z     |
+2026-01-06T22:02:11.2895097Z 
+2026-01-06T22:02:11.2895195Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2895455Z    --> key_multivalue_storage.py:907:36
+2026-01-06T22:02:11.2895682Z     |
+2026-01-06T22:02:11.2895885Z 905 |         """Defines how to delete an item in the object."""
+2026-01-06T22:02:11.2896205Z 906 |         if isinstance(key, str): del self.values[key]
+2026-01-06T22:02:11.2896622Z 907 |         elif isinstance(key, (int,slice)): del self.values[list(self.values.keys())[key]]
+2026-01-06T22:02:11.2897003Z     |                                          ^
+2026-01-06T22:02:11.2897234Z 908 |
+2026-01-06T22:02:11.2897390Z 909 |     def __len__(self) -> int:
+2026-01-06T22:02:11.2897613Z     |
+2026-01-06T22:02:11.2897699Z 
+2026-01-06T22:02:11.2897798Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2898062Z    --> key_multivalue_storage.py:921:19
+2026-01-06T22:02:11.2898288Z     |
+2026-01-06T22:02:11.2898435Z 919 |         counter = 0
+2026-01-06T22:02:11.2898655Z 920 |         while counter <= len(self.values):
+2026-01-06T22:02:11.2898913Z 921 |             if counter == 0:yield self.key
+2026-01-06T22:02:11.2899150Z     |                            ^
+2026-01-06T22:02:11.2899608Z 922 |             elif counter > 0:yield {list(self.values.keys())[counter-1]: self.values[list(self.values.keys())[counter-1]]}
+2026-01-06T22:02:11.2900084Z 923 |             counter+=1
+2026-01-06T22:02:11.2900672Z     |
+2026-01-06T22:02:11.2900776Z 
+2026-01-06T22:02:11.2900882Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2901150Z    --> key_multivalue_storage.py:922:20
+2026-01-06T22:02:11.2901375Z     |
+2026-01-06T22:02:11.2901550Z 920 |         while counter <= len(self.values):
+2026-01-06T22:02:11.2901805Z 921 |             if counter == 0:yield self.key
+2026-01-06T22:02:11.2902280Z 922 |             elif counter > 0:yield {list(self.values.keys())[counter-1]: self.values[list(self.values.keys())[counter-1]]}
+2026-01-06T22:02:11.2902738Z     |                             ^
+2026-01-06T22:02:11.2902949Z 923 |             counter+=1
+2026-01-06T22:02:11.2903133Z     |
+2026-01-06T22:02:11.2903220Z 
+2026-01-06T22:02:11.2903301Z F821 Undefined name `TracebackType`
+2026-01-06T22:02:11.2903538Z    --> key_multivalue_storage.py:950:14
+2026-01-06T22:02:11.2903753Z     |
+2026-01-06T22:02:11.2903974Z 948 |     def __exit__(self, exc_type: type[BaseException] | None,
+2026-01-06T22:02:11.2904305Z 949 |                  exc_val: BaseException | None,
+2026-01-06T22:02:11.2904585Z 950 |                  exc_tb: TracebackType | None
+2026-01-06T22:02:11.2904835Z     |                          ^^^^^^^^^^^^^
+2026-01-06T22:02:11.2905060Z 951 |                 ) -> bool:
+2026-01-06T22:02:11.2905331Z 952 |         """Defines ending interaction with the 'with' keyword"""
+2026-01-06T22:02:11.2905624Z     |
+2026-01-06T22:02:11.2905705Z 
+2026-01-06T22:02:11.2905805Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2906053Z    --> key_multivalue_storage.py:954:14
+2026-01-06T22:02:11.2906269Z     |
+2026-01-06T22:02:11.2906484Z 952 |         """Defines ending interaction with the 'with' keyword"""
+2026-01-06T22:02:11.2906843Z 953 |         print("__exit__: INFO: Releasing storage from object")
+2026-01-06T22:02:11.2907241Z 954 |         if exc_type:print(f"__exit__: ERROR: \n{exc_type}:\n{exc_tb}\n{exc_val}")
+2026-01-06T22:02:11.2907592Z     |                    ^
+2026-01-06T22:02:11.2907788Z 955 |         else: return 1
+2026-01-06T22:02:11.2907969Z     |
+2026-01-06T22:02:11.2908050Z 
+2026-01-06T22:02:11.2908147Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2908527Z    --> key_multivalue_storage.py:955:7
+2026-01-06T22:02:11.2908768Z     |
+2026-01-06T22:02:11.2908984Z 953 |         print("__exit__: INFO: Releasing storage from object")
+2026-01-06T22:02:11.2909390Z 954 |         if exc_type:print(f"__exit__: ERROR: \n{exc_type}:\n{exc_tb}\n{exc_val}")
+2026-01-06T22:02:11.2909724Z 955 |         else: return 1
+2026-01-06T22:02:11.2909912Z     |             ^
+2026-01-06T22:02:11.2910079Z 956 |
+2026-01-06T22:02:11.2910413Z 957 |     def __format__(self, format_spec: str) -> str:
+2026-01-06T22:02:11.2910675Z     |
+2026-01-06T22:02:11.2910755Z 
+2026-01-06T22:02:11.2910848Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2911107Z    --> key_multivalue_storage.py:960:29
+2026-01-06T22:02:11.2911321Z     |
+2026-01-06T22:02:11.2911559Z 958 |         """Defines interaction with format() and within f-strings."""
+2026-01-06T22:02:11.2911886Z 959 |         rtn: str = repr(self)
+2026-01-06T22:02:11.2912242Z 960 |         if format_spec == '.dictf': rtn = str({self.key: {**self.values}}) # full storage
+2026-01-06T22:02:11.2912607Z     |                                   ^
+2026-01-06T22:02:11.2912945Z 961 |         elif format_spec == '.dictt': rtn = str(self.values) #truncated top level key
+2026-01-06T22:02:11.2913412Z 962 |         elif format_spec == '.tuplef': rtn = str(tuple({self.key: self.values}))
+2026-01-06T22:02:11.2913739Z     |
+2026-01-06T22:02:11.2913829Z 
+2026-01-06T22:02:11.2913924Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2914175Z    --> key_multivalue_storage.py:961:31
+2026-01-06T22:02:11.2914393Z     |
+2026-01-06T22:02:11.2914542Z 959 |         rtn: str = repr(self)
+2026-01-06T22:02:11.2914878Z 960 |         if format_spec == '.dictf': rtn = str({self.key: {**self.values}}) # full storage
+2026-01-06T22:02:11.2915511Z 961 |         elif format_spec == '.dictt': rtn = str(self.values) #truncated top level key
+2026-01-06T22:02:11.2915862Z     |                                     ^
+2026-01-06T22:02:11.2916191Z 962 |         elif format_spec == '.tuplef': rtn = str(tuple({self.key: self.values}))
+2026-01-06T22:02:11.2916601Z 963 |         elif format_spec == '.tuplet': rtn = str(tuple(self.values))
+2026-01-06T22:02:11.2916899Z     |
+2026-01-06T22:02:11.2916981Z 
+2026-01-06T22:02:11.2917075Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2917334Z    --> key_multivalue_storage.py:962:32
+2026-01-06T22:02:11.2917548Z     |
+2026-01-06T22:02:11.2917811Z 960 |         if format_spec == '.dictf': rtn = str({self.key: {**self.values}}) # full storage
+2026-01-06T22:02:11.2918285Z 961 |         elif format_spec == '.dictt': rtn = str(self.values) #truncated top level key
+2026-01-06T22:02:11.2918735Z 962 |         elif format_spec == '.tuplef': rtn = str(tuple({self.key: self.values}))
+2026-01-06T22:02:11.2919076Z     |                                      ^
+2026-01-06T22:02:11.2919375Z 963 |         elif format_spec == '.tuplet': rtn = str(tuple(self.values))
+2026-01-06T22:02:11.2919744Z 964 |         elif format_spec == '.key': rtn = str(self.key)
+2026-01-06T22:02:11.2920011Z     |
+2026-01-06T22:02:11.2920091Z 
+2026-01-06T22:02:11.2920185Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2920554Z    --> key_multivalue_storage.py:963:32
+2026-01-06T22:02:11.2920766Z     |
+2026-01-06T22:02:11.2921034Z 961 |         elif format_spec == '.dictt': rtn = str(self.values) #truncated top level key
+2026-01-06T22:02:11.2921488Z 962 |         elif format_spec == '.tuplef': rtn = str(tuple({self.key: self.values}))
+2026-01-06T22:02:11.2921904Z 963 |         elif format_spec == '.tuplet': rtn = str(tuple(self.values))
+2026-01-06T22:02:11.2922208Z     |                                      ^
+2026-01-06T22:02:11.2922468Z 964 |         elif format_spec == '.key': rtn = str(self.key)
+2026-01-06T22:02:11.2922824Z 965 |         elif format_spec == '.keys': rtn = str(list(self.values.keys()))
+2026-01-06T22:02:11.2923138Z     |
+2026-01-06T22:02:11.2923223Z 
+2026-01-06T22:02:11.2923314Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2923680Z    --> key_multivalue_storage.py:964:29
+2026-01-06T22:02:11.2923901Z     |
+2026-01-06T22:02:11.2924150Z 962 |         elif format_spec == '.tuplef': rtn = str(tuple({self.key: self.values}))
+2026-01-06T22:02:11.2924563Z 963 |         elif format_spec == '.tuplet': rtn = str(tuple(self.values))
+2026-01-06T22:02:11.2924907Z 964 |         elif format_spec == '.key': rtn = str(self.key)
+2026-01-06T22:02:11.2925171Z     |                                   ^
+2026-01-06T22:02:11.2925474Z 965 |         elif format_spec == '.keys': rtn = str(list(self.values.keys()))
+2026-01-06T22:02:11.2925888Z 966 |         elif format_spec == '.values': rtn = str(list(self.values.values()))
+2026-01-06T22:02:11.2926214Z     |
+2026-01-06T22:02:11.2926294Z 
+2026-01-06T22:02:11.2926385Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2926642Z    --> key_multivalue_storage.py:965:30
+2026-01-06T22:02:11.2926863Z     |
+2026-01-06T22:02:11.2927085Z 963 |         elif format_spec == '.tuplet': rtn = str(tuple(self.values))
+2026-01-06T22:02:11.2927433Z 964 |         elif format_spec == '.key': rtn = str(self.key)
+2026-01-06T22:02:11.2927778Z 965 |         elif format_spec == '.keys': rtn = str(list(self.values.keys()))
+2026-01-06T22:02:11.2928098Z     |                                    ^
+2026-01-06T22:02:11.2928408Z 966 |         elif format_spec == '.values': rtn = str(list(self.values.values()))
+2026-01-06T22:02:11.2928740Z 967 |         return rtn
+2026-01-06T22:02:11.2928913Z     |
+2026-01-06T22:02:11.2928999Z 
+2026-01-06T22:02:11.2929090Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2929341Z    --> key_multivalue_storage.py:966:32
+2026-01-06T22:02:11.2929550Z     |
+2026-01-06T22:02:11.2929741Z 964 |         elif format_spec == '.key': rtn = str(self.key)
+2026-01-06T22:02:11.2930199Z 965 |         elif format_spec == '.keys': rtn = str(list(self.values.keys()))
+2026-01-06T22:02:11.2930707Z 966 |         elif format_spec == '.values': rtn = str(list(self.values.values()))
+2026-01-06T22:02:11.2931038Z     |                                      ^
+2026-01-06T22:02:11.2931254Z 967 |         return rtn
+2026-01-06T22:02:11.2931423Z     |
+2026-01-06T22:02:11.2931505Z 
+2026-01-06T22:02:11.2931642Z F841 Local variable `connected` is assigned to but never used
+2026-01-06T22:02:11.2931947Z   --> message_viewer.py:36:5
+2026-01-06T22:02:11.2932138Z    |
+2026-01-06T22:02:11.2932289Z 34 | @client.event
+2026-01-06T22:02:11.2932462Z 35 | def on_connect():
+2026-01-06T22:02:11.2932657Z 36 |     connected = True
+2026-01-06T22:02:11.2932838Z    |     ^^^^^^^^^
+2026-01-06T22:02:11.2933096Z 37 |     clt = time.strftime("%Y-%m-%d %H:%M:%S", time.localtime())
+2026-01-06T22:02:11.2933403Z 38 |     tsutc = time.time()
+2026-01-06T22:02:11.2933597Z    |
+2026-01-06T22:02:11.2933802Z help: Remove assignment to unused variable `connected`
+2026-01-06T22:02:11.2934011Z 
+2026-01-06T22:02:11.2934149Z F841 Local variable `connected` is assigned to but never used
+2026-01-06T22:02:11.2934452Z   --> message_viewer.py:44:5
+2026-01-06T22:02:11.2934688Z    |
+2026-01-06T22:02:11.2934835Z 42 | @client.event
+2026-01-06T22:02:11.2935010Z 43 | def on_disconnect():
+2026-01-06T22:02:11.2935204Z 44 |     connected = False
+2026-01-06T22:02:11.2935386Z    |     ^^^^^^^^^
+2026-01-06T22:02:11.2935662Z 45 |     logging.WARNING("WARNING! You have been disconnected from the cloud"+
+2026-01-06T22:02:11.2936092Z 46 |                   ". Cloud requests may not work. If this happens repeatedly,"+
+2026-01-06T22:02:11.2936406Z    |
+2026-01-06T22:02:11.2936610Z help: Remove assignment to unused variable `connected`
+2026-01-06T22:02:11.2936811Z 
+2026-01-06T22:02:11.2936906Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2937156Z   --> test/o_test1.py:21:8
+2026-01-06T22:02:11.2937338Z    |
+2026-01-06T22:02:11.2937508Z 19 |         skwargs.update({subkey5: val5})
+2026-01-06T22:02:11.2937738Z 20 |     
+2026-01-06T22:02:11.2937910Z 21 |     try:s(key, **skwargs).store(db)
+2026-01-06T22:02:11.2938131Z    |        ^
+2026-01-06T22:02:11.2938465Z 22 |     except Exception as e:print(f"Process failed: {e}")
+2026-01-06T22:02:11.2939019Z 23 |     print(f"Sucessfully added values {list(skwargs.values())} to subkeys {list(skwargs.keys())}, respectively.")
+2026-01-06T22:02:11.2939475Z    |
+2026-01-06T22:02:11.2939556Z 
+2026-01-06T22:02:11.2939657Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2939907Z   --> test/o_test1.py:22:26
+2026-01-06T22:02:11.2940104Z    |
+2026-01-06T22:02:11.2940261Z 21 |     try:s(key, **skwargs).store(db)
+2026-01-06T22:02:11.2940818Z 22 |     except Exception as e:print(f"Process failed: {e}")
+2026-01-06T22:02:11.2941111Z    |                          ^
+2026-01-06T22:02:11.2941553Z 23 |     print(f"Sucessfully added values {list(skwargs.values())} to subkeys {list(skwargs.keys())}, respectively.")
+2026-01-06T22:02:11.2942007Z    |
+2026-01-06T22:02:11.2942085Z 
+2026-01-06T22:02:11.2942184Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2942426Z   --> test/o_test1.py:26:8
+2026-01-06T22:02:11.2942612Z    |
+2026-01-06T22:02:11.2942774Z 25 | def db_set_val(db, key, subkey, val):
+2026-01-06T22:02:11.2943047Z 26 |     try:s.Edit.propval(db, key, subkey, val)
+2026-01-06T22:02:11.2943289Z    |        ^
+2026-01-06T22:02:11.2943505Z 27 |     except Exception as e:print(f"Process failed: {e}")
+2026-01-06T22:02:11.2943858Z 28 |     print(f"Sucessfully set subkey {subkey} to value {val}.")
+2026-01-06T22:02:11.2944141Z    |
+2026-01-06T22:02:11.2944219Z 
+2026-01-06T22:02:11.2944314Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2944555Z   --> test/o_test1.py:27:26
+2026-01-06T22:02:11.2944741Z    |
+2026-01-06T22:02:11.2944898Z 25 | def db_set_val(db, key, subkey, val):
+2026-01-06T22:02:11.2945161Z 26 |     try:s.Edit.propval(db, key, subkey, val)
+2026-01-06T22:02:11.2945463Z 27 |     except Exception as e:print(f"Process failed: {e}")
+2026-01-06T22:02:11.2945874Z    |                          ^
+2026-01-06T22:02:11.2946141Z 28 |     print(f"Sucessfully set subkey {subkey} to value {val}.")
+2026-01-06T22:02:11.2946421Z    |
+2026-01-06T22:02:11.2946500Z 
+2026-01-06T22:02:11.2946594Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2946833Z   --> test/o_test1.py:36:8
+2026-01-06T22:02:11.2947013Z    |
+2026-01-06T22:02:11.2947165Z 35 | def db_delete_key(db, key):
+2026-01-06T22:02:11.2947382Z 36 |     try:s.Delete.by_key(db, key)
+2026-01-06T22:02:11.2947591Z    |        ^
+2026-01-06T22:02:11.2947804Z 37 |     except Exception as e:print(f"Process failed: {e}")
+2026-01-06T22:02:11.2948164Z 38 |     print(f"Sucessfully deleted key {key} and all its child data.")
+2026-01-06T22:02:11.2948469Z    |
+2026-01-06T22:02:11.2948547Z 
+2026-01-06T22:02:11.2948643Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2948893Z   --> test/o_test1.py:37:26
+2026-01-06T22:02:11.2949083Z    |
+2026-01-06T22:02:11.2949232Z 35 | def db_delete_key(db, key):
+2026-01-06T22:02:11.2949448Z 36 |     try:s.Delete.by_key(db, key)
+2026-01-06T22:02:11.2949717Z 37 |     except Exception as e:print(f"Process failed: {e}")
+2026-01-06T22:02:11.2949988Z    |                          ^
+2026-01-06T22:02:11.2950259Z 38 |     print(f"Sucessfully deleted key {key} and all its child data.")
+2026-01-06T22:02:11.2950662Z    |
+2026-01-06T22:02:11.2950741Z 
+2026-01-06T22:02:11.2950839Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2951078Z   --> test/o_test1.py:41:8
+2026-01-06T22:02:11.2951261Z    |
+2026-01-06T22:02:11.2951404Z 40 | def db_delete_all(db):
+2026-01-06T22:02:11.2951610Z 41 |     try:s.Delete.all(db, warn=False)
+2026-01-06T22:02:11.2951828Z    |        ^
+2026-01-06T22:02:11.2952038Z 42 |     except Exception as e:print(f"Process failed: {e}")
+2026-01-06T22:02:11.2952352Z 43 |     print(f"Sucessfully deleted all data from {db}.")
+2026-01-06T22:02:11.2952623Z    |
+2026-01-06T22:02:11.2952708Z 
+2026-01-06T22:02:11.2952802Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2953049Z   --> test/o_test1.py:42:26
+2026-01-06T22:02:11.2953237Z    |
+2026-01-06T22:02:11.2953378Z 40 | def db_delete_all(db):
+2026-01-06T22:02:11.2953700Z 41 |     try:s.Delete.all(db, warn=False)
+2026-01-06T22:02:11.2953985Z 42 |     except Exception as e:print(f"Process failed: {e}")
+2026-01-06T22:02:11.2954256Z    |                          ^
+2026-01-06T22:02:11.2954491Z 43 |     print(f"Sucessfully deleted all data from {db}.")
+2026-01-06T22:02:11.2954751Z    |
+2026-01-06T22:02:11.2954828Z 
+2026-01-06T22:02:11.2954922Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2955163Z   --> test/o_test1.py:84:4
+2026-01-06T22:02:11.2955348Z    |
+2026-01-06T22:02:11.2955601Z 82 | # assert str(s1) == "(str repr)" # find a way to assert the string representation
+2026-01-06T22:02:11.2955939Z 83 | assert s1<s2
+2026-01-06T22:02:11.2956103Z 84 | try:assert s2>s3
+2026-01-06T22:02:11.2956274Z    |    ^
+2026-01-06T22:02:11.2956435Z 85 | except ValueError:pass
+2026-01-06T22:02:11.2956933Z 86 | else:raise AssertionError("Key comparison most likely failed, otherwise an unknown error occurred. Check the __lt__ method.")
+2026-01-06T22:02:11.2957445Z    |
+2026-01-06T22:02:11.2957530Z 
+2026-01-06T22:02:11.2957621Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2957864Z   --> test/o_test1.py:85:18
+2026-01-06T22:02:11.2958051Z    |
+2026-01-06T22:02:11.2958220Z 83 | assert s1<s2
+2026-01-06T22:02:11.2958385Z 84 | try:assert s2>s3
+2026-01-06T22:02:11.2958567Z 85 | except ValueError:pass
+2026-01-06T22:02:11.2958753Z    |                  ^
+2026-01-06T22:02:11.2959215Z 86 | else:raise AssertionError("Key comparison most likely failed, otherwise an unknown error occurred. Check the __lt__ method.")
+2026-01-06T22:02:11.2959711Z    |
+2026-01-06T22:02:11.2959794Z 
+2026-01-06T22:02:11.2959883Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2960126Z   --> test/o_test1.py:86:5
+2026-01-06T22:02:11.2960546Z    |
+2026-01-06T22:02:11.2960690Z 84 | try:assert s2>s3
+2026-01-06T22:02:11.2960871Z 85 | except ValueError:pass
+2026-01-06T22:02:11.2961351Z 86 | else:raise AssertionError("Key comparison most likely failed, otherwise an unknown error occurred. Check the __lt__ method.")
+2026-01-06T22:02:11.2961848Z    |     ^
+2026-01-06T22:02:11.2961994Z 87 |   
+2026-01-06T22:02:11.2962200Z 88 | print("Part 2.1 passed.\n-----\nPart 2.2: Arithmetic")
+2026-01-06T22:02:11.2962482Z    |
+2026-01-06T22:02:11.2962563Z 
+2026-01-06T22:02:11.2962659Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2962908Z    --> test/o_test1.py:101:4
+2026-01-06T22:02:11.2963106Z     |
+2026-01-06T22:02:11.2963277Z  99 | s1 = s("test1", sk1="val1", sk2="val2")
+2026-01-06T22:02:11.2963678Z 100 | assert repr(s1-s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk1='val1', sk2='val2'])"
+2026-01-06T22:02:11.2964065Z 101 | try:assert s3-s2
+2026-01-06T22:02:11.2964242Z     |    ^
+2026-01-06T22:02:11.2964402Z 102 | except ValueError:pass
+2026-01-06T22:02:11.2965334Z 103 | else:raise AssertionError("Key comparison most likely failed, otherwise an unknown error occurred. Check the __sub__ and __rsub__ met…
+2026-01-06T22:02:11.2965894Z     |
+2026-01-06T22:02:11.2965988Z 
+2026-01-06T22:02:11.2966086Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2966346Z    --> test/o_test1.py:102:18
+2026-01-06T22:02:11.2966546Z     |
+2026-01-06T22:02:11.2966855Z 100 | assert repr(s1-s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk1='val1', sk2='val2'])"
+2026-01-06T22:02:11.2967243Z 101 | try:assert s3-s2
+2026-01-06T22:02:11.2967440Z 102 | except ValueError:pass
+2026-01-06T22:02:11.2967640Z     |                  ^
+2026-01-06T22:02:11.2968203Z 103 | else:raise AssertionError("Key comparison most likely failed, otherwise an unknown error occurred. Check the __sub__ and __rsub__ met…
+2026-01-06T22:02:11.2969010Z 104 | assert s2-s1 == s2/s1, "Division did not switch to subtraction. Check the __sub__, __rsub__, __truediv__, and __rtruediv__."
+2026-01-06T22:02:11.2969491Z     |
+2026-01-06T22:02:11.2969578Z 
+2026-01-06T22:02:11.2969672Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2969919Z    --> test/o_test1.py:103:5
+2026-01-06T22:02:11.2970238Z     |
+2026-01-06T22:02:11.2970501Z 101 | try:assert s3-s2
+2026-01-06T22:02:11.2970690Z 102 | except ValueError:pass
+2026-01-06T22:02:11.2971268Z 103 | else:raise AssertionError("Key comparison most likely failed, otherwise an unknown error occurred. Check the __sub__ and __rsub__ met…
+2026-01-06T22:02:11.2971807Z     |     ^
+2026-01-06T22:02:11.2972219Z 104 | assert s2-s1 == s2/s1, "Division did not switch to subtraction. Check the __sub__, __rsub__, __truediv__, and __rtruediv__."
+2026-01-06T22:02:11.2973033Z 105 | assert str(s1/2) == "[Storage(top_lv_key=test1, key_value_pairs=[sk1='val1']), Storage(top_lv_key=test1, key_value_pairs=[sk2='val2']…
+2026-01-06T22:02:11.2973526Z     |
+2026-01-06T22:02:11.2973606Z 
+2026-01-06T22:02:11.2973700Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2973953Z    --> test/o_test1.py:107:4
+2026-01-06T22:02:11.2974143Z     |
+2026-01-06T22:02:11.2974610Z 105 | assert str(s1/2) == "[Storage(top_lv_key=test1, key_value_pairs=[sk1='val1']), Storage(top_lv_key=test1, key_value_pairs=[sk2='val2']…
+2026-01-06T22:02:11.2975204Z 106 | assert s1/1 == [s1], "Division has failed. Check the __truediv__ method."
+2026-01-06T22:02:11.2975530Z 107 | try:assert 1/s1
+2026-01-06T22:02:11.2975719Z     |    ^
+2026-01-06T22:02:11.2975886Z 108 | except TypeError:pass
+2026-01-06T22:02:11.2976294Z 109 | else:raise AssertionError("Division has failed. Check the __truediv__ and __rturediv__ methods.")
+2026-01-06T22:02:11.2976713Z     |
+2026-01-06T22:02:11.2976800Z 
+2026-01-06T22:02:11.2976897Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2977150Z    --> test/o_test1.py:108:17
+2026-01-06T22:02:11.2977341Z     |
+2026-01-06T22:02:11.2977588Z 106 | assert s1/1 == [s1], "Division has failed. Check the __truediv__ method."
+2026-01-06T22:02:11.2978031Z 107 | try:assert 1/s1
+2026-01-06T22:02:11.2978221Z 108 | except TypeError:pass
+2026-01-06T22:02:11.2978413Z     |                 ^
+2026-01-06T22:02:11.2978799Z 109 | else:raise AssertionError("Division has failed. Check the __truediv__ and __rturediv__ methods.")
+2026-01-06T22:02:11.2978860Z     |
+2026-01-06T22:02:11.2978865Z 
+2026-01-06T22:02:11.2978964Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2979040Z    --> test/o_test1.py:109:5
+2026-01-06T22:02:11.2979098Z     |
+2026-01-06T22:02:11.2979163Z 107 | try:assert 1/s1
+2026-01-06T22:02:11.2979242Z 108 | except TypeError:pass
+2026-01-06T22:02:11.2979497Z 109 | else:raise AssertionError("Division has failed. Check the __truediv__ and __rturediv__ methods.")
+2026-01-06T22:02:11.2979557Z     |     ^
+2026-01-06T22:02:11.2979622Z 110 |   
+2026-01-06T22:02:11.2979780Z 111 | print("Part 2.2 passed.\n-----\nPart 2.3: Bitwise Operators")
+2026-01-06T22:02:11.2979838Z     |
+2026-01-06T22:02:11.2979842Z 
+2026-01-06T22:02:11.2979933Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2980014Z    --> test/o_test1.py:166:4
+2026-01-06T22:02:11.2980071Z     |
+2026-01-06T22:02:11.2980136Z 164 | del s3['sk3']
+2026-01-06T22:02:11.2980552Z 165 | repr(s3)=="Storage(top_lv_key=test2, key_value_pairs=[sk4='val1', sk6='val2'])"
+2026-01-06T22:02:11.2980685Z 166 | try:fail=s1.hack_tuah
+2026-01-06T22:02:11.2980751Z     |    ^
+2026-01-06T22:02:11.2980840Z 167 | except AttributeError:pass
+2026-01-06T22:02:11.2980926Z 168 | else:raise AssertionError()
+2026-01-06T22:02:11.2980985Z     |
+2026-01-06T22:02:11.2980989Z 
+2026-01-06T22:02:11.2981094Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2981178Z    --> test/o_test1.py:167:22
+2026-01-06T22:02:11.2981237Z     |
+2026-01-06T22:02:11.2981436Z 165 | repr(s3)=="Storage(top_lv_key=test2, key_value_pairs=[sk4='val1', sk6='val2'])"
+2026-01-06T22:02:11.2981516Z 166 | try:fail=s1.hack_tuah
+2026-01-06T22:02:11.2981598Z 167 | except AttributeError:pass
+2026-01-06T22:02:11.2981662Z     |                      ^
+2026-01-06T22:02:11.2981745Z 168 | else:raise AssertionError()
+2026-01-06T22:02:11.2981907Z 169 | with s2 as f:assert f=={'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}
+2026-01-06T22:02:11.2981966Z     |
+2026-01-06T22:02:11.2982097Z 
+2026-01-06T22:02:11.2982198Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2982278Z    --> test/o_test1.py:168:5
+2026-01-06T22:02:11.2982337Z     |
+2026-01-06T22:02:11.2982406Z 166 | try:fail=s1.hack_tuah
+2026-01-06T22:02:11.2982484Z 167 | except AttributeError:pass
+2026-01-06T22:02:11.2982566Z 168 | else:raise AssertionError()
+2026-01-06T22:02:11.2982626Z     |     ^
+2026-01-06T22:02:11.2982774Z 169 | with s2 as f:assert f=={'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}
+2026-01-06T22:02:11.2982840Z     |
+2026-01-06T22:02:11.2982844Z 
+2026-01-06T22:02:11.2982939Z E701 Multiple statements on one line (colon)
+2026-01-06T22:02:11.2983015Z    --> test/o_test1.py:169:13
+2026-01-06T22:02:11.2983074Z     |
+2026-01-06T22:02:11.2983157Z 167 | except AttributeError:pass
+2026-01-06T22:02:11.2983237Z 168 | else:raise AssertionError()
+2026-01-06T22:02:11.2983379Z 169 | with s2 as f:assert f=={'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}
+2026-01-06T22:02:11.2983444Z     |             ^
+2026-01-06T22:02:11.2983506Z 170 |
+2026-01-06T22:02:11.2983669Z 171 | print("Part 2.4 passed.\n-----\nPart 2.5: Built-in attributes")
+2026-01-06T22:02:11.2983728Z     |
+2026-01-06T22:02:11.2983737Z 
+2026-01-06T22:02:11.2983824Z Found 118 errors (10 fixed, 108 remaining).
+2026-01-06T22:02:11.2984034Z No fixes available (4 hidden fixes can be enabled with the `--unsafe-fixes` option).
+2026-01-06T22:02:11.2993961Z ##[error]Process completed with exit code 1.
+2026-01-06T22:02:11.3103308Z Post job cleanup.
+2026-01-06T22:02:11.4018568Z [command]/usr/bin/git version
+2026-01-06T22:02:11.4055004Z git version 2.52.0
+2026-01-06T22:02:11.4096458Z Temporarily overriding HOME='/home/runner/work/_temp/e2c93ddc-4633-4162-b77c-69589edbd5d1' before making global git config changes
+2026-01-06T22:02:11.4097139Z Adding repository directory to the temporary git global config as a safe directory
+2026-01-06T22:02:11.4108918Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2026-01-06T22:02:11.4142783Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-01-06T22:02:11.4174482Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-01-06T22:02:11.4441415Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-01-06T22:02:11.4464714Z http.https://github.com/.extraheader
+2026-01-06T22:02:11.4482768Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-01-06T22:02:11.4516874Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-01-06T22:02:11.4766657Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-01-06T22:02:11.4802320Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-01-06T22:02:11.5173882Z Cleaning up orphan processes
