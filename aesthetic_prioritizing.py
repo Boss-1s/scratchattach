@@ -84,7 +84,7 @@ def prioritize(attempt: int, maxAttempts: int):
             time.sleep(45)
             
     except ValueError as e:
-        os.system("echo " + e)
+        os.system("echo " + str(e))
         sys.exit(1)
 
     except ProjectNotFound as e:
@@ -124,7 +124,7 @@ def prioritize_studio(attempt: int, maxAttempts: int):
             time.sleep(45)
             
     except ValueError as e:
-        os.system("echo " + e)
+        os.system("echo " + str(e))
         sys.exit(1)
 
     except StudioNotFound as e:
