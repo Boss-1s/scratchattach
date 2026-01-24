@@ -59,9 +59,9 @@ def prioritize(attempt: int, maxAttempts: int):
             os.system("echo " + "Projects already on top. No prioritizing needed.")
             return
             
+        session = sa.login(usnm, pswd)# Log in to your Scratch account
+        user = session.connect_user(usnm)# Get the user object for your account
         for project_id in project_ids_to_prioritize:
-            session = sa.login(usnm, pswd)# Log in to your Scratch account
-            user = session.connect_user(usnm)# Get the user object for your account
             project = session.connect_project(project_id)
             if project is None:
                 raise ProjectNotFound(project_id)
