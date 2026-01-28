@@ -1,3 +1,12 @@
+"""
+Key to Multivalue Storage
+Date Version 2026.1.4
+Official Version 1.2
+
+Made with love by Boss_1s.
+(c)2025, 2026. Licence under CC BY-NC-ND International 4.0. See creativecommons.com.
+"""
+
 from __future__ import annotations
 import os,json,uuid,warnings,logging,difflib,datetime,builtins
 from typing import Any, Optional, Self, Generator
