@@ -1,0 +1,785 @@
+﻿2026-01-28T23:16:47.8985378Z Current runner version: '2.331.0'
+2026-01-28T23:16:47.9021585Z ##[group]Runner Image Provisioner
+2026-01-28T23:16:47.9022385Z Hosted Compute Agent
+2026-01-28T23:16:47.9022862Z Version: 20260115.477
+2026-01-28T23:16:47.9023425Z Commit: 4b342d620503cbe250a3154040964899ea7c9b00
+2026-01-28T23:16:47.9024038Z Build Date: 2026-01-15T22:32:41Z
+2026-01-28T23:16:47.9024677Z Worker ID: {417f8a25-e107-4228-a54a-7161cdd763eb}
+2026-01-28T23:16:47.9025299Z Azure Region: northcentralus
+2026-01-28T23:16:47.9025845Z ##[endgroup]
+2026-01-28T23:16:47.9027137Z ##[group]Operating System
+2026-01-28T23:16:47.9027799Z Microsoft Windows Server 2025
+2026-01-28T23:16:47.9028338Z 10.0.26100
+2026-01-28T23:16:47.9028752Z Datacenter
+2026-01-28T23:16:47.9029180Z ##[endgroup]
+2026-01-28T23:16:47.9029584Z ##[group]Runner Image
+2026-01-28T23:16:47.9030111Z Image: windows-2025
+2026-01-28T23:16:47.9030535Z Version: 20260119.4.1
+2026-01-28T23:16:47.9031852Z Included Software: https://github.com/actions/runner-images/blob/win25/20260119.4/images/windows/Windows2025-Readme.md
+2026-01-28T23:16:47.9034027Z Image Release: https://github.com/actions/runner-images/releases/tag/win25%2F20260119.4
+2026-01-28T23:16:47.9034880Z ##[endgroup]
+2026-01-28T23:16:47.9035815Z ##[group]GITHUB_TOKEN Permissions
+2026-01-28T23:16:47.9037672Z Contents: read
+2026-01-28T23:16:47.9038217Z Metadata: read
+2026-01-28T23:16:47.9038675Z ##[endgroup]
+2026-01-28T23:16:47.9040731Z Secret source: Actions
+2026-01-28T23:16:47.9041407Z Prepare workflow directory
+2026-01-28T23:16:47.9426127Z Prepare all required actions
+2026-01-28T23:16:47.9464348Z Getting action download info
+2026-01-28T23:16:48.1566500Z Download action repository 'actions/checkout@v6.0.1' (SHA:8e8c483db84b4bee98b60c0593521ed34d9990e8)
+2026-01-28T23:16:48.2872071Z Download action repository 'actions/setup-python@v6.1.0' (SHA:83679a892e2d95755f2dac6acb0bfd1e9ac5d548)
+2026-01-28T23:16:48.5803697Z Complete job name: build (3.12, windows-latest)
+2026-01-28T23:16:48.7252334Z ##[group]Run actions/checkout@v6.0.1
+2026-01-28T23:16:48.7253328Z with:
+2026-01-28T23:16:48.7253704Z   repository: Boss-1s/scratchattach
+2026-01-28T23:16:48.7254351Z   token: ***
+2026-01-28T23:16:48.7254704Z   ssh-strict: true
+2026-01-28T23:16:48.7255050Z   ssh-user: git
+2026-01-28T23:16:48.7255413Z   persist-credentials: true
+2026-01-28T23:16:48.7255810Z   clean: true
+2026-01-28T23:16:48.7256168Z   sparse-checkout-cone-mode: true
+2026-01-28T23:16:48.7256593Z   fetch-depth: 1
+2026-01-28T23:16:48.7256942Z   fetch-tags: false
+2026-01-28T23:16:48.7257296Z   show-progress: true
+2026-01-28T23:16:48.7257659Z   lfs: false
+2026-01-28T23:16:48.7257985Z   submodules: false
+2026-01-28T23:16:48.7258348Z   set-safe-directory: true
+2026-01-28T23:16:48.7259225Z ##[endgroup]
+2026-01-28T23:16:48.8682887Z Syncing repository: Boss-1s/scratchattach
+2026-01-28T23:16:48.8684889Z ##[group]Getting Git version info
+2026-01-28T23:16:48.8685626Z Working directory is 'D:\a\scratchattach\scratchattach'
+2026-01-28T23:16:48.9909017Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-01-28T23:16:49.3745460Z git version 2.52.0.windows.1
+2026-01-28T23:16:49.3800213Z ##[endgroup]
+2026-01-28T23:16:49.3823619Z Temporarily overriding HOME='D:\a\_temp\284016b8-245b-4611-a009-27a08a81b680' before making global git config changes
+2026-01-28T23:16:49.3826302Z Adding repository directory to the temporary git global config as a safe directory
+2026-01-28T23:16:49.3837100Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\scratchattach\scratchattach
+2026-01-28T23:16:49.4478380Z Deleting the contents of 'D:\a\scratchattach\scratchattach'
+2026-01-28T23:16:49.4484305Z ##[group]Initializing the repository
+2026-01-28T23:16:49.4493093Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\scratchattach\scratchattach
+2026-01-28T23:16:49.5480980Z Initialized empty Git repository in D:/a/scratchattach/scratchattach/.git/
+2026-01-28T23:16:49.5528963Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/Boss-1s/scratchattach
+2026-01-28T23:16:49.6112555Z ##[endgroup]
+2026-01-28T23:16:49.6114171Z ##[group]Disabling automatic garbage collection
+2026-01-28T23:16:49.6123011Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-01-28T23:16:49.6458406Z ##[endgroup]
+2026-01-28T23:16:49.6460087Z ##[group]Setting up auth
+2026-01-28T23:16:49.6461334Z Removing SSH command configuration
+2026-01-28T23:16:49.6471289Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-01-28T23:16:49.6789885Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-01-28T23:16:51.2669551Z Removing HTTP extra header
+2026-01-28T23:16:51.2685074Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-01-28T23:16:51.3042434Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-01-28T23:16:51.8673371Z Removing includeIf entries pointing to credentials config files
+2026-01-28T23:16:51.8687080Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-01-28T23:16:51.9017042Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-01-28T23:16:52.4507488Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-01-28T23:16:52.4847694Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/scratchattach/scratchattach/.git.path D:\a\_temp\git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config
+2026-01-28T23:16:52.5161713Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/scratchattach/scratchattach/.git/worktrees/*.path D:\a\_temp\git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config
+2026-01-28T23:16:52.5538804Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config
+2026-01-28T23:16:52.5856902Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config
+2026-01-28T23:16:52.6181537Z ##[endgroup]
+2026-01-28T23:16:52.6181996Z ##[group]Fetching the repository
+2026-01-28T23:16:52.6203915Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +818892e25925ef5b8e8ee74de5464c0628633833:refs/remotes/origin/scratch_chat_dev
+2026-01-28T23:17:08.4897032Z From https://github.com/Boss-1s/scratchattach
+2026-01-28T23:17:08.4897923Z  * [new ref]         818892e25925ef5b8e8ee74de5464c0628633833 -> origin/scratch_chat_dev
+2026-01-28T23:17:08.5103757Z ##[endgroup]
+2026-01-28T23:17:08.5104342Z ##[group]Determining the checkout info
+2026-01-28T23:17:08.5107777Z ##[endgroup]
+2026-01-28T23:17:08.5119471Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-01-28T23:17:08.5617377Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-01-28T23:17:08.5940043Z ##[group]Checking out the ref
+2026-01-28T23:17:08.5950914Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B scratch_chat_dev refs/remotes/origin/scratch_chat_dev
+2026-01-28T23:17:09.6554863Z Updating files:  60% (1860/3055)
+2026-01-28T23:17:09.6728283Z Updating files:  61% (1864/3055)
+2026-01-28T23:17:09.7552663Z Updating files:  62% (1895/3055)
+2026-01-28T23:17:09.7665260Z Updating files:  63% (1925/3055)
+2026-01-28T23:17:09.7785772Z Updating files:  64% (1956/3055)
+2026-01-28T23:17:09.7911794Z Updating files:  65% (1986/3055)
+2026-01-28T23:17:09.8023575Z Updating files:  66% (2017/3055)
+2026-01-28T23:17:09.8147507Z Updating files:  67% (2047/3055)
+2026-01-28T23:17:09.8257398Z Updating files:  68% (2078/3055)
+2026-01-28T23:17:09.8387996Z Updating files:  69% (2108/3055)
+2026-01-28T23:17:09.8506375Z Updating files:  70% (2139/3055)
+2026-01-28T23:17:09.8628070Z Updating files:  71% (2170/3055)
+2026-01-28T23:17:09.8876677Z Updating files:  72% (2200/3055)
+2026-01-28T23:17:09.9055958Z Updating files:  73% (2231/3055)
+2026-01-28T23:17:09.9180528Z Updating files:  74% (2261/3055)
+2026-01-28T23:17:09.9277809Z Updating files:  75% (2292/3055)
+2026-01-28T23:17:09.9381249Z Updating files:  76% (2322/3055)
+2026-01-28T23:17:09.9469149Z Updating files:  77% (2353/3055)
+2026-01-28T23:17:09.9629630Z Updating files:  78% (2383/3055)
+2026-01-28T23:17:09.9776124Z Updating files:  79% (2414/3055)
+2026-01-28T23:17:09.9952367Z Updating files:  80% (2444/3055)
+2026-01-28T23:17:10.0082162Z Updating files:  81% (2475/3055)
+2026-01-28T23:17:10.0231094Z Updating files:  82% (2506/3055)
+2026-01-28T23:17:10.0430200Z Updating files:  83% (2536/3055)
+2026-01-28T23:17:10.0644825Z Updating files:  84% (2567/3055)
+2026-01-28T23:17:10.6559359Z Updating files:  85% (2597/3055)
+2026-01-28T23:17:10.6931970Z Updating files:  85% (2624/3055)
+2026-01-28T23:17:11.0817981Z Updating files:  86% (2628/3055)
+2026-01-28T23:17:11.3816778Z Updating files:  87% (2658/3055)
+2026-01-28T23:17:11.3922541Z Updating files:  88% (2689/3055)
+2026-01-28T23:17:11.4014124Z Updating files:  89% (2719/3055)
+2026-01-28T23:17:11.6542945Z Updating files:  90% (2750/3055)
+2026-01-28T23:17:11.6570314Z Updating files:  90% (2772/3055)
+2026-01-28T23:17:11.7287759Z Updating files:  91% (2781/3055)
+2026-01-28T23:17:12.5060718Z Updating files:  92% (2811/3055)
+2026-01-28T23:17:12.6647276Z Updating files:  93% (2842/3055)
+2026-01-28T23:17:12.8727063Z Updating files:  93% (2846/3055)
+2026-01-28T23:17:13.2191015Z Updating files:  94% (2872/3055)
+2026-01-28T23:17:13.6409337Z Updating files:  95% (2903/3055)
+2026-01-28T23:17:13.6925197Z Updating files:  96% (2933/3055)
+2026-01-28T23:17:13.8897176Z Updating files:  96% (2953/3055)
+2026-01-28T23:17:14.3183741Z Updating files:  97% (2964/3055)
+2026-01-28T23:17:14.7119521Z Updating files:  98% (2994/3055)
+2026-01-28T23:17:15.1848356Z Updating files:  98% (3007/3055)
+2026-01-28T23:17:15.6043908Z Updating files:  99% (3025/3055)
+2026-01-28T23:17:15.6044611Z Updating files: 100% (3055/3055)
+2026-01-28T23:17:15.6045087Z Updating files: 100% (3055/3055), done.
+2026-01-28T23:17:15.6216482Z branch 'scratch_chat_dev' set up to track 'origin/scratch_chat_dev'.
+2026-01-28T23:17:15.6289102Z Switched to a new branch 'scratch_chat_dev'
+2026-01-28T23:17:15.6614810Z ##[endgroup]
+2026-01-28T23:17:15.6940450Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-01-28T23:17:15.7206649Z 818892e25925ef5b8e8ee74de5464c0628633833
+2026-01-28T23:17:15.7637922Z ##[group]Run actions/setup-python@v6.1.0
+2026-01-28T23:17:15.7638304Z with:
+2026-01-28T23:17:15.7638502Z   python-version: 3.12
+2026-01-28T23:17:15.7638745Z   check-latest: false
+2026-01-28T23:17:15.7639137Z   token: ***
+2026-01-28T23:17:15.7639348Z   update-environment: true
+2026-01-28T23:17:15.7639594Z   allow-prereleases: false
+2026-01-28T23:17:15.7639827Z   freethreaded: false
+2026-01-28T23:17:15.7640031Z ##[endgroup]
+2026-01-28T23:17:15.9246388Z ##[group]Installed versions
+2026-01-28T23:17:15.9852465Z (node:8252) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-01-28T23:17:15.9853470Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-01-28T23:17:15.9855046Z Successfully set up CPython (3.12.10)
+2026-01-28T23:17:15.9855706Z ##[endgroup]
+2026-01-28T23:17:16.0133336Z ##[group]Run cd test
+2026-01-28T23:17:16.0133673Z [36;1mcd test[0m
+2026-01-28T23:17:16.0133860Z [36;1mpython3 o_test1.py[0m
+2026-01-28T23:17:16.0949907Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-01-28T23:17:16.0950270Z env:
+2026-01-28T23:17:16.0950548Z   pythonLocation: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-01-28T23:17:16.0951053Z   PKG_CONFIG_PATH: C:\hostedtoolcache\windows\Python\3.12.10\x64/lib/pkgconfig
+2026-01-28T23:17:16.0951551Z   Python_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-01-28T23:17:16.0951983Z   Python2_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-01-28T23:17:16.0952400Z   Python3_ROOT_DIR: C:\hostedtoolcache\windows\Python\3.12.10\x64
+2026-01-28T23:17:16.0952733Z ##[endgroup]
+2026-01-28T23:17:25.3888972Z [key_multivalue_storage.py]  Delete.all: INFO: Deleted all data from otest.json sucessfully.
+2026-01-28T23:17:25.3889940Z Sucessfully deleted all data from otest.json.
+2026-01-28T23:17:25.3890462Z Begin test
+2026-01-28T23:17:25.3890700Z --------------------
+2026-01-28T23:17:25.3891059Z Part 1: Storing, Editing, and Deleting via JSON
+2026-01-28T23:17:25.3891444Z --------------------
+2026-01-28T23:17:25.3892200Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'abc56aca-fc9b-49de-8a7b-eade6c2a66cd'
+2026-01-28T23:17:25.3893348Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test_top_level_key'
+2026-01-28T23:17:25.3894010Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'skibidi toilet'}'
+2026-01-28T23:17:25.3894755Z [key_multivalue_storage.py]  store: INFO: Data for key 'test_top_level_key' stored successfully in 'otest.json'.
+2026-01-28T23:17:25.3895369Z Sucessfully added values ['val1', 'skibidi toilet'] to subkeys ['sk1', 'sk2'], respectively.
+2026-01-28T23:17:25.3895868Z [key_multivalue_storage.py]  Load.values: DEBUG: file_path=otest.json
+2026-01-28T23:17:25.3896305Z [key_multivalue_storage.py]  Load.values: DEBUG: key=test_top_level_key
+2026-01-28T23:17:25.3896687Z [key_multivalue_storage.py]  Load.values: DEBUG: keys=True
+2026-01-28T23:17:25.3897027Z [key_multivalue_storage.py]  Load.values: DEBUG: raw=False
+2026-01-28T23:17:25.3897644Z [key_multivalue_storage.py]  Load.values: DEBUG: loaded_data={'test_top_level_key': {'sk1': 23724622312, 'sk2': 240225226233226243226241234224226223242234}}
+2026-01-28T23:17:25.3898315Z [key_multivalue_storage.py]  Load.values: DEBUG: key in loaded_data? True
+2026-01-28T23:17:25.3898983Z [key_multivalue_storage.py]  Load.values: DEBUG: dict_to_load={'test_top_level_key': {'sk1': 23724622312, 'sk2': 240225226233226243226241234224226223242234}}
+2026-01-28T23:17:25.3899850Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict={'test_top_level_key': {'sk1': 23724622312, 'sk2': 240225226233226243226241234224226223242234}}
+2026-01-28T23:17:25.3900477Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict=False
+2026-01-28T23:17:25.3900834Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3901172Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=37
+2026-01-28T23:17:25.3901500Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3901832Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.3902443Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3902981Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=23
+2026-01-28T23:17:25.3903536Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 1
+2026-01-28T23:17:25.3904072Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=2
+2026-01-28T23:17:25.3904506Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3904828Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=40
+2026-01-28T23:17:25.3905157Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3908596Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=25
+2026-01-28T23:17:25.3909236Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3909620Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.3910013Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3910368Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=33
+2026-01-28T23:17:25.3910715Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3911061Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.3911397Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3911743Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=43
+2026-01-28T23:17:25.3912082Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3912404Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.3912740Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3913077Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.3913394Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3913717Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.3914034Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3914356Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=24
+2026-01-28T23:17:25.3914684Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3915005Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.3915469Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3916053Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=23
+2026-01-28T23:17:25.3916581Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3916916Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=42
+2026-01-28T23:17:25.3917250Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3917571Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.3918104Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '7840e87d-81cd-4aea-9c85-5041f0db07e6'
+2026-01-28T23:17:25.3918790Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test_top_level_key'
+2026-01-28T23:17:25.3919413Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'skibidi toilet'}'
+2026-01-28T23:17:25.3919996Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(f'sk1: val1')
+2026-01-28T23:17:25.3920492Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(f'sk2: skibidi toilet')
+2026-01-28T23:17:25.3920961Z [key_multivalue_storage.py]  Load.values: DEBUG: file_path=otest.json
+2026-01-28T23:17:25.3921379Z [key_multivalue_storage.py]  Load.values: DEBUG: key=test_top_level_key
+2026-01-28T23:17:25.3921761Z [key_multivalue_storage.py]  Load.values: DEBUG: keys=False
+2026-01-28T23:17:25.3922111Z [key_multivalue_storage.py]  Load.values: DEBUG: raw=False
+2026-01-28T23:17:25.3922721Z [key_multivalue_storage.py]  Load.values: DEBUG: loaded_data={'test_top_level_key': {'sk1': 23724622312, 'sk2': 240225226233226243226241234224226223242234}}
+2026-01-28T23:17:25.3923393Z [key_multivalue_storage.py]  Load.values: DEBUG: key in loaded_data? True
+2026-01-28T23:17:25.3924064Z [key_multivalue_storage.py]  Load.values: DEBUG: dict_to_load={'test_top_level_key': {'sk1': 23724622312, 'sk2': 240225226233226243226241234224226223242234}}
+2026-01-28T23:17:25.3924926Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict={'test_top_level_key': {'sk1': 23724622312, 'sk2': 240225226233226243226241234224226223242234}}
+2026-01-28T23:17:25.3925543Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict=False
+2026-01-28T23:17:25.3925894Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3927155Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=37
+2026-01-28T23:17:25.3928014Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3928380Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.3928729Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3929076Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=23
+2026-01-28T23:17:25.3929417Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 1
+2026-01-28T23:17:25.3929741Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=2
+2026-01-28T23:17:25.3930065Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3930395Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=40
+2026-01-28T23:17:25.3930711Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3931039Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=25
+2026-01-28T23:17:25.3931361Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3931698Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.3932033Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3932376Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=33
+2026-01-28T23:17:25.3932698Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3933023Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.3933350Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3933665Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=43
+2026-01-28T23:17:25.3989266Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3990008Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.3990398Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3990738Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.3991095Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3991615Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.3991944Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3992274Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=24
+2026-01-28T23:17:25.3992586Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3992909Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.3993230Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3993541Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=23
+2026-01-28T23:17:25.3993862Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3994173Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=42
+2026-01-28T23:17:25.3994493Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.3994821Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.3995368Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '814b6bb8-d454-4c9b-be86-dda0fdeb22cb'
+2026-01-28T23:17:25.3996028Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test_top_level_key'
+2026-01-28T23:17:25.3996650Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'skibidi toilet'}'
+2026-01-28T23:17:25.3997206Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(val1)
+2026-01-28T23:17:25.3997629Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(skibidi toilet)
+2026-01-28T23:17:25.3998218Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'f40a9a0f-0bc9-4fe9-a614-d7793bdbbabe'
+2026-01-28T23:17:25.3998846Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test_top_level_key2'
+2026-01-28T23:17:25.4000360Z D:\a\scratchattach\scratchattach\key_multivalue_storage.py:672: AdditionFailureWarning: __add__: WARNING: AdditionFailureWarning: WARNING! You are strongly advised against adding a Storage instance and a dict/list together, as it may break the Storage instance that is created.
+2026-01-28T23:17:25.4001766Z   warnings.warn(self.AdditionFailureWarning("WARNING! You are strongly advised against adding a Storage "+
+2026-01-28T23:17:25.4003030Z D:\a\scratchattach\scratchattach\key_multivalue_storage.py:678: AdditionFailureWarning: __add__: WARNING: AdditionFailureWarning: WARNING! You are strongly advised against adding a Storage instance and a dict/list together, as it may break the Storage instance that is created.
+2026-01-28T23:17:25.4004362Z   warnings.warn(self.AdditionFailureWarning("WARNING! You are strongly advised against adding a Storage "+
+2026-01-28T23:17:25.4005069Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'the fate of sigma'}'
+2026-01-28T23:17:25.4005771Z [key_multivalue_storage.py]  store: INFO: Data for key 'test_top_level_key2' stored successfully in 'otest.json'.
+2026-01-28T23:17:25.4006391Z Sucessfully added values ['val1', 'the fate of sigma'] to subkeys ['sk1', 'sk2'], respectively.
+2026-01-28T23:17:25.4006887Z [key_multivalue_storage.py]  Load.values: DEBUG: file_path=otest.json
+2026-01-28T23:17:25.4007679Z [key_multivalue_storage.py]  Load.values: DEBUG: key=test_top_level_key2
+2026-01-28T23:17:25.4008076Z [key_multivalue_storage.py]  Load.values: DEBUG: keys=True
+2026-01-28T23:17:25.4008414Z [key_multivalue_storage.py]  Load.values: DEBUG: raw=False
+2026-01-28T23:17:25.4009336Z [key_multivalue_storage.py]  Load.values: DEBUG: loaded_data={'test_top_level_key': {'sk1': 23724622312, 'sk2': 240225226233226243226241234224226223242234}, 'test_top_level_key2': {'sk1': 23724622312, 'sk2': 234232242241235246234242241224235241240226238227246}}
+2026-01-28T23:17:25.4010343Z [key_multivalue_storage.py]  Load.values: DEBUG: key in loaded_data? True
+2026-01-28T23:17:25.4011057Z [key_multivalue_storage.py]  Load.values: DEBUG: dict_to_load={'test_top_level_key2': {'sk1': 23724622312, 'sk2': 234232242241235246234242241224235241240226238227246}}
+2026-01-28T23:17:25.4012021Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict={'test_top_level_key2': {'sk1': 23724622312, 'sk2': 234232242241235246234242241224235241240226238227246}}
+2026-01-28T23:17:25.4012674Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict=False
+2026-01-28T23:17:25.4013026Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4013364Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=37
+2026-01-28T23:17:25.4013691Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4014017Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.4014342Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4014662Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=23
+2026-01-28T23:17:25.4014993Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 1
+2026-01-28T23:17:25.4015320Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=2
+2026-01-28T23:17:25.4015642Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4015960Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.4016286Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4016614Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=32
+2026-01-28T23:17:25.4016932Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4017266Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=42
+2026-01-28T23:17:25.4017587Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4017917Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.4018285Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4018624Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=35
+2026-01-28T23:17:25.4019302Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4019629Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.4019959Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4020284Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.4020606Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4020932Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=42
+2026-01-28T23:17:25.4021252Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4021579Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.4021897Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4022223Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=24
+2026-01-28T23:17:25.4022539Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4022867Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=35
+2026-01-28T23:17:25.4023197Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4023515Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.4023839Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4024163Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=40
+2026-01-28T23:17:25.4024488Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4024805Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.4025124Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4025447Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=38
+2026-01-28T23:17:25.4025763Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4026089Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=27
+2026-01-28T23:17:25.4026408Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4026764Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.4027634Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '71342031-8da8-4a9a-84b5-9cee6e05c760'
+2026-01-28T23:17:25.4028310Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test_top_level_key2'
+2026-01-28T23:17:25.4028953Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'the fate of sigma'}'
+2026-01-28T23:17:25.4029544Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(f'sk1: val1')
+2026-01-28T23:17:25.4030030Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(f'sk2: the fate of sigma')
+2026-01-28T23:17:25.4030506Z [key_multivalue_storage.py]  Load.values: DEBUG: file_path=otest.json
+2026-01-28T23:17:25.4030937Z [key_multivalue_storage.py]  Load.values: DEBUG: key=test_top_level_key2
+2026-01-28T23:17:25.4031328Z [key_multivalue_storage.py]  Load.values: DEBUG: keys=False
+2026-01-28T23:17:25.4031690Z [key_multivalue_storage.py]  Load.values: DEBUG: raw=False
+2026-01-28T23:17:25.4032624Z [key_multivalue_storage.py]  Load.values: DEBUG: loaded_data={'test_top_level_key': {'sk1': 23724622312, 'sk2': 240225226233226243226241234224226223242234}, 'test_top_level_key2': {'sk1': 23724622312, 'sk2': 234232242241235246234242241224235241240226238227246}}
+2026-01-28T23:17:25.4033605Z [key_multivalue_storage.py]  Load.values: DEBUG: key in loaded_data? True
+2026-01-28T23:17:25.4034299Z [key_multivalue_storage.py]  Load.values: DEBUG: dict_to_load={'test_top_level_key2': {'sk1': 23724622312, 'sk2': 234232242241235246234242241224235241240226238227246}}
+2026-01-28T23:17:25.4035226Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict={'test_top_level_key2': {'sk1': 23724622312, 'sk2': 234232242241235246234242241224235241240226238227246}}
+2026-01-28T23:17:25.4035869Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict=False
+2026-01-28T23:17:25.4036908Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4037383Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=37
+2026-01-28T23:17:25.4037734Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4038082Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.4038413Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4038742Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=23
+2026-01-28T23:17:25.4039062Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 1
+2026-01-28T23:17:25.4039387Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=2
+2026-01-28T23:17:25.4039701Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4040030Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.4040356Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4040673Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=32
+2026-01-28T23:17:25.4041030Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4041347Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=42
+2026-01-28T23:17:25.4041670Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4041986Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.4042315Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4042688Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=35
+2026-01-28T23:17:25.4043199Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4043528Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.4043847Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4044168Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.4044483Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4045344Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=42
+2026-01-28T23:17:25.4046298Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4046876Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.4047281Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4047603Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=24
+2026-01-28T23:17:25.4047930Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4048248Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=35
+2026-01-28T23:17:25.4048570Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4048896Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.4049218Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4049542Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=40
+2026-01-28T23:17:25.4049858Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4050201Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.4050536Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4050876Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=38
+2026-01-28T23:17:25.4051201Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4051790Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=27
+2026-01-28T23:17:25.4052343Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4052677Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.4053363Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'd2d9e5f1-ef65-46c8-a0fa-e4e8d5466ddd'
+2026-01-28T23:17:25.4054019Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test_top_level_key2'
+2026-01-28T23:17:25.4054844Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'the fate of sigma'}'
+2026-01-28T23:17:25.4056028Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(val1)
+2026-01-28T23:17:25.4056478Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(the fate of sigma)
+2026-01-28T23:17:25.4057067Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'd6b301c9-1c26-4672-ab07-9d0659662a64'
+2026-01-28T23:17:25.4057698Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test_top_level_key2'
+2026-01-28T23:17:25.4058323Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk3': 'val3', 'sk4': 'the fate of shard'}'
+2026-01-28T23:17:25.4059011Z [key_multivalue_storage.py]  store: INFO: Data for key 'test_top_level_key2' stored successfully in 'otest.json'.
+2026-01-28T23:17:25.4059622Z Sucessfully added values ['val3', 'the fate of shard'] to subkeys ['sk3', 'sk4'], respectively.
+2026-01-28T23:17:25.4060105Z [key_multivalue_storage.py]  Load.values: DEBUG: file_path=otest.json
+2026-01-28T23:17:25.4060536Z [key_multivalue_storage.py]  Load.values: DEBUG: key=test_top_level_key2
+2026-01-28T23:17:25.4060917Z [key_multivalue_storage.py]  Load.values: DEBUG: keys=True
+2026-01-28T23:17:25.4061255Z [key_multivalue_storage.py]  Load.values: DEBUG: raw=False
+2026-01-28T23:17:25.4062177Z [key_multivalue_storage.py]  Load.values: DEBUG: loaded_data={'test_top_level_key': {'sk1': 23724622312, 'sk2': 240225226233226243226241234224226223242234}, 'test_top_level_key2': {'sk3': 23724622314, 'sk4': 234232242241235246234242241224235241240232246239243}}
+2026-01-28T23:17:25.4063161Z [key_multivalue_storage.py]  Load.values: DEBUG: key in loaded_data? True
+2026-01-28T23:17:25.4063853Z [key_multivalue_storage.py]  Load.values: DEBUG: dict_to_load={'test_top_level_key2': {'sk3': 23724622314, 'sk4': 234232242241235246234242241224235241240232246239243}}
+2026-01-28T23:17:25.4064791Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict={'test_top_level_key2': {'sk3': 23724622314, 'sk4': 234232242241235246234242241224235241240232246239243}}
+2026-01-28T23:17:25.4065437Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict=False
+2026-01-28T23:17:25.4065792Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4066124Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=37
+2026-01-28T23:17:25.4066459Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4066778Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.4067111Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4067436Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=23
+2026-01-28T23:17:25.4067754Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 1
+2026-01-28T23:17:25.4068082Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=4
+2026-01-28T23:17:25.4068398Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4068728Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.4069051Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4069376Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=32
+2026-01-28T23:17:25.4069702Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4070020Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=42
+2026-01-28T23:17:25.4070758Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4071084Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.4071411Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4071729Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=35
+2026-01-28T23:17:25.4072056Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4072385Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.4072702Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4073151Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.4073554Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4073885Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=42
+2026-01-28T23:17:25.4074205Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4074535Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.4074860Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4075179Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=24
+2026-01-28T23:17:25.4075509Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4075828Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=35
+2026-01-28T23:17:25.4076155Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4076471Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.4076801Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4077131Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=40
+2026-01-28T23:17:25.4077449Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4077770Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=32
+2026-01-28T23:17:25.4078088Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4078412Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.4078727Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4079047Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=39
+2026-01-28T23:17:25.4079372Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4079689Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=43
+2026-01-28T23:17:25.4080217Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'a2781e83-44bc-434d-ba80-4bdc92c4242d'
+2026-01-28T23:17:25.4080856Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test_top_level_key2'
+2026-01-28T23:17:25.4081496Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk3': 'val3', 'sk4': 'the fate of shard'}'
+2026-01-28T23:17:25.4082082Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(f'sk3: val3')
+2026-01-28T23:17:25.4082562Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(f'sk4: the fate of shard')
+2026-01-28T23:17:25.4083035Z [key_multivalue_storage.py]  Load.values: DEBUG: file_path=otest.json
+2026-01-28T23:17:25.4083444Z [key_multivalue_storage.py]  Load.values: DEBUG: key=test_top_level_key2
+2026-01-28T23:17:25.4083835Z [key_multivalue_storage.py]  Load.values: DEBUG: keys=False
+2026-01-28T23:17:25.4084172Z [key_multivalue_storage.py]  Load.values: DEBUG: raw=False
+2026-01-28T23:17:25.4085095Z [key_multivalue_storage.py]  Load.values: DEBUG: loaded_data={'test_top_level_key': {'sk1': 23724622312, 'sk2': 240225226233226243226241234224226223242234}, 'test_top_level_key2': {'sk3': 23724622314, 'sk4': 234232242241235246234242241224235241240232246239243}}
+2026-01-28T23:17:25.4086076Z [key_multivalue_storage.py]  Load.values: DEBUG: key in loaded_data? True
+2026-01-28T23:17:25.4086763Z [key_multivalue_storage.py]  Load.values: DEBUG: dict_to_load={'test_top_level_key2': {'sk3': 23724622314, 'sk4': 234232242241235246234242241224235241240232246239243}}
+2026-01-28T23:17:25.4087696Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict={'test_top_level_key2': {'sk3': 23724622314, 'sk4': 234232242241235246234242241224235241240232246239243}}
+2026-01-28T23:17:25.4088345Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict=False
+2026-01-28T23:17:25.4088694Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4089030Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=37
+2026-01-28T23:17:25.4089355Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4089767Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.4090162Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4090808Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=23
+2026-01-28T23:17:25.4091139Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 1
+2026-01-28T23:17:25.4091461Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=4
+2026-01-28T23:17:25.4091791Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4092111Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.4092440Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4092761Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=32
+2026-01-28T23:17:25.4093090Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4093416Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=42
+2026-01-28T23:17:25.4093736Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4094066Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.4094393Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4094720Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=35
+2026-01-28T23:17:25.4095039Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4095368Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.4095701Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4096018Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.4096344Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4096688Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=42
+2026-01-28T23:17:25.4097031Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4097358Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.4097687Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4098016Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=24
+2026-01-28T23:17:25.4098338Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4098660Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=35
+2026-01-28T23:17:25.4098978Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4099303Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.4099620Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4099944Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=40
+2026-01-28T23:17:25.4100264Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4100587Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=32
+2026-01-28T23:17:25.4100915Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4101232Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.4101557Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4101879Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=39
+2026-01-28T23:17:25.4102204Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4102522Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=43
+2026-01-28T23:17:25.4103049Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '37c8cb00-1357-405d-be7a-fa8f638e7ca5'
+2026-01-28T23:17:25.4103689Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test_top_level_key2'
+2026-01-28T23:17:25.4104328Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk3': 'val3', 'sk4': 'the fate of shard'}'
+2026-01-28T23:17:25.4104895Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(val3)
+2026-01-28T23:17:25.4105328Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(the fate of shard)
+2026-01-28T23:17:25.4106502Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict={'test_top_level_key': {'sk1': 23724622312, 'sk2': 240225226233226243226241234224226223242234}}
+2026-01-28T23:17:25.4107250Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict=False
+2026-01-28T23:17:25.4107610Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4107950Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=37
+2026-01-28T23:17:25.4108279Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4108616Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=46
+2026-01-28T23:17:25.4108946Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4109269Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=23
+2026-01-28T23:17:25.4109603Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 1
+2026-01-28T23:17:25.4109937Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=2
+2026-01-28T23:17:25.4110272Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4110988Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=40
+2026-01-28T23:17:25.4111336Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4111673Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=25
+2026-01-28T23:17:25.4111998Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4112317Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.4112631Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4112951Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=33
+2026-01-28T23:17:25.4113265Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4113581Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.4113904Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4114226Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=43
+2026-01-28T23:17:25.4114558Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4114874Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.4115192Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4115512Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=41
+2026-01-28T23:17:25.4115837Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4116157Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.4116489Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4116811Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=24
+2026-01-28T23:17:25.4117131Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4117458Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=26
+2026-01-28T23:17:25.4117778Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4118103Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=23
+2026-01-28T23:17:25.4118458Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4118777Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=42
+2026-01-28T23:17:25.4119095Z [key_multivalue_storage.py]  _decode: DEBUG: totalchars 2
+2026-01-28T23:17:25.4119408Z [key_multivalue_storage.py]  _decode: DEBUG: currentchar=34
+2026-01-28T23:17:25.4119935Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'fbce88c8-ab23-4370-83ba-76485333d07a'
+2026-01-28T23:17:25.4120575Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test_top_level_key'
+2026-01-28T23:17:25.4121204Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'skibidi toilet'}'
+2026-01-28T23:17:25.4121886Z [key_multivalue_storage.py]  __store: INFO: Data for key 'test_top_level_key' stored successfully in 'otest.json'.
+2026-01-28T23:17:25.4122735Z [key_multivalue_storage.py]  Edit.propval: INFO: Sucessfully changed value skibidi toilet to sigma under key test_top_level_key.sk2.
+2026-01-28T23:17:25.4123367Z Sucessfully set subkey sk2 to value sigma.
+2026-01-28T23:17:25.4123691Z [key_multivalue_storage.py]  Load.values: DEBUG: file_path=otest.json
+2026-01-28T23:17:25.4124110Z [key_multivalue_storage.py]  Load.values: DEBUG: key=test_top_level_key
+2026-01-28T23:17:25.4124498Z [key_multivalue_storage.py]  Load.values: DEBUG: keys=True
+2026-01-28T23:17:25.4124823Z [key_multivalue_storage.py]  Load.values: DEBUG: raw=False
+2026-01-28T23:17:25.4125621Z [key_multivalue_storage.py]  Load.values: DEBUG: loaded_data={'test_top_level_key': {'sk1': 'val1', 'sk2': 'sigma'}, 'test_top_level_key2': {'sk3': 23724622314, 'sk4': 234232242241235246234242241224235241240232246239243}}
+2026-01-28T23:17:25.4126458Z [key_multivalue_storage.py]  Load.values: DEBUG: key in loaded_data? True
+2026-01-28T23:17:25.4127021Z [key_multivalue_storage.py]  Load.values: DEBUG: dict_to_load={'test_top_level_key': {'sk1': 'val1', 'sk2': 'sigma'}}
+2026-01-28T23:17:25.4127698Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict={'test_top_level_key': {'sk1': 'val1', 'sk2': 'sigma'}}
+2026-01-28T23:17:25.4128207Z [key_multivalue_storage.py]  _from_dict: DEBUG: data_dict=False
+2026-01-28T23:17:25.4128748Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '7992c116-6d64-4cbf-894a-156afbb3821a'
+2026-01-28T23:17:25.4129375Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test_top_level_key'
+2026-01-28T23:17:25.4129983Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'sigma'}'
+2026-01-28T23:17:25.4130533Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(f'sk1: val1')
+2026-01-28T23:17:25.4131316Z [key_multivalue_storage.py]  Load.values: DEBUG: items.append(f'sk2: sigma')
+2026-01-28T23:17:25.4131950Z [key_multivalue_storage.py]  Delete.by_key: DEBUG: loaded_data.keys()=dict_keys(['test_top_level_key', 'test_top_level_key2'])
+2026-01-28T23:17:25.4132892Z [key_multivalue_storage.py]  Delete.by_key: DEBUG: loaded_data.values()=dict_values([{'sk1': 'val1', 'sk2': 'sigma'}, {'sk3': 23724622314, 'sk4': 234232242241235246234242241224235241240232246239243}])
+2026-01-28T23:17:25.4134068Z [key_multivalue_storage.py]  Delete.by_key: DEBUG: loaded_data={'test_top_level_key': {'sk1': 'val1', 'sk2': 'sigma'}, 'test_top_level_key2': {'sk3': 23724622314, 'sk4': 234232242241235246234242241224235241240232246239243}}
+2026-01-28T23:17:25.4135053Z [key_multivalue_storage.py]  Delete.by_key: INFO: Successfully deleted key 'test_top_level_key2' from 'otest.json'.
+2026-01-28T23:17:25.4135614Z Sucessfully deleted key test_top_level_key2 and all its child data.
+2026-01-28T23:17:25.4136095Z [key_multivalue_storage.py]  Delete.all: INFO: Deleted all data from otest.json sucessfully.
+2026-01-28T23:17:25.4136519Z Sucessfully deleted all data from otest.json.
+2026-01-28T23:17:25.4136773Z Part 1 passed.
+2026-01-28T23:17:25.4136935Z --------------------
+2026-01-28T23:17:25.4137173Z Part 2: Storing, Editing, and Deleting via dunder methods
+2026-01-28T23:17:25.4137447Z --------------------
+2026-01-28T23:17:25.4137863Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '26dd91af-3d07-47e8-8d5f-47d645e3d826'
+2026-01-28T23:17:25.4138468Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4139031Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'val2'}'
+2026-01-28T23:17:25.4139709Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'c2cc16bb-5603-4fd7-a106-b8336ada53b7'
+2026-01-28T23:17:25.4140309Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4140897Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}'
+2026-01-28T23:17:25.4141710Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '01b50ed5-4969-4e0e-9f35-f325056bfb79'
+2026-01-28T23:17:25.4142378Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test2'
+2026-01-28T23:17:25.4142961Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}'
+2026-01-28T23:17:25.4143441Z Part 2.1: Comparisons
+2026-01-28T23:17:25.4143610Z Part 2.1 passed.
+2026-01-28T23:17:25.4143772Z -----
+2026-01-28T23:17:25.4143912Z Part 2.2: Arithmetic
+2026-01-28T23:17:25.4144342Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'ccb9e07c-9773-4ed1-9c62-38de236027bc'
+2026-01-28T23:17:25.4144942Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4145556Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'val2', 'sk7': '67', 'sk8': 'hehe'}'
+2026-01-28T23:17:25.4146303Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'd07fe9ea-3c60-4f0c-9f63-33d07b1dfe1e'
+2026-01-28T23:17:25.4146893Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4147618Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'val2', 'sk7': '67', 'sk8': 'hehe', 'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}'
+2026-01-28T23:17:25.4148457Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'c3534483-3c71-4c3d-af39-3358e41a3511'
+2026-01-28T23:17:25.4149036Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4149593Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'val2'}'
+2026-01-28T23:17:25.4150276Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '38aabe14-ffb6-4bc3-ba49-dd76b1ed2ff3'
+2026-01-28T23:17:25.4151205Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4151912Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'val2', 'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}'
+2026-01-28T23:17:25.4152697Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'c0354a0a-aeda-4cdc-b674-961b92c02b10'
+2026-01-28T23:17:25.4153279Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4153830Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'val2'}'
+2026-01-28T23:17:25.4154503Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'c64dc238-8cb1-4abc-ae72-38a5bcca881a'
+2026-01-28T23:17:25.4155089Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4155727Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'val2', 'undefined': ['val1', 'val2']}'
+2026-01-28T23:17:25.4156487Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '52ee9a98-b53e-4ce2-b8c1-a8e88f5173cd'
+2026-01-28T23:17:25.4157079Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4157628Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'val2'}'
+2026-01-28T23:17:25.4158287Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '570ccb07-6db1-43b5-8647-52f698262159'
+2026-01-28T23:17:25.4158874Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4159420Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'val2'}'
+2026-01-28T23:17:25.4160191Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'aaf80f15-18a6-41fd-a9bf-76d21bc91088'
+2026-01-28T23:17:25.4160854Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4161440Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}'
+2026-01-28T23:17:25.4162149Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '1eb5779d-8e2b-4c9d-85b5-dbb168175848'
+2026-01-28T23:17:25.4162731Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4163328Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}'
+2026-01-28T23:17:25.4164036Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '3c178c6c-06b6-411d-8499-81fb2493ef54'
+2026-01-28T23:17:25.4164613Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4165132Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1'}'
+2026-01-28T23:17:25.4165772Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '344d1ffe-fa1c-46ad-a7f2-0f0d8aed4f8f'
+2026-01-28T23:17:25.4166355Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4166867Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk2': 'val2'}'
+2026-01-28T23:17:25.4167492Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'dae5fca3-7b41-422b-be80-781d319f939c'
+2026-01-28T23:17:25.4168081Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4168634Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'val2'}'
+2026-01-28T23:17:25.4169058Z Part 2.2 passed.
+2026-01-28T23:17:25.4169216Z -----
+2026-01-28T23:17:25.4169368Z Part 2.3: Bitwise Operators
+2026-01-28T23:17:25.4169817Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '41fff910-d068-4df4-82fd-e9bc9e86540d'
+2026-01-28T23:17:25.4170403Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4171292Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk4': 'val1', 'sk6': 'val2', 'sk5': 'val3'}'
+2026-01-28T23:17:25.4172508Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'de13dfe4-8655-430c-9e77-b89cd40fc971'
+2026-01-28T23:17:25.4173136Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4173748Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}'
+2026-01-28T23:17:25.4174474Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'eacdbd8a-f6c6-4d75-8e77-3bda16fb40d1'
+2026-01-28T23:17:25.4175092Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4175693Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4176604Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '6e3f4bf8-6d4e-4b7b-a2c8-9f8a5102d334'
+2026-01-28T23:17:25.4177309Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4177862Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4178554Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'a2893dfc-cc61-4eb0-97d0-c429639a5d55'
+2026-01-28T23:17:25.4179152Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4179934Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4180766Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'b263f87d-8168-47f3-81fc-f85958a63235'
+2026-01-28T23:17:25.4181350Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4181976Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4182721Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '88178849-55ec-4d6b-9b93-9263c3b81664'
+2026-01-28T23:17:25.4183292Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4183913Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4184650Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '2b3df918-cf28-4f9f-896c-0a07e03ff770'
+2026-01-28T23:17:25.4185233Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4185852Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4186588Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '3c90629d-ec21-4f64-ad78-c7ca98432daf'
+2026-01-28T23:17:25.4187176Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4187795Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4188529Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '9650591e-13b2-4e2c-9aee-f86cc6f338d9'
+2026-01-28T23:17:25.4189314Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4189939Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4190689Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'ddbeeb6d-4b7b-482f-8611-c0932c428e2d'
+2026-01-28T23:17:25.4191623Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4192566Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4193814Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'eb79d249-0fcd-47ca-b1d1-f848c60861db'
+2026-01-28T23:17:25.4194770Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4195791Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4196996Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '4a69fc2c-4db3-4724-ace2-727ddcdf7ee5'
+2026-01-28T23:17:25.4197963Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4198945Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4200107Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'ca1858bb-ca0f-418d-bb3c-58b88f2d038c'
+2026-01-28T23:17:25.4200721Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4201698Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4202681Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '505aa725-a92f-4430-b332-7d57355a51c0'
+2026-01-28T23:17:25.4204988Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4205920Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4207135Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '30a9b25e-7b5a-4daf-86be-7b9ba1e7ec81'
+2026-01-28T23:17:25.4207764Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4208405Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4209159Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '45da813f-ef71-46cc-8e34-5edd4b5d5f86'
+2026-01-28T23:17:25.4209762Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4210395Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4211148Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '705c6f01-b0a2-4311-b5ef-ff9bbacc56eb'
+2026-01-28T23:17:25.4211725Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4212342Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4213080Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '237f4dae-d23f-4e98-8b4d-8dfed67a6f52'
+2026-01-28T23:17:25.4213661Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4214285Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4215026Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '92161d83-8a99-4c55-bcbb-b37b043f535f'
+2026-01-28T23:17:25.4215615Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4216232Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4216956Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '52444621-9e0f-41c8-b994-d1b20af27842'
+2026-01-28T23:17:25.4217531Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4218150Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4218925Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'cb96939a-4e5a-47dc-bbfc-c03946590030'
+2026-01-28T23:17:25.4219517Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4220128Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4220873Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'dd378fce-8a39-494f-a6aa-8273dc283561'
+2026-01-28T23:17:25.4221452Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4222054Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3', 'sk4': 'val1', 'sk6': 'val2'}'
+2026-01-28T23:17:25.4222783Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '017c576c-f844-47a5-b033-eb72aa29503b'
+2026-01-28T23:17:25.4223352Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4224067Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk5': 'val3', 'sk3': 'val3'}'
+2026-01-28T23:17:25.4224825Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '72686299-c5ed-4ac7-aab5-4eb5e3e06b63'
+2026-01-28T23:17:25.4225413Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4225954Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk6': 'val2', 'sk3': 'val3'}'
+2026-01-28T23:17:25.4226620Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '82183783-e8ad-4cb5-9d58-742de8b195f4'
+2026-01-28T23:17:25.4227583Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4228089Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk4': 'val1'}'
+2026-01-28T23:17:25.4228478Z Part 2.3 passed.
+2026-01-28T23:17:25.4228636Z -----
+2026-01-28T23:17:25.4228799Z Part 2.4: Collection and Container tests
+2026-01-28T23:17:25.4229274Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '325bffd3-2588-434c-8c16-1259aecaeda2'
+2026-01-28T23:17:25.4229854Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4230399Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'val1', 'sk2': 'val2'}'
+2026-01-28T23:17:25.4231062Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to '9d82aa3c-a1af-40bf-8353-47de6e813ddf'
+2026-01-28T23:17:25.4231642Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4232227Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}'
+2026-01-28T23:17:25.4232920Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'ba4fe489-ad36-43ea-907b-3137dc2f7c91'
+2026-01-28T23:17:25.4233506Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test2'
+2026-01-28T23:17:25.4234085Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}'
+2026-01-28T23:17:25.4234810Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'instance_id' to 'b62cea75-b5e5-4014-8ef4-f289b1fccb85'
+2026-01-28T23:17:25.4235392Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'key' to 'test1'
+2026-01-28T23:17:25.4235993Z [key_multivalue_storage.py]  __setattr__: INFO: Attempting to set 'values' to '{'sk1': 'hehe', 'sk2': 'val2', 'sk5': 'will be del'}'
+2026-01-28T23:17:25.4236593Z [key_multivalue_storage.py]  __enter__: INFO: Acquring storage from object
+2026-01-28T23:17:25.4237017Z [key_multivalue_storage.py]  __exit__: INFO: Releasing storage from object
+2026-01-28T23:17:25.4237343Z Part 2.4 passed.
+2026-01-28T23:17:25.4237495Z -----
+2026-01-28T23:17:25.4237651Z Part 2.5: Built-in attributes
+2026-01-28T23:17:25.4237852Z Part 2.5 passed.
+2026-01-28T23:17:25.4237996Z -----
+2026-01-28T23:17:25.4238148Z Part 2.6: Iteration Test (for loop)
+2026-01-28T23:17:25.4238353Z Part 2.6 passed.
+2026-01-28T23:17:25.4238499Z -----
+2026-01-28T23:17:25.4238679Z Part 2.7: Miscellaneous Tests (__call__, __format__)
+2026-01-28T23:17:25.4238932Z Part 2.7 passed.
+2026-01-28T23:17:25.4239034Z 
+2026-01-28T23:17:25.4239110Z Test passed sucessfully
+2026-01-28T23:17:25.7820592Z Post job cleanup.
+2026-01-28T23:17:25.9272402Z (node:5148) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-01-28T23:17:25.9273116Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-01-28T23:17:25.9570966Z Post job cleanup.
+2026-01-28T23:17:26.1734134Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-01-28T23:17:26.2029725Z git version 2.52.0.windows.1
+2026-01-28T23:17:26.2112645Z Temporarily overriding HOME='D:\a\_temp\609cdb3e-63f0-45b1-9f24-80ae5c1c97d7' before making global git config changes
+2026-01-28T23:17:26.2114201Z Adding repository directory to the temporary git global config as a safe directory
+2026-01-28T23:17:26.2125266Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\scratchattach\scratchattach
+2026-01-28T23:17:26.2478899Z Removing SSH command configuration
+2026-01-28T23:17:26.2491381Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-01-28T23:17:26.2879939Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-01-28T23:17:26.8274242Z Removing HTTP extra header
+2026-01-28T23:17:26.8284959Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-01-28T23:17:26.8611653Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-01-28T23:17:27.3893345Z Removing includeIf entries pointing to credentials config files
+2026-01-28T23:17:27.3904190Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-01-28T23:17:27.4169733Z includeif.gitdir:D:/a/scratchattach/scratchattach/.git.path
+2026-01-28T23:17:27.4170350Z includeif.gitdir:D:/a/scratchattach/scratchattach/.git/worktrees/*.path
+2026-01-28T23:17:27.4170751Z includeif.gitdir:/github/workspace/.git.path
+2026-01-28T23:17:27.4171132Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-01-28T23:17:27.4220479Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/scratchattach/scratchattach/.git.path
+2026-01-28T23:17:27.4491615Z D:\a\_temp\git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config
+2026-01-28T23:17:27.4537654Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/scratchattach/scratchattach/.git.path D:\a\_temp\git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config
+2026-01-28T23:17:27.4848857Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/scratchattach/scratchattach/.git/worktrees/*.path
+2026-01-28T23:17:27.5110297Z D:\a\_temp\git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config
+2026-01-28T23:17:27.5150805Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/scratchattach/scratchattach/.git/worktrees/*.path D:\a\_temp\git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config
+2026-01-28T23:17:27.5443733Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-01-28T23:17:27.5704178Z /github/runner_temp/git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config
+2026-01-28T23:17:27.5740391Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config
+2026-01-28T23:17:27.6054380Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-01-28T23:17:27.6320069Z /github/runner_temp/git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config
+2026-01-28T23:17:27.6358579Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config
+2026-01-28T23:17:27.6655571Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-01-28T23:17:28.1856220Z Removing credentials config 'D:\a\_temp\git-credentials-e7371677-ab0c-4bde-8a6b-0aff94ffd8fd.config'
+2026-01-28T23:17:28.2028223Z Cleaning up orphan processes
