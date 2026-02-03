@@ -9,8 +9,6 @@ warnings.filterwarnings('ignore', category=sa.LoginDataWarning)
 
 pswd = os.environ.get("PASS") #'PASS' is an env secret in the workflow, not on this device
 usnm = "Boss_1s"
-session = sa.login(usnm, pswd)# Log in to your Scratch account
-user = session.connect_user(usnm)# Get the user object for your account
 
 class ProjectNotFound(Exception):
     """Custom exception raised when a project is not found."""
@@ -34,7 +32,7 @@ def favorites():
     global fav_project_ids
 
     # Get the list of favorited projects
-    favorited_projects = user.favorites()
+    favorited_projects = sa.get_user(usnm).favorites()
    
     # Create an empty list to store the project IDs
     fav_project_ids = []
@@ -61,6 +59,8 @@ def prioritize(attempt: int, maxAttempts: int):
             os.system("echo " + "Projects already on top. No prioritizing needed.")
             return
             
+        session = sa.login(usnm, pswd)# Log in to your Scratch account
+        user = session.connect_user(usnm)# Get the user object for your account
         for project_id in project_ids_to_prioritize:
             project = session.connect_project(project_id)
             if project is None:
@@ -84,7 +84,7 @@ def prioritize(attempt: int, maxAttempts: int):
             time.sleep(45)
             
     except ValueError as e:
-        os.system("echo " + e)
+        os.system("echo " + str(e))
         sys.exit(1)
 
     except ProjectNotFound as e:
@@ -124,7 +124,7 @@ def prioritize_studio(attempt: int, maxAttempts: int):
             time.sleep(45)
             
     except ValueError as e:
-        os.system("echo " + e)
+        os.system("echo " + str(e))
         sys.exit(1)
 
     except StudioNotFound as e:
@@ -147,10 +147,10 @@ try:
 finally:
     os.system("echo " + "Prioritized projects in your favorite list.")
 
-max_atmp = 5
-atmp = 0
+#max_atmp = 5
+#atmp = 0
 
-try:
-    prioritize_studio(atmp, max_atmp)
-finally:
-    os.system("echo " + "Prioritized studios in your favorite list.")
+#try:
+#    prioritize_studio(atmp, max_atmp)
+#finally:
+#    os.system("echo " + "Prioritized studios in your favorite list.")
