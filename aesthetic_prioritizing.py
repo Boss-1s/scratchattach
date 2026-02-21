@@ -6,6 +6,7 @@ import time
 import scratchattach as sa
 
 warnings.filterwarnings('ignore', category=sa.LoginDataWarning)
+warnings.filterwarnings('ignore', category=sa.GetAuthenticationWarning)
 
 pswd = os.environ.get("PASS") #'PASS' is an env secret in the workflow, not on this device
 usnm = "Boss_1s"
