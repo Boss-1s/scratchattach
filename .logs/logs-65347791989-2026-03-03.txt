@@ -1,0 +1,443 @@
+﻿2026-03-02T04:15:59.5694071Z Current runner version: '2.331.0'
+2026-03-02T04:15:59.5718640Z ##[group]Runner Image Provisioner
+2026-03-02T04:15:59.5719597Z Hosted Compute Agent
+2026-03-02T04:15:59.5720201Z Version: 20260213.493
+2026-03-02T04:15:59.5721263Z Commit: 5c115507f6dd24b8de37d8bbe0bb4509d0cc0fa3
+2026-03-02T04:15:59.5722125Z Build Date: 2026-02-13T00:28:41Z
+2026-03-02T04:15:59.5722790Z Worker ID: {8f7418b8-6c91-472c-8ee9-16dd3a1522fb}
+2026-03-02T04:15:59.5723495Z Azure Region: westcentralus
+2026-03-02T04:15:59.5724174Z ##[endgroup]
+2026-03-02T04:15:59.5725620Z ##[group]Operating System
+2026-03-02T04:15:59.5726268Z Ubuntu
+2026-03-02T04:15:59.5726867Z 24.04.3
+2026-03-02T04:15:59.5727318Z LTS
+2026-03-02T04:15:59.5727800Z ##[endgroup]
+2026-03-02T04:15:59.5728368Z ##[group]Runner Image
+2026-03-02T04:15:59.5728944Z Image: ubuntu-24.04
+2026-03-02T04:15:59.5729496Z Version: 20260224.36.1
+2026-03-02T04:15:59.5730926Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260224.36/images/ubuntu/Ubuntu2404-Readme.md
+2026-03-02T04:15:59.5732500Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260224.36
+2026-03-02T04:15:59.5733433Z ##[endgroup]
+2026-03-02T04:15:59.5734493Z ##[group]GITHUB_TOKEN Permissions
+2026-03-02T04:15:59.5736352Z Contents: write
+2026-03-02T04:15:59.5736949Z Metadata: read
+2026-03-02T04:15:59.5737459Z ##[endgroup]
+2026-03-02T04:15:59.5739770Z Secret source: Actions
+2026-03-02T04:15:59.5740804Z Prepare workflow directory
+2026-03-02T04:15:59.6084405Z Prepare all required actions
+2026-03-02T04:15:59.6123927Z Getting action download info
+2026-03-02T04:16:00.0127411Z Download action repository 'actions/checkout@v6.0.2' (SHA:de0fac2e4500dabe0009e67214ff5f5447ce83dd)
+2026-03-02T04:16:00.1594656Z Download action repository 'actions/setup-python@v6.2.0' (SHA:a309ff8b426b58ec0e2a45f0f869d46889d02405)
+2026-03-02T04:16:00.3804259Z Complete job name: Run Prioritzing Handler
+2026-03-02T04:16:00.4545014Z ##[group]Run actions/checkout@v6.0.2
+2026-03-02T04:16:00.4545949Z with:
+2026-03-02T04:16:00.4546391Z   ref: main
+2026-03-02T04:16:00.4546819Z   repository: Boss-1s/scratchattach
+2026-03-02T04:16:00.4547525Z   token: ***
+2026-03-02T04:16:00.4547940Z   ssh-strict: true
+2026-03-02T04:16:00.4548362Z   ssh-user: git
+2026-03-02T04:16:00.4548786Z   persist-credentials: true
+2026-03-02T04:16:00.4549265Z   clean: true
+2026-03-02T04:16:00.4549691Z   sparse-checkout-cone-mode: true
+2026-03-02T04:16:00.4550206Z   fetch-depth: 1
+2026-03-02T04:16:00.4550790Z   fetch-tags: false
+2026-03-02T04:16:00.4551249Z   show-progress: true
+2026-03-02T04:16:00.4551681Z   lfs: false
+2026-03-02T04:16:00.4552088Z   submodules: false
+2026-03-02T04:16:00.4552532Z   set-safe-directory: true
+2026-03-02T04:16:00.4553270Z ##[endgroup]
+2026-03-02T04:16:00.5521739Z Syncing repository: Boss-1s/scratchattach
+2026-03-02T04:16:00.5524545Z ##[group]Getting Git version info
+2026-03-02T04:16:00.5526045Z Working directory is '/home/runner/work/scratchattach/scratchattach'
+2026-03-02T04:16:00.5528190Z [command]/usr/bin/git version
+2026-03-02T04:16:00.5575919Z git version 2.53.0
+2026-03-02T04:16:00.5599041Z ##[endgroup]
+2026-03-02T04:16:00.5614141Z Temporarily overriding HOME='/home/runner/work/_temp/275b30ae-55a2-43ae-850b-be72cd8566f2' before making global git config changes
+2026-03-02T04:16:00.5615657Z Adding repository directory to the temporary git global config as a safe directory
+2026-03-02T04:16:00.5619232Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2026-03-02T04:16:00.5661563Z Deleting the contents of '/home/runner/work/scratchattach/scratchattach'
+2026-03-02T04:16:00.5665106Z ##[group]Initializing the repository
+2026-03-02T04:16:00.5669913Z [command]/usr/bin/git init /home/runner/work/scratchattach/scratchattach
+2026-03-02T04:16:00.5800225Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-03-02T04:16:00.5801884Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-03-02T04:16:00.5802974Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-03-02T04:16:00.5804251Z hint: call:
+2026-03-02T04:16:00.5804670Z hint:
+2026-03-02T04:16:00.5805460Z hint: 	git config --global init.defaultBranch <name>
+2026-03-02T04:16:00.5806519Z hint:
+2026-03-02T04:16:00.5807180Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-03-02T04:16:00.5808258Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-03-02T04:16:00.5809382Z hint:
+2026-03-02T04:16:00.5810258Z hint: 	git branch -m <name>
+2026-03-02T04:16:00.5811330Z hint:
+2026-03-02T04:16:00.5812490Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-03-02T04:16:00.5813672Z Initialized empty Git repository in /home/runner/work/scratchattach/scratchattach/.git/
+2026-03-02T04:16:00.5816495Z [command]/usr/bin/git remote add origin https://github.com/Boss-1s/scratchattach
+2026-03-02T04:16:00.5852905Z ##[endgroup]
+2026-03-02T04:16:00.5853718Z ##[group]Disabling automatic garbage collection
+2026-03-02T04:16:00.5857024Z [command]/usr/bin/git config --local gc.auto 0
+2026-03-02T04:16:00.5886346Z ##[endgroup]
+2026-03-02T04:16:00.5887078Z ##[group]Setting up auth
+2026-03-02T04:16:00.5888291Z Removing SSH command configuration
+2026-03-02T04:16:00.5895200Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-03-02T04:16:00.5928812Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-03-02T04:16:00.6310789Z Removing HTTP extra header
+2026-03-02T04:16:00.6318553Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-03-02T04:16:00.6351392Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-03-02T04:16:00.6638805Z Removing includeIf entries pointing to credentials config files
+2026-03-02T04:16:00.6643129Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-03-02T04:16:00.6679803Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-03-02T04:16:00.6919823Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-03-02T04:16:00.6959724Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path /home/runner/work/_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config
+2026-03-02T04:16:00.6992334Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config
+2026-03-02T04:16:00.7025568Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config
+2026-03-02T04:16:00.7055967Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config
+2026-03-02T04:16:00.7083876Z ##[endgroup]
+2026-03-02T04:16:00.7085257Z ##[group]Fetching the repository
+2026-03-02T04:16:00.7094742Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+2026-03-02T04:16:41.2133523Z From https://github.com/Boss-1s/scratchattach
+2026-03-02T04:16:41.2134295Z  * [new branch]      main       -> origin/main
+2026-03-02T04:16:41.2166333Z ##[endgroup]
+2026-03-02T04:16:41.2173204Z ##[group]Determining the checkout info
+2026-03-02T04:16:41.2173838Z [command]/usr/bin/git branch --list --remote origin/main
+2026-03-02T04:16:41.2205265Z   origin/main
+2026-03-02T04:16:41.2209673Z ##[endgroup]
+2026-03-02T04:16:41.2214498Z [command]/usr/bin/git sparse-checkout disable
+2026-03-02T04:16:41.2258124Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-03-02T04:16:41.2286544Z ##[group]Checking out the ref
+2026-03-02T04:16:41.2291182Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-03-02T04:16:42.4034540Z Updating files:  69% (2610/3740)
+2026-03-02T04:16:42.7692691Z Updating files:  70% (2618/3740)
+2026-03-02T04:16:42.9057349Z Updating files:  71% (2656/3740)
+2026-03-02T04:16:42.9100715Z Updating files:  72% (2693/3740)
+2026-03-02T04:16:43.1114748Z Updating files:  73% (2731/3740)
+2026-03-02T04:16:43.1696819Z Updating files:  74% (2768/3740)
+2026-03-02T04:16:43.2489017Z Updating files:  75% (2805/3740)
+2026-03-02T04:16:43.8937433Z Updating files:  75% (2808/3740)
+2026-03-02T04:16:44.1106146Z Updating files:  76% (2843/3740)
+2026-03-02T04:16:44.2800044Z Updating files:  77% (2880/3740)
+2026-03-02T04:16:44.4987602Z Updating files:  77% (2897/3740)
+2026-03-02T04:16:44.6640868Z Updating files:  78% (2918/3740)
+2026-03-02T04:16:45.0941936Z Updating files:  79% (2955/3740)
+2026-03-02T04:16:45.2451591Z Updating files:  80% (2992/3740)
+2026-03-02T04:16:45.9371249Z Updating files:  80% (2998/3740)
+2026-03-02T04:16:46.3000321Z Updating files:  81% (3030/3740)
+2026-03-02T04:16:46.6451801Z Updating files:  81% (3040/3740)
+2026-03-02T04:16:47.2863097Z Updating files:  82% (3067/3740)
+2026-03-02T04:16:48.0307445Z Updating files:  83% (3105/3740)
+2026-03-02T04:16:48.2429247Z Updating files:  84% (3142/3740)
+2026-03-02T04:16:48.6029673Z Updating files:  84% (3155/3740)
+2026-03-02T04:16:48.6435126Z Updating files:  85% (3179/3740)
+2026-03-02T04:16:48.6637594Z Updating files:  86% (3217/3740)
+2026-03-02T04:16:48.6839052Z Updating files:  87% (3254/3740)
+2026-03-02T04:16:48.6929959Z Updating files:  88% (3292/3740)
+2026-03-02T04:16:48.9951472Z Updating files:  89% (3329/3740)
+2026-03-02T04:16:49.2491771Z Updating files:  90% (3366/3740)
+2026-03-02T04:16:49.6177713Z Updating files:  90% (3372/3740)
+2026-03-02T04:16:49.9271054Z Updating files:  91% (3404/3740)
+2026-03-02T04:16:50.1317727Z Updating files:  92% (3441/3740)
+2026-03-02T04:16:50.2361032Z Updating files:  93% (3479/3740)
+2026-03-02T04:16:50.2548828Z Updating files:  93% (3504/3740)
+2026-03-02T04:16:50.4287428Z Updating files:  94% (3516/3740)
+2026-03-02T04:16:50.5753616Z Updating files:  95% (3553/3740)
+2026-03-02T04:16:50.7376242Z Updating files:  96% (3591/3740)
+2026-03-02T04:16:50.8872985Z Updating files:  97% (3628/3740)
+2026-03-02T04:16:51.0383295Z Updating files:  98% (3666/3740)
+2026-03-02T04:16:51.1696977Z Updating files:  99% (3703/3740)
+2026-03-02T04:16:51.1698752Z Updating files: 100% (3740/3740)
+2026-03-02T04:16:51.1699096Z Updating files: 100% (3740/3740), done.
+2026-03-02T04:16:51.4624448Z Switched to a new branch 'main'
+2026-03-02T04:16:51.4631511Z branch 'main' set up to track 'origin/main'.
+2026-03-02T04:16:51.4841164Z ##[endgroup]
+2026-03-02T04:16:51.4884637Z [command]/usr/bin/git log -1 --format=%H
+2026-03-02T04:16:51.4912565Z da43a65f48350fb6ed2a9a50d2e32b9b99458750
+2026-03-02T04:16:51.5161829Z ##[group]Run actions/setup-python@v6.2.0
+2026-03-02T04:16:51.5162121Z with:
+2026-03-02T04:16:51.5162312Z   python-version: 3.13
+2026-03-02T04:16:51.5162528Z   check-latest: false
+2026-03-02T04:16:51.5162864Z   token: ***
+2026-03-02T04:16:51.5163067Z   update-environment: true
+2026-03-02T04:16:51.5163303Z   allow-prereleases: false
+2026-03-02T04:16:51.5163518Z   freethreaded: false
+2026-03-02T04:16:51.5163730Z ##[endgroup]
+2026-03-02T04:16:51.6436947Z ##[group]Installed versions
+2026-03-02T04:16:51.6539721Z Successfully set up CPython (3.13.12)
+2026-03-02T04:16:51.6540707Z ##[endgroup]
+2026-03-02T04:16:51.6657751Z ##[group]Run pip install -r requirements.txt
+2026-03-02T04:16:51.6658155Z [36;1mpip install -r requirements.txt[0m
+2026-03-02T04:16:51.6754627Z shell: /usr/bin/bash -e {0}
+2026-03-02T04:16:51.6755089Z env:
+2026-03-02T04:16:51.6755356Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.12/x64
+2026-03-02T04:16:51.6755820Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.12/x64/lib/pkgconfig
+2026-03-02T04:16:51.6756264Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.12/x64
+2026-03-02T04:16:51.6756637Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.12/x64
+2026-03-02T04:16:51.6757016Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.12/x64
+2026-03-02T04:16:51.6757403Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.12/x64/lib
+2026-03-02T04:16:51.6757715Z ##[endgroup]
+2026-03-02T04:16:53.9277627Z Collecting scratchattach>=2.1.15b0 (from -r requirements.txt (line 1))
+2026-03-02T04:16:54.0480894Z   Downloading scratchattach-3.0.0b2-py3-none-any.whl.metadata (5.6 kB)
+2026-03-02T04:16:54.0898905Z Collecting websocket-client (from scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:54.1101062Z   Downloading websocket_client-1.9.0-py3-none-any.whl.metadata (8.3 kB)
+2026-03-02T04:16:54.1558762Z Collecting requests (from scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:54.1745430Z   Downloading requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+2026-03-02T04:16:54.2043507Z Collecting bs4 (from scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:54.2259365Z   Downloading bs4-0.0.2-py2.py3-none-any.whl.metadata (411 bytes)
+2026-03-02T04:16:54.2563092Z Collecting SimpleWebSocketServer (from scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:54.2773081Z   Downloading SimpleWebSocketServer-0.1.2.tar.gz (10 kB)
+2026-03-02T04:16:54.2869636Z   Installing build dependencies: started
+2026-03-02T04:16:55.3362025Z   Installing build dependencies: finished with status 'done'
+2026-03-02T04:16:55.3367819Z   Getting requirements to build wheel: started
+2026-03-02T04:16:55.7844330Z   Getting requirements to build wheel: finished with status 'done'
+2026-03-02T04:16:55.7852387Z   Preparing metadata (pyproject.toml): started
+2026-03-02T04:16:56.0111261Z   Preparing metadata (pyproject.toml): finished with status 'done'
+2026-03-02T04:16:56.0424610Z Collecting typing-extensions (from scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:56.0610884Z   Downloading typing_extensions-4.15.0-py3-none-any.whl.metadata (3.3 kB)
+2026-03-02T04:16:56.1323424Z Collecting browser_cookie3 (from scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:56.1559853Z   Downloading browser_cookie3-0.20.1-py3-none-any.whl.metadata (713 bytes)
+2026-03-02T04:16:56.6492222Z Collecting aiohttp (from scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:56.6685242Z   Downloading aiohttp-3.13.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (8.1 kB)
+2026-03-02T04:16:56.7217411Z Collecting rich (from scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:56.7405883Z   Downloading rich-14.3.3-py3-none-any.whl.metadata (18 kB)
+2026-03-02T04:16:58.0191720Z Collecting aiohappyeyeballs>=2.5.0 (from aiohttp->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:58.0378493Z   Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl.metadata (5.9 kB)
+2026-03-02T04:16:58.7596335Z Collecting aiosignal>=1.4.0 (from aiohttp->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:58.7783169Z   Downloading aiosignal-1.4.0-py3-none-any.whl.metadata (3.7 kB)
+2026-03-02T04:16:58.8087142Z Collecting attrs>=17.3.0 (from aiohttp->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:58.8279413Z   Downloading attrs-25.4.0-py3-none-any.whl.metadata (10 kB)
+2026-03-02T04:16:58.9069197Z Collecting frozenlist>=1.1.1 (from aiohttp->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:58.9266603Z   Downloading frozenlist-1.8.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl.metadata (20 kB)
+2026-03-02T04:16:59.1523475Z Collecting multidict<7.0,>=4.5 (from aiohttp->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:59.1717445Z   Downloading multidict-6.7.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (5.3 kB)
+2026-03-02T04:16:59.2373964Z Collecting propcache>=0.2.0 (from aiohttp->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:59.2562033Z   Downloading propcache-0.4.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (13 kB)
+2026-03-02T04:16:59.5027269Z Collecting yarl<2.0,>=1.17.0 (from aiohttp->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:59.5223485Z   Downloading yarl-1.23.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+2026-03-02T04:16:59.5775856Z Collecting idna>=2.0 (from yarl<2.0,>=1.17.0->aiohttp->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:59.5961523Z   Downloading idna-3.11-py3-none-any.whl.metadata (8.4 kB)
+2026-03-02T04:16:59.6742524Z Collecting lz4 (from browser_cookie3->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:59.6947542Z   Downloading lz4-4.4.5-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+2026-03-02T04:16:59.7830244Z Collecting pycryptodomex (from browser_cookie3->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:59.8019598Z   Downloading pycryptodomex-3.23.0-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl.metadata (3.4 kB)
+2026-03-02T04:16:59.8706439Z Collecting jeepney (from browser_cookie3->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:59.8895195Z   Downloading jeepney-0.9.0-py3-none-any.whl.metadata (1.2 kB)
+2026-03-02T04:16:59.9219591Z Collecting beautifulsoup4 (from bs4->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:59.9406979Z   Downloading beautifulsoup4-4.14.3-py3-none-any.whl.metadata (3.8 kB)
+2026-03-02T04:16:59.9728426Z Collecting soupsieve>=1.6.1 (from beautifulsoup4->bs4->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:16:59.9916479Z   Downloading soupsieve-2.8.3-py3-none-any.whl.metadata (4.6 kB)
+2026-03-02T04:17:00.0826476Z Collecting charset_normalizer<4,>=2 (from requests->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:17:00.1025566Z   Downloading charset_normalizer-3.4.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (37 kB)
+2026-03-02T04:17:00.1455594Z Collecting urllib3<3,>=1.21.1 (from requests->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:17:00.1652293Z   Downloading urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+2026-03-02T04:17:00.2004643Z Collecting certifi>=2017.4.17 (from requests->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:17:00.2197766Z   Downloading certifi-2026.2.25-py3-none-any.whl.metadata (2.5 kB)
+2026-03-02T04:17:00.2515792Z Collecting markdown-it-py>=2.2.0 (from rich->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:17:00.2703994Z   Downloading markdown_it_py-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+2026-03-02T04:17:00.3046800Z Collecting pygments<3.0.0,>=2.13.0 (from rich->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:17:00.3239730Z   Downloading pygments-2.19.2-py3-none-any.whl.metadata (2.5 kB)
+2026-03-02T04:17:00.3507502Z Collecting mdurl~=0.1 (from markdown-it-py>=2.2.0->rich->scratchattach>=2.1.15b0->-r requirements.txt (line 1))
+2026-03-02T04:17:00.3697883Z   Downloading mdurl-0.1.2-py3-none-any.whl.metadata (1.6 kB)
+2026-03-02T04:17:00.3950142Z Downloading scratchattach-3.0.0b2-py3-none-any.whl (171 kB)
+2026-03-02T04:17:00.4380471Z Downloading aiohttp-3.13.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.7 MB)
+2026-03-02T04:17:00.4854780Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.7/1.7 MB 37.6 MB/s  0:00:00
+2026-03-02T04:17:00.5047335Z Downloading multidict-6.7.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (254 kB)
+2026-03-02T04:17:00.5312498Z Downloading yarl-1.23.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (101 kB)
+2026-03-02T04:17:00.5519710Z Downloading aiohappyeyeballs-2.6.1-py3-none-any.whl (15 kB)
+2026-03-02T04:17:00.5745347Z Downloading aiosignal-1.4.0-py3-none-any.whl (7.5 kB)
+2026-03-02T04:17:00.5950772Z Downloading attrs-25.4.0-py3-none-any.whl (67 kB)
+2026-03-02T04:17:00.6159180Z Downloading frozenlist-1.8.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (234 kB)
+2026-03-02T04:17:00.6427648Z Downloading idna-3.11-py3-none-any.whl (71 kB)
+2026-03-02T04:17:00.6654796Z Downloading propcache-0.4.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (204 kB)
+2026-03-02T04:17:00.6927029Z Downloading browser_cookie3-0.20.1-py3-none-any.whl (17 kB)
+2026-03-02T04:17:00.7191846Z Downloading bs4-0.0.2-py2.py3-none-any.whl (1.2 kB)
+2026-03-02T04:17:00.7399666Z Downloading beautifulsoup4-4.14.3-py3-none-any.whl (107 kB)
+2026-03-02T04:17:00.7633755Z Downloading soupsieve-2.8.3-py3-none-any.whl (37 kB)
+2026-03-02T04:17:00.7848663Z Downloading typing_extensions-4.15.0-py3-none-any.whl (44 kB)
+2026-03-02T04:17:00.8058349Z Downloading jeepney-0.9.0-py3-none-any.whl (49 kB)
+2026-03-02T04:17:00.8282070Z Downloading lz4-4.4.5-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (1.4 MB)
+2026-03-02T04:17:00.8393062Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.4/1.4 MB 134.8 MB/s  0:00:00
+2026-03-02T04:17:00.8581992Z Downloading pycryptodomex-3.23.0-cp37-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (2.3 MB)
+2026-03-02T04:17:00.8778133Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 119.6 MB/s  0:00:00
+2026-03-02T04:17:00.8972437Z Downloading requests-2.32.5-py3-none-any.whl (64 kB)
+2026-03-02T04:17:00.9183386Z Downloading charset_normalizer-3.4.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (153 kB)
+2026-03-02T04:17:00.9396203Z Downloading urllib3-2.6.3-py3-none-any.whl (131 kB)
+2026-03-02T04:17:00.9608009Z Downloading certifi-2026.2.25-py3-none-any.whl (153 kB)
+2026-03-02T04:17:00.9819814Z Downloading rich-14.3.3-py3-none-any.whl (310 kB)
+2026-03-02T04:17:01.0051003Z Downloading pygments-2.19.2-py3-none-any.whl (1.2 MB)
+2026-03-02T04:17:01.0140130Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.2/1.2 MB 154.7 MB/s  0:00:00
+2026-03-02T04:17:01.0326957Z Downloading markdown_it_py-4.0.0-py3-none-any.whl (87 kB)
+2026-03-02T04:17:01.0540908Z Downloading mdurl-0.1.2-py3-none-any.whl (10.0 kB)
+2026-03-02T04:17:01.0753781Z Downloading websocket_client-1.9.0-py3-none-any.whl (82 kB)
+2026-03-02T04:17:01.1089751Z Building wheels for collected packages: SimpleWebSocketServer
+2026-03-02T04:17:01.1098043Z   Building wheel for SimpleWebSocketServer (pyproject.toml): started
+2026-03-02T04:17:01.3328047Z   Building wheel for SimpleWebSocketServer (pyproject.toml): finished with status 'done'
+2026-03-02T04:17:01.3334081Z   Created wheel for SimpleWebSocketServer: filename=simplewebsocketserver-0.1.2-py3-none-any.whl size=9715 sha256=ababe7544b001e783b32743a5ddc4d432ffa7ca3d3cda171e9b9c29445129fb2
+2026-03-02T04:17:01.3335625Z   Stored in directory: /home/runner/.cache/pip/wheels/c4/5b/e8/4f2c15a82edc4923058056f6681373168be02a0c00389a6dcf
+2026-03-02T04:17:01.3353189Z Successfully built SimpleWebSocketServer
+2026-03-02T04:17:01.3809698Z Installing collected packages: SimpleWebSocketServer, websocket-client, urllib3, typing-extensions, soupsieve, pygments, pycryptodomex, propcache, multidict, mdurl, lz4, jeepney, idna, frozenlist, charset_normalizer, certifi, attrs, aiohappyeyeballs, yarl, requests, markdown-it-py, browser_cookie3, beautifulsoup4, aiosignal, rich, bs4, aiohttp, scratchattach
+2026-03-02T04:17:03.7996748Z 
+2026-03-02T04:17:03.8031945Z Successfully installed SimpleWebSocketServer-0.1.2 aiohappyeyeballs-2.6.1 aiohttp-3.13.3 aiosignal-1.4.0 attrs-25.4.0 beautifulsoup4-4.14.3 browser_cookie3-0.20.1 bs4-0.0.2 certifi-2026.2.25 charset_normalizer-3.4.4 frozenlist-1.8.0 idna-3.11 jeepney-0.9.0 lz4-4.4.5 markdown-it-py-4.0.0 mdurl-0.1.2 multidict-6.7.1 propcache-0.4.1 pycryptodomex-3.23.0 pygments-2.19.2 requests-2.32.5 rich-14.3.3 scratchattach-3.0.0b2 soupsieve-2.8.3 typing-extensions-4.15.0 urllib3-2.6.3 websocket-client-1.9.0 yarl-1.23.0
+2026-03-02T04:17:04.2314225Z ##[group]Run actions/checkout@v6.0.2
+2026-03-02T04:17:04.2314508Z with:
+2026-03-02T04:17:04.2314678Z   ref: main
+2026-03-02T04:17:04.2314874Z   repository: Boss-1s/scratchattach
+2026-03-02T04:17:04.2315246Z   token: ***
+2026-03-02T04:17:04.2315437Z   ssh-strict: true
+2026-03-02T04:17:04.2315632Z   ssh-user: git
+2026-03-02T04:17:04.2315828Z   persist-credentials: true
+2026-03-02T04:17:04.2316053Z   clean: true
+2026-03-02T04:17:04.2316256Z   sparse-checkout-cone-mode: true
+2026-03-02T04:17:04.2316495Z   fetch-depth: 1
+2026-03-02T04:17:04.2316683Z   fetch-tags: false
+2026-03-02T04:17:04.2316883Z   show-progress: true
+2026-03-02T04:17:04.2317074Z   lfs: false
+2026-03-02T04:17:04.2317263Z   submodules: false
+2026-03-02T04:17:04.2317456Z   set-safe-directory: true
+2026-03-02T04:17:04.2317670Z env:
+2026-03-02T04:17:04.2317910Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.12/x64
+2026-03-02T04:17:04.2318321Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.12/x64/lib/pkgconfig
+2026-03-02T04:17:04.2318762Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.12/x64
+2026-03-02T04:17:04.2319126Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.12/x64
+2026-03-02T04:17:04.2319488Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.12/x64
+2026-03-02T04:17:04.2319863Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.12/x64/lib
+2026-03-02T04:17:04.2320172Z ##[endgroup]
+2026-03-02T04:17:04.3106753Z Syncing repository: Boss-1s/scratchattach
+2026-03-02T04:17:04.3107271Z ##[group]Getting Git version info
+2026-03-02T04:17:04.3107648Z Working directory is '/home/runner/work/scratchattach/scratchattach'
+2026-03-02T04:17:04.3139033Z [command]/usr/bin/git version
+2026-03-02T04:17:04.3175757Z git version 2.53.0
+2026-03-02T04:17:04.3198372Z ##[endgroup]
+2026-03-02T04:17:04.3212483Z Temporarily overriding HOME='/home/runner/work/_temp/e70842a8-8efd-40d0-b1cf-ff39e7c3bb1c' before making global git config changes
+2026-03-02T04:17:04.3213757Z Adding repository directory to the temporary git global config as a safe directory
+2026-03-02T04:17:04.3217832Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2026-03-02T04:17:04.3256772Z [command]/usr/bin/git config --local --get remote.origin.url
+2026-03-02T04:17:04.3280149Z https://github.com/Boss-1s/scratchattach
+2026-03-02T04:17:04.3293494Z ##[group]Removing previously created refs, to avoid conflicts
+2026-03-02T04:17:04.3298122Z [command]/usr/bin/git rev-parse --symbolic-full-name --verify --quiet HEAD
+2026-03-02T04:17:04.3324832Z refs/heads/main
+2026-03-02T04:17:04.3335004Z [command]/usr/bin/git checkout --detach
+2026-03-02T04:17:04.6218095Z HEAD is now at da43a65 [BOT] Download Logs
+2026-03-02T04:17:04.6276232Z [command]/usr/bin/git branch --delete --force main
+2026-03-02T04:17:04.6307309Z Deleted branch main (was da43a65).
+2026-03-02T04:17:04.6348635Z ##[endgroup]
+2026-03-02T04:17:04.6353590Z [command]/usr/bin/git submodule status
+2026-03-02T04:17:04.6602839Z ##[group]Cleaning the repository
+2026-03-02T04:17:04.6607888Z [command]/usr/bin/git clean -ffdx
+2026-03-02T04:17:04.6671106Z [command]/usr/bin/git reset --hard HEAD
+2026-03-02T04:17:04.6812336Z HEAD is now at da43a65 [BOT] Download Logs
+2026-03-02T04:17:04.6818743Z ##[endgroup]
+2026-03-02T04:17:04.6821364Z ##[group]Disabling automatic garbage collection
+2026-03-02T04:17:04.6825269Z [command]/usr/bin/git config --local gc.auto 0
+2026-03-02T04:17:04.6853247Z ##[endgroup]
+2026-03-02T04:17:04.6853826Z ##[group]Setting up auth
+2026-03-02T04:17:04.6854900Z Removing SSH command configuration
+2026-03-02T04:17:04.6860908Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-03-02T04:17:04.6892673Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-03-02T04:17:04.7133064Z Removing HTTP extra header
+2026-03-02T04:17:04.7138040Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-03-02T04:17:04.7170262Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-03-02T04:17:04.7410086Z Removing includeIf entries pointing to credentials config files
+2026-03-02T04:17:04.7416612Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-03-02T04:17:04.7450388Z includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path
+2026-03-02T04:17:04.7451515Z includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path
+2026-03-02T04:17:04.7452045Z includeif.gitdir:/github/workspace/.git.path
+2026-03-02T04:17:04.7452409Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-03-02T04:17:04.7460983Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path
+2026-03-02T04:17:04.7483472Z /home/runner/work/_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config
+2026-03-02T04:17:04.7494484Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path /home/runner/work/_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config
+2026-03-02T04:17:04.7526134Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path
+2026-03-02T04:17:04.7547212Z /home/runner/work/_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config
+2026-03-02T04:17:04.7555576Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config
+2026-03-02T04:17:04.7588122Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-03-02T04:17:04.7610062Z /github/runner_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config
+2026-03-02T04:17:04.7617882Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config
+2026-03-02T04:17:04.7650243Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-03-02T04:17:04.7671171Z /github/runner_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config
+2026-03-02T04:17:04.7681415Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config
+2026-03-02T04:17:04.7718585Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-03-02T04:17:04.7957307Z Removing credentials config '/home/runner/work/_temp/git-credentials-56d26c58-f91e-4bb8-a8be-8d59c3cbe915.config'
+2026-03-02T04:17:04.7970929Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-03-02T04:17:04.8009379Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path /home/runner/work/_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config
+2026-03-02T04:17:04.8040708Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config
+2026-03-02T04:17:04.8071253Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config
+2026-03-02T04:17:04.8102239Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config
+2026-03-02T04:17:04.8128204Z ##[endgroup]
+2026-03-02T04:17:04.8128774Z ##[group]Fetching the repository
+2026-03-02T04:17:04.8138337Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +refs/heads/main*:refs/remotes/origin/main* +refs/tags/main*:refs/tags/main*
+2026-03-02T04:17:05.3251146Z ##[endgroup]
+2026-03-02T04:17:05.3251781Z ##[group]Determining the checkout info
+2026-03-02T04:17:05.3257694Z [command]/usr/bin/git branch --list --remote origin/main
+2026-03-02T04:17:05.3283909Z   origin/main
+2026-03-02T04:17:05.3288562Z ##[endgroup]
+2026-03-02T04:17:05.3294022Z [command]/usr/bin/git sparse-checkout disable
+2026-03-02T04:17:05.3364185Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-03-02T04:17:05.3394569Z ##[group]Checking out the ref
+2026-03-02T04:17:05.3398600Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-03-02T04:17:05.3496784Z Switched to a new branch 'main'
+2026-03-02T04:17:05.3499365Z branch 'main' set up to track 'origin/main'.
+2026-03-02T04:17:05.3505745Z ##[endgroup]
+2026-03-02T04:17:05.3545212Z [command]/usr/bin/git log -1 --format=%H
+2026-03-02T04:17:05.3571000Z da43a65f48350fb6ed2a9a50d2e32b9b99458750
+2026-03-02T04:17:05.3688862Z ##[group]Run python3 aesthetic_prioritizing.py
+2026-03-02T04:17:05.3689243Z [36;1mpython3 aesthetic_prioritizing.py[0m
+2026-03-02T04:17:05.3739691Z shell: /usr/bin/bash -e {0}
+2026-03-02T04:17:05.3739942Z env:
+2026-03-02T04:17:05.3740215Z   pythonLocation: /opt/hostedtoolcache/Python/3.13.12/x64
+2026-03-02T04:17:05.3740945Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.13.12/x64/lib/pkgconfig
+2026-03-02T04:17:05.3741424Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.12/x64
+2026-03-02T04:17:05.3741833Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.12/x64
+2026-03-02T04:17:05.3742239Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.13.12/x64
+2026-03-02T04:17:05.3742646Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.13.12/x64/lib
+2026-03-02T04:17:05.3743284Z   PASS: ***
+2026-03-02T04:17:05.3743484Z ##[endgroup]
+2026-03-02T04:17:06.7067302Z Prioritizing: Attempt 1
+2026-03-02T04:17:06.7074653Z Projects already on top. No prioritizing needed.
+2026-03-02T04:17:06.7082417Z Prioritized projects in your favorite list.
+2026-03-02T04:17:06.7671398Z Post job cleanup.
+2026-03-02T04:17:06.8463491Z [command]/usr/bin/git version
+2026-03-02T04:17:06.8501068Z git version 2.53.0
+2026-03-02T04:17:06.8542873Z Temporarily overriding HOME='/home/runner/work/_temp/40eab998-7a40-491e-877f-d11a48d1df30' before making global git config changes
+2026-03-02T04:17:06.8544195Z Adding repository directory to the temporary git global config as a safe directory
+2026-03-02T04:17:06.8549148Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2026-03-02T04:17:06.8582393Z Removing SSH command configuration
+2026-03-02T04:17:06.8589729Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-03-02T04:17:06.8650296Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-03-02T04:17:06.8895382Z Removing HTTP extra header
+2026-03-02T04:17:06.8901555Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-03-02T04:17:06.8934984Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-03-02T04:17:06.9174988Z Removing includeIf entries pointing to credentials config files
+2026-03-02T04:17:06.9181910Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-03-02T04:17:06.9206870Z includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path
+2026-03-02T04:17:06.9207804Z includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path
+2026-03-02T04:17:06.9208316Z includeif.gitdir:/github/workspace/.git.path
+2026-03-02T04:17:06.9208760Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-03-02T04:17:06.9217092Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path
+2026-03-02T04:17:06.9239801Z /home/runner/work/_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config
+2026-03-02T04:17:06.9250275Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git.path /home/runner/work/_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config
+2026-03-02T04:17:06.9285498Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path
+2026-03-02T04:17:06.9308487Z /home/runner/work/_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config
+2026-03-02T04:17:06.9318129Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/scratchattach/scratchattach/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config
+2026-03-02T04:17:06.9350889Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-03-02T04:17:06.9372733Z /github/runner_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config
+2026-03-02T04:17:06.9381433Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config
+2026-03-02T04:17:06.9413977Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-03-02T04:17:06.9436541Z /github/runner_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config
+2026-03-02T04:17:06.9445876Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config
+2026-03-02T04:17:06.9478905Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-03-02T04:17:06.9725998Z Removing credentials config '/home/runner/work/_temp/git-credentials-a0dc7920-3c07-4c05-a9ef-56067f57c094.config'
+2026-03-02T04:17:06.9921816Z Post job cleanup.
+2026-03-02T04:17:07.1172478Z Post job cleanup.
+2026-03-02T04:17:07.2006013Z [command]/usr/bin/git version
+2026-03-02T04:17:07.2056583Z git version 2.53.0
+2026-03-02T04:17:07.2110300Z Temporarily overriding HOME='/home/runner/work/_temp/07991ed0-1d2f-4e23-8431-f35d59f39ded' before making global git config changes
+2026-03-02T04:17:07.2111862Z Adding repository directory to the temporary git global config as a safe directory
+2026-03-02T04:17:07.2117525Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/scratchattach/scratchattach
+2026-03-02T04:17:07.2153204Z Removing SSH command configuration
+2026-03-02T04:17:07.2161771Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-03-02T04:17:07.2201593Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-03-02T04:17:07.2467606Z Removing HTTP extra header
+2026-03-02T04:17:07.2473461Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-03-02T04:17:07.2510988Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-03-02T04:17:07.2767352Z Removing includeIf entries pointing to credentials config files
+2026-03-02T04:17:07.2774769Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-03-02T04:17:07.2808968Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-03-02T04:17:07.3183437Z Cleaning up orphan processes
