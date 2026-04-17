@@ -1,6 +1,6 @@
 """
 Key to Multivalue Storage
-Version 1.2.1/2026.4.17
+Version 1.2.1/2026.4.17a
 Last updated: 4/17/2026
 
 Basically a nested-dictionary (key to key-value) module I made because I didn't like how 
@@ -56,7 +56,7 @@ class _StorageSettingsMeta(type):
 
 	@property
 	def DATE_VERSION(cls) -> str:
-		return "2026.4.17"
+		return "2026.4.17a"
 
 	@property
 	def LAST_UPDATE(cls) -> str:
@@ -104,7 +104,6 @@ class Storage(metaclass=_StorageSettingsMeta):
 	# Delete All warning, and automatic object release from memory
 	indent: int = 4
 	encode: bool = True
-	skip_delete_warn: bool = False
 	auto_delete_self: bool = False
 	
 	def __init__(self, key: str | uuid.UUID, **kwargs: Any) -> None:
@@ -642,9 +641,8 @@ class Storage(metaclass=_StorageSettingsMeta):
 				print("Delete.by_key: ERROR: Encountered _KeyNotFoundError")
 				raise _KeyNotFoundError(file_path, key)
 	
-			
-		def all(self, file_path: str, warn: bool=None) -> None:
-			if not warn: warn = self.skip_delete_warn
+		@staticmethod
+		def all(file_path: str, warn: bool=False) -> None:
 			if Storage._Storage__is_warning_category_ignored("DeleteWarning") or warn:
 				warnings.warn(Storage.DeleteWarning(
 					f"You are about to delete ALL of the data inside the file {file_path}. "+ 
