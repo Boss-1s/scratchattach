@@ -29,13 +29,13 @@ jobs:
     runs-on: "${{ github.events.inputs.runner == '' && 'ubuntu' || github.events.inputs.runner }}-latest"
     steps:
       - name: checkout repo content
-        uses: actions/checkout@v6.0.1 # checkout the repository content to github runner
+        uses: actions/checkout@v6.0.2 # checkout the repository content to github runner
         with:
 #          ref: v1.4.4a
           ref: scratch_chat_dev
 
       - name: setup python
-        uses: actions/setup-python@v6.1.0
+        uses: actions/setup-python@v6.2.0
         with:
           python-version: "3.14"
           check-latest: true
@@ -44,7 +44,7 @@ jobs:
         run: pip install -r requirements.txt
         
       - name: recheckout repo content
-        uses: actions/checkout@v6.0.1 # checkout the repository content to github runner
+        uses: actions/checkout@v6.0.2 # checkout the repository content to github runner
         with:
 #          ref: v1.4.4a
           ref: scratch_chat_dev
