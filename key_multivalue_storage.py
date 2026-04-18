@@ -1,10 +1,15 @@
 """
 Key to Multivalue Storage
-Date Version 2026.1.28a
-Official Version 1.2
+Version 1.2.1/2026.4.17b
+Last updated: 4/17/2026
+
+Basically a nested-dictionary (key to key-value) module I made because I didn't like how 
+scratchattach's database worked and the steep learning curve that came with it.
+So far this is the greatest piece of a python program I have made.
 
 Made with love by Boss_1s.
-(c)2025, 2026. Licence under CC BY-NC-ND International 4.0. See creativecommons.com.
+(c)2025, 2026. This work is licensed under the CC BY-NC-ND 4.0 International license. 
+To view a copy of the license, see creativecommons.com.
 """
 
 from __future__ import annotations
@@ -44,8 +49,21 @@ class _KeyNotFoundError(KeyError):
 		self.message = f"The following key was not found in {file}: {mkey}" if message == "" else message
 		super().__init__(self.message)
 
+class _StorageSettingsMeta(type):
+	@property
+	def VERSION(cls) -> str:
+		return "1.2.1"
+
+	@property
+	def DATE_VERSION(cls) -> str:
+		return "2026.4.17b"
+
+	@property
+	def LAST_UPDATE(cls) -> str:
+		return "2026/4/17"
+
 @total_ordering
-class Storage:
+class Storage(metaclass=_StorageSettingsMeta):
 	"""
 	Class for monokey-multivalue storage.
 	Developed for the project ScratchChat by Boss_1s -> https://scratch.mit.edu/projects/1051418168
@@ -81,11 +99,20 @@ class Storage:
 	
 	#Define public and private methods/classes
 	__all__ = ["store", "DeleteWarning", "Load", "Edit", "Delete", "__str__"]
+
+	# Define global variables: indent, encode option, skip 
+	# Delete All warning, and automatic object release from memory
+	indent: int = 4
+	encode: bool = True
+	auto_delete_self: bool = False
 	
 	def __init__(self, key: str | uuid.UUID, **kwargs: Any) -> None:
 		"""initiate instance paramaters"""
-		# Setup logger first...
-		self.instance_id = uuid.uuid4() #uuid7.uuid7() for support with CPython >=3.12
+		# Setup logger first... [TODO]
+		try:
+			self.instance_id = uuid.uuid7() #uuid.uuid7() for support with CPython >=3.14
+		except AttributeError: # if CPython is not >=3.14, fallback to uuid.uuid4()
+			self.instance_id = uuid.uuid4()
 		# ...then attempt to set values
 		self.key = str(key) if isinstance(key, uuid.UUID) else key
 		self.values = kwargs
@@ -97,21 +124,21 @@ class Storage:
 		if not isinstance(string, str):
 			string = str(string)
 	
-		char="""`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
-		i=0
-		output=''
+		char = """`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
+		i = 0
+		output = ''
 		while i < len(string):
-			currentchar=string[i]
-			i2: int=0
-			i3=''
+			currentchar = string[i]
+			i2: int = 0
+			i3 = ''
 			while not i3 == currentchar:
-				i3=char[i2]
-				i2=i2+1
+				i3 = char[i2]
+				i2 += 1
 				if i3 == currentchar:
 					break
-			i2=f"{i2}"
-			output=f"{output}{len(i2)}{i2}"
-			i=i+1
+			i2 = f"{i2}"
+			output = f"{output}{len(i2)}{i2}"
+			i += 1
 		return int(output)
 	
 	@staticmethod
@@ -123,19 +150,19 @@ class Storage:
 	
 		to_decode=str(string)
 		
-		char="""`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
-		i=0
-		output=''
+		char = """`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
+		i = 0
+		output = ''
 		while i < len(to_decode):
-			totalchars=int(to_decode[i])
+			totalchars = int(to_decode[i])
 			print(f"_decode: DEBUG: totalchars {totalchars}") 
-			currentchar=int(to_decode[i+1:i+1+totalchars])
+			currentchar = int(to_decode[i+1:i+1+totalchars])
 			print(f"_decode: DEBUG: currentchar={currentchar}") 
 			#Bounds Check
 			if not (0 <= currentchar-1 < len(char)):
-				raise ValueError(f"Decoding error: Index {currentchar - 1} out of bounds for character map.")
-			output=f"{output}{char[currentchar-1]}"
-			i=i+1+totalchars
+				raise ValueError(f"Decoding error: Index {currentchar - 1} out of range of characters.")
+			output = f"{output}{char[currentchar-1]}"
+			i += 1+totalchars
 		return output
 	
 	def _to_dict(self) -> dict[str, dict[str, Any]]:
@@ -180,9 +207,14 @@ class Storage:
 		return cls(top_level_key, **og_nested_values)
 	
 	@staticmethod
-	def __store(file_path: str, dict_to_dump: dict[str, dict[str, Any]], indent: int=4) -> None:
-		"""For private use by delete class, works just like Storage.store() but dict is already created, so no instance is required."""
-		"""Store a key-multivalue pair into a json file."""
+	def __store(file_path: str, dict_to_dump: dict[str, dict[str, Any]], indent: int) -> None:
+		"""
+		For private use by delete class, works just like Storage.store()
+		but dict is already created, so no instance is required.
+		Indent is required here, unlinke public store.
+		Store a key-multivalue pair into a json file.
+		"""
+		
 		all_data: dict[str, dict[str, Any]] = {}
 		try:
 			with open(file_path, "r") as f:
@@ -209,8 +241,12 @@ class Storage:
 				return True
 		return False
 		
-	def store(self, file_path: str, instant_delete: bool=False, indent: int=4) -> None:
+	def store(self, file_path: str, instant_delete: bool=None, indent: int=None, encode: bool=None) -> None:
 		"""Store a key-multivalue pair into a json file."""
+		if not indent: indent = self.indent
+		if not instant_delete: instant_delete = self.auto_delete_self
+		if not encode: encode = self.encode
+		
 		all_data: dict[str, dict[str, Any]] = {}
 		try:
 			with open(file_path, "r") as f:
@@ -224,7 +260,7 @@ class Storage:
 		if ".json" not in file_path:
 			fp = str(file_path) + ".json"
 		
-		all_data.update(self._to_dict())
+		if encode: all_data.update(self._to_dict())
 	
 		try:
 			with open(file_path, "w") as f:
@@ -233,7 +269,7 @@ class Storage:
 		except IOError as e:
 			print(f"store: ERROR: Error writing to file '{file_path}': {e}") 
 
-		if instant_delete:del self
+		if instant_delete: del self
 
 	class DeleteWarning(UserWarning):
 		"""Custom warning when attempting to delete the contents of a whole database."""
@@ -454,7 +490,7 @@ class Storage:
 				top_lv_key: items
 			}
 	
-			Storage._Storage__store(file_path, to_dump)
+			Storage._Storage__store(file_path, to_dump, Storage.indent)
 			print(f"Edit.propkey: INFO: Sucessfully renamed {oldpropkey} to {newpropkey}.")
 	
 		@classmethod
@@ -490,7 +526,7 @@ class Storage:
 	
 			to_dump: dict[str, dict[str, Any]] = {top_lv_key: items}
 	
-			Storage._Storage__store(file_path, to_dump)
+			Storage._Storage__store(file_path, to_dump, Storage.indent)
 			print(f"Edit.propval: INFO: Sucessfully changed value {oldval} "+
 				  f"to {newval} under key {top_lv_key}.{propkey}.")
 	
@@ -572,7 +608,7 @@ class Storage:
 	
 			print(f"Delete.by_propkey: DEBUG: to_dump={to_dump}")
 	
-			Storage._Storage__store(file_path, to_dump)
+			Storage._Storage__store(file_path, to_dump, Storage.indent)
 			print(f"Delete.by_propkey: INFO: Sucessfully deleted subkey {property_key} and its value.")
 	
 		@classmethod
@@ -608,9 +644,8 @@ class Storage:
 				print("Delete.by_key: ERROR: Encountered _KeyNotFoundError")
 				raise _KeyNotFoundError(file_path, key)
 	
-			
 		@staticmethod
-		def all(file_path: str, warn: bool=True) -> None:
+		def all(file_path: str, warn: bool=False) -> None:
 			if Storage._Storage__is_warning_category_ignored("DeleteWarning") or warn:
 				warnings.warn(Storage.DeleteWarning(
 					f"You are about to delete ALL of the data inside the file {file_path}. "+ 
