@@ -1,6 +1,6 @@
 """
 Key to Multivalue Storage
-Version 1.2.1/2026.4.17a
+Version 1.2.1/2026.4.17b
 Last updated: 4/17/2026
 
 Basically a nested-dictionary (key to key-value) module I made because I didn't like how 
@@ -56,7 +56,7 @@ class _StorageSettingsMeta(type):
 
 	@property
 	def DATE_VERSION(cls) -> str:
-		return "2026.4.17a"
+		return "2026.4.17b"
 
 	@property
 	def LAST_UPDATE(cls) -> str:
@@ -124,21 +124,21 @@ class Storage(metaclass=_StorageSettingsMeta):
 		if not isinstance(string, str):
 			string = str(string)
 	
-		char="""`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
-		i=0
-		output=''
+		char = """`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
+		i = 0
+		output = ''
 		while i < len(string):
-			currentchar=string[i]
-			i2: int=0
-			i3=''
+			currentchar = string[i]
+			i2: int = 0
+			i3 = ''
 			while not i3 == currentchar:
-				i3=char[i2]
-				i2=i2+1
+				i3 = char[i2]
+				i2 += 1
 				if i3 == currentchar:
 					break
-			i2=f"{i2}"
-			output=f"{output}{len(i2)}{i2}"
-			i=i+1
+			i2 = f"{i2}"
+			output = f"{output}{len(i2)}{i2}"
+			i += 1
 		return int(output)
 	
 	@staticmethod
@@ -150,19 +150,19 @@ class Storage(metaclass=_StorageSettingsMeta):
 	
 		to_decode=str(string)
 		
-		char="""`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
-		i=0
-		output=''
+		char = """`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
+		i = 0
+		output = ''
 		while i < len(to_decode):
-			totalchars=int(to_decode[i])
+			totalchars = int(to_decode[i])
 			print(f"_decode: DEBUG: totalchars {totalchars}") 
-			currentchar=int(to_decode[i+1:i+1+totalchars])
+			currentchar = int(to_decode[i+1:i+1+totalchars])
 			print(f"_decode: DEBUG: currentchar={currentchar}") 
 			#Bounds Check
 			if not (0 <= currentchar-1 < len(char)):
-				raise ValueError(f"Decoding error: Index {currentchar - 1} out of bounds for character map.")
-			output=f"{output}{char[currentchar-1]}"
-			i=i+1+totalchars
+				raise ValueError(f"Decoding error: Index {currentchar - 1} out of range of characters.")
+			output = f"{output}{char[currentchar-1]}"
+			i += 1+totalchars
 		return output
 	
 	def _to_dict(self) -> dict[str, dict[str, Any]]:
@@ -207,10 +207,13 @@ class Storage(metaclass=_StorageSettingsMeta):
 		return cls(top_level_key, **og_nested_values)
 	
 	@staticmethod
-	def __store(file_path: str, dict_to_dump: dict[str, dict[str, Any]], indent: int=None) -> None:
-		"""For private use by delete class, works just like Storage.store() but dict is already created, so no instance is required."""
-		"""Store a key-multivalue pair into a json file."""
-		if not indent: indent = self.indent
+	def __store(file_path: str, dict_to_dump: dict[str, dict[str, Any]], indent: int) -> None:
+		"""
+		For private use by delete class, works just like Storage.store()
+		but dict is already created, so no instance is required.
+		Indent is required here, unlinke public store.
+		Store a key-multivalue pair into a json file.
+		"""
 		
 		all_data: dict[str, dict[str, Any]] = {}
 		try:
@@ -487,7 +490,7 @@ class Storage(metaclass=_StorageSettingsMeta):
 				top_lv_key: items
 			}
 	
-			Storage._Storage__store(file_path, to_dump)
+			Storage._Storage__store(file_path, to_dump, Storage.indent)
 			print(f"Edit.propkey: INFO: Sucessfully renamed {oldpropkey} to {newpropkey}.")
 	
 		@classmethod
@@ -523,7 +526,7 @@ class Storage(metaclass=_StorageSettingsMeta):
 	
 			to_dump: dict[str, dict[str, Any]] = {top_lv_key: items}
 	
-			Storage._Storage__store(file_path, to_dump)
+			Storage._Storage__store(file_path, to_dump, Storage.indent)
 			print(f"Edit.propval: INFO: Sucessfully changed value {oldval} "+
 				  f"to {newval} under key {top_lv_key}.{propkey}.")
 	
@@ -605,7 +608,7 @@ class Storage(metaclass=_StorageSettingsMeta):
 	
 			print(f"Delete.by_propkey: DEBUG: to_dump={to_dump}")
 	
-			Storage._Storage__store(file_path, to_dump)
+			Storage._Storage__store(file_path, to_dump, Storage.indent)
 			print(f"Delete.by_propkey: INFO: Sucessfully deleted subkey {property_key} and its value.")
 	
 		@classmethod
