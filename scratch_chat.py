@@ -6,17 +6,29 @@ from scratchattach import Encoding
 
 warnings.filterwarnings('ignore', category=sa.LoginDataWarning)
 
-passwrd = os.environ.get('PASS') #'PASS' is env secret in the repo, not on this device
 cld = os.environ.get('CLOUD') #same with CLOUD
 
 if cld == 'Scratch':
+    passwrd = os.environ.get('PASS') #'PASS' is env secret in the repo, not on this device
     session = sa.login("Boss_1sALT", passwrd)
     #cloud = session.connect_cloud("895107188") #<- this is the real project
     cloud = session.connect_cloud("1202780939") #<- this is the test project
 elif cld == 'Turbowarp':
-    cloud = sa.get_tw_cloud("project_id", 
-                            purpose="cloud host for scratchattach and packaged project", 
-                            contact="Boss_1s on scratch, https://scratch.mit.edu/users/boss_1s")
+    #cloud = sa.get_tw_cloud("project_id", 
+    #                        purpose="cloud host for scratchattach and packaged project", 
+    #                        contact="Boss_1s on scratch, https://scratch.mit.edu/users/boss_1s")
+    server = sa.init_cloud_server(
+        '127.0.0.1', 8080, # set IP address and port
+        thread=True, # if set to True, the server will run in a thread
+        length_limit=65536, 
+        allow_non_numeric=False, # customize what cloud values are allowed
+        whitelisted_projects=["1202780939","895107188"], 
+        allow_nonscratch_names=True, 
+        blocked_ips=[],
+        sync_players=True, # when set to False, other players will no longer be notified about cloud updates (only the server will see and parse them)
+        log_var_sets=True # when set to True, all var sets will be printed to the console (can be spammy)
+    )
+    server.start()
 else: 
     raise RuntimeError(f"could not connect to cloud {cld}" if cld else "Cloud was not specified")
 
