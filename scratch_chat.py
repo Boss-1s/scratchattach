@@ -14,9 +14,9 @@ if cld == 'Scratch':
     #cloud = session.connect_cloud("895107188") #<- this is the real project
     cloud = session.connect_cloud("1202780939") #<- this is the test project
 elif cld == 'Turbowarp':
-    cloud = session.connect_tw_cloud("project_id", 
-                                     purpose="cloud host for scratchattach and packaged project", 
-                                     contact="Boss_1s on scratch, https://scratch.mit.edu/users/boss_1s")
+    cloud = sa.get_tw_cloud("project_id", 
+                            purpose="cloud host for scratchattach and packaged project", 
+                            contact="Boss_1s on scratch, https://scratch.mit.edu/users/boss_1s")
 else: 
     raise RuntimeError(f"could not connect to cloud {cld}" if cld else "Cloud was not specified")
 
