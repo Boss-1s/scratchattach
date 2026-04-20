@@ -15,11 +15,13 @@ on:
           - "ubuntu"
           - "windows"
         default: "ubuntu"
-      pip:
-        description: "Update pip?"
-        type: boolean
+      cloud:
+        description: "Choose the cloud to run on."
+        type: choice
         required: true
-        default: true
+        options:
+          - "Scratch"
+          - "Turbowarp"
   #schedule:
     #- cron: "* */6 * * *"
 
@@ -52,6 +54,7 @@ jobs:
       - name: execute scratch_chat.py
         env:
           PASS: ${{ secrets.SCRATCH_PASS }}
+          CLOUD: ${{ inputs.cloud }}
         run: |
           git config --global user.name 'Boss-1s [via Actions]'
           git config --global user.email 'Boss-1s[auto]@users.noreply.github.com'
