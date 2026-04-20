@@ -12,7 +12,9 @@ if cld == 'Scratch':
     passwrd = os.environ.get('PASS') #'PASS' is env secret in the repo, not on this device
     session = sa.login("Boss_1sALT", passwrd)
     #cloud = session.connect_cloud("895107188") #<- this is the real project
-    cloud = session.connect_cloud("1202780939") #<- this is the test project
+    cloud = session.connect_cloud("1202780939") #<- this is the test project    
+    # When adding new client methods, remember to put print() before return, so that the console gets a copy of the output.
+    client = cloud.requests()
 elif cld == 'Turbowarp':
     #cloud = sa.get_tw_cloud("project_id", 
     #                        purpose="cloud host for scratchattach and packaged project", 
@@ -35,9 +37,6 @@ else:
 temp_objs = [None]*10
 
 def print(*args, **kwargs) -> None:builtins.print("[scratch_chat.py] ", *args, **kwargs)
-
-# When adding new client methods, remember to put print() before return, so that the console gets a copy of the output.
-client = cloud.requests()
 
 @client.request(response_priority=1)
 def r_ping() -> str:
