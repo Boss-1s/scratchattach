@@ -1,7 +1,7 @@
 """
 Key to Multivalue Storage
-Version 1.2.1/2026.4.17b
-Last updated: 4/17/2026
+Version 1.2.2/2026.5.6
+Last updated: 5/06/2026
 
 Basically a nested-dictionary (key to key-value) module I made because I didn't like how 
 scratchattach's database worked and the steep learning curve that came with it.
@@ -52,15 +52,15 @@ class _KeyNotFoundError(KeyError):
 class _StorageSettingsMeta(type):
 	@property
 	def VERSION(cls) -> str:
-		return "1.2.1"
+		return "1.2.2"
 
 	@property
 	def DATE_VERSION(cls) -> str:
-		return "2026.4.17b"
+		return "2026.5.6"
 
 	@property
 	def LAST_UPDATE(cls) -> str:
-		return "2026/4/17"
+		return "2026/5/6"
 
 @total_ordering
 class Storage(metaclass=_StorageSettingsMeta):
@@ -96,9 +96,6 @@ class Storage(metaclass=_StorageSettingsMeta):
 	"""
 
 	global logger
-	
-	#Define public and private methods/classes
-	__all__ = ["store", "DeleteWarning", "Load", "Edit", "Delete", "__str__"]
 
 	# Define global variables: indent, encode option, skip 
 	# Delete All warning, and automatic object release from memory
@@ -106,7 +103,10 @@ class Storage(metaclass=_StorageSettingsMeta):
 	encode: bool = True
 	auto_delete_self: bool = False
 	
-	def __init__(self, key: str | uuid.UUID, **kwargs: Any) -> None:
+	def __init__(self, 
+				 key: str | uuid.UUID, 
+				 **kwargs: Any
+				) -> None:
 		"""initiate instance paramaters"""
 		# Setup logger first... [TODO]
 		try:
@@ -119,25 +119,17 @@ class Storage(metaclass=_StorageSettingsMeta):
 	
 	@staticmethod
 	def _encode(string: Any) -> int:
-		"""Encodes a value using a simple character-matching system, simmilar to a one-time pad but reusable."""
+		"""Encodes a value using a simple character-matching system, similar to a one-time pad but reusable."""
 	
-		if not isinstance(string, str):
-			string = str(string)
+		if not isinstance(string, str): string = str(string)
 	
-		char = """`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
+		char: str = r"""`1234657809=-\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
 		i = 0
 		output = ''
 		while i < len(string):
-			currentchar = string[i]
-			i2: int = 0
-			i3 = ''
-			while not i3 == currentchar:
-				i3 = char[i2]
-				i2 += 1
-				if i3 == currentchar:
-					break
-			i2 = f"{i2}"
-			output = f"{output}{len(i2)}{i2}"
+			i2 = 0
+			while not (i3 := char[i2]) == (currentchar := string[i]): i2 += 1
+			output = f"{output}{len(str(i2))}{i2}"
 			i += 1
 		return int(output)
 	
@@ -145,12 +137,11 @@ class Storage(metaclass=_StorageSettingsMeta):
 	def _decode(string: str | int) -> str:
 		"""Decodes a value encoded with Storage._encode"""
 		
-		if not isinstance(string, (str, int)): # Accept encoded int or its string repr
-			raise TypeError("Expected encoded string or integer for decoding.")
+		if not isinstance(string, (str, int)): raise TypeError("Expected encoded string or integer for decoding.")
 	
 		to_decode=str(string)
 		
-		char = """`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
+		char = r"""`1234657809=-\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
 		i = 0
 		output = ''
 		while i < len(to_decode):
@@ -171,12 +162,13 @@ class Storage(metaclass=_StorageSettingsMeta):
 		for prop_key, prop_value in self.values.items():
 			encoded_values[prop_key] = self._encode(prop_value) # Use self._encode
 		
-		return {
-			self.key: encoded_values
-		}
+		return {self.key: encoded_values}
 
 	@classmethod
-	def _from_dict(cls, data_dict: dict[str, dict[str, Any]], raw: bool=False) -> Storage:
+	def _from_dict(cls, 
+				   data_dict: dict[str, dict[str, Any]], 
+				   raw: bool=False
+				  ) -> Storage:
 		"""Extracts data from a dict into seperate key-multivalue pairs, decoding values in the process."""
 
 		print(f"_from_dict: DEBUG: data_dict={data_dict}")
@@ -207,7 +199,10 @@ class Storage(metaclass=_StorageSettingsMeta):
 		return cls(top_level_key, **og_nested_values)
 	
 	@staticmethod
-	def __store(file_path: str, dict_to_dump: dict[str, dict[str, Any]], indent: int) -> None:
+	def __store(file_path: str, 
+				dict_to_dump: dict[str, dict[str, Any]], 
+				indent: int
+			   ) -> None:
 		"""
 		For private use by delete class, works just like Storage.store()
 		but dict is already created, so no instance is required.
@@ -241,7 +236,12 @@ class Storage(metaclass=_StorageSettingsMeta):
 				return True
 		return False
 		
-	def store(self, file_path: str, instant_delete: bool=None, indent: int=None, encode: bool=None) -> None:
+	def store(self, 
+			  file_path: str, 
+			  instant_delete: bool=None, 
+			  indent: int=None, 
+			  encode: bool=None
+			 ) -> None:
 		"""Store a key-multivalue pair into a json file."""
 		if not indent: indent = self.indent
 		if not instant_delete: instant_delete = self.auto_delete_self
@@ -270,7 +270,9 @@ class Storage(metaclass=_StorageSettingsMeta):
 			print(f"store: ERROR: Error writing to file '{file_path}': {e}") 
 
 		if instant_delete: del self
-
+			
+	# Custom Warning classes
+	
 	class DeleteWarning(UserWarning):
 		"""Custom warning when attempting to delete the contents of a whole database."""
 		def __init__(self, message: str=None, method: str=None) -> None:
@@ -301,11 +303,13 @@ class Storage(metaclass=_StorageSettingsMeta):
 		def __str__(self) -> str:
 			return(f"{self.method}: WARNING: SubtractionFailureWarning: {self.args[0]}")
 			
-	class Load:
-		__all__ = ["by_key", "by_index", "keys", "values"]
-	  
+	class Load:	  
 		@classmethod
-		def by_key(cls, file_path: str, key: str | uuid.UUID, raw: bool=False) -> Optional['Storage']:
+		def by_key(cls, 
+				   file_path: str, 
+				   key: str | uuid.UUID, 
+				   raw: bool=False
+				  ) -> Optional['Storage']:
 			"""Load a json file and find the key to extract a single key-multivalue pair and its values"""
 			try:
 				with open(file_path, "r") as f:
@@ -345,7 +349,11 @@ class Storage(metaclass=_StorageSettingsMeta):
 				raise _KeyNotFoundError(file_path, key)
 	
 		@classmethod
-		def by_index(cls, file_path: str, index: int, raw: bool=False) -> Optional['Storage']:
+		def by_index(cls, 
+					 file_path: str, 
+					 index: int, 
+					 raw: bool=False
+					) -> Optional['Storage']:
 			"""Load a json file and find the index at which to extract a single key-multivalue pair and its values."""
 			try:
 				with open(file_path, "r") as f:
@@ -361,7 +369,7 @@ class Storage(metaclass=_StorageSettingsMeta):
 	
 			# Check if the provided index is valid
 			if not (0 <= index < len(keys)):
-				logger.warning(f"Index '{index}' is out of bounds for the keys in '{file_path}'. Available keys: {len(keys)}")
+				print(f"Load.by_index: ERROR: Index '{index}' is out of bounds for the keys in '{file_path}'. Available keys: {len(keys)}")
 				return None
 	
 			target_key: str = keys[index]
@@ -394,7 +402,12 @@ class Storage(metaclass=_StorageSettingsMeta):
 			return list(loaded_data.keys())
 	
 		@classmethod
-		def values(cls, file_path: str, key: str | uuid.UUID, keys: bool=False, raw: bool=True) -> Optional[list[str]]:
+		def values(cls, 
+				   file_path: str, 
+				   key: str | uuid.UUID, 
+				   keys: bool=False, 
+				   raw: bool=True
+				  ) -> Optional[list[str]]:
 			"""
 			Loads a json file and returns the values under the inputed key. Unlike other loading methods, this one returns the raw values by default.
 			Keys can also be returned as a key-value pair if keys=True.
@@ -438,8 +451,6 @@ class Storage(metaclass=_StorageSettingsMeta):
 			return items
 	
 	class Edit:
-		__all__ = ["propkey", "propval", "key"]
-	
 		@classmethod
 		def propkey(cls, 
 					file_path: str, 
@@ -450,7 +461,8 @@ class Storage(metaclass=_StorageSettingsMeta):
 					noexist_ok: bool=True) -> None:
 			"""Edits the name of subkey within a key within a JSON file. The value of that subkey does not change."""
 			warnings.warn("WARNING! The 'new' argument is no longer used. If you still use new=True or new=False, "+
-						  "please use noexist_ok=True or noexist_ok=False.", DeprecationWarning)
+						  "please use noexist_ok=True or noexist_ok=False. This argument will be removed "+
+						  "by v1.3.", DeprecationWarning)
 			noexist_ok = new if new else noexist_ok
 			try:
 				with open(file_path, "r") as f:
@@ -494,7 +506,11 @@ class Storage(metaclass=_StorageSettingsMeta):
 			print(f"Edit.propkey: INFO: Sucessfully renamed {oldpropkey} to {newpropkey}.")
 	
 		@classmethod
-		def propval(cls, file_path: str, top_lv_key: str | uuid.UUID, propkey: str, newval: str) -> None:
+		def propval(cls, 
+					file_path: str, 
+					top_lv_key: str | uuid.UUID, 
+					propkey: str, 
+					newval: str) -> None:
 			"""Edits the value of a subkey within a key within a JSON file. The subkey of that value does not change."""
 			try:
 				with open(file_path, "r") as f:
@@ -531,7 +547,10 @@ class Storage(metaclass=_StorageSettingsMeta):
 				  f"to {newval} under key {top_lv_key}.{propkey}.")
 	
 		@classmethod
-		def key(cls, file_path: str, oldkey: str | uuid.UUID, newkey: str | uuid.UUID) -> None:
+		def key(cls, 
+				file_path: str, 
+				oldkey: str | uuid.UUID, 
+				newkey: str | uuid.UUID) -> None:
 			"""
 			Deletes a key-multivalue pair and its values within a JSON file. 
 			Does NOT create a new instance of Storage, you will have to regrab
@@ -567,10 +586,11 @@ class Storage(metaclass=_StorageSettingsMeta):
 				raise _KeyNotFoundError(file_path, oldkey)
 	
 	class Delete:
-		__all__ = ["by_propkey", "by_key", "all"]
-	  
 		@classmethod
-		def by_propkey(cls, file_path: str, top_level_key: str | uuid.UUID, property_key: str) -> None:
+		def by_propkey(cls, 
+					   file_path: str, 
+					   top_level_key: str | uuid.UUID, 
+					   property_key: str) -> None:
 			"""
 			Deletes a property within a top-level key in the JSON file. 
 			Does NOT create a new instance of Storage, you will have to 
@@ -612,7 +632,9 @@ class Storage(metaclass=_StorageSettingsMeta):
 			print(f"Delete.by_propkey: INFO: Sucessfully deleted subkey {property_key} and its value.")
 	
 		@classmethod
-		def by_key(cls, file_path: str, key: str | uuid.UUID) -> None:
+		def by_key(cls, 
+				   file_path: str, 
+				   key: str | uuid.UUID) -> None:
 			"""
 			Deletes a key-multivalue pair and its values within a JSON file. 
 			Does NOT create a new instance of Storage, you will have to regrab the 
@@ -645,7 +667,8 @@ class Storage(metaclass=_StorageSettingsMeta):
 				raise _KeyNotFoundError(file_path, key)
 	
 		@staticmethod
-		def all(file_path: str, warn: bool=False) -> None:
+		def all(file_path: str, 
+				warn: bool=False) -> None:
 			if Storage._Storage__is_warning_category_ignored("DeleteWarning") or warn:
 				warnings.warn(Storage.DeleteWarning(
 					f"You are about to delete ALL of the data inside the file {file_path}. "+ 
@@ -670,7 +693,7 @@ class Storage(metaclass=_StorageSettingsMeta):
 		values_str: str = ', '.join([f"{prop}={repr(value)}" for prop, value in self.values.items()])
 		return f"Storage(top_lv_key={self.key}, key_value_pairs=[{values_str}])"
 
-	def __eq__(self, other) -> bool:
+	def __eq__(self, other: Storage) -> bool:
 		"""Defines how the object should be compared as equal."""
 		if isinstance(other, type(self)):
 			if self.key==other.key and self.values.items()==other.values.items():
@@ -678,7 +701,7 @@ class Storage(metaclass=_StorageSettingsMeta):
 			return False
 		return NotImplemented
 
-	def __lt__(self, other) -> bool:
+	def __lt__(self, other: Storage) -> bool:
 		"""Defines how the object should be compared as less than."""
 		if isinstance(other, type(self)):
 			if self.key!=other.key:raise ValueError("Both instances must have the same top level key")
@@ -687,7 +710,7 @@ class Storage(metaclass=_StorageSettingsMeta):
 			return False
 		return NotImplemented
 
-	def __le__(self, other) -> bool:
+	def __le__(self, other: Storage) -> bool:
 		"""Defines how the object should be compared as less than or equal to."""
 		if isinstance(other, type(self)):
 			if len(self.values.items()) < len(other.values.items()) or self==other:
@@ -695,7 +718,8 @@ class Storage(metaclass=_StorageSettingsMeta):
 			return False
 		return NotImplemented
 
-	def __add__(self, other: Storage | dict[str, Any] | list[Any]) -> Self:
+	def __add__(self, 
+				other: Storage | dict[str, Any] | list[Any]) -> Self:
 		"""Defines how to add two objects, same type or no."""
 		if isinstance(other, type(self)):
 			if self.key==other.key:
@@ -716,7 +740,8 @@ class Storage(metaclass=_StorageSettingsMeta):
 			return Storage(self.key, **self.values)
 		else:return NotImplemented
 	
-	def __radd__(self, other: Storage | dict[str, Any]) -> Self:
+	def __radd__(self, 
+				 other: Storage | dict[str, Any]) -> Self:
 		"""Defines how to add two objects, same type or no."""
 		if isinstance(other, type(self)):
 			if self.key==other.key:
@@ -731,7 +756,8 @@ class Storage(metaclass=_StorageSettingsMeta):
 			return Storage(self.key, **self.values)
 		else:return NotImplemented
 			
-	def __sub__(self, other: Storage | dict[str, Any]) -> Self:
+	def __sub__(self, 
+				other: Storage | dict[str, Any]) -> Self:
 		"""Defines how to subtract two objects, same type or no."""
 		if isinstance(other, type(self)):
 			if self.key==other.key:
@@ -759,7 +785,8 @@ class Storage(metaclass=_StorageSettingsMeta):
 			return Storage(self.key, **self.values)
 		else:return NotImplemented
 
-	def __rsub__(self, other: Storage | dict[str, Any]) -> Self:
+	def __rsub__(self, 
+				 other: Storage | dict[str, Any]) -> Self:
 		"""Defines how to subtract two objects, same type or no."""
 		if isinstance(other, type(self)):
 			if self.key==other.key:
@@ -780,14 +807,14 @@ class Storage(metaclass=_StorageSettingsMeta):
 			skeys: set = set(self.values.keys()) & set(other)
 			for akey in skeys:
 				akey: str
-				if akey in self.values:
-					del self.values[akey]
-				else:
-					self.values[akey] = other.values[akey]
+				if akey in self.values: del self.values[akey]
+				else: self.values[akey] = other.values[akey]
 			return Storage(self.key, **self.values)
 		else:return NotImplemented
 
-	def __truediv__(self, other: Storage | dict[str, Any] | int) -> list[Self,...] | Self:
+	def __truediv__(self, 
+					other: Storage | dict[str, Any] | int
+				   ) -> list[Self,...] | Self:
 		"""
 		Defines how to divide two objects, same type or no.
 		Note that attempting to divide a Storage instance by another instance
@@ -817,7 +844,9 @@ class Storage(metaclass=_StorageSettingsMeta):
 			else:raise ValueError(f"Cannot divide by number {other} for a list length of {len(self.values.keys())}")
 		else:return NotImplemented
 
-	def __rtruediv__(self, other: Storage | dict[str, Any]) -> Self:
+	def __rtruediv__(self, 
+					 other: Storage | dict[str, Any]
+					) -> Self:
 		"""
 		Defines how to divide two objects, same type or no.
 		Note that attempting to divide a Storage instance by another instance
@@ -850,7 +879,9 @@ class Storage(metaclass=_StorageSettingsMeta):
 			return Storage(self.key, **rtd)
 		else:return NotImplemented
 
-	def __or__(self, other: Storage | dict[str, Any]) -> Self | int:
+	def __or__(self, 
+			   other: Storage | dict[str, Any]
+			  ) -> Self | int:
 		"""Defines using OR (|) for bitwise operations with Storage instances and dictionaries."""
 		if isinstance(other, type(self)):
 			if self.key==other.key:
@@ -874,7 +905,9 @@ class Storage(metaclass=_StorageSettingsMeta):
 			return Storage(self.key, **rtd)
 		else:return NotImplemented
 
-	def __xor__(self, other: Storage | dict[str, Any]) -> Self | int:
+	def __xor__(self, 
+				other: Storage | dict[str, Any]
+			   ) -> Self | int:
 		"""Defines using XOR (^) for bitwise operations with Storage instances and dictionaries."""
 		if isinstance(other, type(self)):
 			if self.key==other.key:
@@ -898,7 +931,9 @@ class Storage(metaclass=_StorageSettingsMeta):
 			return Storage(self.key, **rtd)
 		else:return NotImplemented
 
-	def __lshift__(self, other: int) -> Self | int:
+	def __lshift__(self, 
+				   other: int
+				  ) -> Self | int:
 		"""Defines using left shifting (<<) for bitwise operations with Storage instances."""
 		if isinstance(other, int):
 			if other > len(self.values.keys()):return 0
@@ -913,7 +948,9 @@ class Storage(metaclass=_StorageSettingsMeta):
 			except IndexError:
 				return 0
 
-	def __rshift__(self, other: int) -> Self | int:
+	def __rshift__(self, 
+				   other: int
+				  ) -> Self | int:
 		"""Defines using right shifting (>>) for bitwise operations with Storage instances."""
 		if isinstance(other, int):
 			if other > len(self.values.keys()):return 0
@@ -928,18 +965,24 @@ class Storage(metaclass=_StorageSettingsMeta):
 			except IndexError:
 				return 0
 				
-	def __getitem__(self, key: str | int | slice) -> Any:
+	def __getitem__(self, 
+					key: str | int | slice
+				   ) -> Any:
 		"""Defines how to get an item from the object."""
 		if isinstance(key, str):return self.values[key]
 		elif isinstance(key,int):return self.values[list(self.values.keys())[key]]
 		elif isinstance(key,slice): return [self.values[k] for k in list(self.values.keys())[key]]
 
-	def __setitem__(self, key: str | int, value: Any) -> None:
+	def __setitem__(self, 
+					key: str | int, value: Any
+				   ) -> None:
 		"""Defines how to set an item in the object to another value."""
 		if isinstance(key, str):self.values[key] = value
 		elif isinstance(key, int):self.values[list(self.values.keys())[key]] = value
 
-	def __delitem__(self, key: str | int | slice) -> None:
+	def __delitem__(self, 
+					key: str | int | slice
+				   ) -> None:
 		"""Defines how to delete an item in the object."""
 		if isinstance(key, str): del self.values[key]
 		elif isinstance(key, (int,slice)): del self.values[list(self.values.keys())[key]]
@@ -969,13 +1012,17 @@ class Storage(metaclass=_StorageSettingsMeta):
 		raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'" + 
 							 (f". Did you mean '{cm[0]}'?" if cm else ""))
 
-	def __setattr__(self, name: str, value: Any) -> None:
+	def __setattr__(self, 
+					name: str, 
+					value: Any
+				   ) -> None:
 		"""Handles attribute setting attempts."""
 		print(f"__setattr__: INFO: Attempting to set '{name}' to '{value}'") 
 		super().__setattr__(name, value)
 
 	def __call__(self, **kwargs) -> None:
 		"""Defines what happens when an instance is called as a function."""
+		print(f"__call__: INFO: updating Storage object {self.instance_id} with {kwargs}")
 		self.values.update(kwargs)
 
 	def __enter__(self) -> dict:
