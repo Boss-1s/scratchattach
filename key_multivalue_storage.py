@@ -1,6 +1,6 @@
 """
 Key to Multivalue Storage
-Version 1.2.2/2026.5.6a
+Version 1.2.2/2026.5.6b
 Last updated: 5/06/2026
 
 Basically a nested-dictionary (key to key-value) module I made because I didn't like how 
@@ -56,7 +56,7 @@ class _StorageSettingsMeta(type):
 
 	@property
 	def DATE_VERSION(cls) -> str:
-		return "2026.5.6a"
+		return "2026.5.6b"
 
 	@property
 	def LAST_UPDATE(cls) -> str:
@@ -119,7 +119,7 @@ class Storage(metaclass=_StorageSettingsMeta):
 	
 	@staticmethod
 	def _encode(string: Any) -> int:
-		"""Encodes a value using a simple character-matching system, similar to a one-time pad but reusable."""
+		"""Encodes a value using a simple character-matching system, simmilar to a one-time pad but reusable."""
 	
 		if not isinstance(string, str): string = str(string)
 	
@@ -127,9 +127,16 @@ class Storage(metaclass=_StorageSettingsMeta):
 		i = 0
 		output = ''
 		while i < len(string):
-			i2 = 0
-			while not (i3 := char[i2]) == (currentchar := string[i]): i2 += 1
-			output = f"{output}{len(str(i2))}{i2}"
+			currentchar = string[i]
+			i2: int = 0
+			i3 = ''
+			while not i3 == currentchar:
+				i3 = char[i2]
+				i2 += 1
+				if i3 == currentchar:
+					break
+			i2 = f"{i2}"
+			output = f"{output}{len(i2)}{i2}"
 			i += 1
 		return int(output)
 	
