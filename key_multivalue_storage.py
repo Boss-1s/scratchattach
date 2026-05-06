@@ -1,6 +1,6 @@
 """
 Key to Multivalue Storage
-Version 1.2.2/2026.5.6
+Version 1.2.2/2026.5.6a
 Last updated: 5/06/2026
 
 Basically a nested-dictionary (key to key-value) module I made because I didn't like how 
@@ -56,7 +56,7 @@ class _StorageSettingsMeta(type):
 
 	@property
 	def DATE_VERSION(cls) -> str:
-		return "2026.5.6"
+		return "2026.5.6a"
 
 	@property
 	def LAST_UPDATE(cls) -> str:
@@ -123,7 +123,7 @@ class Storage(metaclass=_StorageSettingsMeta):
 	
 		if not isinstance(string, str): string = str(string)
 	
-		char: str = r"""`1234657809=-\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
+		char: str = """`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
 		i = 0
 		output = ''
 		while i < len(string):
@@ -139,9 +139,9 @@ class Storage(metaclass=_StorageSettingsMeta):
 		
 		if not isinstance(string, (str, int)): raise TypeError("Expected encoded string or integer for decoding.")
 	
-		to_decode=str(string)
+		to_decode = str(string)
 		
-		char = r"""`1234657809=-\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
+		char: str = """`1234657809=-\\][p';/.,lokimnjuyhbtfcvgrs edxzawq~+_)(*&^T$%@!#REDFGSWAQZXVCBNHYUJMKI<>LOP:{}|"?><"""
 		i = 0
 		output = ''
 		while i < len(to_decode):
