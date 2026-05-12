@@ -1,0 +1,28 @@
+{
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",              // Python
+                "ms-python.python-environments", // Python Environments
+                "ms-python.debugpy",             // Python Debugger
+                "ms-python.pylint",              // Pylint
+                "ms-python.vscode-pylance",      // Pylance
+                "ms-vscode.anycode",             // Anycode
+                "davidanson.vscode-markdownlint" // Markdown
+            ],
+        },
+        "codespaces": {
+            "repositories": {
+                "Boss-1s/key_multivalue_storage": {
+                    "permissions": "write-all"
+                },
+                "Boss-1s/scratchattach": {
+                    "permissions": "write-all"
+                }
+            }
+        }
+    },
+    // Use 'postCreateCommand' to run commands after the container is created.
+    // Using pipx/uv for faster dependency management
+    "postCreateCommand": "pip install --upgrade pip && pip install uv && pip install -r requirements.txt"
+}
