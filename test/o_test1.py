@@ -1,4 +1,4 @@
-import time,sys,os,json
+import time,sys,os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from key_multivalue_storage import Storage as s
 
@@ -196,3 +196,5 @@ assert format(s2,".values")=="['val1', 'val2', 'val3']"
 print("Part 2.7 passed.")
 
 print("\nTest passed sucessfully")
+
+os.remove("otest.json")
