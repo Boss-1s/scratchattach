@@ -1,3 +1,13 @@
+"""
+test-general.py - a general test file for KMS, testing
+for basic functions and dunder method workability.
+
+Test file version: t-kms-v2026.5.0-scratchattach
+Compatible versions for this test file: >=kms-v1.2/2026.1.4 (unpackaged)
+"""
+
+VERSION = "t-kms-v2026.5.0-scratchattach"
+
 import time,sys,os
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from key_multivalue_storage import Storage as s
@@ -41,6 +51,7 @@ def db_delete_all(db):
     print(f"Sucessfully deleted all data from {db}.")
 
 time.sleep(2)
+
 db_delete_all(file)
 
 print("Begin test\n"+("-"*20)+"\nPart 1: Storing, Editing, and Deleting via JSON\n"+("-"*20))
@@ -49,20 +60,26 @@ db_add_subval(file, "test_top_level_key", "sk1", "val1", "sk2", "skibidi toilet"
 assert db_get_keys(file) == ["test_top_level_key"], "Adding a top level key has failed. Try checking the store method."
 assert db_get_subkeys_values(file, "test_top_level_key") == ["sk1: val1","sk2: skibidi toilet"],"Adding subkey-value pairs has failed. Try checking the store method."
 assert db_get_subkeys_values(file, "test_top_level_key", keys=False) == ["val1","skibidi toilet"],"Adding subkey-value pairs has failed. Try checking both the store and db_add_subval methods."
+
 db_add_subval(file, "test_top_level_key2", "sk1", "val1", "sk2", "the fate of sigma")
 assert db_get_keys(file) == ["test_top_level_key","test_top_level_key2"], "Adding a top level key has failed. Try checking the store method."
 assert db_get_subkeys_values(file, "test_top_level_key2") == ["sk1: val1","sk2: the fate of sigma"],"Adding subkey-value pairs has failed. Try checking the store method."
 assert db_get_subkeys_values(file, "test_top_level_key2", keys=False) == ["val1","the fate of sigma"],"Adding subkey-value pairs has failed. Try checking both the store and db_add_subval methods."
+
 db_add_subval(file, "test_top_level_key2", "sk3", "val3", "sk4", "the fate of shard")
 assert db_get_keys(file) == ["test_top_level_key", "test_top_level_key2"], "Adding a top level key has failed. Try checking the store method."
 assert db_get_subkeys_values(file, "test_top_level_key2") == ["sk3: val3","sk4: the fate of shard"],"Adding subkey-value pairs has failed. Try checking the store method."
 assert db_get_subkeys_values(file, "test_top_level_key2", keys=False) == ["val3","the fate of shard"],"Adding subkey-value pairs has failed. Try checking both the store and db_add_subval methods."
+
 db_set_val(file, "test_top_level_key", "sk2", "sigma")
 assert db_get_subkeys_values(file, "test_top_level_key") == ["sk1: val1","sk2: sigma",],"Editing subkey-value pairs has failed. Try checking the Edit.propval method."
+
 db_delete_key(file, "test_top_level_key2")
 assert db_get_keys(file) == ["test_top_level_key"], "Deleting a key has failed. Check the Delete.by_key method."
+
 db_delete_all(file)
 assert db_get_keys(file) == [], "Bulk deleting has failed. Check the Delete.all method."
+
 print("Part 1 passed.")
 
 print(("-"*20)+"\nPart 2: Storing, Editing, and Deleting via dunder methods\n"+("-"*20))
@@ -79,9 +96,13 @@ assert repr(s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk4='val1', sk6='
 assert repr(s3) == "Storage(top_lv_key=test2, key_value_pairs=[sk4='val1', sk6='val2', sk3='val3'])", "The repr representation of instance s1 is incorrect. Check the __repr__ method."
 # assert str(s1) == "(str repr)" # find a way to assert the string representation
 assert s1<s2
-try:assert s2>s3
-except ValueError:pass
-else:raise AssertionError("Key comparison most likely failed, otherwise an unknown error occurred. Check the __lt__ method.")
+
+try:
+    assert s2>s3
+except ValueError:
+    pass
+else:
+    raise AssertionError("Key comparison most likely failed, otherwise an unknown error occurred. Check the __lt__ method.")
   
 print("Part 2.1 passed.\n-----\nPart 2.2: Arithmetic")
 
@@ -96,15 +117,24 @@ s1 = s("test1", sk1="val1", sk2="val2")
 assert repr(s1+["val1", "val2"]) == "Storage(top_lv_key=test1, key_value_pairs=[sk1='val1', sk2='val2', undefined=['val1', 'val2']])"
 s1 = s("test1", sk1="val1", sk2="val2")
 assert repr(s1-s2) == "Storage(top_lv_key=test1, key_value_pairs=[sk1='val1', sk2='val2'])"
-try:assert s3-s2
-except ValueError:pass
-else:raise AssertionError("Key comparison most likely failed, otherwise an unknown error occurred. Check the __sub__ and __rsub__ methods.")
+
+try:
+    assert s3-s2
+except ValueError:
+    pass
+else:
+    raise AssertionError("Key comparison most likely failed, otherwise an unknown error occurred. Check the __sub__ and __rsub__ methods.")
+
 assert s2-s1 == s2/s1, "Division did not switch to subtraction. Check the __sub__, __rsub__, __truediv__, and __rtruediv__."
 assert str(s1/2) == "[Storage(top_lv_key=test1, key_value_pairs=[sk1='val1']), Storage(top_lv_key=test1, key_value_pairs=[sk2='val2'])]", "Division has failed. Check the __truediv__ method."
 assert s1/1 == [s1], "Division has failed. Check the __truediv__ method."
-try:assert 1/s1
-except TypeError:pass
-else:raise AssertionError("Division has failed. Check the __truediv__ and __rturediv__ methods.")
+
+try:
+    assert int(1)/s1 #type: ignore
+except TypeError:
+    pass
+else:
+    raise AssertionError("Division has failed. Check the __truediv__ and __rturediv__ methods.")
   
 print("Part 2.2 passed.\n-----\nPart 2.3: Bitwise Operators")
 
@@ -148,23 +178,32 @@ print("Part 2.3 passed.\n-----\nPart 2.4: Collection and Container tests")
 s1 = s("test1", sk1="val1", sk2="val2")
 s2 = s("test1", sk4="val1", sk6="val2", sk3="val3")
 s3 = s("test2", sk4="val1", sk6="val2", sk3="val3")
+
 assert s1['sk1']=='val1'
 assert s1[0]=='val1'
 assert s3[1:3]==['val2', 'val3']
+
 s1['sk1']='skib'
 assert repr(s1)=="Storage(top_lv_key=test1, key_value_pairs=[sk1='skib', sk2='val2'])"
 s1[0]='hehe'
 assert repr(s1)=="Storage(top_lv_key=test1, key_value_pairs=[sk1='hehe', sk2='val2'])"
 s1+={'sk5': "will be del"}
-assert repr(s1)=="Storage(top_lv_key=test1, key_value_pairs=[sk1='hehe', sk2='val2', sk5='will be del'])"
+assert repr(s1)==("Storage(top_lv_key=test1, key_value_pairs="+
+                  "[sk1='hehe', sk2='val2', sk5='will be del'])"
+                 )
 del s1['sk5']
 assert repr(s1)=="Storage(top_lv_key=test1, key_value_pairs=[sk1='hehe', sk2='val2'])"
 del s3['sk3']
-repr(s3)=="Storage(top_lv_key=test2, key_value_pairs=[sk4='val1', sk6='val2'])"
-try:fail=s1.hack_tuah
-except AttributeError as e:pass
-else:raise AssertionError()
-with s2 as f:assert f=={'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}
+assert repr(s3)=="Storage(top_lv_key=test2, key_value_pairs=[sk4='val1', sk6='val2'])"
+
+try:
+    fail = s1.hack_tuah
+except AttributeError as e:
+    pass
+else:
+    raise AssertionError()
+with s2 as f:
+    assert f == {'sk4': 'val1', 'sk6': 'val2', 'sk3': 'val3'}
 
 print("Part 2.4 passed.\n-----\nPart 2.5: Built-in attributes")
 
@@ -175,11 +214,14 @@ print("Part 2.5 passed.\n-----\nPart 2.6: Iteration Test (for loop)")
 
 i=0
 for item in s2:
-  if i==0:
-    assert item==s2.key
-  else:
-    assert (set(list(item.keys())).issubset(set(list(s2.values.keys())))) and (set(list(item.values())).issubset(set(list(s2.values.values()))))
-  i+=1
+    if i==0:
+        assert item==s2.key
+    else:
+        assert (
+            (set(list(item.keys())).issubset(set(list(s2.values.keys())))) and #type: ignore
+            (set(list(item.values())).issubset(set(list(s2.values.values())))) # type: ignore
+        )
+    i+=1
 
 print("Part 2.6 passed.\n-----\nPart 2.7: Miscellaneous Tests (__call__, __format__)")
 
