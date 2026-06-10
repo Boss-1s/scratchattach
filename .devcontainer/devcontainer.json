@@ -9,21 +9,22 @@
                 "ms-python.vscode-pylance",      // Pylance
                 "ms-vscode.anycode",             // Anycode
                 "davidanson.vscode-markdownlint", // Markdown
-                "4bde9604-932c-638d-b5d2-db273992f59c.python-silver-pack",
+                "ParisNeo.toml-hilighter", // TOML
+                "fanaticpythoner.better-todo-tree",
             ]
         },
         "codespaces": {
             "repositories": {
                 "Boss-1s/key_multivalue_storage": {
-                    "permissions": "write-all"
+                    "permissions": "write"
                 },
                 "Boss-1s/scratchattach": {
-                    "permissions": "write-all"
+                    "permissions": "write"
                 }
             }
         }
     },
     // Use 'postCreateCommand' to run commands after the container is created.
     // Using pipx/uv for faster dependency management
-    "postCreateCommand": "pip install --upgrade pip && pip install uv && pip install -r requirements.txt"
+    "postCreateCommand": "pip install --upgrade pip && pip install uv && git remote set-url origin https://Boss-1s:$(gh auth token)@github.com && pip install -r requirements.txt && pip install -e ."
 }
