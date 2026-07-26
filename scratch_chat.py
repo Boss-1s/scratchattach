@@ -11,8 +11,10 @@ warnings.filterwarnings('ignore', category=sa.LoginDataWarning)
 logging.basicConfig(level=0)
 
 passwrd = os.environ.get('SCRATCH_PASS_ARCHIVE') #'PASS' is env secret in the repo, not on this device
-session = sa.login("Boss_1sARCHIVE", passwrd)
+#session = sa.login("Boss_1sARCHIVE", passwrd)
 cld = os.environ.get('CLOUD') #same with CLOUD
+ip = "192.168.8.99"
+port = 8765
 
 if cld == 'Scratch':
     #cloud = session.connect_cloud("895107188") #<- this is the real project
@@ -20,8 +22,8 @@ if cld == 'Scratch':
     # When adding new client methods, remember to put print() before return, so that the console gets a copy of the output.
 elif cld == 'Turbowarp':
     server = sa.init_cloud_server(
-        '127.0.0.1',
-        8765,
+        "0.0.0.0",
+        port,
         length_limit=65536,
         allow_non_numeric=False, # customize what cloud values are allowed
         whitelisted_projects=["1202780939","895107188"],
@@ -31,10 +33,17 @@ elif cld == 'Turbowarp':
         log_var_sets=True # when set to True, all var sets will be printed to the console (can be spammy)
     )
     server.start()
-    cloud = session.connect_tw_cloud("1202780939",
-                            purpose="cloud host for scratchattach and packaged project", 
-                            contact="Boss_1s on scratch, https://scratch.mit.edu/users/boss_1s",
-                            cloud_host="ws://127.0.0.1:8765")
+    cloud = sa.CustomCloud(project_id="1202780939",
+                    cloud_host=f"ws://{ip}:{port}",
+                    username = "Boss_1s",
+                    length_limit = None,
+                    allow_non_numeric = True,
+                    _session = None,
+                    header = None,
+                    cookie = None,
+                    origin = None,
+                    print_connect_messages = True
+                    )
 else: 
     raise RuntimeError(f"could not connect to cloud {cld}" if cld else "Cloud was not specified")
 
