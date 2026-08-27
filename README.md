@@ -1,12 +1,14 @@
-[![Run scratchattach script - message_viewer.py](https://github.com/Boss-1s/scratchattach/actions/workflows/action1.yml/badge.svg)](https://github.com/Boss-1s/scratchattach/actions/workflows/action1.yml)
+# It's over.
 
-[![Run scratchattach script - scratch_chat.py](https://github.com/Boss-1s/scratchattach/actions/workflows/action2.yml/badge.svg)](https://github.com/Boss-1s/scratchattach/actions/workflows/action2.yml) 
+I've been banned from Scratch. It's over. Been a long journey, but there are better things to do. Maybe if I can get unbanned or smth (very unlikely), but either way, you won't find me here often anymore.
 
-[![Run scratchattach script - aesthetic_prioritizing.py](https://github.com/Boss-1s/scratchattach/actions/workflows/action4.yml/badge.svg)](https://github.com/Boss-1s/scratchattach/actions/workflows/action4.yml)
+**However,** I will still be contributing to [TimMcCool/scratchattach](https://GitHub.com/TimMcCool/scratchattach) through my fork, [Boss-1s/scratchattach_fork](https://github.com/Boss-1s/scratchattach_fork). I will also be locked in full-time on Key To Multivalue Storage (kms) at [Boss-1s/key-multivalue-storage](https://github.com/Boss-1s/key-multivalue-storage).
 
-[![Dependabot Updates](https://github.com/Boss-1s/scratchattach/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/Boss-1s/scratchattach/actions/workflows/dependabot/dependabot-updates) 
+**Goodbye, Scratch. You've been useful and helpful in many ways, but now, things weren't great anyways.**
 
-[![CodeQL](https://github.com/Boss-1s/scratchattach/actions/workflows/github-code-scanning/codeql/badge.svg)](https://github.com/Boss-1s/scratchattach/actions/workflows/github-code-scanning/codeql)
+(That doesn't mean TurboWarp is a goner btw)
 
-Current Version: 1.6 <br>
+(08/26/2026)
+
+Current (Possibly Final) Version: 1.6 <br>
 08/11/2025
